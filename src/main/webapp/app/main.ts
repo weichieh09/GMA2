@@ -29,6 +29,13 @@ import '../content/scss/vendor.scss';
 import TranslationService from '@/locale/translation.service';
 /* tslint:disable */
 
+/* wccCode */
+// 導入全局 BootstrapVue
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
+Vue.use(BootstrapVue);
+Vue.use(BootstrapVueIcons);
+/* wccCode */
+
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
 
 /* tslint:enable */
