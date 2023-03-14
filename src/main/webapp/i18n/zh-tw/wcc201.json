@@ -1,0 +1,13 @@
+{
+  "gmaApp": {
+    "wcc201": {
+      "home": {
+        "title": "wcc201"
+      },
+      "form": {
+        "cerfNo": "證書編號"
+      },
+      "test": "test"
+    }
+  }
+}

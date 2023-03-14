@@ -24,6 +24,22 @@
             <span v-text="$t('global.menu.home')">Home</span>
           </span>
         </b-nav-item>
+        <!-- wccCode - 下拉選單 -->
+        <b-nav-item-dropdown right v-if="authenticated" active-class="active" class="pointer">
+          <span slot="button-content" class="navbar-dropdown-menu">
+            <font-awesome-icon icon="th-list" />
+            <span class="no-bold" v-text="$t('global.menu.wcc.main')">wcc</span>
+          </span>
+          <b-dropdown-item to="/wcc101">
+            <font-awesome-icon icon="asterisk" />
+            <span v-text="$t('global.menu.wcc.wcc101')">wcc101</span>
+          </b-dropdown-item>
+          <b-dropdown-item to="/wcc201">
+            <font-awesome-icon icon="asterisk" />
+            <span v-text="$t('global.menu.wcc.wcc201')">wcc201</span>
+          </b-dropdown-item>
+        </b-nav-item-dropdown>
+        <!-- wccCode - 下拉選單 -->
         <b-nav-item-dropdown right id="entity-menu" v-if="authenticated" active-class="active" class="pointer" data-cy="entity">
           <span slot="button-content" class="navbar-dropdown-menu">
             <font-awesome-icon icon="th-list" />
