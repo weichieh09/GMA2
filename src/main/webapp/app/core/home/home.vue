@@ -28,7 +28,7 @@
         </div>
       </div>
 
-      <p v-text="$t('home.question')">If you have any question on JHipster:</p>
+      <!-- <p v-text="$t('home.question')">If you have any question on JHipster:</p>
 
       <ul>
         <li>
@@ -71,7 +71,7 @@
         <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer" v-text="$t('home.github')"
           >GitHub</a
         >!
-      </p>
+      </p> -->
     </div>
   </div>
 </template>
