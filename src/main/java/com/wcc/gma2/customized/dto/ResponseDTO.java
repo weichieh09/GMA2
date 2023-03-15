@@ -1,8 +1,8 @@
 package com.wcc.gma2.customized.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.wcc.gma.customized.type.BasicStatusCode;
-import com.wcc.gma.customized.type.StatusCode;
+import com.wcc.gma2.customized.type.BasicStatusCode;
+import com.wcc.gma2.customized.type.StatusCode;
 import java.io.Serializable;
 import lombok.Data;
 

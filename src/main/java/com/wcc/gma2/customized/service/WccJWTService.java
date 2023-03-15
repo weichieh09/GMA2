@@ -1,7 +1,7 @@
 package com.wcc.gma2.customized.service;
 
-import com.wcc.gma.security.jwt.TokenProvider;
-import com.wcc.gma.web.rest.vm.LoginVM;
+import com.wcc.gma2.security.jwt.TokenProvider;
+import com.wcc.gma2.web.rest.vm.LoginVM;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

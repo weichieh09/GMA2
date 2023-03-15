@@ -1,11 +1,11 @@
 package com.wcc.gma2.customized.rest;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wcc.gma.customized.dto.ResponseDTO;
-import com.wcc.gma.customized.service.WccJWTService;
-import com.wcc.gma.customized.type.StatusCode;
-import com.wcc.gma.security.jwt.JWTFilter;
-import com.wcc.gma.web.rest.vm.LoginVM;
+import com.wcc.gma2.customized.dto.ResponseDTO;
+import com.wcc.gma2.customized.service.WccJWTService;
+import com.wcc.gma2.customized.type.StatusCode;
+import com.wcc.gma2.security.jwt.JWTFilter;
+import com.wcc.gma2.web.rest.vm.LoginVM;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

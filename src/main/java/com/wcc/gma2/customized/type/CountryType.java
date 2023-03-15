@@ -1,6 +1,6 @@
 package com.wcc.gma2.customized.type;
 
-import com.wcc.gma.customized.dto.EnumListDTO;
+import com.wcc.gma2.customized.dto.EnumListDTO;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
