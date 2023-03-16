@@ -3,6 +3,7 @@ package com.wcc.gma2.service.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import javax.persistence.Lob;
 
 /**
  * A DTO for the {@link com.wcc.gma2.domain.FeeDesc} entity.
@@ -14,6 +15,7 @@ public class FeeDescDTO implements Serializable {
 
     private String feeCd;
 
+    @Lob
     private String feeDesc;
 
     private String lstMtnUsr;

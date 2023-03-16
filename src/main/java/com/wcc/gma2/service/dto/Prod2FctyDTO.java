@@ -3,6 +3,7 @@ package com.wcc.gma2.service.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import javax.persistence.Lob;
 
 /**
  * A DTO for the {@link com.wcc.gma2.domain.Prod2Fcty} entity.
@@ -22,6 +23,7 @@ public class Prod2FctyDTO implements Serializable {
 
     private String discontinueFg;
 
+    @Lob
     private String discontinueDesc;
 
     private String lstMtnUsr;

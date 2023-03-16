@@ -1,6 +1,9 @@
+import { mixins } from 'vue-class-component';
 import { Component, Vue, Inject } from 'vue-property-decorator';
 import Vue2Filters from 'vue2-filters';
 import { IFeeDesc } from '@/shared/model/fee-desc.model';
+
+import JhiDataUtils from '@/shared/data/data-utils.service';
 
 import FeeDescService from './fee-desc.service';
 import AlertService from '@/shared/alert/alert.service';
@@ -8,7 +11,7 @@ import AlertService from '@/shared/alert/alert.service';
 @Component({
   mixins: [Vue2Filters.mixin],
 })
-export default class FeeDesc extends Vue {
+export default class FeeDesc extends mixins(JhiDataUtils) {
   @Inject('feeDescService') private feeDescService: () => FeeDescService;
   @Inject('alertService') private alertService: () => AlertService;
 

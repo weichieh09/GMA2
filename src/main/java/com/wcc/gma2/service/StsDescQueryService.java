@@ -93,9 +93,6 @@ public class StsDescQueryService extends QueryService<StsDesc> {
             if (criteria.getStsCd() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getStsCd(), StsDesc_.stsCd));
             }
-            if (criteria.getStsDesc() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getStsDesc(), StsDesc_.stsDesc));
-            }
             if (criteria.getLstMtnUsr() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getLstMtnUsr(), StsDesc_.lstMtnUsr));
             }

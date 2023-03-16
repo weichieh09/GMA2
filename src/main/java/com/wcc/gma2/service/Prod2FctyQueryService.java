@@ -105,9 +105,6 @@ public class Prod2FctyQueryService extends QueryService<Prod2Fcty> {
             if (criteria.getDiscontinueFg() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getDiscontinueFg(), Prod2Fcty_.discontinueFg));
             }
-            if (criteria.getDiscontinueDesc() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getDiscontinueDesc(), Prod2Fcty_.discontinueDesc));
-            }
             if (criteria.getLstMtnUsr() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getLstMtnUsr(), Prod2Fcty_.lstMtnUsr));
             }

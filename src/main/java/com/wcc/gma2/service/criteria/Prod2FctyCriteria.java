@@ -33,8 +33,6 @@ public class Prod2FctyCriteria implements Serializable, Criteria {
 
     private StringFilter discontinueFg;
 
-    private StringFilter discontinueDesc;
-
     private StringFilter lstMtnUsr;
 
     private LocalDateFilter lstMtnDt;
@@ -50,7 +48,6 @@ public class Prod2FctyCriteria implements Serializable, Criteria {
         this.fctyId = other.fctyId == null ? null : other.fctyId.copy();
         this.inspectDt = other.inspectDt == null ? null : other.inspectDt.copy();
         this.discontinueFg = other.discontinueFg == null ? null : other.discontinueFg.copy();
-        this.discontinueDesc = other.discontinueDesc == null ? null : other.discontinueDesc.copy();
         this.lstMtnUsr = other.lstMtnUsr == null ? null : other.lstMtnUsr.copy();
         this.lstMtnDt = other.lstMtnDt == null ? null : other.lstMtnDt.copy();
         this.distinct = other.distinct;
@@ -151,21 +148,6 @@ public class Prod2FctyCriteria implements Serializable, Criteria {
         this.discontinueFg = discontinueFg;
     }
 
-    public StringFilter getDiscontinueDesc() {
-        return discontinueDesc;
-    }
-
-    public StringFilter discontinueDesc() {
-        if (discontinueDesc == null) {
-            discontinueDesc = new StringFilter();
-        }
-        return discontinueDesc;
-    }
-
-    public void setDiscontinueDesc(StringFilter discontinueDesc) {
-        this.discontinueDesc = discontinueDesc;
-    }
-
     public StringFilter getLstMtnUsr() {
         return lstMtnUsr;
     }
@@ -220,7 +202,6 @@ public class Prod2FctyCriteria implements Serializable, Criteria {
             Objects.equals(fctyId, that.fctyId) &&
             Objects.equals(inspectDt, that.inspectDt) &&
             Objects.equals(discontinueFg, that.discontinueFg) &&
-            Objects.equals(discontinueDesc, that.discontinueDesc) &&
             Objects.equals(lstMtnUsr, that.lstMtnUsr) &&
             Objects.equals(lstMtnDt, that.lstMtnDt) &&
             Objects.equals(distinct, that.distinct)
@@ -229,7 +210,7 @@ public class Prod2FctyCriteria implements Serializable, Criteria {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, prodId, mnfctrId, fctyId, inspectDt, discontinueFg, discontinueDesc, lstMtnUsr, lstMtnDt, distinct);
+        return Objects.hash(id, prodId, mnfctrId, fctyId, inspectDt, discontinueFg, lstMtnUsr, lstMtnDt, distinct);
     }
 
     // prettier-ignore
@@ -242,7 +223,6 @@ public class Prod2FctyCriteria implements Serializable, Criteria {
             (fctyId != null ? "fctyId=" + fctyId + ", " : "") +
             (inspectDt != null ? "inspectDt=" + inspectDt + ", " : "") +
             (discontinueFg != null ? "discontinueFg=" + discontinueFg + ", " : "") +
-            (discontinueDesc != null ? "discontinueDesc=" + discontinueDesc + ", " : "") +
             (lstMtnUsr != null ? "lstMtnUsr=" + lstMtnUsr + ", " : "") +
             (lstMtnDt != null ? "lstMtnDt=" + lstMtnDt + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +

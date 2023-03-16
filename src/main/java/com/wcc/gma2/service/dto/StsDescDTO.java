@@ -3,6 +3,7 @@ package com.wcc.gma2.service.dto;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import javax.persistence.Lob;
 
 /**
  * A DTO for the {@link com.wcc.gma2.domain.StsDesc} entity.
@@ -14,6 +15,7 @@ public class StsDescDTO implements Serializable {
 
     private String stsCd;
 
+    @Lob
     private String stsDesc;
 
     private String lstMtnUsr;

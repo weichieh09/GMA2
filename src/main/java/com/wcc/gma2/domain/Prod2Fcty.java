@@ -38,6 +38,7 @@ public class Prod2Fcty implements Serializable {
     @Column(name = "discontinue_fg")
     private String discontinueFg;
 
+    @Lob
     @Column(name = "discontinue_desc")
     private String discontinueDesc;
 

@@ -1,11 +1,14 @@
-import { Component, Vue, Inject } from 'vue-property-decorator';
+import { Component, Inject } from 'vue-property-decorator';
+
+import { mixins } from 'vue-class-component';
+import JhiDataUtils from '@/shared/data/data-utils.service';
 
 import { IAreaDesc } from '@/shared/model/area-desc.model';
 import AreaDescService from './area-desc.service';
 import AlertService from '@/shared/alert/alert.service';
 
 @Component
-export default class AreaDescDetails extends Vue {
+export default class AreaDescDetails extends mixins(JhiDataUtils) {
   @Inject('areaDescService') private areaDescService: () => AreaDescService;
   @Inject('alertService') private alertService: () => AlertService;
 

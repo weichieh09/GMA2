@@ -1,11 +1,14 @@
-import { Component, Vue, Inject } from 'vue-property-decorator';
+import { Component, Inject } from 'vue-property-decorator';
+
+import { mixins } from 'vue-class-component';
+import JhiDataUtils from '@/shared/data/data-utils.service';
 
 import { IStsDesc } from '@/shared/model/sts-desc.model';
 import StsDescService from './sts-desc.service';
 import AlertService from '@/shared/alert/alert.service';
 
 @Component
-export default class StsDescDetails extends Vue {
+export default class StsDescDetails extends mixins(JhiDataUtils) {
   @Inject('stsDescService') private stsDescService: () => StsDescService;
   @Inject('alertService') private alertService: () => AlertService;
 

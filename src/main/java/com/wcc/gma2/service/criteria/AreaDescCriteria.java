@@ -25,8 +25,6 @@ public class AreaDescCriteria implements Serializable, Criteria {
 
     private StringFilter areaCd;
 
-    private StringFilter areaDesc;
-
     private StringFilter lstMtnUsr;
 
     private LocalDateFilter lstMtnDt;
@@ -38,7 +36,6 @@ public class AreaDescCriteria implements Serializable, Criteria {
     public AreaDescCriteria(AreaDescCriteria other) {
         this.id = other.id == null ? null : other.id.copy();
         this.areaCd = other.areaCd == null ? null : other.areaCd.copy();
-        this.areaDesc = other.areaDesc == null ? null : other.areaDesc.copy();
         this.lstMtnUsr = other.lstMtnUsr == null ? null : other.lstMtnUsr.copy();
         this.lstMtnDt = other.lstMtnDt == null ? null : other.lstMtnDt.copy();
         this.distinct = other.distinct;
@@ -77,21 +74,6 @@ public class AreaDescCriteria implements Serializable, Criteria {
 
     public void setAreaCd(StringFilter areaCd) {
         this.areaCd = areaCd;
-    }
-
-    public StringFilter getAreaDesc() {
-        return areaDesc;
-    }
-
-    public StringFilter areaDesc() {
-        if (areaDesc == null) {
-            areaDesc = new StringFilter();
-        }
-        return areaDesc;
-    }
-
-    public void setAreaDesc(StringFilter areaDesc) {
-        this.areaDesc = areaDesc;
     }
 
     public StringFilter getLstMtnUsr() {
@@ -144,7 +126,6 @@ public class AreaDescCriteria implements Serializable, Criteria {
         return (
             Objects.equals(id, that.id) &&
             Objects.equals(areaCd, that.areaCd) &&
-            Objects.equals(areaDesc, that.areaDesc) &&
             Objects.equals(lstMtnUsr, that.lstMtnUsr) &&
             Objects.equals(lstMtnDt, that.lstMtnDt) &&
             Objects.equals(distinct, that.distinct)
@@ -153,7 +134,7 @@ public class AreaDescCriteria implements Serializable, Criteria {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, areaCd, areaDesc, lstMtnUsr, lstMtnDt, distinct);
+        return Objects.hash(id, areaCd, lstMtnUsr, lstMtnDt, distinct);
     }
 
     // prettier-ignore
@@ -162,7 +143,6 @@ public class AreaDescCriteria implements Serializable, Criteria {
         return "AreaDescCriteria{" +
             (id != null ? "id=" + id + ", " : "") +
             (areaCd != null ? "areaCd=" + areaCd + ", " : "") +
-            (areaDesc != null ? "areaDesc=" + areaDesc + ", " : "") +
             (lstMtnUsr != null ? "lstMtnUsr=" + lstMtnUsr + ", " : "") +
             (lstMtnDt != null ? "lstMtnDt=" + lstMtnDt + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +

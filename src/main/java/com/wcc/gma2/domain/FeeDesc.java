@@ -26,6 +26,7 @@ public class FeeDesc implements Serializable {
     @Column(name = "fee_cd")
     private String feeCd;
 
+    @Lob
     @Column(name = "fee_desc")
     private String feeDesc;
 

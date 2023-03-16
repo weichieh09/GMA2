@@ -28,15 +28,14 @@
           </div>
           <div class="form-group">
             <label class="form-control-label" v-text="$t('gma2App.stsDesc.stsDesc')" for="sts-desc-stsDesc">Sts Desc</label>
-            <input
-              type="text"
+            <textarea
               class="form-control"
               name="stsDesc"
               id="sts-desc-stsDesc"
               data-cy="stsDesc"
               :class="{ valid: !$v.stsDesc.stsDesc.$invalid, invalid: $v.stsDesc.stsDesc.$invalid }"
               v-model="$v.stsDesc.stsDesc.$model"
-            />
+            ></textarea>
           </div>
           <div class="form-group">
             <label class="form-control-label" v-text="$t('gma2App.stsDesc.lstMtnUsr')" for="sts-desc-lstMtnUsr">Lst Mtn Usr</label>

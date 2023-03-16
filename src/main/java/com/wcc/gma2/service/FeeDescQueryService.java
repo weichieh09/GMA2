@@ -93,9 +93,6 @@ public class FeeDescQueryService extends QueryService<FeeDesc> {
             if (criteria.getFeeCd() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getFeeCd(), FeeDesc_.feeCd));
             }
-            if (criteria.getFeeDesc() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getFeeDesc(), FeeDesc_.feeDesc));
-            }
             if (criteria.getLstMtnUsr() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getLstMtnUsr(), FeeDesc_.lstMtnUsr));
             }

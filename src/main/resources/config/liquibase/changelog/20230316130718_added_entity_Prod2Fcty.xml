@@ -29,7 +29,7 @@
             <column name="discontinue_fg" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="discontinue_desc" type="varchar(255)">
+            <column name="discontinue_desc" type="${clobType}">
                 <constraints nullable="true" />
             </column>
             <column name="lst_mtn_usr" type="varchar(255)">
@@ -64,7 +64,7 @@
             <column name="fcty_id" type="string"/>
             <column name="inspect_dt" type="date"/>
             <column name="discontinue_fg" type="string"/>
-            <column name="discontinue_desc" type="string"/>
+            <column name="discontinue_desc" type="clob"/>
             <column name="lst_mtn_usr" type="string"/>
             <column name="lst_mtn_dt" type="date"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->

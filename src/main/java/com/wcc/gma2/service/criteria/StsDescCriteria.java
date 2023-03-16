@@ -25,8 +25,6 @@ public class StsDescCriteria implements Serializable, Criteria {
 
     private StringFilter stsCd;
 
-    private StringFilter stsDesc;
-
     private StringFilter lstMtnUsr;
 
     private LocalDateFilter lstMtnDt;
@@ -38,7 +36,6 @@ public class StsDescCriteria implements Serializable, Criteria {
     public StsDescCriteria(StsDescCriteria other) {
         this.id = other.id == null ? null : other.id.copy();
         this.stsCd = other.stsCd == null ? null : other.stsCd.copy();
-        this.stsDesc = other.stsDesc == null ? null : other.stsDesc.copy();
         this.lstMtnUsr = other.lstMtnUsr == null ? null : other.lstMtnUsr.copy();
         this.lstMtnDt = other.lstMtnDt == null ? null : other.lstMtnDt.copy();
         this.distinct = other.distinct;
@@ -77,21 +74,6 @@ public class StsDescCriteria implements Serializable, Criteria {
 
     public void setStsCd(StringFilter stsCd) {
         this.stsCd = stsCd;
-    }
-
-    public StringFilter getStsDesc() {
-        return stsDesc;
-    }
-
-    public StringFilter stsDesc() {
-        if (stsDesc == null) {
-            stsDesc = new StringFilter();
-        }
-        return stsDesc;
-    }
-
-    public void setStsDesc(StringFilter stsDesc) {
-        this.stsDesc = stsDesc;
     }
 
     public StringFilter getLstMtnUsr() {
@@ -144,7 +126,6 @@ public class StsDescCriteria implements Serializable, Criteria {
         return (
             Objects.equals(id, that.id) &&
             Objects.equals(stsCd, that.stsCd) &&
-            Objects.equals(stsDesc, that.stsDesc) &&
             Objects.equals(lstMtnUsr, that.lstMtnUsr) &&
             Objects.equals(lstMtnDt, that.lstMtnDt) &&
             Objects.equals(distinct, that.distinct)
@@ -153,7 +134,7 @@ public class StsDescCriteria implements Serializable, Criteria {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, stsCd, stsDesc, lstMtnUsr, lstMtnDt, distinct);
+        return Objects.hash(id, stsCd, lstMtnUsr, lstMtnDt, distinct);
     }
 
     // prettier-ignore
@@ -162,7 +143,6 @@ public class StsDescCriteria implements Serializable, Criteria {
         return "StsDescCriteria{" +
             (id != null ? "id=" + id + ", " : "") +
             (stsCd != null ? "stsCd=" + stsCd + ", " : "") +
-            (stsDesc != null ? "stsDesc=" + stsDesc + ", " : "") +
             (lstMtnUsr != null ? "lstMtnUsr=" + lstMtnUsr + ", " : "") +
             (lstMtnDt != null ? "lstMtnDt=" + lstMtnDt + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +

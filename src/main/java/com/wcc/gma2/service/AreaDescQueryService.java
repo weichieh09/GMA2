@@ -93,9 +93,6 @@ public class AreaDescQueryService extends QueryService<AreaDesc> {
             if (criteria.getAreaCd() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getAreaCd(), AreaDesc_.areaCd));
             }
-            if (criteria.getAreaDesc() != null) {
-                specification = specification.and(buildStringSpecification(criteria.getAreaDesc(), AreaDesc_.areaDesc));
-            }
             if (criteria.getLstMtnUsr() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getLstMtnUsr(), AreaDesc_.lstMtnUsr));
             }

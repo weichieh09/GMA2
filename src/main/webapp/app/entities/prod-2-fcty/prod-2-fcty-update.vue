@@ -96,15 +96,14 @@
             <label class="form-control-label" v-text="$t('gma2App.prod2Fcty.discontinueDesc')" for="prod-2-fcty-discontinueDesc"
               >Discontinue Desc</label
             >
-            <input
-              type="text"
+            <textarea
               class="form-control"
               name="discontinueDesc"
               id="prod-2-fcty-discontinueDesc"
               data-cy="discontinueDesc"
               :class="{ valid: !$v.prod2Fcty.discontinueDesc.$invalid, invalid: $v.prod2Fcty.discontinueDesc.$invalid }"
               v-model="$v.prod2Fcty.discontinueDesc.$model"
-            />
+            ></textarea>
           </div>
           <div class="form-group">
             <label class="form-control-label" v-text="$t('gma2App.prod2Fcty.lstMtnUsr')" for="prod-2-fcty-lstMtnUsr">Lst Mtn Usr</label>

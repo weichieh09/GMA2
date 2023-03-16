@@ -26,6 +26,7 @@ public class AreaDesc implements Serializable {
     @Column(name = "area_cd")
     private String areaCd;
 
+    @Lob
     @Column(name = "area_desc")
     private String areaDesc;
 

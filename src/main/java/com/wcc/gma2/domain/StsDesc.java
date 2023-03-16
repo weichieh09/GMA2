@@ -26,6 +26,7 @@ public class StsDesc implements Serializable {
     @Column(name = "sts_cd")
     private String stsCd;
 
+    @Lob
     @Column(name = "sts_desc")
     private String stsDesc;
 

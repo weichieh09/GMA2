@@ -1,6 +1,9 @@
+import { mixins } from 'vue-class-component';
 import { Component, Vue, Inject } from 'vue-property-decorator';
 import Vue2Filters from 'vue2-filters';
 import { IAreaDesc } from '@/shared/model/area-desc.model';
+
+import JhiDataUtils from '@/shared/data/data-utils.service';
 
 import AreaDescService from './area-desc.service';
 import AlertService from '@/shared/alert/alert.service';
@@ -8,7 +11,7 @@ import AlertService from '@/shared/alert/alert.service';
 @Component({
   mixins: [Vue2Filters.mixin],
 })
-export default class AreaDesc extends Vue {
+export default class AreaDesc extends mixins(JhiDataUtils) {
   @Inject('areaDescService') private areaDescService: () => AreaDescService;
   @Inject('alertService') private alertService: () => AlertService;
 

@@ -11,7 +11,8 @@
     },
     {
       "fieldName": "stsDesc",
-      "fieldType": "String"
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
     },
     {
       "fieldName": "lstMtnUsr",

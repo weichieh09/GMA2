@@ -1,11 +1,14 @@
-import { Component, Vue, Inject } from 'vue-property-decorator';
+import { Component, Inject } from 'vue-property-decorator';
+
+import { mixins } from 'vue-class-component';
+import JhiDataUtils from '@/shared/data/data-utils.service';
 
 import { IProd2Fcty } from '@/shared/model/prod-2-fcty.model';
 import Prod2FctyService from './prod-2-fcty.service';
 import AlertService from '@/shared/alert/alert.service';
 
 @Component
-export default class Prod2FctyDetails extends Vue {
+export default class Prod2FctyDetails extends mixins(JhiDataUtils) {
   @Inject('prod2FctyService') private prod2FctyService: () => Prod2FctyService;
   @Inject('alertService') private alertService: () => AlertService;
 

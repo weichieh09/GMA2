@@ -11,7 +11,8 @@
     },
     {
       "fieldName": "areaDesc",
-      "fieldType": "String"
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
     },
     {
       "fieldName": "lstMtnUsr",

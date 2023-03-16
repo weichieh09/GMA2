@@ -11,7 +11,8 @@
     },
     {
       "fieldName": "feeDesc",
-      "fieldType": "String"
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
     },
     {
       "fieldName": "lstMtnUsr",

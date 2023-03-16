@@ -25,8 +25,6 @@ public class FeeDescCriteria implements Serializable, Criteria {
 
     private StringFilter feeCd;
 
-    private StringFilter feeDesc;
-
     private StringFilter lstMtnUsr;
 
     private LocalDateFilter lstMtnDt;
@@ -38,7 +36,6 @@ public class FeeDescCriteria implements Serializable, Criteria {
     public FeeDescCriteria(FeeDescCriteria other) {
         this.id = other.id == null ? null : other.id.copy();
         this.feeCd = other.feeCd == null ? null : other.feeCd.copy();
-        this.feeDesc = other.feeDesc == null ? null : other.feeDesc.copy();
         this.lstMtnUsr = other.lstMtnUsr == null ? null : other.lstMtnUsr.copy();
         this.lstMtnDt = other.lstMtnDt == null ? null : other.lstMtnDt.copy();
         this.distinct = other.distinct;
@@ -77,21 +74,6 @@ public class FeeDescCriteria implements Serializable, Criteria {
 
     public void setFeeCd(StringFilter feeCd) {
         this.feeCd = feeCd;
-    }
-
-    public StringFilter getFeeDesc() {
-        return feeDesc;
-    }
-
-    public StringFilter feeDesc() {
-        if (feeDesc == null) {
-            feeDesc = new StringFilter();
-        }
-        return feeDesc;
-    }
-
-    public void setFeeDesc(StringFilter feeDesc) {
-        this.feeDesc = feeDesc;
     }
 
     public StringFilter getLstMtnUsr() {
@@ -144,7 +126,6 @@ public class FeeDescCriteria implements Serializable, Criteria {
         return (
             Objects.equals(id, that.id) &&
             Objects.equals(feeCd, that.feeCd) &&
-            Objects.equals(feeDesc, that.feeDesc) &&
             Objects.equals(lstMtnUsr, that.lstMtnUsr) &&
             Objects.equals(lstMtnDt, that.lstMtnDt) &&
             Objects.equals(distinct, that.distinct)
@@ -153,7 +134,7 @@ public class FeeDescCriteria implements Serializable, Criteria {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, feeCd, feeDesc, lstMtnUsr, lstMtnDt, distinct);
+        return Objects.hash(id, feeCd, lstMtnUsr, lstMtnDt, distinct);
     }
 
     // prettier-ignore
@@ -162,7 +143,6 @@ public class FeeDescCriteria implements Serializable, Criteria {
         return "FeeDescCriteria{" +
             (id != null ? "id=" + id + ", " : "") +
             (feeCd != null ? "feeCd=" + feeCd + ", " : "") +
-            (feeDesc != null ? "feeDesc=" + feeDesc + ", " : "") +
             (lstMtnUsr != null ? "lstMtnUsr=" + lstMtnUsr + ", " : "") +
             (lstMtnDt != null ? "lstMtnDt=" + lstMtnDt + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +
