@@ -1,0 +1,32 @@
+{
+  "gma2App": {
+    "mnfctr": {
+      "home": {
+        "title": "Mnfctrs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Mnfctr",
+        "createOrEditLabel": "Create or edit a Mnfctr",
+        "notFound": "No Mnfctrs found"
+      },
+      "created": "A new Mnfctr is created with identifier {{ param }}",
+      "updated": "A Mnfctr is updated with identifier {{ param }}",
+      "deleted": "A Mnfctr is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mnfctr {{ id }}?"
+      },
+      "detail": {
+        "title": "Mnfctr"
+      },
+      "id": "ID",
+      "uniNo": "Uni No",
+      "mnfctrNmEn": "Mnfctr Nm En",
+      "mnfctrNmCh": "Mnfctr Nm Ch",
+      "contact": "Contact",
+      "eamil": "Eamil",
+      "addr": "Addr",
+      "tel": "Tel",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

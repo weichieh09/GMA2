@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130719",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "prod_2_std",
+  "fields": [
+    {
+      "fieldName": "prodId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mnfctrId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stsCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Prod2Std",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

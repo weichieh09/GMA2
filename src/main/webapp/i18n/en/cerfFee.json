@@ -1,0 +1,35 @@
+{
+  "gma2App": {
+    "cerfFee": {
+      "home": {
+        "title": "Cerf Fees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cerf Fee",
+        "createOrEditLabel": "Create or edit a Cerf Fee",
+        "notFound": "No Cerf Fees found"
+      },
+      "created": "A new Cerf Fee is created with identifier {{ param }}",
+      "updated": "A Cerf Fee is updated with identifier {{ param }}",
+      "deleted": "A Cerf Fee is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cerf Fee {{ id }}?"
+      },
+      "detail": {
+        "title": "Cerf Fee"
+      },
+      "id": "ID",
+      "cerfNo": "Cerf No",
+      "cerfVer": "Cerf Ver",
+      "cerfTag": "Cerf Tag",
+      "areaCd": "Area Cd",
+      "applId": "Appl Id",
+      "stsCd": "Sts Cd",
+      "feeCd": "Fee Cd",
+      "feeDt": "Fee Dt",
+      "fee": "Fee",
+      "curr": "Curr",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "gma2App": {
+    "cref2Std": {
+      "home": {
+        "title": "Cref 2 Stds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Cref 2 Std",
+        "createOrEditLabel": "建立或編輯 Cref 2 Std",
+        "notFound": "No Cref 2 Stds found"
+      },
+      "created": "新的 Cref 2 Std 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Cref 2 Std 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Cref 2 Std 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Cref 2 Std {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Cref 2 Std"
+      },
+      "id": "ID",
+      "cerfNo": "Cerf No",
+      "cerfVer": "Cerf Ver",
+      "areaCd": "Area Cd",
+      "applId": "Appl Id",
+      "cerfTag": "Cerf Tag",
+      "stdNo": "Std No",
+      "stdVer": "Std Ver",
+      "stsCd": "Sts Cd",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

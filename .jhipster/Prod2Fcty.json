@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130718",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "prod_2_fcty",
+  "fields": [
+    {
+      "fieldName": "prodId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mnfctrId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fctyId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "inspectDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "discontinueFg",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "discontinueDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Prod2Fcty",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

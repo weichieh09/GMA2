@@ -1,0 +1,34 @@
+{
+  "gma2App": {
+    "stdFee": {
+      "home": {
+        "title": "Std Fees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Std Fee",
+        "createOrEditLabel": "建立或編輯 Std Fee",
+        "notFound": "No Std Fees found"
+      },
+      "created": "新的 Std Fee 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Std Fee 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Std Fee 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Std Fee {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Std Fee"
+      },
+      "id": "ID",
+      "prodId": "Prod Id",
+      "mnfctrId": "Mnfctr Id",
+      "stdNo": "Std No",
+      "stdVer": "Std Ver",
+      "stsCd": "Sts Cd",
+      "feeCd": "Fee Cd",
+      "feeDt": "Fee Dt",
+      "fee": "Fee",
+      "curr": "Curr",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

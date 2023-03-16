@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130721",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "sts_desc",
+  "fields": [
+    {
+      "fieldName": "stsCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stsDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "StsDesc",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130716",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "fee_desc",
+  "fields": [
+    {
+      "fieldName": "feeCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "feeDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "FeeDesc",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130712",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "std",
+  "fields": [
+    {
+      "fieldName": "stdNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stsCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdNm",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdExpDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "remainDays",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Std",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

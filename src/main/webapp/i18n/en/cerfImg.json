@@ -1,0 +1,27 @@
+{
+  "gma2App": {
+    "cerfImg": {
+      "home": {
+        "title": "Cerf Imgs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cerf Img",
+        "createOrEditLabel": "Create or edit a Cerf Img",
+        "notFound": "No Cerf Imgs found"
+      },
+      "created": "A new Cerf Img is created with identifier {{ param }}",
+      "updated": "A Cerf Img is updated with identifier {{ param }}",
+      "deleted": "A Cerf Img is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cerf Img {{ id }}?"
+      },
+      "detail": {
+        "title": "Cerf Img"
+      },
+      "id": "ID",
+      "cerfTag": "Cerf Tag",
+      "imageFile": "Image File",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

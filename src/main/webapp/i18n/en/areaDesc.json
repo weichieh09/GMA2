@@ -1,0 +1,27 @@
+{
+  "gma2App": {
+    "areaDesc": {
+      "home": {
+        "title": "Area Descs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Area Desc",
+        "createOrEditLabel": "Create or edit a Area Desc",
+        "notFound": "No Area Descs found"
+      },
+      "created": "A new Area Desc is created with identifier {{ param }}",
+      "updated": "A Area Desc is updated with identifier {{ param }}",
+      "deleted": "A Area Desc is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Area Desc {{ id }}?"
+      },
+      "detail": {
+        "title": "Area Desc"
+      },
+      "id": "ID",
+      "areaCd": "Area Cd",
+      "areaDesc": "Area Desc",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130714",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf_img",
+  "fields": [
+    {
+      "fieldName": "cerfTag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageFile",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "CerfImg",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

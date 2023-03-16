@@ -1,0 +1,65 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130707",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf",
+  "fields": [
+    {
+      "fieldName": "cerfNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "areaCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stsCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "applId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfTag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "issuDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "cerfExpDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "remainDays",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "upldFile",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Cerf",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

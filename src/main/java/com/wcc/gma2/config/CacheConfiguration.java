@@ -48,6 +48,21 @@ public class CacheConfiguration {
             createCache(cm, com.wcc.gma2.domain.User.class.getName());
             createCache(cm, com.wcc.gma2.domain.Authority.class.getName());
             createCache(cm, com.wcc.gma2.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.wcc.gma2.domain.Cerf.class.getName());
+            createCache(cm, com.wcc.gma2.domain.CerfFee.class.getName());
+            createCache(cm, com.wcc.gma2.domain.Mnfctr.class.getName());
+            createCache(cm, com.wcc.gma2.domain.Prod.class.getName());
+            createCache(cm, com.wcc.gma2.domain.Prod2Cerf.class.getName());
+            createCache(cm, com.wcc.gma2.domain.Std.class.getName());
+            createCache(cm, com.wcc.gma2.domain.AreaDesc.class.getName());
+            createCache(cm, com.wcc.gma2.domain.CerfImg.class.getName());
+            createCache(cm, com.wcc.gma2.domain.Cref2Std.class.getName());
+            createCache(cm, com.wcc.gma2.domain.FeeDesc.class.getName());
+            createCache(cm, com.wcc.gma2.domain.MnfctrFee.class.getName());
+            createCache(cm, com.wcc.gma2.domain.Prod2Fcty.class.getName());
+            createCache(cm, com.wcc.gma2.domain.Prod2Std.class.getName());
+            createCache(cm, com.wcc.gma2.domain.StdFee.class.getName());
+            createCache(cm, com.wcc.gma2.domain.StsDesc.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

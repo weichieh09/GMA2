@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130713",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "area_desc",
+  "fields": [
+    {
+      "fieldName": "areaCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "areaDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "AreaDesc",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

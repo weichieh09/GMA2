@@ -1,0 +1,60 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130720",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "std_fee",
+  "fields": [
+    {
+      "fieldName": "prodId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mnfctrId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stsCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "feeCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "feeDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "fee",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "curr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "StdFee",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

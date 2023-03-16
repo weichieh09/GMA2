@@ -11,6 +11,21 @@
     <property name="datetimeType" value="datetime" dbms="mssql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130707_added_entity_Cerf.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130708_added_entity_CerfFee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130709_added_entity_Mnfctr.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130710_added_entity_Prod.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130711_added_entity_Prod2Cerf.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130712_added_entity_Std.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130713_added_entity_AreaDesc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130714_added_entity_CerfImg.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130715_added_entity_Cref2Std.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130716_added_entity_FeeDesc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130717_added_entity_MnfctrFee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130718_added_entity_Prod2Fcty.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130719_added_entity_Prod2Std.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130720_added_entity_StdFee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230316130721_added_entity_StsDesc.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->

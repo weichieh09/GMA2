@@ -1,0 +1,31 @@
+{
+  "gma2App": {
+    "prod2Fcty": {
+      "home": {
+        "title": "Prod 2 Fcties",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Prod 2 Fcty",
+        "createOrEditLabel": "Create or edit a Prod 2 Fcty",
+        "notFound": "No Prod 2 Fcties found"
+      },
+      "created": "A new Prod 2 Fcty is created with identifier {{ param }}",
+      "updated": "A Prod 2 Fcty is updated with identifier {{ param }}",
+      "deleted": "A Prod 2 Fcty is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prod 2 Fcty {{ id }}?"
+      },
+      "detail": {
+        "title": "Prod 2 Fcty"
+      },
+      "id": "ID",
+      "prodId": "Prod Id",
+      "mnfctrId": "Mnfctr Id",
+      "fctyId": "Fcty Id",
+      "inspectDt": "Inspect Dt",
+      "discontinueFg": "Discontinue Fg",
+      "discontinueDesc": "Discontinue Desc",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

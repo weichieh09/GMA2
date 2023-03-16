@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130710",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "prod",
+  "fields": [
+    {
+      "fieldName": "prodId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mnfctrId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prodNmCh",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prodNmEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hsCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cccCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Prod",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

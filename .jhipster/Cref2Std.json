@@ -1,0 +1,56 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130715",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cref_2_std",
+  "fields": [
+    {
+      "fieldName": "cerfNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "areaCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "applId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfTag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stsCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Cref2Std",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

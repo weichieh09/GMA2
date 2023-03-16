@@ -1,0 +1,33 @@
+{
+  "gma2App": {
+    "cref2Std": {
+      "home": {
+        "title": "Cref 2 Stds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cref 2 Std",
+        "createOrEditLabel": "Create or edit a Cref 2 Std",
+        "notFound": "No Cref 2 Stds found"
+      },
+      "created": "A new Cref 2 Std is created with identifier {{ param }}",
+      "updated": "A Cref 2 Std is updated with identifier {{ param }}",
+      "deleted": "A Cref 2 Std is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cref 2 Std {{ id }}?"
+      },
+      "detail": {
+        "title": "Cref 2 Std"
+      },
+      "id": "ID",
+      "cerfNo": "Cerf No",
+      "cerfVer": "Cerf Ver",
+      "areaCd": "Area Cd",
+      "applId": "Appl Id",
+      "cerfTag": "Cerf Tag",
+      "stdNo": "Std No",
+      "stdVer": "Std Ver",
+      "stsCd": "Sts Cd",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

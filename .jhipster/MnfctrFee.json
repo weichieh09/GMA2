@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130717",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "mnfctr_fee",
+  "fields": [
+    {
+      "fieldName": "fctyId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "feeCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "feeDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "fee",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "curr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "MnfctrFee",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

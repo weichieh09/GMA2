@@ -1,0 +1,33 @@
+{
+  "gma2App": {
+    "prod2Cerf": {
+      "home": {
+        "title": "Prod 2 Cerfs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Prod 2 Cerf",
+        "createOrEditLabel": "建立或編輯 Prod 2 Cerf",
+        "notFound": "No Prod 2 Cerfs found"
+      },
+      "created": "新的 Prod 2 Cerf 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Prod 2 Cerf 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Prod 2 Cerf 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Prod 2 Cerf {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Prod 2 Cerf"
+      },
+      "id": "ID",
+      "prodId": "Prod Id",
+      "mnfctrId": "Mnfctr Id",
+      "cerfNo": "Cerf No",
+      "cerfVer": "Cerf Ver",
+      "applId": "Appl Id",
+      "areaCd": "Area Cd",
+      "cerfTag": "Cerf Tag",
+      "stsCd": "Sts Cd",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

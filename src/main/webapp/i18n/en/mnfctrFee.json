@@ -1,0 +1,30 @@
+{
+  "gma2App": {
+    "mnfctrFee": {
+      "home": {
+        "title": "Mnfctr Fees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Mnfctr Fee",
+        "createOrEditLabel": "Create or edit a Mnfctr Fee",
+        "notFound": "No Mnfctr Fees found"
+      },
+      "created": "A new Mnfctr Fee is created with identifier {{ param }}",
+      "updated": "A Mnfctr Fee is updated with identifier {{ param }}",
+      "deleted": "A Mnfctr Fee is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mnfctr Fee {{ id }}?"
+      },
+      "detail": {
+        "title": "Mnfctr Fee"
+      },
+      "id": "ID",
+      "fctyId": "Fcty Id",
+      "feeCd": "Fee Cd",
+      "feeDt": "Fee Dt",
+      "fee": "Fee",
+      "curr": "Curr",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

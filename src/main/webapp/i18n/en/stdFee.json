@@ -1,0 +1,34 @@
+{
+  "gma2App": {
+    "stdFee": {
+      "home": {
+        "title": "Std Fees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Std Fee",
+        "createOrEditLabel": "Create or edit a Std Fee",
+        "notFound": "No Std Fees found"
+      },
+      "created": "A new Std Fee is created with identifier {{ param }}",
+      "updated": "A Std Fee is updated with identifier {{ param }}",
+      "deleted": "A Std Fee is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Std Fee {{ id }}?"
+      },
+      "detail": {
+        "title": "Std Fee"
+      },
+      "id": "ID",
+      "prodId": "Prod Id",
+      "mnfctrId": "Mnfctr Id",
+      "stdNo": "Std No",
+      "stdVer": "Std Ver",
+      "stsCd": "Sts Cd",
+      "feeCd": "Fee Cd",
+      "feeDt": "Fee Dt",
+      "fee": "Fee",
+      "curr": "Curr",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

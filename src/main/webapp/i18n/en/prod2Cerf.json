@@ -1,0 +1,33 @@
+{
+  "gma2App": {
+    "prod2Cerf": {
+      "home": {
+        "title": "Prod 2 Cerfs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Prod 2 Cerf",
+        "createOrEditLabel": "Create or edit a Prod 2 Cerf",
+        "notFound": "No Prod 2 Cerfs found"
+      },
+      "created": "A new Prod 2 Cerf is created with identifier {{ param }}",
+      "updated": "A Prod 2 Cerf is updated with identifier {{ param }}",
+      "deleted": "A Prod 2 Cerf is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prod 2 Cerf {{ id }}?"
+      },
+      "detail": {
+        "title": "Prod 2 Cerf"
+      },
+      "id": "ID",
+      "prodId": "Prod Id",
+      "mnfctrId": "Mnfctr Id",
+      "cerfNo": "Cerf No",
+      "cerfVer": "Cerf Ver",
+      "applId": "Appl Id",
+      "areaCd": "Area Cd",
+      "cerfTag": "Cerf Tag",
+      "stsCd": "Sts Cd",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "gma2App": {
+    "mnfctr": {
+      "home": {
+        "title": "Mnfctrs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Mnfctr",
+        "createOrEditLabel": "建立或編輯 Mnfctr",
+        "notFound": "No Mnfctrs found"
+      },
+      "created": "新的 Mnfctr 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Mnfctr 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Mnfctr 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Mnfctr {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Mnfctr"
+      },
+      "id": "ID",
+      "uniNo": "Uni No",
+      "mnfctrNmEn": "Mnfctr Nm En",
+      "mnfctrNmCh": "Mnfctr Nm Ch",
+      "contact": "Contact",
+      "eamil": "Eamil",
+      "addr": "Addr",
+      "tel": "Tel",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

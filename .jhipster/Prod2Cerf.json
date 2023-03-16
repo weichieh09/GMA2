@@ -1,0 +1,56 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130711",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "prod_2_cerf",
+  "fields": [
+    {
+      "fieldName": "prodId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mnfctrId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "applId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "areaCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfTag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stsCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Prod2Cerf",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

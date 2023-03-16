@@ -1,0 +1,27 @@
+{
+  "gma2App": {
+    "feeDesc": {
+      "home": {
+        "title": "Fee Descs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Fee Desc",
+        "createOrEditLabel": "建立或編輯 Fee Desc",
+        "notFound": "No Fee Descs found"
+      },
+      "created": "新的 Fee Desc 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Fee Desc 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Fee Desc 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Fee Desc {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Fee Desc"
+      },
+      "id": "ID",
+      "feeCd": "Fee Cd",
+      "feeDesc": "Fee Desc",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

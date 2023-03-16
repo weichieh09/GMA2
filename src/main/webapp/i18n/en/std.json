@@ -1,0 +1,32 @@
+{
+  "gma2App": {
+    "std": {
+      "home": {
+        "title": "Stds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Std",
+        "createOrEditLabel": "Create or edit a Std",
+        "notFound": "No Stds found"
+      },
+      "created": "A new Std is created with identifier {{ param }}",
+      "updated": "A Std is updated with identifier {{ param }}",
+      "deleted": "A Std is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Std {{ id }}?"
+      },
+      "detail": {
+        "title": "Std"
+      },
+      "id": "ID",
+      "stdNo": "Std No",
+      "stdVer": "Std Ver",
+      "stsCd": "Sts Cd",
+      "stdCd": "Std Cd",
+      "stdNm": "Std Nm",
+      "stdExpDt": "Std Exp Dt",
+      "remainDays": "Remain Days",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

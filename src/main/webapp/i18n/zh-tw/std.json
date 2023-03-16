@@ -1,0 +1,32 @@
+{
+  "gma2App": {
+    "std": {
+      "home": {
+        "title": "Stds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Std",
+        "createOrEditLabel": "建立或編輯 Std",
+        "notFound": "No Stds found"
+      },
+      "created": "新的 Std 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Std 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Std 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Std {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Std"
+      },
+      "id": "ID",
+      "stdNo": "Std No",
+      "stdVer": "Std Ver",
+      "stsCd": "Sts Cd",
+      "stdCd": "Std Cd",
+      "stdNm": "Std Nm",
+      "stdExpDt": "Std Exp Dt",
+      "remainDays": "Remain Days",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

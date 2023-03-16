@@ -12,6 +12,21 @@
       },
       "entities": {
         "main": "Entities",
+        "cerf": "Cerf",
+        "cerfFee": "Cerf Fee",
+        "mnfctr": "Mnfctr",
+        "prod": "Prod",
+        "prod2Cerf": "Prod 2 Cerf",
+        "std": "Std",
+        "areaDesc": "Area Desc",
+        "cerfImg": "Cerf Img",
+        "cref2Std": "Cref 2 Std",
+        "feeDesc": "Fee Desc",
+        "mnfctrFee": "Mnfctr Fee",
+        "prod2Fcty": "Prod 2 Fcty",
+        "prod2Std": "Prod 2 Std",
+        "stdFee": "Std Fee",
+        "stsDesc": "Sts Desc",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

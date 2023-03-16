@@ -1,0 +1,27 @@
+{
+  "gma2App": {
+    "stsDesc": {
+      "home": {
+        "title": "Sts Descs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sts Desc",
+        "createOrEditLabel": "Create or edit a Sts Desc",
+        "notFound": "No Sts Descs found"
+      },
+      "created": "A new Sts Desc is created with identifier {{ param }}",
+      "updated": "A Sts Desc is updated with identifier {{ param }}",
+      "deleted": "A Sts Desc is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sts Desc {{ id }}?"
+      },
+      "detail": {
+        "title": "Sts Desc"
+      },
+      "id": "ID",
+      "stsCd": "Sts Cd",
+      "stsDesc": "Sts Desc",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

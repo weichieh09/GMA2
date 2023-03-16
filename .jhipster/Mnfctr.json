@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20230316130709",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "mnfctr",
+  "fields": [
+    {
+      "fieldName": "uniNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mnfctrNmEn",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mnfctrNmCh",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contact",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "eamil",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "addr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Mnfctr",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}
