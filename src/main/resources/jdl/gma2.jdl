@@ -78,7 +78,7 @@ lstMtnDt LocalDate,
 
 entity AreaDesc {
 areaCd String,
-areaDesc String,
+areaDesc TextBlob,
 lstMtnUsr String,
 lstMtnDt LocalDate,
 }
@@ -105,7 +105,7 @@ lstMtnDt LocalDate,
 
 entity FeeDesc {
 feeCd String,
-feeDesc String,
+feeDesc TextBlob,
 lstMtnUsr String,
 lstMtnDt LocalDate,
 }
@@ -126,7 +126,7 @@ mnfctrId String,
 fctyId String,
 inspectDt LocalDate,
 discontinueFg String,
-discontinueDesc String,
+discontinueDesc TextBlob,
 lstMtnUsr String,
 lstMtnDt LocalDate,
 }
@@ -157,7 +157,7 @@ lstMtnDt LocalDate,
 
 entity StsDesc {
 stsCd String,
-stsDesc String,
+stsDesc TextBlob,
 lstMtnUsr String,
 lstMtnDt LocalDate,
 }
