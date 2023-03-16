@@ -2,7 +2,7 @@
   "gma2App": {
     "prod2Std": {
       "home": {
-        "title": "Prod 2 Stds",
+        "title": "產品標準關聯檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Prod 2 Std",
         "createOrEditLabel": "建立或編輯 Prod 2 Std",
@@ -18,13 +18,13 @@
         "title": "Prod 2 Std"
       },
       "id": "ID",
-      "prodId": "Prod Id",
-      "mnfctrId": "Mnfctr Id",
-      "stdNo": "Std No",
-      "stdVer": "Std Ver",
-      "stsCd": "Sts Cd",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "prodId": "產品編號/型號",
+      "mnfctrId": "製造商ID",
+      "stdNo": "標準號碼",
+      "stdVer": "標準版本號碼",
+      "stsCd": "狀態代碼",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

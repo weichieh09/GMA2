@@ -2,7 +2,7 @@
   "gma2App": {
     "cref2Std": {
       "home": {
-        "title": "Cref 2 Stds",
+        "title": "證書標準關聯檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Cref 2 Std",
         "createOrEditLabel": "建立或編輯 Cref 2 Std",
@@ -18,16 +18,16 @@
         "title": "Cref 2 Std"
       },
       "id": "ID",
-      "cerfNo": "Cerf No",
-      "cerfVer": "Cerf Ver",
-      "areaCd": "Area Cd",
-      "applId": "Appl Id",
-      "cerfTag": "Cerf Tag",
-      "stdNo": "Std No",
-      "stdVer": "Std Ver",
-      "stsCd": "Sts Cd",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "cerfNo": "證書編號",
+      "cerfVer": "證書版本號碼",
+      "areaCd": "國家/地區代碼",
+      "applId": "證書申請人ID",
+      "cerfTag": "證書標籤",
+      "stdNo": "標準號碼",
+      "stdVer": "標準版本號碼",
+      "stsCd": "狀態代碼",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

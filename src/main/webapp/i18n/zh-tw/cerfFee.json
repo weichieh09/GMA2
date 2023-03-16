@@ -2,7 +2,7 @@
   "gma2App": {
     "cerfFee": {
       "home": {
-        "title": "Cerf Fees",
+        "title": "證書費用檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Cerf Fee",
         "createOrEditLabel": "建立或編輯 Cerf Fee",
@@ -18,18 +18,18 @@
         "title": "Cerf Fee"
       },
       "id": "ID",
-      "cerfNo": "Cerf No",
-      "cerfVer": "Cerf Ver",
-      "cerfTag": "Cerf Tag",
-      "areaCd": "Area Cd",
-      "applId": "Appl Id",
-      "stsCd": "Sts Cd",
-      "feeCd": "Fee Cd",
-      "feeDt": "Fee Dt",
-      "fee": "Fee",
-      "curr": "Curr",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "cerfNo": "證書編號",
+      "cerfVer": "證書版本號碼",
+      "cerfTag": "證書標籤",
+      "areaCd": "國家/地區代碼",
+      "applId": "證書申請人ID",
+      "stsCd": "狀態代碼",
+      "feeCd": "費用代碼",
+      "feeDt": "費用日期",
+      "fee": "費用",
+      "curr": "費用幣別",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

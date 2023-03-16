@@ -2,7 +2,7 @@
   "gma2App": {
     "areaDesc": {
       "home": {
-        "title": "Area Descs",
+        "title": "國家代碼說明檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Area Desc",
         "createOrEditLabel": "建立或編輯 Area Desc",
@@ -18,10 +18,10 @@
         "title": "Area Desc"
       },
       "id": "ID",
-      "areaCd": "Area Cd",
-      "areaDesc": "Area Desc",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "areaCd": "國家/地區代碼",
+      "areaDesc": "國家/地區說明",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

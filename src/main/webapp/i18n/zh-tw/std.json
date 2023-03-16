@@ -2,7 +2,7 @@
   "gma2App": {
     "std": {
       "home": {
-        "title": "Stds",
+        "title": "檢驗標準檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Std",
         "createOrEditLabel": "建立或編輯 Std",
@@ -18,15 +18,15 @@
         "title": "Std"
       },
       "id": "ID",
-      "stdNo": "Std No",
-      "stdVer": "Std Ver",
-      "stsCd": "Sts Cd",
-      "stdCd": "Std Cd",
-      "stdNm": "Std Nm",
-      "stdExpDt": "Std Exp Dt",
-      "remainDays": "Remain Days",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "stdNo": "標準號碼",
+      "stdVer": "標準版本號碼",
+      "stsCd": "狀態代碼",
+      "stdCd": "標準簡稱代碼",
+      "stdNm": "標準名稱",
+      "stdExpDt": "標準到期日",
+      "remainDays": "標準失效剩餘日數",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

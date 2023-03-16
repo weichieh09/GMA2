@@ -2,7 +2,7 @@
   "gma2App": {
     "mnfctrFee": {
       "home": {
-        "title": "Mnfctr Fees",
+        "title": "工廠費用檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Mnfctr Fee",
         "createOrEditLabel": "建立或編輯 Mnfctr Fee",
@@ -18,13 +18,13 @@
         "title": "Mnfctr Fee"
       },
       "id": "ID",
-      "fctyId": "Fcty Id",
-      "feeCd": "Fee Cd",
-      "feeDt": "Fee Dt",
-      "fee": "Fee",
-      "curr": "Curr",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "fctyId": "工廠登記ID",
+      "feeCd": "費用代碼",
+      "feeDt": "費用日期",
+      "fee": "費用",
+      "curr": "費用幣別",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

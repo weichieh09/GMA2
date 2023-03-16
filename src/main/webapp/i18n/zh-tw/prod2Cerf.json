@@ -2,7 +2,7 @@
   "gma2App": {
     "prod2Cerf": {
       "home": {
-        "title": "Prod 2 Cerfs",
+        "title": "產品證書關聯檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Prod 2 Cerf",
         "createOrEditLabel": "建立或編輯 Prod 2 Cerf",
@@ -18,16 +18,16 @@
         "title": "Prod 2 Cerf"
       },
       "id": "ID",
-      "prodId": "Prod Id",
-      "mnfctrId": "Mnfctr Id",
-      "cerfNo": "Cerf No",
-      "cerfVer": "Cerf Ver",
-      "applId": "Appl Id",
-      "areaCd": "Area Cd",
-      "cerfTag": "Cerf Tag",
-      "stsCd": "Sts Cd",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "prodId": "產品編號/型號",
+      "mnfctrId": "製造商ID",
+      "cerfNo": "證書編號",
+      "cerfVer": "證書版本號碼",
+      "applId": "證書申請人ID",
+      "areaCd": "國家/地區代碼",
+      "cerfTag": "證書標籤",
+      "stsCd": "狀態代碼",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

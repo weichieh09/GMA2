@@ -2,7 +2,7 @@
   "gma2App": {
     "prod2Fcty": {
       "home": {
-        "title": "Prod 2 Fcties",
+        "title": "產品工廠關聯檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Prod 2 Fcty",
         "createOrEditLabel": "建立或編輯 Prod 2 Fcty",
@@ -18,14 +18,14 @@
         "title": "Prod 2 Fcty"
       },
       "id": "ID",
-      "prodId": "Prod Id",
-      "mnfctrId": "Mnfctr Id",
-      "fctyId": "Fcty Id",
-      "inspectDt": "Inspect Dt",
-      "discontinueFg": "Discontinue Fg",
-      "discontinueDesc": "Discontinue Desc",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "prodId": "產品編號/型號",
+      "mnfctrId": "製造商ID",
+      "fctyId": "工廠登記ID",
+      "inspectDt": "檢查日期",
+      "discontinueFg": "產品停產註記",
+      "discontinueDesc": "產品停產說明",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

@@ -2,7 +2,7 @@
   "gma2App": {
     "cerf": {
       "home": {
-        "title": "Cerfs",
+        "title": "證書檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Cerf",
         "createOrEditLabel": "建立或編輯 Cerf",
@@ -18,18 +18,18 @@
         "title": "Cerf"
       },
       "id": "ID",
-      "cerfNo": "Cerf No",
-      "cerfVer": "Cerf Ver",
-      "areaCd": "Area Cd",
-      "stsCd": "Sts Cd",
-      "applId": "Appl Id",
-      "cerfTag": "Cerf Tag",
-      "issuDt": "Issu Dt",
-      "cerfExpDt": "Cerf Exp Dt",
-      "remainDays": "Remain Days",
-      "upldFile": "Upld File",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "cerfNo": "證書編號",
+      "cerfVer": "證書版本號碼",
+      "areaCd": "國家/地區代碼",
+      "stsCd": "狀態代碼",
+      "applId": "證書申請人ID",
+      "cerfTag": "證書標籤",
+      "issuDt": "證書發行日期",
+      "cerfExpDt": "證書到期日期",
+      "remainDays": "證書失效剩餘日數",
+      "upldFile": "上傳檔案",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

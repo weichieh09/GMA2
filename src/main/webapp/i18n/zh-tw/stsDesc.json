@@ -2,7 +2,7 @@
   "gma2App": {
     "stsDesc": {
       "home": {
-        "title": "Sts Descs",
+        "title": "狀態代碼說明檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Sts Desc",
         "createOrEditLabel": "建立或編輯 Sts Desc",
@@ -18,10 +18,10 @@
         "title": "Sts Desc"
       },
       "id": "ID",
-      "stsCd": "Sts Cd",
-      "stsDesc": "Sts Desc",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "stsCd": "狀態代碼",
+      "stsDesc": "狀態說明",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

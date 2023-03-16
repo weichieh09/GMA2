@@ -2,7 +2,7 @@
   "gma2App": {
     "mnfctr": {
       "home": {
-        "title": "Mnfctrs",
+        "title": "廠商資訊檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Mnfctr",
         "createOrEditLabel": "建立或編輯 Mnfctr",
@@ -18,15 +18,15 @@
         "title": "Mnfctr"
       },
       "id": "ID",
-      "uniNo": "Uni No",
-      "mnfctrNmEn": "Mnfctr Nm En",
-      "mnfctrNmCh": "Mnfctr Nm Ch",
-      "contact": "Contact",
-      "eamil": "Eamil",
-      "addr": "Addr",
-      "tel": "Tel",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "uniNo": "統一編號",
+      "mnfctrNmEn": "廠商英文名稱",
+      "mnfctrNmCh": "廠商中文名稱",
+      "contact": "廠商公司聯絡人",
+      "eamil": "廠商公司EMAIL",
+      "addr": "廠商公司地址",
+      "tel": "廠商公司電話",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }

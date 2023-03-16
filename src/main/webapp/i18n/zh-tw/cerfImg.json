@@ -2,7 +2,7 @@
   "gma2App": {
     "cerfImg": {
       "home": {
-        "title": "Cerf Imgs",
+        "title": "證書標籤檔",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立一筆新的 Cerf Img",
         "createOrEditLabel": "建立或編輯 Cerf Img",
@@ -18,10 +18,10 @@
         "title": "Cerf Img"
       },
       "id": "ID",
-      "cerfTag": "Cerf Tag",
-      "imageFile": "Image File",
-      "lstMtnUsr": "Lst Mtn Usr",
-      "lstMtnDt": "Lst Mtn Dt"
+      "cerfTag": "證書標籤",
+      "imageFile": "標籤圖檔",
+      "lstMtnUsr": "最後維護人員",
+      "lstMtnDt": "最後維護時間"
     }
   }
 }
