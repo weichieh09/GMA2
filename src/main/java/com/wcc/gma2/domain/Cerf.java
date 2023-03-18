@@ -18,8 +18,8 @@ public class Cerf implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-    @SequenceGenerator(name = "sequenceGenerator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceCerf")
+    @SequenceGenerator(name = "sequenceCerf")
     @Column(name = "id")
     private Long id;
 

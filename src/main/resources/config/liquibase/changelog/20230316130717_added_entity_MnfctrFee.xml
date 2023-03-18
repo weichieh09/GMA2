@@ -10,6 +10,9 @@
         Added the entity MnfctrFee.
     -->
     <changeSet id="20230316130717-1" author="jhipster">
+        <!--wccCode-->
+        <createSequence sequenceName="sequence_mnfctr_fee" startValue="1" incrementBy="50"/>
+        <!--wccCode-->
         <createTable tableName="mnfctr_fee">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>

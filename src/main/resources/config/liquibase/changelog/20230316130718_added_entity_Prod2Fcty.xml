@@ -10,6 +10,9 @@
         Added the entity Prod2Fcty.
     -->
     <changeSet id="20230316130718-1" author="jhipster">
+        <!--wccCode-->
+        <createSequence sequenceName="sequence_prod_2_fcty" startValue="1" incrementBy="50"/>
+        <!--wccCode-->
         <createTable tableName="prod_2_fcty">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
