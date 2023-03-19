@@ -1,4 +1,7 @@
+/* wccCode */
+// 導入 echarts
 import * as Echarts from 'echarts';
+/* wccCode */
 
 export default {
   data() {

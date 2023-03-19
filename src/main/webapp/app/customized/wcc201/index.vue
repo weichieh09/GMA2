@@ -9,7 +9,7 @@
     <b-row>
       <b-col cols="12">
         <b-form @submit="onSubmit" @reset="onReset">
-          <b-row>
+          <!-- <b-row>
             <b-col cols="6">
               <b-form-group id="input-group-1" :label="$t('gma2App.wcc201.form1.country')" label-for="input-1">
                 <b-form-select id="input-1" v-model="form.country" :options="countryList"></b-form-select>
@@ -20,7 +20,7 @@
                 <b-form-select id="input-2" v-model="form.cerfStatus" :options="cerfStatusList"></b-form-select>
               </b-form-group>
             </b-col>
-          </b-row>
+          </b-row> -->
 
           <b-row>
             <b-col cols="12">
