@@ -1,6 +1,6 @@
 @readOnly
 entity CerfSearchView {
-	cerfNo Long,
+	cerfNo String,
 	cerfVer String,
 	feeCd String,
 	feeDesc TextBlob,
