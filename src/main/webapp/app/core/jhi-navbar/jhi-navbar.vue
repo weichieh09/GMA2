@@ -25,7 +25,7 @@
           </span>
         </b-nav-item>
         <!-- wccCode - 下拉選單 -->
-        <b-nav-item-dropdown right v-if="authenticated" active-class="active" class="pointer">
+        <b-nav-item-dropdown right active-class="active" class="pointer">
           <span slot="button-content" class="navbar-dropdown-menu">
             <font-awesome-icon icon="th-list" />
             <span class="no-bold" v-text="$t('global.menu.wcc.main')">wcc</span>
@@ -37,6 +37,10 @@
           <b-dropdown-item to="/wcc201">
             <font-awesome-icon icon="asterisk" />
             <span v-text="$t('global.menu.wcc.wcc201')">wcc201</span>
+          </b-dropdown-item>
+          <b-dropdown-item to="/wcc301">
+            <font-awesome-icon icon="asterisk" />
+            <span v-text="$t('global.menu.wcc.wcc301')">wcc301</span>
           </b-dropdown-item>
         </b-nav-item-dropdown>
         <!-- wccCode - 下拉選單 -->

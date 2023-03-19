@@ -7,8 +7,9 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "wcc": {
         "main": "功能",
-        "wcc101": "證書與報告",
-        "wcc201": "wcc201"
+        "wcc101": "申請者",
+        "wcc201": "製造商",
+        "wcc301": "生產廠"
       },
       "entities": {
         "main": "實體",

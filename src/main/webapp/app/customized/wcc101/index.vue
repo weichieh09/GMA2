@@ -2,7 +2,7 @@
   <b-container fluid>
     <b-row>
       <h2 id="page-heading">
-        <span v-text="$t('gmaApp.wcc101.home.title')">wcc101</span>
+        <span v-text="$t('gma2App.wcc101.home.title')">wcc101</span>
       </h2> </b-row
     ><br />
 
@@ -11,12 +11,12 @@
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
           <b-row>
             <b-col cols="6">
-              <b-form-group id="input-group-1" :label="$t('gmaApp.wcc101.form.country')" label-for="input-1">
+              <b-form-group id="input-group-1" :label="$t('gma2App.wcc101.form.country')" label-for="input-1">
                 <b-form-select id="input-1" v-model="form.country" :options="countryList"></b-form-select>
               </b-form-group>
             </b-col>
             <b-col cols="6">
-              <b-form-group id="input-group-2" :label="$t('gmaApp.wcc101.form.cerfStatus')" label-for="input-2">
+              <b-form-group id="input-group-2" :label="$t('gma2App.wcc101.form.cerfStatus')" label-for="input-2">
                 <b-form-select id="input-2" v-model="form.cerfStatus" :options="cerfStatusList"></b-form-select>
               </b-form-group>
             </b-col>
@@ -24,8 +24,8 @@
 
           <b-row>
             <b-col cols="12">
-              <b-form-group id="input-group-3" :label="$t('gmaApp.wcc101.form.cerfNo')" label-for="input-3">
-                <b-form-input id="input-3" v-model="form.cerfNo" type="text" :placeholder="$t('gmaApp.wcc101.form.cerfNo')"></b-form-input>
+              <b-form-group id="input-group-3" :label="$t('gma2App.wcc101.form.cerfNo')" label-for="input-3">
+                <b-form-input id="input-3" v-model="form.cerfNo" type="text" :placeholder="$t('gma2App.wcc101.form.cerfNo')"></b-form-input>
               </b-form-group>
             </b-col>
           </b-row>
@@ -34,10 +34,10 @@
             <b-col cols="12" class="d-flex justify-content-end">
               <b-button-group>
                 <b-button type="submit" variant="primary"
-                  ><b-icon icon="search"></b-icon> <span v-text="$t('gmaApp.wcc101.home.submitLabel')">search</span></b-button
+                  ><b-icon icon="search"></b-icon> <span v-text="$t('gma2App.wcc101.home.submitLabel')">search</span></b-button
                 >
                 <b-button type="reset" variant="outline-secondary"
-                  ><b-icon icon="eraser"></b-icon> <span v-text="$t('gmaApp.wcc101.home.resetLabel')">eraser</span></b-button
+                  ><b-icon icon="eraser"></b-icon> <span v-text="$t('gma2App.wcc101.home.resetLabel')">eraser</span></b-button
                 >
               </b-button-group>
             </b-col>
@@ -49,7 +49,7 @@
     <b-row>
       <b-col cols="12">
         <div class="alert alert-warning" v-if="false">
-          <span v-text="$t('gmaApp.wcc101.home.notFound')">No data found</span>
+          <span v-text="$t('gma2App.wcc101.home.notFound')">No data found</span>
         </div>
       </b-col>
       <b-col cols="12">
@@ -60,22 +60,22 @@
                 <span v-text="$t('global.field.id')">ID</span>
               </th>
               <th scope="row" v-on:click="changeOrder('cerfNo')">
-                <span v-text="$t('gmaApp.cerf.cerfNo')">Cerf No</span>
+                <span v-text="$t('gma2App.cerf.cerfNo')">Cerf No</span>
               </th>
               <th scope="row" v-on:click="changeOrder('areaCd')">
-                <span v-text="$t('gmaApp.cerf.areaCd')">Area Cd</span>
+                <span v-text="$t('gma2App.cerf.areaCd')">Area Cd</span>
               </th>
               <th scope="row" v-on:click="changeOrder('issuFt')">
-                <span v-text="$t('gmaApp.cerf.issuFt')">Issu Ft</span>
+                <span v-text="$t('gma2App.cerf.issuFt')">Issu Ft</span>
               </th>
               <th scope="row" v-on:click="changeOrder('cerfExpDt')">
-                <span v-text="$t('gmaApp.cerf.cerfExpDt')">Cerf Exp Dt</span>
+                <span v-text="$t('gma2App.cerf.cerfExpDt')">Cerf Exp Dt</span>
               </th>
               <th scope="row" v-on:click="changeOrder('effFg')">
-                <span v-text="$t('gmaApp.cerf.effFg')">Eff Fg</span>
+                <span v-text="$t('gma2App.cerf.effFg')">Eff Fg</span>
               </th>
               <th scope="row" v-on:click="changeOrder('applId')">
-                <span v-text="$t('gmaApp.cerf.applId')">Appl Id</span>
+                <span v-text="$t('gma2App.cerf.applId')">Appl Id</span>
               </th>
               <th scope="row"></th>
             </tr>

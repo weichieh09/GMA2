@@ -1,8 +1,8 @@
 {
-  "gmaApp": {
+  "gma2App": {
     "wcc101": {
       "home": {
-        "title": "證書與報告",
+        "title": "申請者",
         "notFound": "沒有資料",
         "submitLabel": "搜尋",
         "resetLabel": "清空"
