@@ -7,7 +7,7 @@
 
     <groupId>com.wcc.gma2</groupId>
     <artifactId>gma-2</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>20230319</version>
     <packaging>jar</packaging>
     <name>GMA 2</name>
     <description>Description for GMA2</description>
