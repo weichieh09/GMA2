@@ -8,7 +8,7 @@
 
     <b-row>
       <b-col cols="12">
-        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+        <b-form @submit="onSubmit" @reset="onReset">
           <b-row>
             <b-col cols="6">
               <b-form-group id="input-group-1" :label="$t('gma2App.wcc201.form1.country')" label-for="input-1">
@@ -57,73 +57,68 @@
           <span v-text="$t('gma2App.wcc201.home.notFound')">No data found</span>
         </div>
       </b-col>
-      <b-col cols="12">
-        <table class="table table-striped" aria-describedby="cerfs">
-          <thead>
-            <tr>
-              <th scope="row" v-on:click="changeOrder('areaCd')">
-                <span v-text="$t('gma2App.wcc201.table1.areaCd')">Area Cd</span>
-              </th>
-              <th scope="row" v-on:click="changeOrder('cerfNo')">
-                <span v-text="$t('gma2App.wcc201.table1.cerfNo')">Cerf No</span>
-              </th>
-              <th scope="row" v-on:click="changeOrder('cerfVer')">
-                <span v-text="$t('gma2App.wcc201.table1.cerfVer')">Cerf Ver</span>
-              </th>
-              <th scope="row" v-on:click="changeOrder('cerfFee')">
-                <span v-text="$t('gma2App.wcc201.table1.cerfFee')">Cerf Fee</span>
-              </th>
-              <th scope="row" v-on:click="changeOrder('stsCd')">
-                <span v-text="$t('gma2App.wcc201.table1.stsCd')">Sts Cd</span>
-              </th>
-              <th scope="row" v-on:click="changeOrder('applId')">
-                <span v-text="$t('gma2App.wcc201.table1.applId')">Appl Id</span>
-              </th>
-              <th scope="row" v-on:click="changeOrder('lstMtnDt')">
-                <span v-text="$t('gma2App.wcc201.table1.lstMtnDt')">Lst Mtn Dt</span>
-              </th>
-              <th scope="row"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="cerf in cerfs" :key="cerf.id" data-cy="entityTable">
-              <td>{{ cerf.areaCd }}</td>
-              <td>{{ cerf.cerfNo }}</td>
-              <td>{{ cerf.cerfVer }}</td>
-              <td>{{ cerf.cerfFee }}</td>
-              <td>{{ cerf.stsCd }}</td>
-              <td>{{ cerf.applId }}</td>
-              <td>{{ cerf.lstMtnDt }}</td>
-              <td class="text-right">
-                <b-button variant="success" size="sm"><b-icon icon="eye"></b-icon> <span>詳情Q</span></b-button>
-                <!-- <div class="btn-group">
-                <router-link :to="{ name: 'CerfView', params: { cerfId: cerf.id } }" custom v-slot="{ navigate }">
-                  <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
-                    <font-awesome-icon icon="eye"></font-awesome-icon>
-                    <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
-                  </button>
-                </router-link>
-                <router-link :to="{ name: 'CerfEdit', params: { cerfId: cerf.id } }" custom v-slot="{ navigate }">
-                  <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
-                    <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
-                    <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
-                  </button>
-                </router-link>
-                <b-button
-                  v-on:click="prepareRemove(cerf)"
-                  variant="danger"
-                  class="btn btn-sm"
-                  data-cy="entityDeleteButton"
-                  v-b-modal.removeEntity
-                >
-                  <font-awesome-icon icon="times"></font-awesome-icon>
-                  <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
-                </b-button>
-              </div> -->
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <b-col cols="8">
+        <div class="table-responsive" v-if="show && cerfs && cerfs.length > 0">
+          <table class="table table-striped" aria-describedby="cerfs">
+            <thead>
+              <tr>
+                <th scope="row" v-on:click="changeOrder('areaCd')">
+                  <span v-text="$t('gma2App.wcc201.table1.areaCd')">Area Cd</span>
+                  <jhi-sort-indicator></jhi-sort-indicator>
+                </th>
+                <th scope="row" v-on:click="changeOrder('cerfNo')">
+                  <span v-text="$t('gma2App.wcc201.table1.cerfNo')">Cerf No</span>
+                </th>
+                <th scope="row" v-on:click="changeOrder('cerfVer')">
+                  <span v-text="$t('gma2App.wcc201.table1.cerfVer')">Cerf Ver</span>
+                </th>
+                <th scope="row" v-on:click="changeOrder('cerfFee')">
+                  <span v-text="$t('gma2App.wcc201.table1.cerfFee')">Cerf Fee</span>
+                </th>
+                <th scope="row" v-on:click="changeOrder('stsCd')">
+                  <span v-text="$t('gma2App.wcc201.table1.stsCd')">Sts Cd</span>
+                  <jhi-sort-indicator></jhi-sort-indicator>
+                </th>
+                <th scope="row" v-on:click="changeOrder('applId')">
+                  <span v-text="$t('gma2App.wcc201.table1.applId')">Appl Id</span>
+                </th>
+                <th scope="row" v-on:click="changeOrder('lstMtnDt')">
+                  <span v-text="$t('gma2App.wcc201.table1.lstMtnDt')">Lst Mtn Dt</span>
+                </th>
+                <th scope="row"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="cerf in cerfs" :key="cerf.id" data-cy="entityTable">
+                <td>{{ cerf.areaCd }}</td>
+                <td>{{ cerf.cerfNo }}</td>
+                <td>{{ cerf.cerfVer }}</td>
+                <td>{{ cerf.cerfFee }}</td>
+                <td>{{ cerf.stsCd }}</td>
+                <td>{{ cerf.applId }}</td>
+                <td>{{ cerf.lstMtnDt }}</td>
+                <td class="text-right">
+                  <router-link :to="{ name: 'CerfView', params: { cerfId: cerf.id } }">
+                    <b-button variant="success" size="sm"><b-icon icon="eye"></b-icon> <span>詳情Q</span></b-button>
+                  </router-link>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div v-if="show && cerfs && cerfs.length > 0">
+          <div class="row justify-content-center">
+            <jhi-item-count :page="1" :total="2" :itemsPerPage="2"></jhi-item-count>
+          </div>
+          <div class="row justify-content-center">
+            <b-pagination size="md"></b-pagination>
+          </div>
+        </div>
+      </b-col>
+      <b-col cols="4">
+        <div style="height: 250px" ref="chart1"></div>
+        <div style="height: 250px" ref="chart2"></div>
+        <div style="height: 250px" ref="chart3"></div>
       </b-col> </b-row
     ><br />
 

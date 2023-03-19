@@ -1,6 +1,11 @@
+import * as Echarts from 'echarts';
+
 export default {
   data() {
     return {
+      eChart1: null,
+      eChart2: null,
+      eChart3: null,
       form: {
         country: null,
         cerfStatus: null,
@@ -17,54 +22,183 @@ export default {
         { text: '失效', value: 'notWork' },
         { text: '維護中', value: 'fixing' },
       ],
-      show: true,
+      show: false,
       cerfs: [
         {
           id: '1',
+          areaCd: '台灣',
           cerfNo: 'CI435060200161',
-          areaCd: 'TW',
-          issuFt: '2016-06-13T16:00:00Z',
-          cerfExpDt: '2019-06-12T16:00:00Z',
-          effFg: 'N',
-          applId: '22099738',
+          cerfVer: '01',
+          cerfFee: '100,000',
+          stsCd: '有效',
+          applId: '陳XX',
+          lstMtnDt: '2023-03-11',
         },
         {
           id: '2',
+          areaCd: '中國',
           cerfNo: 'CI435060208585',
-          areaCd: 'TW',
-          issuFt: '2020-04-12T16:00:00Z',
-          cerfExpDt: '2023-04-12T16:00:00Z',
-          effFg: 'Y',
-          applId: '22099738',
-        },
-        {
-          id: '3',
-          cerfNo: 'Q123',
-          areaCd: 'CN',
-          issuFt: '2020-01-01T16:00:00Z',
-          cerfExpDt: '2023-01-01T16:00:00Z',
-          effFg: 'Y',
-          applId: 'A123',
+          cerfVer: '01',
+          cerfFee: '200,000',
+          stsCd: '維護中',
+          applId: '張XX',
+          lstMtnDt: '2023-01-15',
         },
       ],
     };
   },
+  mounted() {
+    // this.eChart1Init();
+    // this.eChart2Init();
+    // this.eChart3Init();
+  },
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      alert(JSON.stringify(this.form));
+      // alert(JSON.stringify(this.form));
+      this.show = !this.show;
+      this.eChart1Init();
+      this.eChart2Init();
+      this.eChart3Init();
     },
     onReset(event) {
       event.preventDefault();
-      // Reset our form values
       this.form.country = null;
       this.form.cerfStatus = null;
       this.form.cerfNo = '';
-      // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
       });
+    },
+    eChart1Init() {
+      this.eChart1 = Echarts.init(this.$refs.chart1);
+      let option = {
+        title: {
+          text: '相關費用',
+          left: 'center',
+        },
+        tooltip: {
+          trigger: 'item',
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'right',
+        },
+        series: [
+          {
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: 'center',
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: 20,
+                fontWeight: 'bold',
+              },
+            },
+            labelLine: {
+              show: false,
+            },
+            data: [
+              { value: 64, name: '申請證書' },
+              { value: 25, name: '證書變更' },
+              { value: 11, name: '證書展延' },
+            ],
+          },
+        ],
+      };
+      this.eChart1.setOption(option);
+    },
+    eChart2Init() {
+      this.eChart2 = Echarts.init(this.$refs.chart2);
+      let option = {
+        title: {
+          text: '證書狀態',
+          left: 'center',
+        },
+        tooltip: {
+          trigger: 'item',
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'right',
+        },
+        series: [
+          {
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: 'center',
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: 20,
+                fontWeight: 'bold',
+              },
+            },
+            labelLine: {
+              show: false,
+            },
+            data: [
+              { value: 77, name: '有效' },
+              { value: 16, name: '維護中' },
+              { value: 7, name: '失效' },
+            ],
+          },
+        ],
+      };
+      this.eChart2.setOption(option);
+    },
+    eChart3Init() {
+      this.eChart3 = Echarts.init(this.$refs.chart3);
+      let option = {
+        title: {
+          text: '國家證書',
+          left: 'center',
+        },
+        tooltip: {
+          trigger: 'item',
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'right',
+        },
+        series: [
+          {
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+              show: false,
+              position: 'center',
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: 20,
+                fontWeight: 'bold',
+              },
+            },
+            labelLine: {
+              show: false,
+            },
+            data: [
+              { value: 78, name: '台灣' },
+              { value: 17, name: '中國' },
+              { value: 5, name: '美國' },
+            ],
+          },
+        ],
+      };
+      this.eChart3.setOption(option);
     },
   },
 };
