@@ -1,0 +1,172 @@
+entity Cerf {
+    cerfNo String,
+    cerfVer String,
+    areaCd String,
+    stsCd String,
+    applId String,
+    cerfTag String,
+    issuDt LocalDate,
+    cerfExpDt LocalDate,
+    remainDays Long,
+    upldFile Blob,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity CerfFee {
+    cerfNo String,
+    cerfVer String,
+    cerfTag String,
+    areaCd String,
+    applId String,
+    stsCd String,
+    feeCd String,
+    feeDt LocalDate,
+    fee Long,
+    curr String,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity Mnfctr {
+    uniNo String,
+    mnfctrNmEn String,
+    mnfctrNmCh String,
+    contact String,
+    eamil String,
+    addr String,
+    tel String,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity Prod {
+    prodId String,
+    mnfctrId String,
+    prodNmCh String,
+    prodNmEn String,
+    hsCd String,
+    cccCd String,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity Prod2Cerf {
+    prodId String,
+    mnfctrId String,
+    cerfNo String,
+    cerfVer String,
+    applId String,
+    areaCd String,
+    cerfTag String,
+    stsCd String,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity Std {
+    stdNo String,
+    stdVer String,
+    stsCd String,
+    stdCd String,
+    stdNm String,
+    stdExpDt LocalDate,
+    remainDays Long,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity AreaDesc {
+    areaCd String,
+    areaDesc TextBlob,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity CerfImg {
+    cerfTag String,
+    imageFile ImageBlob,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity Cref2Std {
+    cerfNo String,
+    cerfVer String,
+    areaCd String,
+    applId String,
+    cerfTag String,
+    stdNo String,
+    stdVer String,
+    stsCd String,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity FeeDesc {
+    feeCd String,
+    feeDesc TextBlob,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity MnfctrFee {
+    fctyId String,
+    feeCd String,
+    feeDt LocalDate,
+    fee Long,
+    curr String,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity Prod2Fcty {
+    prodId String,
+    mnfctrId String,
+    fctyId String,
+    inspectDt LocalDate,
+    discontinueFg String,
+    discontinueDesc TextBlob,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity Prod2Std {
+    prodId String,
+    mnfctrId String,
+    stdNo String,
+    stdVer String,
+    stsCd String,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity StdFee {
+    prodId String,
+    mnfctrId String,
+    stdNo String,
+    stdVer String,
+    stsCd String,
+    feeCd String,
+    feeDt LocalDate,
+    fee Long,
+    curr String,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+entity StsDesc {
+    stsCd String,
+    stsDesc TextBlob,
+    lstMtnUsr String,
+    lstMtnDt LocalDate,
+}
+
+//entity XXX {
+//    XXX String,
+//}
+
+filter *
+dto * with mapstruct
+paginate * with pagination
+service * with serviceClass

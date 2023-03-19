@@ -1,0 +1,28 @@
+@readOnly
+entity CerfSearchView {
+	cerfNo Long,
+	cerfVer String,
+	feeCd String,
+	feeDesc TextBlob,
+	fee Long,
+	areaCd String,
+	areaDesc TextBlob,
+	stsCd String,
+	stsDesc TextBlob,
+	applId String,
+	mnfctrNmCh String,
+	prodId String,
+	mnfctrId String,
+	fctyId String,
+}
+
+//@readOnly
+//entity ItemView {
+//	id Long,
+//	name String,
+//}
+
+filter *
+dto * with mapstruct
+paginate * with pagination
+service * with serviceClass
