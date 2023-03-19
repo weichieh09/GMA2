@@ -11,7 +11,7 @@
     -->
     <changeSet id="20230316130716-1" author="jhipster">
         <!--wccCode-->
-        <createSequence sequenceName="sequence_fee_desc" startValue="1" incrementBy="50"/>
+        <createSequence sequenceName="sequence_fee_desc" startValue="1000" incrementBy="50"/>
         <!--wccCode-->
         <createTable tableName="fee_desc">
             <column name="id" type="bigint">

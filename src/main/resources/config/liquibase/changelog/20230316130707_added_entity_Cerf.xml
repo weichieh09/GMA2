@@ -11,7 +11,7 @@
     -->
     <changeSet id="20230316130707-1" author="jhipster">
         <!--wccCode-->
-        <createSequence sequenceName="sequence_cerf" startValue="1" incrementBy="50"/>
+        <createSequence sequenceName="sequence_cerf" startValue="1000" incrementBy="50"/>
         <!--wccCode-->
         <createTable tableName="cerf">
             <column name="id" type="bigint">
