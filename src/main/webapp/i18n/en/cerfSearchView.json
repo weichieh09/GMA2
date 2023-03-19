@@ -1,0 +1,29 @@
+{
+  "gma2App": {
+    "cerfSearchView": {
+      "home": {
+        "title": "Cerf Search Views",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Cerf Search Views found"
+      },
+      "detail": {
+        "title": "Cerf Search View"
+      },
+      "id": "ID",
+      "cerfNo": "Cerf No",
+      "cerfVer": "Cerf Ver",
+      "feeCd": "Fee Cd",
+      "feeDesc": "Fee Desc",
+      "fee": "Fee",
+      "areaCd": "Area Cd",
+      "areaDesc": "Area Desc",
+      "stsCd": "Sts Cd",
+      "stsDesc": "Sts Desc",
+      "applId": "Appl Id",
+      "mnfctrNmCh": "Mnfctr Nm Ch",
+      "prodId": "Prod Id",
+      "mnfctrId": "Mnfctr Id",
+      "fctyId": "Fcty Id"
+    }
+  }
+}

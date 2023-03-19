@@ -1,0 +1,75 @@
+{
+  "applications": "*",
+  "changelogDate": "20230319155112",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf_search_view",
+  "fields": [
+    {
+      "fieldName": "cerfNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "feeCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "feeDesc",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "fee",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "areaCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "areaDesc",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "stsCd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stsDesc",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "applId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mnfctrNmCh",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prodId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mnfctrId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fctyId",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "CerfSearchView",
+  "pagination": "pagination",
+  "readOnly": true,
+  "relationships": [],
+  "service": "serviceClass"
+}

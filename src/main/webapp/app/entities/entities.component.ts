@@ -16,6 +16,7 @@ import Prod2FctyService from './prod-2-fcty/prod-2-fcty.service';
 import Prod2StdService from './prod-2-std/prod-2-std.service';
 import StdFeeService from './std-fee/std-fee.service';
 import StsDescService from './sts-desc/sts-desc.service';
+import CerfSearchViewService from './cerf-search-view/cerf-search-view.service';
 // jhipster-needle-add-entity-service-to-entities-component-import - JHipster will import entities services here
 
 @Component
@@ -36,5 +37,6 @@ export default class Entities extends Vue {
   @Provide('prod2StdService') private prod2StdService = () => new Prod2StdService();
   @Provide('stdFeeService') private stdFeeService = () => new StdFeeService();
   @Provide('stsDescService') private stsDescService = () => new StsDescService();
+  @Provide('cerfSearchViewService') private cerfSearchViewService = () => new CerfSearchViewService();
   // jhipster-needle-add-entity-service-to-entities-component - JHipster will import entities services here
 }

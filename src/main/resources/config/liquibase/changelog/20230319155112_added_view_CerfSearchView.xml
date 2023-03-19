@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="20230319155112-1" author="weichieh09">
+        <createView
+            replaceIfExists="true"
+            viewName="cerf_search_view">
+            SELECT --*
+            S1.id
+            ,S1.cerf_no
+            ,S1.cerf_ver
+            ,S5.fee_cd
+            ,S9.fee_desc
+            ,fee = SUM(S5.fee)
+            ,S1.area_cd
+            ,S6.area_desc
+            ,S1.sts_cd
+            ,S7.sts_desc
+            ,S1.appl_id
+            ,S8.mnfctr_nm_ch
+            ,S3.prod_id
+            ,S3.mnfctr_id
+            ,S4.fcty_id
+            FROM cerf        AS S1
+            LEFT JOIN prod_2_cerf AS S2 ON S2.cerf_no = S1.cerf_no
+            AND S2.cerf_ver = S1.cerf_ver
+            LEFT JOIN prod        AS S3 ON S3.prod_id = S2.prod_id
+            LEFT JOIN prod_2_fcty AS S4 ON S4.prod_id = S3.prod_id
+            LEFT JOIN cerf_fee    AS S5 ON S5.cerf_no = S1.cerf_no
+            AND S5.cerf_ver = S1.cerf_ver
+            LEFT JOIN area_desc   AS S6 ON S6.area_cd = S1.area_cd
+            LEFT JOIN sts_desc    AS S7 ON S7.sts_cd = S1.sts_cd
+            LEFT JOIN mnfctr      AS S8 ON S8.uni_no = S1.appl_id
+            LEFT JOIN fee_desc    AS S9 ON S9.fee_cd = S5.fee_cd
+            --WHERE cerf.appl_id = '80272572'
+            --WHERE prod.mnfctr_id = '22099738'
+            GROUP BY S1.id
+            ,S1.cerf_no
+            ,S1.cerf_ver
+            ,S5.fee_cd
+            ,S9.fee_desc
+            ,S1.area_cd
+            ,S1.sts_cd
+            ,S1.appl_id
+            ,S3.prod_id
+            ,S3.mnfctr_id
+            ,S4.fcty_id
+            ,S6.area_desc
+            ,S7.sts_desc
+            ,S8.mnfctr_nm_ch
+        </createView>
+    </changeSet>
+</databaseChangeLog>

@@ -93,6 +93,10 @@ const StsDesc = () => import('@/entities/sts-desc/sts-desc.vue');
 const StsDescUpdate = () => import('@/entities/sts-desc/sts-desc-update.vue');
 // prettier-ignore
 const StsDescDetails = () => import('@/entities/sts-desc/sts-desc-details.vue');
+// prettier-ignore
+const CerfSearchView = () => import('@/entities/cerf-search-view/cerf-search-view.vue');
+// prettier-ignore
+const CerfSearchViewDetails = () => import('@/entities/cerf-search-view/cerf-search-view-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default {
@@ -457,6 +461,30 @@ export default {
       path: 'sts-desc/:stsDescId/view',
       name: 'StsDescView',
       component: StsDescDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-search-view',
+      name: 'CerfSearchView',
+      component: CerfSearchView,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-search-view/:cerfSearchViewId/view',
+      name: 'CerfSearchViewView',
+      component: CerfSearchViewDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-search-view',
+      name: 'CerfSearchView',
+      component: CerfSearchView,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-search-view/:cerfSearchViewId/view',
+      name: 'CerfSearchViewView',
+      component: CerfSearchViewDetails,
       meta: { authorities: [Authority.USER] },
     },
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

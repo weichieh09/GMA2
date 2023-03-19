@@ -28,6 +28,7 @@
         "prod2Std": "產品標準關聯檔",
         "stdFee": "標準檢驗費用檔",
         "stsDesc": "狀態代碼說明檔",
+        "cerfSearchView": "Cerf Search View",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -27,6 +27,7 @@
         "prod2Std": "Prod 2 Std",
         "stdFee": "Std Fee",
         "stsDesc": "Sts Desc",
+        "cerfSearchView": "Cerf Search View",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
