@@ -2,10 +2,24 @@
   "gma2App": {
     "wcc201": {
       "home": {
-        "title": "wcc201"
+        "title": "製造商",
+        "notFound": "沒有資料",
+        "submitLabel": "搜尋",
+        "resetLabel": "清空"
       },
-      "form": {
-        "cerfNo": "證書編號"
+      "form1": {
+        "country": "國家",
+        "cerfStatus": "證書狀態",
+        "mnfctrUniNo": "統一編號"
+      },
+      "table1": {
+        "cerfNo": "證書",
+        "cerfVer": "版號",
+        "areaCd": "國家",
+        "stsCd": "狀態",
+        "applId": "聯繫人",
+        "cerfFee": "費用",
+        "lstMtnDt": "更新日期"
       },
       "test": "test"
     }
