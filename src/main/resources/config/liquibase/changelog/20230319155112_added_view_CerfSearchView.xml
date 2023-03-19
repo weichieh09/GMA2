@@ -11,7 +11,7 @@
             replaceIfExists="true"
             viewName="cerf_search_view">
             SELECT --*
-            S1.id
+            ROW_NUMBER() OVER (ORDER BY S1.cerf_no) AS id
             ,S1.cerf_no
             ,S1.cerf_ver
             ,S5.fee_cd
