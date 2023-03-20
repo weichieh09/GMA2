@@ -2,21 +2,21 @@
   <b-container fluid>
     <b-row>
       <h2 id="page-heading">
-        <span v-text="$t('gma2App.wcc201.home.title')">wcc201</span>
+        <span v-text="$t('gma2App.wcc102.home.title')">wcc102</span>
       </h2> </b-row
     ><br />
 
     <b-row>
       <b-col cols="12">
-        <b-form @submit="onSubmit" @reset="onReset">
+        <b-form>
           <!-- <b-row>
             <b-col cols="6">
-              <b-form-group id="input-group-1" :label="$t('gma2App.wcc201.form1.country')" label-for="input-1">
+              <b-form-group id="input-group-1" :label="$t('gma2App.wcc102.form1.country')" label-for="input-1">
                 <b-form-select id="input-1" v-model="form.country" :options="countryList"></b-form-select>
               </b-form-group>
             </b-col>
             <b-col cols="6">
-              <b-form-group id="input-group-2" :label="$t('gma2App.wcc201.form1.cerfStatus')" label-for="input-2">
+              <b-form-group id="input-group-2" :label="$t('gma2App.wcc102.form1.cerfStatus')" label-for="input-2">
                 <b-form-select id="input-2" v-model="form.cerfStatus" :options="cerfStatusList"></b-form-select>
               </b-form-group>
             </b-col>
@@ -24,12 +24,12 @@
 
           <b-row>
             <b-col cols="12">
-              <b-form-group id="input-group-3" :label="$t('gma2App.wcc201.form1.mnfctrUniNo')" label-for="input-3">
+              <b-form-group id="input-group-3" :label="$t('gma2App.wcc102.form1.mnfctrId')" label-for="input-3">
                 <b-form-input
                   id="input-3"
-                  v-model="form.cerfNo"
+                  v-model="form.mnfctrId"
                   type="text"
-                  :placeholder="$t('gma2App.wcc201.form1.mnfctrUniNo')"
+                  :placeholder="$t('gma2App.wcc102.form1.mnfctrId')"
                 ></b-form-input>
               </b-form-group>
             </b-col>
@@ -38,11 +38,11 @@
           <b-row>
             <b-col cols="12" class="d-flex justify-content-end">
               <b-button-group>
-                <b-button type="submit" variant="primary"
-                  ><b-icon icon="search"></b-icon> <span v-text="$t('gma2App.wcc201.home.submitLabel')">search</span></b-button
+                <b-button @click="onSubmit" variant="primary"
+                  ><b-icon icon="search"></b-icon> <span v-text="$t('gma2App.wcc102.home.submitLabel')">search</span></b-button
                 >
-                <b-button type="reset" variant="outline-secondary"
-                  ><b-icon icon="eraser"></b-icon> <span v-text="$t('gma2App.wcc201.home.resetLabel')">eraser</span></b-button
+                <b-button @click="onReset" variant="outline-secondary"
+                  ><b-icon icon="eraser"></b-icon> <span v-text="$t('gma2App.wcc102.home.resetLabel')">eraser</span></b-button
                 >
               </b-button-group>
             </b-col>
@@ -54,7 +54,7 @@
     <b-row>
       <b-col cols="12">
         <div class="alert alert-warning" v-if="false">
-          <span v-text="$t('gma2App.wcc201.home.notFound')">No data found</span>
+          <span v-text="$t('gma2App.wcc102.home.notFound')">No data found</span>
         </div>
       </b-col>
       <b-col cols="8">
@@ -63,27 +63,27 @@
             <thead>
               <tr>
                 <th scope="row" v-on:click="changeOrder('areaCd')">
-                  <span v-text="$t('gma2App.wcc201.table1.areaCd')">Area Cd</span>
+                  <span v-text="$t('gma2App.wcc102.table1.areaCd')">Area Cd</span>
                   <jhi-sort-indicator></jhi-sort-indicator>
                 </th>
                 <th scope="row" v-on:click="changeOrder('cerfNo')">
-                  <span v-text="$t('gma2App.wcc201.table1.cerfNo')">Cerf No</span>
+                  <span v-text="$t('gma2App.wcc102.table1.cerfNo')">Cerf No</span>
                 </th>
                 <th scope="row" v-on:click="changeOrder('cerfVer')">
-                  <span v-text="$t('gma2App.wcc201.table1.cerfVer')">Cerf Ver</span>
+                  <span v-text="$t('gma2App.wcc102.table1.cerfVer')">Cerf Ver</span>
                 </th>
                 <th scope="row" v-on:click="changeOrder('cerfFee')">
-                  <span v-text="$t('gma2App.wcc201.table1.cerfFee')">Cerf Fee</span>
+                  <span v-text="$t('gma2App.wcc102.table1.cerfFee')">Cerf Fee</span>
                 </th>
                 <th scope="row" v-on:click="changeOrder('stsCd')">
-                  <span v-text="$t('gma2App.wcc201.table1.stsCd')">Sts Cd</span>
+                  <span v-text="$t('gma2App.wcc102.table1.stsCd')">Sts Cd</span>
                   <jhi-sort-indicator></jhi-sort-indicator>
                 </th>
                 <th scope="row" v-on:click="changeOrder('applId')">
-                  <span v-text="$t('gma2App.wcc201.table1.applId')">Appl Id</span>
+                  <span v-text="$t('gma2App.wcc102.table1.applId')">Appl Id</span>
                 </th>
                 <th scope="row" v-on:click="changeOrder('lstMtnDt')">
-                  <span v-text="$t('gma2App.wcc201.table1.lstMtnDt')">Lst Mtn Dt</span>
+                  <span v-text="$t('gma2App.wcc102.table1.lstMtnDt')">Lst Mtn Dt</span>
                 </th>
                 <th scope="row"></th>
               </tr>

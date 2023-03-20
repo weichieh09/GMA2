@@ -1,7 +1,7 @@
 import { Authority } from '@/shared/security/authority';
 
 const Wcc101 = () => import('@/customized/wcc101/index.vue');
-const Wcc201 = () => import('@/customized/wcc201/index.vue');
+const Wcc102 = () => import('@/customized/wcc102/index.vue');
 
 export default [
   {
@@ -10,8 +10,8 @@ export default [
     component: Wcc101,
   },
   {
-    path: '/wcc201',
-    name: 'Wcc201',
-    component: Wcc201,
+    path: '/wcc102',
+    name: 'Wcc102',
+    component: Wcc102,
   },
 ];

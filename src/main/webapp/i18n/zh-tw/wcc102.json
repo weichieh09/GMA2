@@ -1,6 +1,6 @@
 {
   "gma2App": {
-    "wcc201": {
+    "wcc102": {
       "home": {
         "title": "製造商",
         "notFound": "沒有資料",
@@ -8,9 +8,7 @@
         "resetLabel": "清空"
       },
       "form1": {
-        "country": "國家",
-        "cerfStatus": "證書狀態",
-        "mnfctrUniNo": "統一編號"
+        "mnfctrId": "製造商ID"
       },
       "table1": {
         "cerfNo": "證書",

@@ -34,13 +34,13 @@
             <font-awesome-icon icon="asterisk" />
             <span v-text="$t('global.menu.wcc.wcc101')">wcc101</span>
           </b-dropdown-item>
-          <b-dropdown-item to="/wcc201">
+          <b-dropdown-item to="/wcc102">
             <font-awesome-icon icon="asterisk" />
-            <span v-text="$t('global.menu.wcc.wcc201')">wcc201</span>
+            <span v-text="$t('global.menu.wcc.wcc102')">wcc102</span>
           </b-dropdown-item>
-          <b-dropdown-item to="/wcc301">
+          <b-dropdown-item to="/wcc103">
             <font-awesome-icon icon="asterisk" />
-            <span v-text="$t('global.menu.wcc.wcc301')">wcc301</span>
+            <span v-text="$t('global.menu.wcc.wcc103')">wcc103</span>
           </b-dropdown-item>
         </b-nav-item-dropdown>
         <!-- wccCode - 下拉選單 -->

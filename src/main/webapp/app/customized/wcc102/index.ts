@@ -3,6 +3,8 @@
 import * as Echarts from 'echarts';
 /* wccCode */
 
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -10,9 +12,7 @@ export default {
       eChart2: null,
       eChart3: null,
       form: {
-        country: null,
-        cerfStatus: null,
-        cerfNo: '',
+        mnfctrId: '',
       },
       countryList: [
         { text: '全選', value: null },
@@ -56,23 +56,47 @@ export default {
     // this.eChart3Init();
   },
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
+    onSubmit() {
+      // event.preventDefault();
       // alert(JSON.stringify(this.form));
-      this.show = !this.show;
-      this.eChart1Init();
-      this.eChart2Init();
-      this.eChart3Init();
+      // this.show = !this.show;
+      // this.eChart1Init();
+      // this.eChart2Init();
+      // this.eChart3Init();
+
+      this.postApiWcc101();
+      this.getApiWcc102();
     },
-    onReset(event) {
-      event.preventDefault();
-      this.form.country = null;
-      this.form.cerfStatus = null;
-      this.form.cerfNo = '';
-      this.show = false;
-      this.$nextTick(() => {
-        this.show = true;
-      });
+    onReset() {
+      // event.preventDefault();
+      // this.form.country = null;
+      // this.form.cerfStatus = null;
+      // this.form.cerfNo = '';
+      // this.show = false;
+      // this.$nextTick(() => {
+      //   this.show = true;
+      // });
+      alert('onReset');
+    },
+    postApiWcc101() {
+      axios
+        .post('api/wcc101', this.form)
+        .then(res => {
+          alert(JSON.stringify(res));
+        })
+        .catch(err => {
+          alert(err);
+        });
+    },
+    getApiWcc102() {
+      axios
+        .get('api/wcc102')
+        .then(res => {
+          alert(JSON.stringify(res));
+        })
+        .catch(err => {
+          alert(err);
+        });
     },
     eChart1Init() {
       this.eChart1 = Echarts.init(this.$refs.chart1);
