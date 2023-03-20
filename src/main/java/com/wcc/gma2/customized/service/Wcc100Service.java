@@ -10,6 +10,9 @@ import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -97,5 +100,11 @@ public class Wcc100Service {
         }
 
         return result.stream().sorted(Comparator.comparing(CerfSearchViewDTO::getId)).collect(Collectors.toList());
+    }
+
+    public Page<CerfSearchViewDTO> pageableCsv(List<CerfSearchViewDTO> distinctCsv, Pageable pageable) {
+        Integer start = (int) pageable.getOffset();
+        Integer end = (start + pageable.getPageSize()) > distinctCsv.size() ? distinctCsv.size() : (start + pageable.getPageSize());
+        return new PageImpl<>(distinctCsv.subList(start, end), pageable, distinctCsv.size());
     }
 }
