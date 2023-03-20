@@ -25,7 +25,7 @@ import tech.jhipster.web.util.PaginationUtil;
  */
 @Slf4j
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/api")
 public class Wcc100Resource {
 
     private final String CLASS_NAME = this.getClass().getSimpleName();
