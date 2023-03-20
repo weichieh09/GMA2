@@ -15,10 +15,12 @@ export default {
       eChart2Data: null,
       eChart3: null,
       eChart3Data: null,
+      eChartShow: false,
       page: 1,
-      itemsPerPage: 20,
+      itemsPerPage: 10,
       queryCount: null,
       totalItems: 0,
+      previousPage: 1,
       propOrder: 'id',
       reverse: false,
       form: {
@@ -35,13 +37,12 @@ export default {
         { text: '失效', value: 'notWork' },
         { text: '維護中', value: 'fixing' },
       ],
-      show: false,
+      name: null,
       csvList: null,
     };
   },
   methods: {
     onSubmit() {
-      this.show = !this.show;
       this.postApiWcc101();
       this.getApiWcc102();
     },
@@ -52,12 +53,17 @@ export default {
       axios
         .post('api/wcc101', this.form)
         .then(res => {
-          this.eChart1Data = res.data.content.echart1;
-          this.eChart1Init();
-          this.eChart2Data = res.data.content.echart2;
-          this.eChart2Init();
-          this.eChart3Data = res.data.content.echart3;
-          this.eChart3Init();
+          if (res.data.code == 0) {
+            this.eChartShow = true;
+            this.$nextTick(() => {
+              this.eChart1Data = res.data.content.echart1;
+              this.eChart1Init();
+              this.eChart2Data = res.data.content.echart2;
+              this.eChart2Init();
+              this.eChart3Data = res.data.content.echart3;
+              this.eChart3Init();
+            });
+          }
         })
         .catch(err => {
           alert(err);
@@ -73,6 +79,7 @@ export default {
         .get('api/wcc102?' + 'mnfctrId.contains=' + this.form.mnfctrId + `&${buildPaginationQueryOpts(paginationQuery)}`)
         .then(res => {
           this.csvList = res.data.content.csvList;
+          this.name = res.data.content.name;
           this.totalItems = Number(res.headers['x-total-count']);
           this.queryCount = this.totalItems;
         })
@@ -86,6 +93,12 @@ export default {
         result.push('id');
       }
       return result;
+    },
+    loadPage(page) {
+      if (page !== this.previousPage) {
+        this.previousPage = page;
+        this.getApiWcc102();
+      }
     },
     eChart1Init() {
       this.eChart1 = Echarts.init(this.$refs.chart1);

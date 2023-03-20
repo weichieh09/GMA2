@@ -57,8 +57,15 @@
           <span v-text="$t('gma2App.wcc102.home.notFound')">No data found</span>
         </div>
       </b-col>
+      <b-col cols="12">
+        <div v-if="csvList && csvList.length > 0">
+          <span>
+            <h3>製造商: {{ name }}</h3>
+          </span>
+        </div> </b-col
+      ><br />
       <b-col cols="8">
-        <div class="table-responsive" v-if="show && csvList && csvList.length > 0">
+        <div class="table-responsive" v-if="csvList && csvList.length > 0">
           <table class="table table-striped" aria-describedby="csvList">
             <thead>
               <tr>
@@ -104,27 +111,27 @@
             </tbody>
           </table>
         </div>
-        <div v-if="show && csvList && csvList.length > 0">
+        <div v-if="csvList && csvList.length > 0">
           <div class="row justify-content-center">
             <jhi-item-count :page="page" :total="queryCount" :itemsPerPage="itemsPerPage"></jhi-item-count>
           </div>
           <div class="row justify-content-center">
-            <b-pagination size="md"></b-pagination>
+            <b-pagination
+              size="md"
+              :total-rows="totalItems"
+              v-model="page"
+              :per-page="itemsPerPage"
+              :change="loadPage(page)"
+            ></b-pagination>
           </div>
         </div>
       </b-col>
       <b-col cols="4">
-        <div style="height: 250px" ref="chart1"></div>
-        <div style="height: 250px" ref="chart2"></div>
-        <div style="height: 250px" ref="chart3"></div>
-      </b-col> </b-row
-    ><br />
-
-    <b-row>
-      <b-col cols="12">
-        <b-card class="mt-3" header="*表單結果" v-if="false">
-          <pre class="m-0">{{ form }}</pre>
-        </b-card>
+        <div v-if="eChartShow">
+          <div style="height: 250px" ref="chart1"></div>
+          <div style="height: 250px" ref="chart2"></div>
+          <div style="height: 250px" ref="chart3"></div>
+        </div>
       </b-col> </b-row
     ><br />
   </b-container>
