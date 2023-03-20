@@ -9,19 +9,6 @@
     <b-row>
       <b-col cols="12">
         <b-form>
-          <!-- <b-row>
-            <b-col cols="6">
-              <b-form-group id="input-group-1" :label="$t('gma2App.wcc102.form1.country')" label-for="input-1">
-                <b-form-select id="input-1" v-model="form.country" :options="countryList"></b-form-select>
-              </b-form-group>
-            </b-col>
-            <b-col cols="6">
-              <b-form-group id="input-group-2" :label="$t('gma2App.wcc102.form1.cerfStatus')" label-for="input-2">
-                <b-form-select id="input-2" v-model="form.cerfStatus" :options="cerfStatusList"></b-form-select>
-              </b-form-group>
-            </b-col>
-          </b-row> -->
-
           <b-row>
             <b-col cols="12">
               <b-form-group id="input-group-3" :label="$t('gma2App.wcc102.form1.mnfctrId')" label-for="input-3">
@@ -53,18 +40,19 @@
 
     <b-row>
       <b-col cols="12">
-        <div class="alert alert-warning" v-if="false">
+        <div class="alert alert-warning" v-if="isFetch && csvList && csvList.length === 0">
           <span v-text="$t('gma2App.wcc102.home.notFound')">No data found</span>
         </div>
+        <div class="alert alert-warning" v-if="isNull">
+          <span v-text="$t('gma2App.wcc102.home.cantNull')">Can't Null</span>
+        </div>
       </b-col>
-      <b-col cols="12">
+      <b-col cols="8">
         <div v-if="csvList && csvList.length > 0">
           <span>
             <h3>製造商: {{ name }}</h3>
           </span>
-        </div> </b-col
-      ><br />
-      <b-col cols="8">
+        </div>
         <div class="table-responsive" v-if="csvList && csvList.length > 0">
           <table class="table table-striped" aria-describedby="csvList">
             <thead>
@@ -87,21 +75,17 @@
                 <th scope="row">
                   <span v-text="$t('gma2App.wcc102.table1.applId')">Appl Id</span>
                 </th>
-                <th scope="row">
-                  <span v-text="$t('gma2App.wcc102.table1.lstMtnDt')">Lst Mtn Dt</span>
-                </th>
                 <th scope="row"></th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="csv in csvList" :key="csv.id" data-cy="entityTable">
-                <td>{{ csv.areaCd }}</td>
+                <td>{{ csv.areaDesc }}</td>
                 <td>{{ csv.cerfNo }}</td>
                 <td>{{ csv.cerfVer }}</td>
-                <td>{{ csv.cerfFee }}</td>
-                <td>{{ csv.stsCd }}</td>
-                <td>{{ csv.applId }}</td>
-                <td>{{ csv.lstMtnDt }}</td>
+                <td>{{ csv.fee }}</td>
+                <td>{{ csv.stsDesc }}</td>
+                <td>{{ csv.mnfctrNmCh }}</td>
                 <td class="text-right">
                   <router-link :to="{ name: 'CerfView', params: { cerfId: csv.id } }">
                     <b-button variant="success" size="sm"><b-icon icon="eye"></b-icon> <span>詳情Q</span></b-button>

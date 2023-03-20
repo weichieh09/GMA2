@@ -23,37 +23,34 @@ export default {
       previousPage: 1,
       propOrder: 'id',
       reverse: false,
+      isFetch: false,
+      isNull: false,
       form: {
         mnfctrId: '',
       },
-      countryList: [
-        { text: '全選', value: null },
-        { text: '中國', value: 'CN' },
-        { text: '台灣', value: 'TW' },
-      ],
-      cerfStatusList: [
-        { text: '全選', value: null },
-        { text: '有效', value: 'isWork' },
-        { text: '失效', value: 'notWork' },
-        { text: '維護中', value: 'fixing' },
-      ],
       name: null,
       csvList: null,
     };
   },
   methods: {
     onSubmit() {
-      this.postApiWcc101();
-      this.getApiWcc102();
+      this.isFetch = true;
+      if (this.form.mnfctrId != '') {
+        this.isNull = false;
+        this.postApiWcc101();
+        this.getApiWcc102();
+      } else {
+        this.isNull = true;
+      }
     },
     onReset() {
       alert('onReset');
     },
     postApiWcc101() {
       axios
-        .post('api/wcc101', this.form)
+        .post('api/wcc101i', this.form)
         .then(res => {
-          if (res.data.code == 0) {
+          if (res.data.code == 0 && res.data.content.echart1.length > 0) {
             this.eChartShow = true;
             this.$nextTick(() => {
               this.eChart1Data = res.data.content.echart1;
@@ -63,6 +60,8 @@ export default {
               this.eChart3Data = res.data.content.echart3;
               this.eChart3Init();
             });
+          } else {
+            this.eChartShow = false;
           }
         })
         .catch(err => {
@@ -76,7 +75,7 @@ export default {
         sort: this.sort(),
       };
       axios
-        .get('api/wcc102?' + 'mnfctrId.contains=' + this.form.mnfctrId + `&${buildPaginationQueryOpts(paginationQuery)}`)
+        .get('api/wcc102i?' + 'mnfctrId.equals=' + this.form.mnfctrId + `&${buildPaginationQueryOpts(paginationQuery)}`)
         .then(res => {
           this.csvList = res.data.content.csvList;
           this.name = res.data.content.name;

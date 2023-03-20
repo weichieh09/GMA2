@@ -43,7 +43,7 @@ public class Wcc100Resource {
      * { "applId" : "22099738" }
      *
      *  */
-    @PostMapping("/wcc101")
+    @PostMapping("/wcc101i")
     public ResponseEntity<ResponseDTO> wcc101(@RequestBody Wcc101Req req) {
         Wcc101Res resData = new Wcc101Res();
         ResponseDTO responseDTO = new ResponseDTO<>();
@@ -73,7 +73,7 @@ public class Wcc100Resource {
      * http://localhost:8082/test/wcc102?applId.contains=22099738&page=0&size=5
      *
      * */
-    @GetMapping("/wcc102")
+    @GetMapping("/wcc102i")
     public ResponseEntity<ResponseDTO> wcc102(
         CerfSearchViewCriteria criteria,
         @org.springdoc.api.annotations.ParameterObject Pageable pageable

@@ -4,6 +4,7 @@
       "home": {
         "title": "製造商",
         "notFound": "沒有資料",
+        "cantNull": "請輸入製造商ID",
         "submitLabel": "搜尋",
         "resetLabel": "清空"
       },

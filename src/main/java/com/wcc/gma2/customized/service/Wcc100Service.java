@@ -30,12 +30,12 @@ public class Wcc100Service {
         Map<String, Long> tmpMap = new HashMap<>();
 
         for (CerfSearchViewDTO dto : list) {
-            if (tmpMap.get(dto.getFeeCd()) == null) {
-                tmpMap.put(dto.getFeeCd(), dto.getFee());
+            if (tmpMap.get(dto.getFeeDesc()) == null) {
+                tmpMap.put(dto.getFeeDesc(), dto.getFee());
             } else {
-                Long aLong = tmpMap.get(dto.getFeeCd());
+                Long aLong = tmpMap.get(dto.getFeeDesc());
                 aLong = aLong + dto.getFee();
-                tmpMap.put(dto.getFeeCd(), aLong);
+                tmpMap.put(dto.getFeeDesc(), aLong);
             }
         }
 
@@ -54,12 +54,12 @@ public class Wcc100Service {
         Map<String, Long> tmpMap = new HashMap<>();
 
         for (CerfSearchViewDTO dto : list) {
-            if (tmpMap.get(dto.getStsCd()) == null) {
-                tmpMap.put(dto.getStsCd(), 1L);
+            if (tmpMap.get(dto.getStsDesc()) == null) {
+                tmpMap.put(dto.getStsDesc(), 1L);
             } else {
-                Long aLong = tmpMap.get(dto.getStsCd());
+                Long aLong = tmpMap.get(dto.getStsDesc());
                 aLong = aLong + 1;
-                tmpMap.put(dto.getStsCd(), aLong);
+                tmpMap.put(dto.getStsDesc(), aLong);
             }
         }
 
@@ -78,12 +78,12 @@ public class Wcc100Service {
         Map<String, Long> tmpMap = new HashMap<>();
 
         for (CerfSearchViewDTO dto : list) {
-            if (tmpMap.get(dto.getAreaCd()) == null) {
-                tmpMap.put(dto.getAreaCd(), 1L);
+            if (tmpMap.get(dto.getAreaDesc()) == null) {
+                tmpMap.put(dto.getAreaDesc(), 1L);
             } else {
-                Long aLong = tmpMap.get(dto.getAreaCd());
+                Long aLong = tmpMap.get(dto.getAreaDesc());
                 aLong = aLong + 1;
-                tmpMap.put(dto.getAreaCd(), aLong);
+                tmpMap.put(dto.getAreaDesc(), aLong);
             }
         }
 
