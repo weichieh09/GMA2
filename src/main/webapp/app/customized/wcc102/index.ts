@@ -32,6 +32,17 @@ export default {
       csvList: null,
     };
   },
+  beforeRouteLeave(to, from, next) {
+    sessionStorage.setItem('mnfctrId', this.form.mnfctrId);
+    next();
+  },
+  mounted() {
+    let mnfctrId = sessionStorage.getItem('mnfctrId');
+    if (mnfctrId) {
+      this.form.mnfctrId = mnfctrId;
+      this.onSubmit();
+    }
+  },
   methods: {
     onSubmit() {
       this.isFetch = true;
@@ -44,7 +55,11 @@ export default {
       }
     },
     onReset() {
-      alert('onReset');
+      sessionStorage.removeItem('mnfctrId');
+      this.form.mnfctrId = '';
+      this.isFetch = true;
+      this.eChartShow = false;
+      this.csvList = null;
     },
     postApiWcc101() {
       axios
