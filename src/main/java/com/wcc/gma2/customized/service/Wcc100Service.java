@@ -1,5 +1,6 @@
 package com.wcc.gma2.customized.service;
 
+import com.wcc.gma2.customized.dto.EChartSonDTO;
 import com.wcc.gma2.customized.dto.WccCerfSearchViewDTO;
 import com.wcc.gma2.customized.utils.StringFilterUtils;
 import com.wcc.gma2.service.CerfSearchViewQueryService;
@@ -11,9 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import tech.jhipster.web.util.PageUtil;
 
 @Slf4j
 @Service
@@ -24,50 +25,74 @@ public class Wcc100Service {
     @Autowired
     private CerfSearchViewQueryService cerfSearchViewQueryService;
 
-    public Map<String, Long> getChart1(List<CerfSearchViewDTO> list) {
-        Map<String, Long> result = new HashMap<>();
+    public List<EChartSonDTO> getEChart1(List<CerfSearchViewDTO> list) {
+        List<EChartSonDTO> result = new ArrayList<>();
+        Map<String, Long> tmpMap = new HashMap<>();
 
         for (CerfSearchViewDTO dto : list) {
-            if (result.get(dto.getFeeCd()) == null) {
-                result.put(dto.getFeeCd(), dto.getFee());
+            if (tmpMap.get(dto.getFeeCd()) == null) {
+                tmpMap.put(dto.getFeeCd(), dto.getFee());
             } else {
-                Long aLong = result.get(dto.getFeeCd());
+                Long aLong = tmpMap.get(dto.getFeeCd());
                 aLong = aLong + dto.getFee();
-                result.put(dto.getFeeCd(), aLong);
+                tmpMap.put(dto.getFeeCd(), aLong);
             }
         }
+
+        tmpMap.forEach((key, value) -> {
+            EChartSonDTO dto = new EChartSonDTO();
+            dto.setName(key);
+            dto.setValue(value);
+            result.add(dto);
+        });
 
         return result;
     }
 
-    public Map<String, Long> getChart2(List<CerfSearchViewDTO> list) {
-        Map<String, Long> result = new HashMap<>();
+    public List<EChartSonDTO> getEChart2(List<CerfSearchViewDTO> list) {
+        List<EChartSonDTO> result = new ArrayList<>();
+        Map<String, Long> tmpMap = new HashMap<>();
 
         for (CerfSearchViewDTO dto : list) {
-            if (result.get(dto.getStsCd()) == null) {
-                result.put(dto.getStsCd(), 1L);
+            if (tmpMap.get(dto.getStsCd()) == null) {
+                tmpMap.put(dto.getStsCd(), 1L);
             } else {
-                Long aLong = result.get(dto.getStsCd());
+                Long aLong = tmpMap.get(dto.getStsCd());
                 aLong = aLong + 1;
-                result.put(dto.getStsCd(), aLong);
+                tmpMap.put(dto.getStsCd(), aLong);
             }
         }
+
+        tmpMap.forEach((key, value) -> {
+            EChartSonDTO dto = new EChartSonDTO();
+            dto.setName(key);
+            dto.setValue(value);
+            result.add(dto);
+        });
 
         return result;
     }
 
-    public Map<String, Long> getChart3(List<CerfSearchViewDTO> list) {
-        Map<String, Long> result = new HashMap<>();
+    public List<EChartSonDTO> getEChart3(List<CerfSearchViewDTO> list) {
+        List<EChartSonDTO> result = new ArrayList<>();
+        Map<String, Long> tmpMap = new HashMap<>();
 
         for (CerfSearchViewDTO dto : list) {
-            if (result.get(dto.getAreaCd()) == null) {
-                result.put(dto.getAreaCd(), 1L);
+            if (tmpMap.get(dto.getAreaCd()) == null) {
+                tmpMap.put(dto.getAreaCd(), 1L);
             } else {
-                Long aLong = result.get(dto.getAreaCd());
+                Long aLong = tmpMap.get(dto.getAreaCd());
                 aLong = aLong + 1;
-                result.put(dto.getAreaCd(), aLong);
+                tmpMap.put(dto.getAreaCd(), aLong);
             }
         }
+
+        tmpMap.forEach((key, value) -> {
+            EChartSonDTO dto = new EChartSonDTO();
+            dto.setName(key);
+            dto.setValue(value);
+            result.add(dto);
+        });
 
         return result;
     }
@@ -103,8 +128,6 @@ public class Wcc100Service {
     }
 
     public Page<CerfSearchViewDTO> pageableCsv(List<CerfSearchViewDTO> distinctCsv, Pageable pageable) {
-        Integer start = (int) pageable.getOffset();
-        Integer end = (start + pageable.getPageSize()) > distinctCsv.size() ? distinctCsv.size() : (start + pageable.getPageSize());
-        return new PageImpl<>(distinctCsv.subList(start, end), pageable, distinctCsv.size());
+        return PageUtil.createPageFromList(distinctCsv, pageable);
     }
 }

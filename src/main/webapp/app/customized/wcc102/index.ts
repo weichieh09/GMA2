@@ -4,13 +4,23 @@ import * as Echarts from 'echarts';
 /* wccCode */
 
 import axios from 'axios';
+import buildPaginationQueryOpts from '@/shared/sort/sorts';
 
 export default {
   data() {
     return {
       eChart1: null,
+      eChart1Data: null,
       eChart2: null,
+      eChart2Data: null,
       eChart3: null,
+      eChart3Data: null,
+      page: 1,
+      itemsPerPage: 20,
+      queryCount: null,
+      totalItems: 0,
+      propOrder: 'id',
+      reverse: false,
       form: {
         mnfctrId: '',
       },
@@ -26,77 +36,56 @@ export default {
         { text: '維護中', value: 'fixing' },
       ],
       show: false,
-      cerfs: [
-        {
-          id: '1',
-          areaCd: '台灣',
-          cerfNo: 'CI435060200161',
-          cerfVer: '01',
-          cerfFee: '100,000',
-          stsCd: '有效',
-          applId: '陳XX',
-          lstMtnDt: '2023-03-11',
-        },
-        {
-          id: '2',
-          areaCd: '中國',
-          cerfNo: 'CI435060208585',
-          cerfVer: '01',
-          cerfFee: '200,000',
-          stsCd: '維護中',
-          applId: '張XX',
-          lstMtnDt: '2023-01-15',
-        },
-      ],
+      csvList: null,
     };
-  },
-  mounted() {
-    // this.eChart1Init();
-    // this.eChart2Init();
-    // this.eChart3Init();
   },
   methods: {
     onSubmit() {
-      // event.preventDefault();
-      // alert(JSON.stringify(this.form));
-      // this.show = !this.show;
-      // this.eChart1Init();
-      // this.eChart2Init();
-      // this.eChart3Init();
-
+      this.show = !this.show;
       this.postApiWcc101();
       this.getApiWcc102();
     },
     onReset() {
-      // event.preventDefault();
-      // this.form.country = null;
-      // this.form.cerfStatus = null;
-      // this.form.cerfNo = '';
-      // this.show = false;
-      // this.$nextTick(() => {
-      //   this.show = true;
-      // });
       alert('onReset');
     },
     postApiWcc101() {
       axios
         .post('api/wcc101', this.form)
         .then(res => {
-          alert(JSON.stringify(res));
+          this.eChart1Data = res.data.content.echart1;
+          this.eChart1Init();
+          this.eChart2Data = res.data.content.echart2;
+          this.eChart2Init();
+          this.eChart3Data = res.data.content.echart3;
+          this.eChart3Init();
         })
         .catch(err => {
           alert(err);
         });
     },
     getApiWcc102() {
+      const paginationQuery = {
+        page: this.page - 1,
+        size: this.itemsPerPage,
+        sort: this.sort(),
+      };
       axios
-        .get('api/wcc102')
+        .get('api/wcc102?' + 'mnfctrId.contains=' + this.form.mnfctrId + `&${buildPaginationQueryOpts(paginationQuery)}`)
         .then(res => {
-          alert(JSON.stringify(res));
+          this.csvList = res.data.content.csvList;
+          this.totalItems = Number(res.headers['x-total-count']);
+          this.queryCount = this.totalItems;
         })
         .catch(err => {
           alert(err);
         });
+    },
+    sort() {
+      const result = [this.propOrder + ',' + (this.reverse ? 'desc' : 'asc')];
+      if (this.propOrder !== 'id') {
+        result.push('id');
+      }
+      return result;
     },
     eChart1Init() {
       this.eChart1 = Echarts.init(this.$refs.chart1);
@@ -131,11 +120,7 @@ export default {
             labelLine: {
               show: false,
             },
-            data: [
-              { value: 64, name: '申請證書' },
-              { value: 25, name: '證書變更' },
-              { value: 11, name: '證書展延' },
-            ],
+            data: this.eChart1Data,
           },
         ],
       };
@@ -174,11 +159,7 @@ export default {
             labelLine: {
               show: false,
             },
-            data: [
-              { value: 77, name: '有效' },
-              { value: 16, name: '維護中' },
-              { value: 7, name: '失效' },
-            ],
+            data: this.eChart2Data,
           },
         ],
       };
@@ -217,11 +198,7 @@ export default {
             labelLine: {
               show: false,
             },
-            data: [
-              { value: 78, name: '台灣' },
-              { value: 17, name: '中國' },
-              { value: 5, name: '美國' },
-            ],
+            data: this.eChart3Data,
           },
         ],
       };

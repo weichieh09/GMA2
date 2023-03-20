@@ -1,14 +1,14 @@
 package com.wcc.gma2.customized.dto;
 
-import java.util.Map;
+import java.util.List;
 import lombok.Data;
 
 @Data
 public class Wcc101Res {
 
-    private Map<String, Long> chart1;
+    private List<EChartSonDTO> eChart1;
 
-    private Map<String, Long> chart2;
+    private List<EChartSonDTO> eChart2;
 
-    private Map<String, Long> chart3;
+    private List<EChartSonDTO> eChart3;
 }

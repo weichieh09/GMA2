@@ -58,47 +58,45 @@
         </div>
       </b-col>
       <b-col cols="8">
-        <div class="table-responsive" v-if="show && cerfs && cerfs.length > 0">
-          <table class="table table-striped" aria-describedby="cerfs">
+        <div class="table-responsive" v-if="show && csvList && csvList.length > 0">
+          <table class="table table-striped" aria-describedby="csvList">
             <thead>
               <tr>
-                <th scope="row" v-on:click="changeOrder('areaCd')">
+                <th scope="row">
                   <span v-text="$t('gma2App.wcc102.table1.areaCd')">Area Cd</span>
-                  <jhi-sort-indicator></jhi-sort-indicator>
                 </th>
-                <th scope="row" v-on:click="changeOrder('cerfNo')">
+                <th scope="row">
                   <span v-text="$t('gma2App.wcc102.table1.cerfNo')">Cerf No</span>
                 </th>
-                <th scope="row" v-on:click="changeOrder('cerfVer')">
+                <th scope="row">
                   <span v-text="$t('gma2App.wcc102.table1.cerfVer')">Cerf Ver</span>
                 </th>
-                <th scope="row" v-on:click="changeOrder('cerfFee')">
+                <th scope="row">
                   <span v-text="$t('gma2App.wcc102.table1.cerfFee')">Cerf Fee</span>
                 </th>
-                <th scope="row" v-on:click="changeOrder('stsCd')">
+                <th scope="row">
                   <span v-text="$t('gma2App.wcc102.table1.stsCd')">Sts Cd</span>
-                  <jhi-sort-indicator></jhi-sort-indicator>
                 </th>
-                <th scope="row" v-on:click="changeOrder('applId')">
+                <th scope="row">
                   <span v-text="$t('gma2App.wcc102.table1.applId')">Appl Id</span>
                 </th>
-                <th scope="row" v-on:click="changeOrder('lstMtnDt')">
+                <th scope="row">
                   <span v-text="$t('gma2App.wcc102.table1.lstMtnDt')">Lst Mtn Dt</span>
                 </th>
                 <th scope="row"></th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="cerf in cerfs" :key="cerf.id" data-cy="entityTable">
-                <td>{{ cerf.areaCd }}</td>
-                <td>{{ cerf.cerfNo }}</td>
-                <td>{{ cerf.cerfVer }}</td>
-                <td>{{ cerf.cerfFee }}</td>
-                <td>{{ cerf.stsCd }}</td>
-                <td>{{ cerf.applId }}</td>
-                <td>{{ cerf.lstMtnDt }}</td>
+              <tr v-for="csv in csvList" :key="csv.id" data-cy="entityTable">
+                <td>{{ csv.areaCd }}</td>
+                <td>{{ csv.cerfNo }}</td>
+                <td>{{ csv.cerfVer }}</td>
+                <td>{{ csv.cerfFee }}</td>
+                <td>{{ csv.stsCd }}</td>
+                <td>{{ csv.applId }}</td>
+                <td>{{ csv.lstMtnDt }}</td>
                 <td class="text-right">
-                  <router-link :to="{ name: 'CerfView', params: { cerfId: cerf.id } }">
+                  <router-link :to="{ name: 'CerfView', params: { cerfId: csv.id } }">
                     <b-button variant="success" size="sm"><b-icon icon="eye"></b-icon> <span>詳情Q</span></b-button>
                   </router-link>
                 </td>
@@ -106,9 +104,9 @@
             </tbody>
           </table>
         </div>
-        <div v-if="show && cerfs && cerfs.length > 0">
+        <div v-if="show && csvList && csvList.length > 0">
           <div class="row justify-content-center">
-            <jhi-item-count :page="1" :total="2" :itemsPerPage="2"></jhi-item-count>
+            <jhi-item-count :page="page" :total="queryCount" :itemsPerPage="itemsPerPage"></jhi-item-count>
           </div>
           <div class="row justify-content-center">
             <b-pagination size="md"></b-pagination>

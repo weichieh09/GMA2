@@ -9,5 +9,5 @@ public class Wcc102Res {
 
     private String name;
 
-    private List<CerfSearchViewDTO> csvlist;
+    private List<CerfSearchViewDTO> csvList;
 }

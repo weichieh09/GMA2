@@ -55,11 +55,11 @@ public class Wcc100Resource {
         List<CerfSearchViewDTO> distinctCsv = wcc100Service.distinctCsv(allCsv);
 
         // 圖1
-        resData.setChart1(wcc100Service.getChart1(distinctCsv));
+        resData.setEChart1(wcc100Service.getEChart1(distinctCsv));
         // 圖2
-        resData.setChart2(wcc100Service.getChart2(distinctCsv));
+        resData.setEChart2(wcc100Service.getEChart2(distinctCsv));
         // 圖3
-        resData.setChart3(wcc100Service.getChart3(distinctCsv));
+        resData.setEChart3(wcc100Service.getEChart3(distinctCsv));
 
         responseDTO.setContent(resData);
         responseDTO.setStatusCode(StatusCode.SUCCESS);
@@ -92,7 +92,7 @@ public class Wcc100Resource {
         httpHeaders = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
 
         resData.setName("WccTest");
-        resData.setCsvlist(page.getContent());
+        resData.setCsvList(page.getContent());
 
         responseDTO.setContent(resData);
         responseDTO.setStatusCode(StatusCode.SUCCESS);
