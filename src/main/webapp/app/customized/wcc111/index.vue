@@ -108,7 +108,7 @@
                 <div class="invalid-feedback">Security code required</div>
               </div> -->
             </div>
-            <button class="btn btn-info" type="submit" @click="previousState"><b-icon icon="arrow-left"></b-icon> <span>返回</span></button>
+            <button class="btn btn-info" @click="previousState"><b-icon icon="arrow-left"></b-icon> <span>返回</span></button>
           </form>
         </div>
         <div class="col-md-5 col-lg-4 order-md-last">
