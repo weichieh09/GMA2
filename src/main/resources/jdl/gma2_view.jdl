@@ -16,6 +16,48 @@ entity CerfSearchView {
 	fctyId String,
 }
 
+@readOnly
+entity Cerf2MnfctrView {
+	cerfNo String,
+	cerfVer String,
+	area String,
+	sts String,
+	issuDt LocalDate,
+	remainDays Long,
+	applId String,
+	mnfctrNmCh String,
+	upldFile Blob,
+	imageFile ImageBlob,
+	lstMtnUsr String,
+	lstMtnDt LocalDate,
+}
+
+@readOnly
+entity Cerf2ProdView {
+	cerfNo String,
+	cerfVer String,
+	prodId String,
+	prodNmCh String,
+}
+
+@readOnly
+entity Cerf2StdView {
+	cerfNo String,
+	cerfVer String,
+	stdNo String,
+	stdVer String,
+}
+
+@readOnly
+entity CerfView {
+	cerfNo String,
+	cerfVer String,
+	feeDt LocalDate,
+	feeDesc TextBlob,
+	fee Long,
+	msg01 TextBlob,
+}
+
 //@readOnly
 //entity ItemView {
 //	id Long,
