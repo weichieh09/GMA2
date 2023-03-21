@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="20230321005957-1" author="weichieh09">
+        <createView
+            replaceIfExists="true"
+            viewName="cerf_2_mnfctr_view">
+            SELECT
+            ROW_NUMBER() OVER (ORDER BY S1.cerf_no) AS id,
+            S1.cerf_no,
+            S1.cerf_ver,
+            area = S1.area_cd + '-' + S2.area_desc,
+            sts = S1.sts_cd + '-' + S3.sts_desc,
+            S1.issu_dt,
+            S1.cerf_exp_dt,
+            remain_days = CASE
+            WHEN DATEDIFF(DAY, GETDATE(), S1.cerf_exp_dt) < 0 THEN 0
+            ELSE DATEDIFF(DAY, GETDATE(), S1.cerf_exp_dt)
+            END,
+            S1.appl_id,
+            S4.mnfctr_nm_ch,
+            S1.cerf_tag,
+            S5.image_file,
+            S1.upld_file,
+            S1.lst_mtn_usr,
+            S1.lst_mtn_dt
+            FROM
+            cerf AS S1
+            LEFT JOIN area_desc AS S2 ON S2.area_cd = S1.area_cd
+            LEFT JOIN sts_desc AS S3 ON S3.sts_cd = S1.sts_cd
+            LEFT JOIN mnfctr AS S4 ON S4.uni_no = S1.appl_id
+            LEFT JOIN cerf_img AS S5 ON S5.cerf_tag = S1.cerf_tag
+        </createView>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="20230321005958-1" author="weichieh09">
+        <createView
+            replaceIfExists="true"
+            viewName="cerf_2_prod_view">
+            SELECT
+            ROW_NUMBER() OVER (ORDER BY S1.cerf_no) AS id,
+            S1.cerf_no,
+            S1.cerf_ver,
+            S1.prod_id,
+            S2.prod_nm_ch
+            FROM
+            prod_2_cerf AS S1
+            LEFT JOIN prod AS S2 ON S2.prod_id = S1.prod_id
+        </createView>
+    </changeSet>
+</databaseChangeLog>

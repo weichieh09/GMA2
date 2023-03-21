@@ -28,10 +28,14 @@
     <include file="config/liquibase/changelog/20230316130721_added_entity_StsDesc.xml" relativeToChangelogFile="false"/>
 <!--    <include file="config/liquibase/changelog/20230319155112_added_entity_CerfSearchView.xml" relativeToChangelogFile="false"/>-->
     <include file="config/liquibase/changelog/20230319155112_added_view_CerfSearchView.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20230321005957_added_entity_Cerf2MnfctrView.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20230321005958_added_entity_Cerf2ProdView.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20230321005959_added_entity_Cerf2StdView.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20230321010000_added_entity_CerfView.xml" relativeToChangelogFile="false"/>
+<!--    <include file="config/liquibase/changelog/20230321005957_added_entity_Cerf2MnfctrView.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/changelog/20230321005957_added_view_Cerf2MnfctrView.xml" relativeToChangelogFile="false"/>
+<!--    <include file="config/liquibase/changelog/20230321005958_added_entity_Cerf2ProdView.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/changelog/20230321005958_added_view_Cerf2ProdView.xml" relativeToChangelogFile="false"/>
+<!--    <include file="config/liquibase/changelog/20230321005959_added_entity_Cerf2StdView.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/changelog/20230321005959_added_view_Cerf2StdView.xml" relativeToChangelogFile="false"/>
+<!--    <include file="config/liquibase/changelog/20230321010000_added_entity_CerfView.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/changelog/20230321010000_added_view_CerfView.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
