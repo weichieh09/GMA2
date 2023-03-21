@@ -68,7 +68,7 @@
               </div>
 
               <div class="col-12">
-                <label for="email" class="form-label">證書檔案</span></label>
+                <label for="email" class="form-label"><span>證書檔案</span></label>
                 <input type="file" class="form-control" />
               </div>
             </div>
@@ -108,8 +108,8 @@
                 <div class="invalid-feedback">Security code required</div>
               </div> -->
             </div>
-            <button class="btn btn-info" @click="previousState"><b-icon icon="arrow-left"></b-icon> <span>返回</span></button>
           </form>
+          <button class="btn btn-info" @click="previousState"><b-icon icon="arrow-left"></b-icon> <span>返回</span></button>
         </div>
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
