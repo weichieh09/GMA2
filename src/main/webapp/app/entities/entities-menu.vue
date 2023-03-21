@@ -64,6 +64,22 @@
       <font-awesome-icon icon="asterisk" />
       <span v-text="$t('global.menu.entities.cerfSearchView')">Cerf Search View</span>
     </b-dropdown-item>
+    <b-dropdown-item to="/cerf-2-mnfctr-view">
+      <font-awesome-icon icon="asterisk" />
+      <span v-text="$t('global.menu.entities.cerf2MnfctrView')">Cerf 2 Mnfctr View</span>
+    </b-dropdown-item>
+    <b-dropdown-item to="/cerf-2-prod-view">
+      <font-awesome-icon icon="asterisk" />
+      <span v-text="$t('global.menu.entities.cerf2ProdView')">Cerf 2 Prod View</span>
+    </b-dropdown-item>
+    <b-dropdown-item to="/cerf-2-std-view">
+      <font-awesome-icon icon="asterisk" />
+      <span v-text="$t('global.menu.entities.cerf2StdView')">Cerf 2 Std View</span>
+    </b-dropdown-item>
+    <b-dropdown-item to="/cerf-view">
+      <font-awesome-icon icon="asterisk" />
+      <span v-text="$t('global.menu.entities.cerfView')">Cerf View</span>
+    </b-dropdown-item>
     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
   </div>
 </template>

@@ -1,0 +1,19 @@
+{
+  "gma2App": {
+    "cerf2ProdView": {
+      "home": {
+        "title": "Cerf 2 Prod Views",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Cerf 2 Prod Views found"
+      },
+      "detail": {
+        "title": "Cerf 2 Prod View"
+      },
+      "id": "ID",
+      "cerfNo": "Cerf No",
+      "cerfVer": "Cerf Ver",
+      "prodId": "Prod Id",
+      "prodNmCh": "Prod Nm Ch"
+    }
+  }
+}

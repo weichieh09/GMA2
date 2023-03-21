@@ -1,0 +1,42 @@
+{
+  "applications": "*",
+  "changelogDate": "20230321010000",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf_view",
+  "fields": [
+    {
+      "fieldName": "cerfNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "feeDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "feeDesc",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "fee",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "msg01",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "CerfView",
+  "pagination": "pagination",
+  "readOnly": true,
+  "relationships": [],
+  "service": "serviceClass"
+}

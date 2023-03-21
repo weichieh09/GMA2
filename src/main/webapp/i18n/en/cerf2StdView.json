@@ -1,0 +1,19 @@
+{
+  "gma2App": {
+    "cerf2StdView": {
+      "home": {
+        "title": "Cerf 2 Std Views",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Cerf 2 Std Views found"
+      },
+      "detail": {
+        "title": "Cerf 2 Std View"
+      },
+      "id": "ID",
+      "cerfNo": "Cerf No",
+      "cerfVer": "Cerf Ver",
+      "stdNo": "Std No",
+      "stdVer": "Std Ver"
+    }
+  }
+}

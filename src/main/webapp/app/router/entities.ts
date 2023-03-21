@@ -97,6 +97,22 @@ const StsDescDetails = () => import('@/entities/sts-desc/sts-desc-details.vue');
 const CerfSearchView = () => import('@/entities/cerf-search-view/cerf-search-view.vue');
 // prettier-ignore
 const CerfSearchViewDetails = () => import('@/entities/cerf-search-view/cerf-search-view-details.vue');
+// prettier-ignore
+const Cerf2MnfctrView = () => import('@/entities/cerf-2-mnfctr-view/cerf-2-mnfctr-view.vue');
+// prettier-ignore
+const Cerf2MnfctrViewDetails = () => import('@/entities/cerf-2-mnfctr-view/cerf-2-mnfctr-view-details.vue');
+// prettier-ignore
+const Cerf2ProdView = () => import('@/entities/cerf-2-prod-view/cerf-2-prod-view.vue');
+// prettier-ignore
+const Cerf2ProdViewDetails = () => import('@/entities/cerf-2-prod-view/cerf-2-prod-view-details.vue');
+// prettier-ignore
+const Cerf2StdView = () => import('@/entities/cerf-2-std-view/cerf-2-std-view.vue');
+// prettier-ignore
+const Cerf2StdViewDetails = () => import('@/entities/cerf-2-std-view/cerf-2-std-view-details.vue');
+// prettier-ignore
+const CerfView = () => import('@/entities/cerf-view/cerf-view.vue');
+// prettier-ignore
+const CerfViewDetails = () => import('@/entities/cerf-view/cerf-view-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default {
@@ -485,6 +501,66 @@ export default {
       path: '/cerf-search-view/:cerfSearchViewId/view',
       name: 'CerfSearchViewView',
       component: CerfSearchViewDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-search-view',
+      name: 'CerfSearchView',
+      component: CerfSearchView,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-search-view/:cerfSearchViewId/view',
+      name: 'CerfSearchViewView',
+      component: CerfSearchViewDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-2-mnfctr-view',
+      name: 'Cerf2MnfctrView',
+      component: Cerf2MnfctrView,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-2-mnfctr-view/:cerf2MnfctrViewId/view',
+      name: 'Cerf2MnfctrViewView',
+      component: Cerf2MnfctrViewDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-2-prod-view',
+      name: 'Cerf2ProdView',
+      component: Cerf2ProdView,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-2-prod-view/:cerf2ProdViewId/view',
+      name: 'Cerf2ProdViewView',
+      component: Cerf2ProdViewDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-2-std-view',
+      name: 'Cerf2StdView',
+      component: Cerf2StdView,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-2-std-view/:cerf2StdViewId/view',
+      name: 'Cerf2StdViewView',
+      component: Cerf2StdViewDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-view',
+      name: 'CerfView',
+      component: CerfView,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/cerf-view/:cerfViewId/view',
+      name: 'CerfViewView',
+      component: CerfViewDetails,
       meta: { authorities: [Authority.USER] },
     },
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

@@ -28,6 +28,10 @@
         "stdFee": "Std Fee",
         "stsDesc": "Sts Desc",
         "cerfSearchView": "Cerf Search View",
+        "cerf2MnfctrView": "Cerf 2 Mnfctr View",
+        "cerf2ProdView": "Cerf 2 Prod View",
+        "cerf2StdView": "Cerf 2 Std View",
+        "cerfView": "Cerf View",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

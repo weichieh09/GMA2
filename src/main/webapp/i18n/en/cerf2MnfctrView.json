@@ -1,0 +1,27 @@
+{
+  "gma2App": {
+    "cerf2MnfctrView": {
+      "home": {
+        "title": "Cerf 2 Mnfctr Views",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Cerf 2 Mnfctr Views found"
+      },
+      "detail": {
+        "title": "Cerf 2 Mnfctr View"
+      },
+      "id": "ID",
+      "cerfNo": "Cerf No",
+      "cerfVer": "Cerf Ver",
+      "area": "Area",
+      "sts": "Sts",
+      "issuDt": "Issu Dt",
+      "remainDays": "Remain Days",
+      "applId": "Appl Id",
+      "mnfctrNmCh": "Mnfctr Nm Ch",
+      "upldFile": "Upld File",
+      "imageFile": "Image File",
+      "lstMtnUsr": "Lst Mtn Usr",
+      "lstMtnDt": "Lst Mtn Dt"
+    }
+  }
+}

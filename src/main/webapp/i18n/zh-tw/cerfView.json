@@ -1,0 +1,21 @@
+{
+  "gma2App": {
+    "cerfView": {
+      "home": {
+        "title": "Cerf Views",
+        "refreshListLabel": "Refresh list",
+        "notFound": "No Cerf Views found"
+      },
+      "detail": {
+        "title": "Cerf View"
+      },
+      "id": "ID",
+      "cerfNo": "Cerf No",
+      "cerfVer": "Cerf Ver",
+      "feeDt": "Fee Dt",
+      "feeDesc": "Fee Desc",
+      "fee": "Fee",
+      "msg01": "Msg 01"
+    }
+  }
+}

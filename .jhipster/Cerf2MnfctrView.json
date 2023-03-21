@@ -1,0 +1,66 @@
+{
+  "applications": "*",
+  "changelogDate": "20230321005957",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf_2_mnfctr_view",
+  "fields": [
+    {
+      "fieldName": "cerfNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "area",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sts",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "issuDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "remainDays",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "applId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mnfctrNmCh",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "upldFile",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "imageFile",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "lstMtnUsr",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lstMtnDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Cerf2MnfctrView",
+  "pagination": "pagination",
+  "readOnly": true,
+  "relationships": [],
+  "service": "serviceClass"
+}

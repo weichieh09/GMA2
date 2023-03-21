@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20230321005959",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf_2_std_view",
+  "fields": [
+    {
+      "fieldName": "cerfNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stdVer",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Cerf2StdView",
+  "pagination": "pagination",
+  "readOnly": true,
+  "relationships": [],
+  "service": "serviceClass"
+}

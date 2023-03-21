@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20230321005958",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf_2_prod_view",
+  "fields": [
+    {
+      "fieldName": "cerfNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prodId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prodNmCh",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Cerf2ProdView",
+  "pagination": "pagination",
+  "readOnly": true,
+  "relationships": [],
+  "service": "serviceClass"
+}
