@@ -35,7 +35,7 @@
             LEFT JOIN area_desc AS S2 ON S2.area_cd = S1.area_cd
             LEFT JOIN sts_desc AS S3 ON S3.sts_cd = S1.sts_cd
             LEFT JOIN mnfctr AS S4 ON S4.uni_no = S1.appl_id
-            LEFT JOIN cerf_img AS S5 ON S5.cerf_tag = S1.cerf_tag
+            LEFT JOIN cerf_img AS S5 ON S5.cerf_tag = S1.area_cd
         </createView>
     </changeSet>
 </databaseChangeLog>
