@@ -14,7 +14,10 @@
             ROW_NUMBER() OVER (ORDER BY S1.cerf_no) AS id,
             S1.cerf_no,
             S1.cerf_ver,
-            fee = CONVERT(VARCHAR, S1.fee_dt) + '  ' + fee_desc + '  $' + CONVERT(VARCHAR, fee)
+            S1.fee_dt,
+            fee_desc,
+            fee,
+            CONVERT(VARCHAR, S1.fee_dt) + '  ' + fee_desc + '  $' + CONVERT(VARCHAR, fee) AS msg_01
             FROM
             cerf_fee AS S1
             LEFT JOIN fee_desc AS S2 ON S2.fee_cd = S1.fee_cd
