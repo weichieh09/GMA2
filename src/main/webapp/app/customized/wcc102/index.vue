@@ -87,7 +87,7 @@
                 <td>{{ csv.stsDesc }}</td>
                 <td>{{ csv.mnfctrNmCh }}</td>
                 <td class="text-right">
-                  <router-link :to="{ name: 'CerfView', params: { cerfId: csv.id } }">
+                  <router-link :to="{ name: 'Wcc111', params: { cerfNo: csv.cerfNo, cerfVer: csv.cerfVer } }">
                     <b-button variant="success" size="sm"><b-icon icon="eye"></b-icon> <span>詳情Q</span></b-button>
                   </router-link>
                 </td>
