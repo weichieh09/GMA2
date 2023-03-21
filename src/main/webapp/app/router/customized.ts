@@ -16,7 +16,7 @@ export default [
     component: Wcc102,
   },
   {
-    path: 'wcc111/:cerfNo/:cerfVer/view',
+    path: '/wcc111/:cerfNo/:cerfVer/view',
     name: 'Wcc111',
     component: Wcc111,
   },
