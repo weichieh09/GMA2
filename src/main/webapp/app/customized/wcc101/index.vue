@@ -2,7 +2,7 @@
   <b-container fluid>
     <b-row>
       <h2 id="page-heading">
-        <span v-text="$t('gma2App.wcc102.home.title')">wcc102</span>
+        <span v-text="$t('gma2App.wcc101.home.title')">wcc101</span>
       </h2> </b-row
     ><br />
 
@@ -11,12 +11,12 @@
         <b-form>
           <b-row>
             <b-col cols="12">
-              <b-form-group id="input-group-3" :label="$t('gma2App.wcc102.form1.applId')" label-for="input-3">
+              <b-form-group id="input-group-3" :label="$t('gma2App.wcc101.form1.applId')" label-for="input-3">
                 <b-form-input
                   id="input-3"
                   v-model="form1.applId"
                   type="text"
-                  :placeholder="$t('gma2App.wcc102.form1.applId')"
+                  :placeholder="$t('gma2App.wcc101.form1.applId')"
                 ></b-form-input>
               </b-form-group>
             </b-col>
@@ -26,10 +26,10 @@
             <b-col cols="12" class="d-flex justify-content-end">
               <b-button-group>
                 <b-button @click="onSubmit" variant="primary"
-                  ><b-icon icon="search"></b-icon> <span v-text="$t('gma2App.wcc102.home.submitLabel')">search</span></b-button
+                  ><b-icon icon="search"></b-icon> <span v-text="$t('gma2App.wcc101.home.submitLabel')">search</span></b-button
                 >
                 <b-button @click="onReset" variant="outline-secondary"
-                  ><b-icon icon="eraser"></b-icon> <span v-text="$t('gma2App.wcc102.home.resetLabel')">eraser</span></b-button
+                  ><b-icon icon="eraser"></b-icon> <span v-text="$t('gma2App.wcc101.home.resetLabel')">eraser</span></b-button
                 >
               </b-button-group>
             </b-col>
@@ -41,10 +41,10 @@
     <b-row>
       <b-col cols="12">
         <div class="alert alert-warning" v-if="isFetch && csvList && csvList.length === 0">
-          <span v-text="$t('gma2App.wcc102.home.notFound')">No data found</span>
+          <span v-text="$t('gma2App.wcc101.home.notFound')">No data found</span>
         </div>
         <div class="alert alert-warning" v-if="isNull">
-          <span v-text="$t('gma2App.wcc102.home.cantNull')">Can't Null</span>
+          <span v-text="$t('gma2App.wcc101.home.cantNull')">Can't Null</span>
         </div>
       </b-col>
       <b-col cols="8">
@@ -58,22 +58,22 @@
             <thead>
               <tr>
                 <th scope="row">
-                  <span v-text="$t('gma2App.wcc102.table1.areaCd')">Area Cd</span>
+                  <span v-text="$t('gma2App.wcc101.table1.areaCd')">Area Cd</span>
                 </th>
                 <th scope="row">
-                  <span v-text="$t('gma2App.wcc102.table1.cerfNo')">Cerf No</span>
+                  <span v-text="$t('gma2App.wcc101.table1.cerfNo')">Cerf No</span>
                 </th>
                 <th scope="row">
-                  <span v-text="$t('gma2App.wcc102.table1.cerfVer')">Cerf Ver</span>
+                  <span v-text="$t('gma2App.wcc101.table1.cerfVer')">Cerf Ver</span>
                 </th>
                 <th scope="row">
-                  <span v-text="$t('gma2App.wcc102.table1.cerfFee')">Cerf Fee</span>
+                  <span v-text="$t('gma2App.wcc101.table1.cerfFee')">Cerf Fee</span>
                 </th>
                 <th scope="row">
-                  <span v-text="$t('gma2App.wcc102.table1.stsCd')">Sts Cd</span>
+                  <span v-text="$t('gma2App.wcc101.table1.stsCd')">Sts Cd</span>
                 </th>
                 <th scope="row">
-                  <span v-text="$t('gma2App.wcc102.table1.applId')">Appl Id</span>
+                  <span v-text="$t('gma2App.wcc101.table1.applId')">Appl Id</span>
                 </th>
                 <th scope="row"></th>
               </tr>
