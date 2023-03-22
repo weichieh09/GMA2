@@ -99,9 +99,9 @@ public class Wcc100Service {
 
     public List<CerfSearchViewDTO> findAllCsv(String applId, String mnfctrId, String fctyId) {
         CerfSearchViewCriteria criteria = new CerfSearchViewCriteria();
-        criteria.setApplId(StringFilterUtils.toContainStringFilter(applId));
-        criteria.setMnfctrId(StringFilterUtils.toContainStringFilter(mnfctrId));
-        criteria.setFctyId(StringFilterUtils.toContainStringFilter(fctyId));
+        criteria.setApplId(StringFilterUtils.toEqualStringFilter(applId));
+        criteria.setMnfctrId(StringFilterUtils.toEqualStringFilter(mnfctrId));
+        criteria.setFctyId(StringFilterUtils.toEqualStringFilter(fctyId));
 
         List<CerfSearchViewDTO> byCriteria = cerfSearchViewQueryService.findByCriteria(criteria);
 
