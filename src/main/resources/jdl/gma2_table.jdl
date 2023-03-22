@@ -1,0 +1,69 @@
+entity Prod {
+	prodNo String,
+	name String,
+    hsCode String,
+    cccCode String,
+}
+
+entity Country {
+	name String,
+}
+
+entity Cerf {
+	cerfNo String,
+	cerfVer String,
+    status String,
+    pdf Blob,
+    applId String,
+    fctyId String,
+    mnfctrId String,
+    issuDt LocalDate,
+    expDt LocalDate,
+}
+
+entity Std {
+	stdNo String,
+	stdVer String,
+    name String,
+    status String,
+    fee Long,
+    issuDt LocalDate,
+    expDt LocalDate,
+}
+
+entity Company {
+	name String,
+	tel String,
+    addr String,
+    email String,
+}
+
+entity Mark {
+	name String,
+    img ImageBlob,
+}
+
+relationship ManyToMany {
+	Prod to Country
+}
+
+relationship OneToMany {
+	Country to Cerf
+}
+
+relationship ManyToMany {
+	Cerf to Std
+}
+
+relationship OneToMany {
+	Country to Mark
+}
+
+//entity XXX {
+//    XXX String,
+//}
+
+filter *
+dto * with mapstruct
+paginate * with pagination
+service * with serviceClass
