@@ -50,7 +50,7 @@
       <b-col cols="8">
         <div v-if="csvList && csvList.length > 0">
           <span>
-            <h3>生產廠Q: {{ name }}</h3>
+            <h3>生產廠Q: {{ searchName }}</h3>
           </span>
         </div>
         <div class="table-responsive" v-if="csvList && csvList.length > 0">

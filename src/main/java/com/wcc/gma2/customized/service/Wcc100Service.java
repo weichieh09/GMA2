@@ -4,6 +4,7 @@ import com.wcc.gma2.customized.dto.EChartSonDTO;
 import com.wcc.gma2.customized.dto.WccCerfSearchViewDTO;
 import com.wcc.gma2.customized.utils.StringFilterUtils;
 import com.wcc.gma2.service.CerfSearchViewQueryService;
+import com.wcc.gma2.service.MnfctrQueryService;
 import com.wcc.gma2.service.criteria.CerfSearchViewCriteria;
 import com.wcc.gma2.service.dto.CerfSearchViewDTO;
 import java.util.*;
@@ -24,6 +25,9 @@ public class Wcc100Service {
 
     @Autowired
     private CerfSearchViewQueryService cerfSearchViewQueryService;
+
+    @Autowired
+    private MnfctrQueryService mnfctrQueryService;
 
     public List<EChartSonDTO> getEChart1(List<CerfSearchViewDTO> list) {
         List<EChartSonDTO> result = new ArrayList<>();
@@ -129,5 +133,29 @@ public class Wcc100Service {
 
     public Page<CerfSearchViewDTO> pageableCsv(List<CerfSearchViewDTO> distinctCsv, Pageable pageable) {
         return PageUtil.createPageFromList(distinctCsv, pageable);
+    }
+
+    public String findSearchName(CerfSearchViewCriteria cerfSearchViewCriteria) {
+        //        StringFilter applIdSf = cerfSearchViewCriteria.getApplId();
+        //        if(applIdSf != null){
+        //            MnfctrCriteria criteria = new MnfctrCriteria();
+        //            criteria.setUniNo(applIdSf);
+        //            List<MnfctrDTO> byCriteria = mnfctrQueryService.findByCriteria(criteria);
+        //            if(byCriteria.size() > 0)
+        //                return byCriteria.get(0).getMnfctrNmCh();
+        //        }
+        //
+        //        StringFilter fctyIdSf = cerfSearchViewCriteria.getFctyId();
+        //        if(fctyIdSf != null){
+        //            MnfctrCriteria criteria = new MnfctrCriteria();
+        //            criteria.setUniNo(applIdSf);
+        //            List<MnfctrDTO> byCriteria = mnfctrQueryService.findByCriteria(criteria);
+        //            if(byCriteria.size() > 0)
+        //                return byCriteria.get(0).getMnfctrNmCh();
+        //        }
+        //
+        //        StringFilter mnfctrIdSf = cerfSearchViewCriteria.getMnfctrId();
+
+        return "[toDo]";
     }
 }

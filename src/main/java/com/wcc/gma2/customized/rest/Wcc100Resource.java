@@ -70,7 +70,7 @@ public class Wcc100Resource {
     /*
      * 列表用
      *
-     * http://localhost:8082/test/wcc102?applId.contains=22099738&page=0&size=5
+     * http://localhost:8082/test/wcc102?applId.equals=22099738&page=0&size=5
      *
      * */
     @GetMapping("/wcc102i")
@@ -91,7 +91,7 @@ public class Wcc100Resource {
         // 分頁相關資訊放入 httpHeaders
         httpHeaders = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
 
-        resData.setName("[toDo]");
+        resData.setSearchName(wcc100Service.findSearchName(criteria));
         resData.setCsvList(page.getContent());
 
         responseDTO.setContent(resData);

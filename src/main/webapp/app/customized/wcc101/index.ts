@@ -28,7 +28,7 @@ export default {
       form1: {
         applId: '',
       },
-      name: null,
+      searchName: null,
       csvList: null,
     };
   },
@@ -93,7 +93,7 @@ export default {
         .get('api/wcc102i?' + 'applId.equals=' + this.form1.applId + `&${buildPaginationQueryOpts(paginationQuery)}`)
         .then(res => {
           this.csvList = res.data.content.csvList;
-          this.name = res.data.content.name;
+          this.searchName = res.data.content.searchName;
           this.totalItems = Number(res.headers['x-total-count']);
           this.queryCount = this.totalItems;
         })

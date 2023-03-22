@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Wcc102Res {
 
-    private String name;
+    private String searchName;
 
     private List<CerfSearchViewDTO> csvList;
 }

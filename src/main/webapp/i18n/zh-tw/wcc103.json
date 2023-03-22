@@ -2,7 +2,7 @@
   "gma2App": {
     "wcc103": {
       "home": {
-        "title": "產品",
+        "title": "生產廠",
         "notFound": "沒有資料",
         "cantNull": "請輸入製產品ID",
         "submitLabel": "搜尋",
@@ -11,7 +11,7 @@
       "form1": {
         "applId": "申請人ID",
         "mnfctrId": "製造商ID",
-        "prodId": "產品ID"
+        "fctyId": "生產廠ID"
       },
       "table1": {
         "cerfNo": "證書",
