@@ -27,7 +27,9 @@ public class Wcc110Resource {
     private Wcc110Service wcc110Service;
 
     /*
-     * 000
+     * 證書詳情用
+     *
+     * http://localhost:8082/api/wcc111i/CI435060200161/00
      *
      * */
     @GetMapping("/wcc111i/{cerfNo}/{cerfVer}")
