@@ -1,10 +1,10 @@
 {
   "gma2App": {
-    "wcc101": {
+    "wcc103": {
       "home": {
-        "title": "申請人",
+        "title": "產品",
         "notFound": "沒有資料",
-        "cantNull": "請輸入申請人ID",
+        "cantNull": "請輸入製產品ID",
         "submitLabel": "搜尋",
         "resetLabel": "清空"
       },

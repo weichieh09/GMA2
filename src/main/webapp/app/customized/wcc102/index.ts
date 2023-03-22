@@ -25,7 +25,7 @@ export default {
       reverse: false,
       isFetch: false,
       isNull: false,
-      form: {
+      form1: {
         mnfctrId: '',
       },
       name: null,
@@ -33,20 +33,20 @@ export default {
     };
   },
   beforeRouteLeave(to, from, next) {
-    sessionStorage.setItem('mnfctrId', this.form.mnfctrId);
+    sessionStorage.setItem('mnfctrId', this.form1.mnfctrId);
     next();
   },
   mounted() {
     let mnfctrId = sessionStorage.getItem('mnfctrId');
     if (mnfctrId) {
-      this.form.mnfctrId = mnfctrId;
+      this.form1.mnfctrId = mnfctrId;
       this.onSubmit();
     }
   },
   methods: {
     onSubmit() {
       this.isFetch = true;
-      if (this.form.mnfctrId != '') {
+      if (this.form1.mnfctrId != '') {
         this.isNull = false;
         this.postApiWcc101();
         this.getApiWcc102();
@@ -56,14 +56,14 @@ export default {
     },
     onReset() {
       sessionStorage.removeItem('mnfctrId');
-      this.form.mnfctrId = '';
+      this.form1.mnfctrId = '';
       this.isFetch = true;
       this.eChartShow = false;
       this.csvList = null;
     },
     postApiWcc101() {
       axios
-        .post('api/wcc101i', this.form)
+        .post('api/wcc101i', this.form1)
         .then(res => {
           if (res.data.code == 0 && res.data.content.echart1.length > 0) {
             this.eChartShow = true;
@@ -90,7 +90,7 @@ export default {
         sort: this.sort(),
       };
       axios
-        .get('api/wcc102i?' + 'mnfctrId.equals=' + this.form.mnfctrId + `&${buildPaginationQueryOpts(paginationQuery)}`)
+        .get('api/wcc102i?' + 'mnfctrId.equals=' + this.form1.mnfctrId + `&${buildPaginationQueryOpts(paginationQuery)}`)
         .then(res => {
           this.csvList = res.data.content.csvList;
           this.name = res.data.content.name;

@@ -9,7 +9,9 @@
         "resetLabel": "清空"
       },
       "form1": {
-        "mnfctrId": "製造商ID"
+        "applId": "申請人ID",
+        "mnfctrId": "製造商ID",
+        "prodId": "產品ID"
       },
       "table1": {
         "cerfNo": "證書",

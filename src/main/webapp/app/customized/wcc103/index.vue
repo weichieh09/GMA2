@@ -11,12 +11,12 @@
         <b-form>
           <b-row>
             <b-col cols="12">
-              <b-form-group id="input-group-3" :label="$t('gma2App.wcc102.form1.applId')" label-for="input-3">
+              <b-form-group id="input-group-3" :label="$t('gma2App.wcc102.form1.prodId')" label-for="input-3">
                 <b-form-input
                   id="input-3"
-                  v-model="form1.applId"
+                  v-model="form1.prodId"
                   type="text"
-                  :placeholder="$t('gma2App.wcc102.form1.applId')"
+                  :placeholder="$t('gma2App.wcc102.form1.prodId')"
                 ></b-form-input>
               </b-form-group>
             </b-col>

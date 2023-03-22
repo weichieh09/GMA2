@@ -14,7 +14,7 @@
               <b-form-group id="input-group-3" :label="$t('gma2App.wcc102.form1.mnfctrId')" label-for="input-3">
                 <b-form-input
                   id="input-3"
-                  v-model="form.mnfctrId"
+                  v-model="form1.mnfctrId"
                   type="text"
                   :placeholder="$t('gma2App.wcc102.form1.mnfctrId')"
                 ></b-form-input>

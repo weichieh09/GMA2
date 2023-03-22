@@ -91,7 +91,7 @@ public class Wcc100Resource {
         // 分頁相關資訊放入 httpHeaders
         httpHeaders = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
 
-        resData.setName("WccTest");
+        resData.setName("[toDo]");
         resData.setCsvList(page.getContent());
 
         responseDTO.setContent(resData);
