@@ -6,7 +6,9 @@ import com.wcc.gma2.customized.utils.StringFilterUtils;
 import com.wcc.gma2.service.CerfSearchViewQueryService;
 import com.wcc.gma2.service.MnfctrQueryService;
 import com.wcc.gma2.service.criteria.CerfSearchViewCriteria;
+import com.wcc.gma2.service.criteria.MnfctrCriteria;
 import com.wcc.gma2.service.dto.CerfSearchViewDTO;
+import com.wcc.gma2.service.dto.MnfctrDTO;
 import java.util.*;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import tech.jhipster.service.filter.StringFilter;
 import tech.jhipster.web.util.PageUtil;
 
 @Slf4j
@@ -136,26 +139,22 @@ public class Wcc100Service {
     }
 
     public String findSearchName(CerfSearchViewCriteria cerfSearchViewCriteria) {
-        //        StringFilter applIdSf = cerfSearchViewCriteria.getApplId();
-        //        if(applIdSf != null){
-        //            MnfctrCriteria criteria = new MnfctrCriteria();
-        //            criteria.setUniNo(applIdSf);
-        //            List<MnfctrDTO> byCriteria = mnfctrQueryService.findByCriteria(criteria);
-        //            if(byCriteria.size() > 0)
-        //                return byCriteria.get(0).getMnfctrNmCh();
-        //        }
-        //
-        //        StringFilter fctyIdSf = cerfSearchViewCriteria.getFctyId();
-        //        if(fctyIdSf != null){
-        //            MnfctrCriteria criteria = new MnfctrCriteria();
-        //            criteria.setUniNo(applIdSf);
-        //            List<MnfctrDTO> byCriteria = mnfctrQueryService.findByCriteria(criteria);
-        //            if(byCriteria.size() > 0)
-        //                return byCriteria.get(0).getMnfctrNmCh();
-        //        }
-        //
-        //        StringFilter mnfctrIdSf = cerfSearchViewCriteria.getMnfctrId();
+        StringFilter applIdSf = cerfSearchViewCriteria.getApplId();
+        StringFilter mnfctrIdSf = cerfSearchViewCriteria.getMnfctrId();
+        StringFilter fctyIdSf = cerfSearchViewCriteria.getFctyId();
 
-        return "[toDo]";
+        MnfctrCriteria criteria = new MnfctrCriteria();
+
+        if (applIdSf != null) {
+            criteria.setUniNo(applIdSf);
+        } else if (mnfctrIdSf != null) {
+            criteria.setUniNo(mnfctrIdSf);
+        } else if (fctyIdSf != null) {
+            criteria.setUniNo(fctyIdSf);
+        }
+
+        List<MnfctrDTO> byCriteria = mnfctrQueryService.findByCriteria(criteria);
+        if (byCriteria.size() == 1) return byCriteria.get(0).getMnfctrNmCh();
+        return "未知";
     }
 }
