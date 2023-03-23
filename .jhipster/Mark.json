@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20230323033631",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "mark",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Mark",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "mark",
+      "relationshipName": "country",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "prod",
+      "otherEntityRelationshipName": "mark",
+      "ownerSide": false,
+      "relationshipName": "prod",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

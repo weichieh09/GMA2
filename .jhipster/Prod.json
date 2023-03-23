@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20230323033627",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "prod",
+  "fields": [
+    {
+      "fieldName": "prodNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hsCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cccCode",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Prod",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "prod",
+      "ownerSide": true,
+      "relationshipName": "country",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "std",
+      "otherEntityRelationshipName": "prod",
+      "ownerSide": true,
+      "relationshipName": "std",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "mark",
+      "otherEntityRelationshipName": "prod",
+      "ownerSide": true,
+      "relationshipName": "mark",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "cerf",
+      "otherEntityRelationshipName": "prod",
+      "ownerSide": false,
+      "relationshipName": "cerf",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}
