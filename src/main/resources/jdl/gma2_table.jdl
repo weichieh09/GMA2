@@ -1,3 +1,6 @@
+/* 於 https://www.jhipster.tech/jdl-studio/ 使用 */
+
+/* 產品 */
 entity Prod {
 	prodNo String,
 	name String,
@@ -5,10 +8,12 @@ entity Prod {
     cccCode String,
 }
 
+/* 國家 */
 entity Country {
 	name String,
 }
 
+/* 證書 */
 entity Cerf {
 	cerfNo String,
 	cerfVer String,
@@ -21,6 +26,7 @@ entity Cerf {
     expDt LocalDate,
 }
 
+/* 檢驗標準 */
 entity Std {
 	stdNo String,
 	stdVer String,
@@ -31,6 +37,13 @@ entity Std {
     expDt LocalDate,
 }
 
+/* 標籤圖示 */
+entity Mark {
+	name String,
+    img ImageBlob,
+}
+
+/* 法人 */
 entity Company {
 	name String,
 	tel String,
@@ -38,25 +51,20 @@ entity Company {
     email String,
 }
 
-entity Mark {
-	name String,
-    img ImageBlob,
-}
-
+/* 多對多 */
 relationship ManyToMany {
-	Prod to Country
+	Prod{country} to Country{prod},
+    Prod{std} to Std{prod},
+    Cerf{prod} to Prod{cerf},
+    Cerf{std} to Std{cerf},
+    Country{std} to Std{country},
+	Prod{mark} to Mark{prod},
 }
 
+/* 一對多 */
 relationship OneToMany {
-	Country to Cerf
-}
-
-relationship ManyToMany {
-	Cerf to Std
-}
-
-relationship OneToMany {
-	Country to Mark
+	Country{cerf} to Cerf{country},
+    Country{mark} to Mark{country},
 }
 
 //entity XXX {
