@@ -1,1 +1,2 @@
-id;cerf_no;cerf_ver;status;pdf;pdf_content_type;appl_id;fcty_id;mnfctr_id;issu_dt;exp_dt
+id;cerf_no;cerf_ver;status;pdf;pdf_content_type;appl_id;fcty_id;mnfctr_id;issu_dt;exp_dt;country_id
+1;;;;;;;;;;;
