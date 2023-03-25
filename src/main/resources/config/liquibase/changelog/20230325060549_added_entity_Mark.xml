@@ -10,9 +10,6 @@
         Added the entity Mark.
     -->
     <changeSet id="20230325060549-1" author="jhipster">
-        <!--wccCode-->
-        <createSequence sequenceName="seq_mark" startValue="1050" incrementBy="50"/>
-        <!--wccCode-->
         <createTable tableName="mark">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
