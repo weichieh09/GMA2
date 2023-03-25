@@ -48,26 +48,6 @@ public class CacheConfiguration {
             createCache(cm, com.wcc.gma2.domain.User.class.getName());
             createCache(cm, com.wcc.gma2.domain.Authority.class.getName());
             createCache(cm, com.wcc.gma2.domain.User.class.getName() + ".authorities");
-            createCache(cm, com.wcc.gma2.domain.Prod.class.getName());
-            createCache(cm, com.wcc.gma2.domain.Prod.class.getName() + ".countries");
-            createCache(cm, com.wcc.gma2.domain.Prod.class.getName() + ".stds");
-            createCache(cm, com.wcc.gma2.domain.Prod.class.getName() + ".marks");
-            createCache(cm, com.wcc.gma2.domain.Prod.class.getName() + ".cerfs");
-            createCache(cm, com.wcc.gma2.domain.Country.class.getName());
-            createCache(cm, com.wcc.gma2.domain.Country.class.getName() + ".cerfs");
-            createCache(cm, com.wcc.gma2.domain.Country.class.getName() + ".marks");
-            createCache(cm, com.wcc.gma2.domain.Country.class.getName() + ".stds");
-            createCache(cm, com.wcc.gma2.domain.Country.class.getName() + ".prods");
-            createCache(cm, com.wcc.gma2.domain.Cerf.class.getName());
-            createCache(cm, com.wcc.gma2.domain.Cerf.class.getName() + ".prods");
-            createCache(cm, com.wcc.gma2.domain.Cerf.class.getName() + ".stds");
-            createCache(cm, com.wcc.gma2.domain.Std.class.getName());
-            createCache(cm, com.wcc.gma2.domain.Std.class.getName() + ".prods");
-            createCache(cm, com.wcc.gma2.domain.Std.class.getName() + ".cerfs");
-            createCache(cm, com.wcc.gma2.domain.Std.class.getName() + ".countries");
-            createCache(cm, com.wcc.gma2.domain.Mark.class.getName());
-            createCache(cm, com.wcc.gma2.domain.Mark.class.getName() + ".prods");
-            createCache(cm, com.wcc.gma2.domain.Company.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
