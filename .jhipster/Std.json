@@ -1,0 +1,76 @@
+{
+  "applications": "*",
+  "changelogDate": "20230325071307",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "std",
+  "fields": [
+    {
+      "fieldName": "stdNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "stdVer",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "enName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "chName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "issuDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "expDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Std",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "prod",
+      "otherEntityRelationshipName": "std",
+      "ownerSide": false,
+      "relationshipName": "prod",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "cerf",
+      "otherEntityRelationshipName": "std",
+      "ownerSide": false,
+      "relationshipName": "cerf",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "std",
+      "ownerSide": false,
+      "relationshipName": "country",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

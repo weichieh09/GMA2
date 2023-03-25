@@ -12,6 +12,13 @@
       },
       "entities": {
         "main": "實體",
+        "prod": "Prod",
+        "country": "Country",
+        "cerf": "Cerf",
+        "std": "Std",
+        "mark": "Mark",
+        "company": "Company",
+        "prodFee": "Prod Fee",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

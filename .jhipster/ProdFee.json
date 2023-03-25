@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20230325071310",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "prod_fee",
+  "fields": [
+    {
+      "fieldName": "fee",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "feeType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "ProdFee",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "prod",
+      "otherEntityRelationshipName": "prodFee",
+      "relationshipName": "prod",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

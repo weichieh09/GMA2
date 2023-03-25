@@ -1,0 +1,26 @@
+{
+  "gma2App": {
+    "prodFee": {
+      "home": {
+        "title": "Prod Fees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Prod Fee",
+        "createOrEditLabel": "建立或編輯 Prod Fee",
+        "notFound": "No Prod Fees found"
+      },
+      "created": "新的 Prod Fee 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Prod Fee 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Prod Fee 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Prod Fee {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Prod Fee"
+      },
+      "id": "ID",
+      "fee": "Fee",
+      "feeType": "Fee Type",
+      "prod": "Prod"
+    }
+  }
+}

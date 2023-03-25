@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity ProdFee.
+    -->
+    <changeSet id="20230325071310-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="prod_id"
+                                 baseTableName="prod_fee"
+                                 constraintName="fk_prod_fee__prod_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prod"/>
+    </changeSet>
+</databaseChangeLog>

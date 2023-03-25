@@ -1,0 +1,26 @@
+{
+  "gma2App": {
+    "prodFee": {
+      "home": {
+        "title": "Prod Fees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Prod Fee",
+        "createOrEditLabel": "Create or edit a Prod Fee",
+        "notFound": "No Prod Fees found"
+      },
+      "created": "A new Prod Fee is created with identifier {{ param }}",
+      "updated": "A Prod Fee is updated with identifier {{ param }}",
+      "deleted": "A Prod Fee is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prod Fee {{ id }}?"
+      },
+      "detail": {
+        "title": "Prod Fee"
+      },
+      "id": "ID",
+      "fee": "Fee",
+      "feeType": "Fee Type",
+      "prod": "Prod"
+    }
+  }
+}
