@@ -1,0 +1,80 @@
+{
+  "applications": "*",
+  "changelogDate": "20230325060547",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf",
+  "fields": [
+    {
+      "fieldName": "cerfNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "cerfVer",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "pdf",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "any"
+    },
+    {
+      "fieldName": "applId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "fctyId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "mnfctrId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "issuDt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "expDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Cerf",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "prod",
+      "otherEntityRelationshipName": "cerf",
+      "ownerSide": true,
+      "relationshipName": "prod",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "std",
+      "otherEntityRelationshipName": "cerf",
+      "ownerSide": true,
+      "relationshipName": "std",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "cerf",
+      "relationshipName": "country",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

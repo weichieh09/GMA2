@@ -11,7 +11,17 @@
     <property name="datetimeType" value="datetime" dbms="mssql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230325060545_added_entity_Prod.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230325060546_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230325060547_added_entity_Cerf.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230325060548_added_entity_Std.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230325060549_added_entity_Mark.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230325060550_added_entity_Company.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20230325060545_added_entity_constraints_Prod.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230325060546_added_entity_constraints_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230325060547_added_entity_constraints_Cerf.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20230325060549_added_entity_constraints_Mark.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>
