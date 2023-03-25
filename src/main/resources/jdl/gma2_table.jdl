@@ -78,7 +78,7 @@ relationship ManyToMany {
 relationship OneToMany {
 	Country{cerf} to Cerf{country},
     Country{mark} to Mark{country},
-    Prod{fee} to Fee{prod},
+    Prod{prodFee} to ProdFee{prod},
 }
 
 //entity XXX {
