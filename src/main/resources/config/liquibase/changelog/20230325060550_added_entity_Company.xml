@@ -10,6 +10,9 @@
         Added the entity Company.
     -->
     <changeSet id="20230325060550-1" author="jhipster">
+        <!--wccCode-->
+        <createSequence sequenceName="seq_company" startValue="1050" incrementBy="50"/>
+        <!--wccCode-->
         <createTable tableName="company">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>

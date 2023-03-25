@@ -10,6 +10,9 @@
         Added the entity Country.
     -->
     <changeSet id="20230325060546-1" author="jhipster">
+        <!--wccCode-->
+        <createSequence sequenceName="seq_country" startValue="1050" incrementBy="50"/>
+        <!--wccCode-->
         <createTable tableName="country">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>

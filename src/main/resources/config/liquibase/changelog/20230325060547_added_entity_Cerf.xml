@@ -10,6 +10,9 @@
         Added the entity Cerf.
     -->
     <changeSet id="20230325060547-1" author="jhipster">
+        <!--wccCode-->
+        <createSequence sequenceName="seq_cerf" startValue="1050" incrementBy="50"/>
+        <!--wccCode-->
         <createTable tableName="cerf">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
