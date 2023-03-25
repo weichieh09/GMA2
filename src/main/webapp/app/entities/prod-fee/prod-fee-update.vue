@@ -48,6 +48,34 @@
             </div>
           </div>
           <div class="form-group">
+            <label class="form-control-label" v-text="$t('gma2App.prodFee.feeDt')" for="prod-fee-feeDt">Fee Dt</label>
+            <b-input-group class="mb-3">
+              <b-input-group-prepend>
+                <b-form-datepicker
+                  aria-controls="prod-fee-feeDt"
+                  v-model="$v.prodFee.feeDt.$model"
+                  name="feeDt"
+                  class="form-control"
+                  :locale="currentLanguage"
+                  button-only
+                  today-button
+                  reset-button
+                  close-button
+                >
+                </b-form-datepicker>
+              </b-input-group-prepend>
+              <b-form-input
+                id="prod-fee-feeDt"
+                data-cy="feeDt"
+                type="text"
+                class="form-control"
+                name="feeDt"
+                :class="{ valid: !$v.prodFee.feeDt.$invalid, invalid: $v.prodFee.feeDt.$invalid }"
+                v-model="$v.prodFee.feeDt.$model"
+              />
+            </b-input-group>
+          </div>
+          <div class="form-group">
             <label class="form-control-label" v-text="$t('gma2App.prodFee.prod')" for="prod-fee-prod">Prod</label>
             <select class="form-control" id="prod-fee-prod" data-cy="prod" name="prod" v-model="prodFee.prod">
               <option v-bind:value="null"></option>

@@ -62,6 +62,7 @@ entity Company {
 entity ProdFee {
 	fee Long,
     feeType String maxlength(10),
+    feeDt LocalDate,
 }
 
 /* 多對多 */

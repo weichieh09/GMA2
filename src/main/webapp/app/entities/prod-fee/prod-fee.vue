@@ -40,6 +40,10 @@
               <span v-text="$t('gma2App.prodFee.feeType')">Fee Type</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'feeType'"></jhi-sort-indicator>
             </th>
+            <th scope="row" v-on:click="changeOrder('feeDt')">
+              <span v-text="$t('gma2App.prodFee.feeDt')">Fee Dt</span>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'feeDt'"></jhi-sort-indicator>
+            </th>
             <th scope="row" v-on:click="changeOrder('prod.id')">
               <span v-text="$t('gma2App.prodFee.prod')">Prod</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'prod.id'"></jhi-sort-indicator>
@@ -54,6 +58,7 @@
             </td>
             <td>{{ prodFee.fee }}</td>
             <td>{{ prodFee.feeType }}</td>
+            <td>{{ prodFee.feeDt }}</td>
             <td>
               <div v-if="prodFee.prod">
                 <router-link :to="{ name: 'ProdView', params: { prodId: prodFee.prod.id } }">{{ prodFee.prod.id }}</router-link>

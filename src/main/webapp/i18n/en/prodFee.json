@@ -20,6 +20,7 @@
       "id": "ID",
       "fee": "Fee",
       "feeType": "Fee Type",
+      "feeDt": "Fee Dt",
       "prod": "Prod"
     }
   }

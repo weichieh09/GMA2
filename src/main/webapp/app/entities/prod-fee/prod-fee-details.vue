@@ -19,6 +19,12 @@
             <span>{{ prodFee.feeType }}</span>
           </dd>
           <dt>
+            <span v-text="$t('gma2App.prodFee.feeDt')">Fee Dt</span>
+          </dt>
+          <dd>
+            <span>{{ prodFee.feeDt }}</span>
+          </dd>
+          <dt>
             <span v-text="$t('gma2App.prodFee.prod')">Prod</span>
           </dt>
           <dd>

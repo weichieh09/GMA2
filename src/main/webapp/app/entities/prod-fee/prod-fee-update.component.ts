@@ -16,6 +16,7 @@ const validations: any = {
     feeType: {
       maxLength: maxLength(10),
     },
+    feeDt: {},
   },
 };
 

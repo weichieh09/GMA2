@@ -96,6 +96,9 @@ public class ProdFeeQueryService extends QueryService<ProdFee> {
             if (criteria.getFeeType() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getFeeType(), ProdFee_.feeType));
             }
+            if (criteria.getFeeDt() != null) {
+                specification = specification.and(buildRangeSpecification(criteria.getFeeDt(), ProdFee_.feeDt));
+            }
             if (criteria.getProdId() != null) {
                 specification =
                     specification.and(

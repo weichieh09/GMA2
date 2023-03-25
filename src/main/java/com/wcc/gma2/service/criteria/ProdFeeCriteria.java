@@ -27,6 +27,8 @@ public class ProdFeeCriteria implements Serializable, Criteria {
 
     private StringFilter feeType;
 
+    private LocalDateFilter feeDt;
+
     private LongFilter prodId;
 
     private Boolean distinct;
@@ -37,6 +39,7 @@ public class ProdFeeCriteria implements Serializable, Criteria {
         this.id = other.id == null ? null : other.id.copy();
         this.fee = other.fee == null ? null : other.fee.copy();
         this.feeType = other.feeType == null ? null : other.feeType.copy();
+        this.feeDt = other.feeDt == null ? null : other.feeDt.copy();
         this.prodId = other.prodId == null ? null : other.prodId.copy();
         this.distinct = other.distinct;
     }
@@ -91,6 +94,21 @@ public class ProdFeeCriteria implements Serializable, Criteria {
         this.feeType = feeType;
     }
 
+    public LocalDateFilter getFeeDt() {
+        return feeDt;
+    }
+
+    public LocalDateFilter feeDt() {
+        if (feeDt == null) {
+            feeDt = new LocalDateFilter();
+        }
+        return feeDt;
+    }
+
+    public void setFeeDt(LocalDateFilter feeDt) {
+        this.feeDt = feeDt;
+    }
+
     public LongFilter getProdId() {
         return prodId;
     }
@@ -127,6 +145,7 @@ public class ProdFeeCriteria implements Serializable, Criteria {
             Objects.equals(id, that.id) &&
             Objects.equals(fee, that.fee) &&
             Objects.equals(feeType, that.feeType) &&
+            Objects.equals(feeDt, that.feeDt) &&
             Objects.equals(prodId, that.prodId) &&
             Objects.equals(distinct, that.distinct)
         );
@@ -134,7 +153,7 @@ public class ProdFeeCriteria implements Serializable, Criteria {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, fee, feeType, prodId, distinct);
+        return Objects.hash(id, fee, feeType, feeDt, prodId, distinct);
     }
 
     // prettier-ignore
@@ -144,6 +163,7 @@ public class ProdFeeCriteria implements Serializable, Criteria {
             (id != null ? "id=" + id + ", " : "") +
             (fee != null ? "fee=" + fee + ", " : "") +
             (feeType != null ? "feeType=" + feeType + ", " : "") +
+            (feeDt != null ? "feeDt=" + feeDt + ", " : "") +
             (prodId != null ? "prodId=" + prodId + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +
             "}";

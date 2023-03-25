@@ -14,6 +14,10 @@
       "fieldType": "String",
       "fieldValidateRules": ["maxlength"],
       "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "feeDt",
+      "fieldType": "LocalDate"
     }
   ],
   "fluentMethods": true,

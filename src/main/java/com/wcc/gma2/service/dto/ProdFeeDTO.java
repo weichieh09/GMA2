@@ -1,6 +1,7 @@
 package com.wcc.gma2.service.dto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 import javax.validation.constraints.*;
 
@@ -16,6 +17,8 @@ public class ProdFeeDTO implements Serializable {
 
     @Size(max = 10)
     private String feeType;
+
+    private LocalDate feeDt;
 
     private ProdDTO prod;
 
@@ -41,6 +44,14 @@ public class ProdFeeDTO implements Serializable {
 
     public void setFeeType(String feeType) {
         this.feeType = feeType;
+    }
+
+    public LocalDate getFeeDt() {
+        return feeDt;
+    }
+
+    public void setFeeDt(LocalDate feeDt) {
+        this.feeDt = feeDt;
     }
 
     public ProdDTO getProd() {
@@ -79,6 +90,7 @@ public class ProdFeeDTO implements Serializable {
             "id=" + getId() +
             ", fee=" + getFee() +
             ", feeType='" + getFeeType() + "'" +
+            ", feeDt='" + getFeeDt() + "'" +
             ", prod=" + getProd() +
             "}";
     }

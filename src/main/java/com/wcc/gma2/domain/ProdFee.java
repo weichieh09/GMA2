@@ -2,6 +2,7 @@ package com.wcc.gma2.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.time.LocalDate;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
@@ -30,6 +31,9 @@ public class ProdFee implements Serializable {
     @Size(max = 10)
     @Column(name = "fee_type", length = 10)
     private String feeType;
+
+    @Column(name = "fee_dt")
+    private LocalDate feeDt;
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "prodFees", "countries", "stds", "marks", "cerfs" }, allowSetters = true)
@@ -76,6 +80,19 @@ public class ProdFee implements Serializable {
         this.feeType = feeType;
     }
 
+    public LocalDate getFeeDt() {
+        return this.feeDt;
+    }
+
+    public ProdFee feeDt(LocalDate feeDt) {
+        this.setFeeDt(feeDt);
+        return this;
+    }
+
+    public void setFeeDt(LocalDate feeDt) {
+        this.feeDt = feeDt;
+    }
+
     public Prod getProd() {
         return this.prod;
     }
@@ -115,6 +132,7 @@ public class ProdFee implements Serializable {
             "id=" + getId() +
             ", fee=" + getFee() +
             ", feeType='" + getFeeType() + "'" +
+            ", feeDt='" + getFeeDt() + "'" +
             "}";
     }
 }
