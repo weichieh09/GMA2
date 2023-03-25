@@ -10,6 +10,9 @@
         Added the entity ProdFee.
     -->
     <changeSet id="20230325071310-1" author="jhipster">
+        <!--wccCode-->
+        <createSequence sequenceName="seq_prod_fee" startValue="1050" incrementBy="50"/>
+        <!--wccCode-->
         <createTable tableName="prod_fee">
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
