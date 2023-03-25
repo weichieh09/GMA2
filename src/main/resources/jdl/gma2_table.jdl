@@ -36,7 +36,6 @@ entity Std {
 	enName String maxlength(100),
 	chName String maxlength(100),
     status String maxlength(10),
-    fee Long,
     issuDt LocalDate,
     expDt LocalDate,
 }
@@ -59,6 +58,12 @@ entity Company {
     email String maxlength(50),
 }
 
+/* 費用 */
+entity ProdFee {
+	fee Long,
+    feeType String maxlength(10),
+}
+
 /* 多對多 */
 relationship ManyToMany {
 	Prod{country} to Country{prod},
@@ -73,6 +78,7 @@ relationship ManyToMany {
 relationship OneToMany {
 	Country{cerf} to Cerf{country},
     Country{mark} to Mark{country},
+    Prod{fee} to Fee{prod},
 }
 
 //entity XXX {
