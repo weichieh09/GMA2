@@ -2,36 +2,40 @@
 
 /* 產品 */
 entity Prod {
-	prodNo String,
-	name String,
-    hsCode String,
-    cccCode String,
+	prodNo String maxlength(30),
+	enName String maxlength(100),
+	chName String maxlength(100),
+    hsCode String maxlength(20),
+    cccCode String maxlength(20),
 }
 
 /* 國家 */
 entity Country {
-	name String,
+	countryNo String maxlength(10),
+	enName String maxlength(100),
+	chName String maxlength(100),
 }
 
 /* 證書 */
 entity Cerf {
-	cerfNo String,
-	cerfVer String,
-    status String,
+	cerfNo String maxlength(30),
+	cerfVer String maxlength(20),
+    status String maxlength(10),
     pdf Blob,
-    applId String,
-    fctyId String,
-    mnfctrId String,
+    applId Long,
+    fctyId Long,
+    mnfctrId Long,
     issuDt LocalDate,
     expDt LocalDate,
 }
 
 /* 檢驗標準 */
 entity Std {
-	stdNo String,
-	stdVer String,
-    name String,
-    status String,
+	stdNo String maxlength(20),
+	stdVer String maxlength(20),
+	enName String maxlength(100),
+	chName String maxlength(100),
+    status String maxlength(10),
     fee Long,
     issuDt LocalDate,
     expDt LocalDate,
@@ -39,16 +43,20 @@ entity Std {
 
 /* 標籤圖示 */
 entity Mark {
-	name String,
+	markNo String maxlength(20),
+	enName String maxlength(100),
+	chName String maxlength(100),
     img ImageBlob,
 }
 
 /* 法人 */
 entity Company {
-	name String,
-	tel String,
-    addr String,
-    email String,
+	companyNo String maxlength(20),
+	enName String maxlength(100),
+	chName String maxlength(100),
+	tel String maxlength(20),
+    addr String maxlength(100),
+    email String maxlength(50),
 }
 
 /* 多對多 */
