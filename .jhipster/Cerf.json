@@ -29,18 +29,6 @@
       "fieldTypeBlobContent": "any"
     },
     {
-      "fieldName": "applId",
-      "fieldType": "Long"
-    },
-    {
-      "fieldName": "fctyId",
-      "fieldType": "Long"
-    },
-    {
-      "fieldName": "mnfctrId",
-      "fieldType": "Long"
-    },
-    {
       "fieldName": "issuDt",
       "fieldType": "LocalDate"
     },
@@ -55,6 +43,12 @@
   "pagination": "pagination",
   "readOnly": false,
   "relationships": [
+    {
+      "otherEntityName": "cerfCompany",
+      "otherEntityRelationshipName": "cerf",
+      "relationshipName": "cerfCompany",
+      "relationshipType": "one-to-many"
+    },
     {
       "otherEntityName": "prod",
       "otherEntityRelationshipName": "cerf",

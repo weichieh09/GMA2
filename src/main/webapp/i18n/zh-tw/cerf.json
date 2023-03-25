@@ -22,11 +22,9 @@
       "cerfVer": "Cerf Ver",
       "status": "Status",
       "pdf": "Pdf",
-      "applId": "Appl Id",
-      "fctyId": "Fcty Id",
-      "mnfctrId": "Mnfctr Id",
       "issuDt": "Issu Dt",
       "expDt": "Exp Dt",
+      "cerfCompany": "Cerf Company",
       "prod": "Prod",
       "std": "Std",
       "country": "Country"

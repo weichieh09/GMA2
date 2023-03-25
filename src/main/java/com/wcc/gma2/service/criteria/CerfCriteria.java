@@ -29,15 +29,11 @@ public class CerfCriteria implements Serializable, Criteria {
 
     private StringFilter status;
 
-    private LongFilter applId;
-
-    private LongFilter fctyId;
-
-    private LongFilter mnfctrId;
-
     private LocalDateFilter issuDt;
 
     private LocalDateFilter expDt;
+
+    private LongFilter cerfCompanyId;
 
     private LongFilter prodId;
 
@@ -54,11 +50,9 @@ public class CerfCriteria implements Serializable, Criteria {
         this.cerfNo = other.cerfNo == null ? null : other.cerfNo.copy();
         this.cerfVer = other.cerfVer == null ? null : other.cerfVer.copy();
         this.status = other.status == null ? null : other.status.copy();
-        this.applId = other.applId == null ? null : other.applId.copy();
-        this.fctyId = other.fctyId == null ? null : other.fctyId.copy();
-        this.mnfctrId = other.mnfctrId == null ? null : other.mnfctrId.copy();
         this.issuDt = other.issuDt == null ? null : other.issuDt.copy();
         this.expDt = other.expDt == null ? null : other.expDt.copy();
+        this.cerfCompanyId = other.cerfCompanyId == null ? null : other.cerfCompanyId.copy();
         this.prodId = other.prodId == null ? null : other.prodId.copy();
         this.stdId = other.stdId == null ? null : other.stdId.copy();
         this.countryId = other.countryId == null ? null : other.countryId.copy();
@@ -130,51 +124,6 @@ public class CerfCriteria implements Serializable, Criteria {
         this.status = status;
     }
 
-    public LongFilter getApplId() {
-        return applId;
-    }
-
-    public LongFilter applId() {
-        if (applId == null) {
-            applId = new LongFilter();
-        }
-        return applId;
-    }
-
-    public void setApplId(LongFilter applId) {
-        this.applId = applId;
-    }
-
-    public LongFilter getFctyId() {
-        return fctyId;
-    }
-
-    public LongFilter fctyId() {
-        if (fctyId == null) {
-            fctyId = new LongFilter();
-        }
-        return fctyId;
-    }
-
-    public void setFctyId(LongFilter fctyId) {
-        this.fctyId = fctyId;
-    }
-
-    public LongFilter getMnfctrId() {
-        return mnfctrId;
-    }
-
-    public LongFilter mnfctrId() {
-        if (mnfctrId == null) {
-            mnfctrId = new LongFilter();
-        }
-        return mnfctrId;
-    }
-
-    public void setMnfctrId(LongFilter mnfctrId) {
-        this.mnfctrId = mnfctrId;
-    }
-
     public LocalDateFilter getIssuDt() {
         return issuDt;
     }
@@ -203,6 +152,21 @@ public class CerfCriteria implements Serializable, Criteria {
 
     public void setExpDt(LocalDateFilter expDt) {
         this.expDt = expDt;
+    }
+
+    public LongFilter getCerfCompanyId() {
+        return cerfCompanyId;
+    }
+
+    public LongFilter cerfCompanyId() {
+        if (cerfCompanyId == null) {
+            cerfCompanyId = new LongFilter();
+        }
+        return cerfCompanyId;
+    }
+
+    public void setCerfCompanyId(LongFilter cerfCompanyId) {
+        this.cerfCompanyId = cerfCompanyId;
     }
 
     public LongFilter getProdId() {
@@ -272,11 +236,9 @@ public class CerfCriteria implements Serializable, Criteria {
             Objects.equals(cerfNo, that.cerfNo) &&
             Objects.equals(cerfVer, that.cerfVer) &&
             Objects.equals(status, that.status) &&
-            Objects.equals(applId, that.applId) &&
-            Objects.equals(fctyId, that.fctyId) &&
-            Objects.equals(mnfctrId, that.mnfctrId) &&
             Objects.equals(issuDt, that.issuDt) &&
             Objects.equals(expDt, that.expDt) &&
+            Objects.equals(cerfCompanyId, that.cerfCompanyId) &&
             Objects.equals(prodId, that.prodId) &&
             Objects.equals(stdId, that.stdId) &&
             Objects.equals(countryId, that.countryId) &&
@@ -286,7 +248,7 @@ public class CerfCriteria implements Serializable, Criteria {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cerfNo, cerfVer, status, applId, fctyId, mnfctrId, issuDt, expDt, prodId, stdId, countryId, distinct);
+        return Objects.hash(id, cerfNo, cerfVer, status, issuDt, expDt, cerfCompanyId, prodId, stdId, countryId, distinct);
     }
 
     // prettier-ignore
@@ -297,11 +259,9 @@ public class CerfCriteria implements Serializable, Criteria {
             (cerfNo != null ? "cerfNo=" + cerfNo + ", " : "") +
             (cerfVer != null ? "cerfVer=" + cerfVer + ", " : "") +
             (status != null ? "status=" + status + ", " : "") +
-            (applId != null ? "applId=" + applId + ", " : "") +
-            (fctyId != null ? "fctyId=" + fctyId + ", " : "") +
-            (mnfctrId != null ? "mnfctrId=" + mnfctrId + ", " : "") +
             (issuDt != null ? "issuDt=" + issuDt + ", " : "") +
             (expDt != null ? "expDt=" + expDt + ", " : "") +
+            (cerfCompanyId != null ? "cerfCompanyId=" + cerfCompanyId + ", " : "") +
             (prodId != null ? "prodId=" + prodId + ", " : "") +
             (stdId != null ? "stdId=" + stdId + ", " : "") +
             (countryId != null ? "countryId=" + countryId + ", " : "") +

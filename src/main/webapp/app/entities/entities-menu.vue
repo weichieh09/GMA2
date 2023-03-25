@@ -28,6 +28,10 @@
       <font-awesome-icon icon="asterisk" />
       <span v-text="$t('global.menu.entities.prodFee')">Prod Fee</span>
     </b-dropdown-item>
+    <b-dropdown-item to="/cerf-company">
+      <font-awesome-icon icon="asterisk" />
+      <span v-text="$t('global.menu.entities.cerfCompany')">Cerf Company</span>
+    </b-dropdown-item>
     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
   </div>
 </template>

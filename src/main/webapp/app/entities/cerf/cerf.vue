@@ -43,18 +43,6 @@
               <span v-text="$t('gma2App.cerf.pdf')">Pdf</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'pdf'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('applId')">
-              <span v-text="$t('gma2App.cerf.applId')">Appl Id</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'applId'"></jhi-sort-indicator>
-            </th>
-            <th scope="row" v-on:click="changeOrder('fctyId')">
-              <span v-text="$t('gma2App.cerf.fctyId')">Fcty Id</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'fctyId'"></jhi-sort-indicator>
-            </th>
-            <th scope="row" v-on:click="changeOrder('mnfctrId')">
-              <span v-text="$t('gma2App.cerf.mnfctrId')">Mnfctr Id</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'mnfctrId'"></jhi-sort-indicator>
-            </th>
             <th scope="row" v-on:click="changeOrder('issuDt')">
               <span v-text="$t('gma2App.cerf.issuDt')">Issu Dt</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'issuDt'"></jhi-sort-indicator>
@@ -82,9 +70,6 @@
               <a v-if="cerf.pdf" v-on:click="openFile(cerf.pdfContentType, cerf.pdf)" v-text="$t('entity.action.open')">open</a>
               <span v-if="cerf.pdf">{{ cerf.pdfContentType }}, {{ byteSize(cerf.pdf) }}</span>
             </td>
-            <td>{{ cerf.applId }}</td>
-            <td>{{ cerf.fctyId }}</td>
-            <td>{{ cerf.mnfctrId }}</td>
             <td>{{ cerf.issuDt }}</td>
             <td>{{ cerf.expDt }}</td>
             <td>

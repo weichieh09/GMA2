@@ -108,6 +108,15 @@ public class CompanyQueryService extends QueryService<Company> {
             if (criteria.getEmail() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getEmail(), Company_.email));
             }
+            if (criteria.getCerfCompanyId() != null) {
+                specification =
+                    specification.and(
+                        buildSpecification(
+                            criteria.getCerfCompanyId(),
+                            root -> root.join(Company_.cerfCompanies, JoinType.LEFT).get(CerfCompany_.id)
+                        )
+                    );
+            }
         }
         return specification;
     }

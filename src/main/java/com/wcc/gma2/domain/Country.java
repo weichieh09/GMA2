@@ -40,7 +40,7 @@ public class Country implements Serializable {
 
     @OneToMany(mappedBy = "country")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "prods", "stds", "country" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "cerfCompanies", "prods", "stds", "country" }, allowSetters = true)
     private Set<Cerf> cerfs = new HashSet<>();
 
     @OneToMany(mappedBy = "country")

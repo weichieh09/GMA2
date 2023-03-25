@@ -70,6 +70,9 @@ public class CacheConfiguration {
             createCache(cm, com.wcc.gma2.domain.Mark.class.getName() + ".prods");
             createCache(cm, com.wcc.gma2.domain.Company.class.getName());
             createCache(cm, com.wcc.gma2.domain.ProdFee.class.getName());
+            createCache(cm, com.wcc.gma2.domain.Cerf.class.getName() + ".cerfCompanies");
+            createCache(cm, com.wcc.gma2.domain.Company.class.getName() + ".cerfCompanies");
+            createCache(cm, com.wcc.gma2.domain.CerfCompany.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -23,7 +23,8 @@
       "chName": "Ch Name",
       "tel": "Tel",
       "addr": "Addr",
-      "email": "Email"
+      "email": "Email",
+      "cerfCompany": "Cerf Company"
     }
   }
 }

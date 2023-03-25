@@ -29,12 +29,6 @@ public class CerfDTO implements Serializable {
     private byte[] pdf;
 
     private String pdfContentType;
-    private Long applId;
-
-    private Long fctyId;
-
-    private Long mnfctrId;
-
     private LocalDate issuDt;
 
     private LocalDate expDt;
@@ -91,30 +85,6 @@ public class CerfDTO implements Serializable {
 
     public void setPdfContentType(String pdfContentType) {
         this.pdfContentType = pdfContentType;
-    }
-
-    public Long getApplId() {
-        return applId;
-    }
-
-    public void setApplId(Long applId) {
-        this.applId = applId;
-    }
-
-    public Long getFctyId() {
-        return fctyId;
-    }
-
-    public void setFctyId(Long fctyId) {
-        this.fctyId = fctyId;
-    }
-
-    public Long getMnfctrId() {
-        return mnfctrId;
-    }
-
-    public void setMnfctrId(Long mnfctrId) {
-        this.mnfctrId = mnfctrId;
     }
 
     public LocalDate getIssuDt() {
@@ -187,9 +157,6 @@ public class CerfDTO implements Serializable {
             ", cerfVer='" + getCerfVer() + "'" +
             ", status='" + getStatus() + "'" +
             ", pdf='" + getPdf() + "'" +
-            ", applId=" + getApplId() +
-            ", fctyId=" + getFctyId() +
-            ", mnfctrId=" + getMnfctrId() +
             ", issuDt='" + getIssuDt() + "'" +
             ", expDt='" + getExpDt() + "'" +
             ", prods=" + getProds() +

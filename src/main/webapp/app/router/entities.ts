@@ -45,6 +45,12 @@ const ProdFee = () => import('@/entities/prod-fee/prod-fee.vue');
 const ProdFeeUpdate = () => import('@/entities/prod-fee/prod-fee-update.vue');
 // prettier-ignore
 const ProdFeeDetails = () => import('@/entities/prod-fee/prod-fee-details.vue');
+// prettier-ignore
+const CerfCompany = () => import('@/entities/cerf-company/cerf-company.vue');
+// prettier-ignore
+const CerfCompanyUpdate = () => import('@/entities/cerf-company/cerf-company-update.vue');
+// prettier-ignore
+const CerfCompanyDetails = () => import('@/entities/cerf-company/cerf-company-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default {
@@ -217,6 +223,30 @@ export default {
       path: 'prod-fee/:prodFeeId/view',
       name: 'ProdFeeView',
       component: ProdFeeDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'cerf-company',
+      name: 'CerfCompany',
+      component: CerfCompany,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'cerf-company/new',
+      name: 'CerfCompanyCreate',
+      component: CerfCompanyUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'cerf-company/:cerfCompanyId/edit',
+      name: 'CerfCompanyEdit',
+      component: CerfCompanyUpdate,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: 'cerf-company/:cerfCompanyId/view',
+      name: 'CerfCompanyView',
+      component: CerfCompanyDetails,
       meta: { authorities: [Authority.USER] },
     },
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

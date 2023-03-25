@@ -8,6 +8,7 @@ import StdService from './std/std.service';
 import MarkService from './mark/mark.service';
 import CompanyService from './company/company.service';
 import ProdFeeService from './prod-fee/prod-fee.service';
+import CerfCompanyService from './cerf-company/cerf-company.service';
 // jhipster-needle-add-entity-service-to-entities-component-import - JHipster will import entities services here
 
 @Component
@@ -20,5 +21,6 @@ export default class Entities extends Vue {
   @Provide('markService') private markService = () => new MarkService();
   @Provide('companyService') private companyService = () => new CompanyService();
   @Provide('prodFeeService') private prodFeeService = () => new ProdFeeService();
+  @Provide('cerfCompanyService') private cerfCompanyService = () => new CerfCompanyService();
   // jhipster-needle-add-entity-service-to-entities-component - JHipster will import entities services here
 }

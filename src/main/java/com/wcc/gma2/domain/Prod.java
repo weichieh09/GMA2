@@ -75,7 +75,7 @@ public class Prod implements Serializable {
 
     @ManyToMany(mappedBy = "prods")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "prods", "stds", "country" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "cerfCompanies", "prods", "stds", "country" }, allowSetters = true)
     private Set<Cerf> cerfs = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

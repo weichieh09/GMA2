@@ -1,3 +1,5 @@
+import { ICerfCompany } from '@/shared/model/cerf-company.model';
+
 export interface ICompany {
   id?: number;
   companyNo?: string | null;
@@ -6,6 +8,7 @@ export interface ICompany {
   tel?: string | null;
   addr?: string | null;
   email?: string | null;
+  cerfCompanies?: ICerfCompany[] | null;
 }
 
 export class Company implements ICompany {
@@ -16,6 +19,7 @@ export class Company implements ICompany {
     public chName?: string | null,
     public tel?: string | null,
     public addr?: string | null,
-    public email?: string | null
+    public email?: string | null,
+    public cerfCompanies?: ICerfCompany[] | null
   ) {}
 }

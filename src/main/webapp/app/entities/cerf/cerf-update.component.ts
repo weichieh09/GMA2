@@ -7,6 +7,9 @@ import { maxLength } from 'vuelidate/lib/validators';
 
 import AlertService from '@/shared/alert/alert.service';
 
+import CerfCompanyService from '@/entities/cerf-company/cerf-company.service';
+import { ICerfCompany } from '@/shared/model/cerf-company.model';
+
 import ProdService from '@/entities/prod/prod.service';
 import { IProd } from '@/shared/model/prod.model';
 
@@ -31,9 +34,6 @@ const validations: any = {
       maxLength: maxLength(10),
     },
     pdf: {},
-    applId: {},
-    fctyId: {},
-    mnfctrId: {},
     issuDt: {},
     expDt: {},
   },
@@ -47,6 +47,10 @@ export default class CerfUpdate extends mixins(JhiDataUtils) {
   @Inject('alertService') private alertService: () => AlertService;
 
   public cerf: ICerf = new Cerf();
+
+  @Inject('cerfCompanyService') private cerfCompanyService: () => CerfCompanyService;
+
+  public cerfCompanies: ICerfCompany[] = [];
 
   @Inject('prodService') private prodService: () => ProdService;
 
@@ -142,6 +146,11 @@ export default class CerfUpdate extends mixins(JhiDataUtils) {
   }
 
   public initRelationships(): void {
+    this.cerfCompanyService()
+      .retrieve()
+      .then(res => {
+        this.cerfCompanies = res.data;
+      });
     this.prodService()
       .retrieve()
       .then(res => {

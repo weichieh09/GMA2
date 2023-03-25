@@ -22,9 +22,6 @@ entity Cerf {
 	cerfVer String maxlength(20),
     status String maxlength(10),
     pdf Blob,
-    applId Long,
-    fctyId Long,
-    mnfctrId Long,
     issuDt LocalDate,
     expDt LocalDate,
 }
@@ -65,6 +62,11 @@ entity ProdFee {
     feeDt LocalDate,
 }
 
+/* 證書申請人、製造商、生產廠 */
+entity CerfCompany {
+	relType String maxlength(100),
+}
+
 /* 多對多 */
 relationship ManyToMany {
 	Prod{country} to Country{prod},
@@ -80,6 +82,8 @@ relationship OneToMany {
 	Country{cerf} to Cerf{country},
     Country{mark} to Mark{country},
     Prod{prodFee} to ProdFee{prod},
+    Cerf{cerfCompany} to CerfCompany{cerf},
+    Company{cerfCompany} to CerfCompany{company},
 }
 
 //entity XXX {

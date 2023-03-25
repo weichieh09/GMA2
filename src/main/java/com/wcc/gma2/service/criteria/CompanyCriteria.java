@@ -35,6 +35,8 @@ public class CompanyCriteria implements Serializable, Criteria {
 
     private StringFilter email;
 
+    private LongFilter cerfCompanyId;
+
     private Boolean distinct;
 
     public CompanyCriteria() {}
@@ -47,6 +49,7 @@ public class CompanyCriteria implements Serializable, Criteria {
         this.tel = other.tel == null ? null : other.tel.copy();
         this.addr = other.addr == null ? null : other.addr.copy();
         this.email = other.email == null ? null : other.email.copy();
+        this.cerfCompanyId = other.cerfCompanyId == null ? null : other.cerfCompanyId.copy();
         this.distinct = other.distinct;
     }
 
@@ -160,6 +163,21 @@ public class CompanyCriteria implements Serializable, Criteria {
         this.email = email;
     }
 
+    public LongFilter getCerfCompanyId() {
+        return cerfCompanyId;
+    }
+
+    public LongFilter cerfCompanyId() {
+        if (cerfCompanyId == null) {
+            cerfCompanyId = new LongFilter();
+        }
+        return cerfCompanyId;
+    }
+
+    public void setCerfCompanyId(LongFilter cerfCompanyId) {
+        this.cerfCompanyId = cerfCompanyId;
+    }
+
     public Boolean getDistinct() {
         return distinct;
     }
@@ -185,13 +203,14 @@ public class CompanyCriteria implements Serializable, Criteria {
             Objects.equals(tel, that.tel) &&
             Objects.equals(addr, that.addr) &&
             Objects.equals(email, that.email) &&
+            Objects.equals(cerfCompanyId, that.cerfCompanyId) &&
             Objects.equals(distinct, that.distinct)
         );
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, companyNo, enName, chName, tel, addr, email, distinct);
+        return Objects.hash(id, companyNo, enName, chName, tel, addr, email, cerfCompanyId, distinct);
     }
 
     // prettier-ignore
@@ -205,6 +224,7 @@ public class CompanyCriteria implements Serializable, Criteria {
             (tel != null ? "tel=" + tel + ", " : "") +
             (addr != null ? "addr=" + addr + ", " : "") +
             (email != null ? "email=" + email + ", " : "") +
+            (cerfCompanyId != null ? "cerfCompanyId=" + cerfCompanyId + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +
             "}";
     }

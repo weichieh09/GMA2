@@ -46,20 +46,16 @@ public class Cerf implements Serializable {
     @Column(name = "pdf_content_type")
     private String pdfContentType;
 
-    @Column(name = "appl_id")
-    private Long applId;
-
-    @Column(name = "fcty_id")
-    private Long fctyId;
-
-    @Column(name = "mnfctr_id")
-    private Long mnfctrId;
-
     @Column(name = "issu_dt")
     private LocalDate issuDt;
 
     @Column(name = "exp_dt")
     private LocalDate expDt;
+
+    @OneToMany(mappedBy = "cerf")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "cerf", "company" }, allowSetters = true)
+    private Set<CerfCompany> cerfCompanies = new HashSet<>();
 
     @ManyToMany
     @JoinTable(name = "rel_cerf__prod", joinColumns = @JoinColumn(name = "cerf_id"), inverseJoinColumns = @JoinColumn(name = "prod_id"))
@@ -157,45 +153,6 @@ public class Cerf implements Serializable {
         this.pdfContentType = pdfContentType;
     }
 
-    public Long getApplId() {
-        return this.applId;
-    }
-
-    public Cerf applId(Long applId) {
-        this.setApplId(applId);
-        return this;
-    }
-
-    public void setApplId(Long applId) {
-        this.applId = applId;
-    }
-
-    public Long getFctyId() {
-        return this.fctyId;
-    }
-
-    public Cerf fctyId(Long fctyId) {
-        this.setFctyId(fctyId);
-        return this;
-    }
-
-    public void setFctyId(Long fctyId) {
-        this.fctyId = fctyId;
-    }
-
-    public Long getMnfctrId() {
-        return this.mnfctrId;
-    }
-
-    public Cerf mnfctrId(Long mnfctrId) {
-        this.setMnfctrId(mnfctrId);
-        return this;
-    }
-
-    public void setMnfctrId(Long mnfctrId) {
-        this.mnfctrId = mnfctrId;
-    }
-
     public LocalDate getIssuDt() {
         return this.issuDt;
     }
@@ -220,6 +177,37 @@ public class Cerf implements Serializable {
 
     public void setExpDt(LocalDate expDt) {
         this.expDt = expDt;
+    }
+
+    public Set<CerfCompany> getCerfCompanies() {
+        return this.cerfCompanies;
+    }
+
+    public void setCerfCompanies(Set<CerfCompany> cerfCompanies) {
+        if (this.cerfCompanies != null) {
+            this.cerfCompanies.forEach(i -> i.setCerf(null));
+        }
+        if (cerfCompanies != null) {
+            cerfCompanies.forEach(i -> i.setCerf(this));
+        }
+        this.cerfCompanies = cerfCompanies;
+    }
+
+    public Cerf cerfCompanies(Set<CerfCompany> cerfCompanies) {
+        this.setCerfCompanies(cerfCompanies);
+        return this;
+    }
+
+    public Cerf addCerfCompany(CerfCompany cerfCompany) {
+        this.cerfCompanies.add(cerfCompany);
+        cerfCompany.setCerf(this);
+        return this;
+    }
+
+    public Cerf removeCerfCompany(CerfCompany cerfCompany) {
+        this.cerfCompanies.remove(cerfCompany);
+        cerfCompany.setCerf(null);
+        return this;
     }
 
     public Set<Prod> getProds() {
@@ -314,9 +302,6 @@ public class Cerf implements Serializable {
             ", status='" + getStatus() + "'" +
             ", pdf='" + getPdf() + "'" +
             ", pdfContentType='" + getPdfContentType() + "'" +
-            ", applId=" + getApplId() +
-            ", fctyId=" + getFctyId() +
-            ", mnfctrId=" + getMnfctrId() +
             ", issuDt='" + getIssuDt() + "'" +
             ", expDt='" + getExpDt() + "'" +
             "}";

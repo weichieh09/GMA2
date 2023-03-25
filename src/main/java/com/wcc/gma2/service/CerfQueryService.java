@@ -99,20 +99,20 @@ public class CerfQueryService extends QueryService<Cerf> {
             if (criteria.getStatus() != null) {
                 specification = specification.and(buildStringSpecification(criteria.getStatus(), Cerf_.status));
             }
-            if (criteria.getApplId() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getApplId(), Cerf_.applId));
-            }
-            if (criteria.getFctyId() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getFctyId(), Cerf_.fctyId));
-            }
-            if (criteria.getMnfctrId() != null) {
-                specification = specification.and(buildRangeSpecification(criteria.getMnfctrId(), Cerf_.mnfctrId));
-            }
             if (criteria.getIssuDt() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getIssuDt(), Cerf_.issuDt));
             }
             if (criteria.getExpDt() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getExpDt(), Cerf_.expDt));
+            }
+            if (criteria.getCerfCompanyId() != null) {
+                specification =
+                    specification.and(
+                        buildSpecification(
+                            criteria.getCerfCompanyId(),
+                            root -> root.join(Cerf_.cerfCompanies, JoinType.LEFT).get(CerfCompany_.id)
+                        )
+                    );
             }
             if (criteria.getProdId() != null) {
                 specification =

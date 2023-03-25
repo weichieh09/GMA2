@@ -34,24 +34,6 @@
             </div>
           </dd>
           <dt>
-            <span v-text="$t('gma2App.cerf.applId')">Appl Id</span>
-          </dt>
-          <dd>
-            <span>{{ cerf.applId }}</span>
-          </dd>
-          <dt>
-            <span v-text="$t('gma2App.cerf.fctyId')">Fcty Id</span>
-          </dt>
-          <dd>
-            <span>{{ cerf.fctyId }}</span>
-          </dd>
-          <dt>
-            <span v-text="$t('gma2App.cerf.mnfctrId')">Mnfctr Id</span>
-          </dt>
-          <dd>
-            <span>{{ cerf.mnfctrId }}</span>
-          </dd>
-          <dt>
             <span v-text="$t('gma2App.cerf.issuDt')">Issu Dt</span>
           </dt>
           <dd>

@@ -32,15 +32,6 @@
             <column name="pdf_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="appl_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="fcty_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="mnfctr_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
             <column name="issu_dt" type="date">
                 <constraints nullable="true" />
             </column>
@@ -98,6 +89,12 @@
             <column name="id" type="numeric"/>
             <column name="cerf_no" type="string"/>
             <column name="cerf_ver" type="string"/>
+            <column name="status" type="string"/>
+<!--            <column name="pdf" type="blob"/>-->
+<!--            <column name="pdf_content_type" type="string"/>-->
+            <column name="issu_dt" type="date"/>
+            <column name="exp_dt" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>
 </databaseChangeLog>

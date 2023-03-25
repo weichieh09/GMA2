@@ -1,6 +1,9 @@
 package com.wcc.gma2.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.annotations.Cache;
@@ -46,6 +49,11 @@ public class Company implements Serializable {
     @Size(max = 50)
     @Column(name = "email", length = 50)
     private String email;
+
+    @OneToMany(mappedBy = "company")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "cerf", "company" }, allowSetters = true)
+    private Set<CerfCompany> cerfCompanies = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -138,6 +146,37 @@ public class Company implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<CerfCompany> getCerfCompanies() {
+        return this.cerfCompanies;
+    }
+
+    public void setCerfCompanies(Set<CerfCompany> cerfCompanies) {
+        if (this.cerfCompanies != null) {
+            this.cerfCompanies.forEach(i -> i.setCompany(null));
+        }
+        if (cerfCompanies != null) {
+            cerfCompanies.forEach(i -> i.setCompany(this));
+        }
+        this.cerfCompanies = cerfCompanies;
+    }
+
+    public Company cerfCompanies(Set<CerfCompany> cerfCompanies) {
+        this.setCerfCompanies(cerfCompanies);
+        return this;
+    }
+
+    public Company addCerfCompany(CerfCompany cerfCompany) {
+        this.cerfCompanies.add(cerfCompany);
+        cerfCompany.setCompany(this);
+        return this;
+    }
+
+    public Company removeCerfCompany(CerfCompany cerfCompany) {
+        this.cerfCompanies.remove(cerfCompany);
+        cerfCompany.setCompany(null);
+        return this;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

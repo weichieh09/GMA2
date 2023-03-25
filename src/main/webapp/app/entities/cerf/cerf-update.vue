@@ -103,42 +103,6 @@
             <input type="hidden" class="form-control" name="pdfContentType" id="cerf-pdfContentType" v-model="cerf.pdfContentType" />
           </div>
           <div class="form-group">
-            <label class="form-control-label" v-text="$t('gma2App.cerf.applId')" for="cerf-applId">Appl Id</label>
-            <input
-              type="number"
-              class="form-control"
-              name="applId"
-              id="cerf-applId"
-              data-cy="applId"
-              :class="{ valid: !$v.cerf.applId.$invalid, invalid: $v.cerf.applId.$invalid }"
-              v-model.number="$v.cerf.applId.$model"
-            />
-          </div>
-          <div class="form-group">
-            <label class="form-control-label" v-text="$t('gma2App.cerf.fctyId')" for="cerf-fctyId">Fcty Id</label>
-            <input
-              type="number"
-              class="form-control"
-              name="fctyId"
-              id="cerf-fctyId"
-              data-cy="fctyId"
-              :class="{ valid: !$v.cerf.fctyId.$invalid, invalid: $v.cerf.fctyId.$invalid }"
-              v-model.number="$v.cerf.fctyId.$model"
-            />
-          </div>
-          <div class="form-group">
-            <label class="form-control-label" v-text="$t('gma2App.cerf.mnfctrId')" for="cerf-mnfctrId">Mnfctr Id</label>
-            <input
-              type="number"
-              class="form-control"
-              name="mnfctrId"
-              id="cerf-mnfctrId"
-              data-cy="mnfctrId"
-              :class="{ valid: !$v.cerf.mnfctrId.$invalid, invalid: $v.cerf.mnfctrId.$invalid }"
-              v-model.number="$v.cerf.mnfctrId.$model"
-            />
-          </div>
-          <div class="form-group">
             <label class="form-control-label" v-text="$t('gma2App.cerf.issuDt')" for="cerf-issuDt">Issu Dt</label>
             <b-input-group class="mb-3">
               <b-input-group-prepend>
