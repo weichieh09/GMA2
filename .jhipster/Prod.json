@@ -1,0 +1,80 @@
+{
+  "applications": "*",
+  "changelogDate": "20230330093810",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "prod",
+  "fields": [
+    {
+      "fieldName": "prodNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "enName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "chName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "hsCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "cccCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Prod",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "fee",
+      "otherEntityRelationshipName": "prod",
+      "relationshipName": "fee",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "prod",
+      "ownerSide": true,
+      "relationshipName": "country",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "std",
+      "otherEntityRelationshipName": "prod",
+      "ownerSide": true,
+      "relationshipName": "std",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "sticker",
+      "otherEntityRelationshipName": "prod",
+      "relationshipName": "sticker",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "cerf",
+      "otherEntityRelationshipName": "prod",
+      "ownerSide": false,
+      "relationshipName": "cerf",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}
