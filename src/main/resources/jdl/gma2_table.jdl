@@ -1,0 +1,106 @@
+/* 於 https://www.jhipster.tech/jdl-studio/ 使用 */
+
+/* 產品 */
+entity Prod {
+	prodNo String maxlength(30),
+	enName String maxlength(100),
+	chName String maxlength(100),
+    hsCode String maxlength(20),
+    cccCode String maxlength(20),
+}
+
+/* 國家 */
+entity Country {
+	countryNo String maxlength(10),
+	enName String maxlength(100),
+	chName String maxlength(100),
+}
+
+/* 證書 */
+entity Cerf {
+	cerfNo String maxlength(30),
+	cerfVer String maxlength(20),
+    status String maxlength(10),
+    pdf Blob,
+    issuDt LocalDate,
+    expDt LocalDate,
+}
+
+/* 檢驗標準 */
+entity Std {
+	stdNo String maxlength(20),
+	stdVer String maxlength(20),
+	enName String maxlength(100),
+	chName String maxlength(100),
+    status String maxlength(10),
+    issuDt LocalDate,
+    expDt LocalDate,
+}
+
+/* 標籤圖示 */
+entity Mark {
+	markNo String maxlength(20),
+	enName String maxlength(100),
+	chName String maxlength(100),
+    img ImageBlob,
+}
+
+/* 法人 */
+entity Company {
+	companyNo String maxlength(20),
+	enName String maxlength(100),
+	chName String maxlength(100),
+	tel String maxlength(20),
+    addr String maxlength(100),
+    email String maxlength(50),
+}
+
+/* 費用 */
+entity Fee {
+	fee Long,
+    feeType String maxlength(10),
+    feeDt LocalDate,
+}
+
+/* 證書申請人、製造商、生產廠 */
+entity CerfCompany {
+	relType String maxlength(100),
+}
+
+/* 產品貼紙 */
+entity Sticker {
+	stickerNo String maxlength(20),
+    img ImageBlob,
+}
+
+/* 多對多 */
+relationship ManyToMany {
+	Prod{country} to Country{prod},
+    Prod{std} to Std{prod},
+    Cerf{prod} to Prod{cerf},
+    Cerf{std} to Std{cerf},
+    Country{std} to Std{country},
+}
+
+/* 一對多 */
+relationship OneToMany {
+	Country{cerf} to Cerf{country},
+    Cerf{cerfCompany} to CerfCompany{cerf},
+    Company{cerfCompany} to CerfCompany{company},
+    Prod{fee} to Fee{prod},
+    Cerf{fee} to Fee{cerf},
+    Company{fee} to Fee{company},
+    Sticker{prod} to Prod{sticker},
+    Country{mark} to Mark{country},
+    Cerf{mark} to Mark{cerf},
+    Sticker{mark} to Mark{sticker},
+}
+
+//entity XXX {
+//    XXX String,
+//}
+
+filter *
+dto * with mapstruct
+paginate * with pagination
+service * with serviceClass
