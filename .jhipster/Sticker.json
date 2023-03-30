@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20230330123054",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "sticker",
+  "fields": [
+    {
+      "fieldName": "stickerNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "img",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Sticker",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "mark",
+      "otherEntityRelationshipName": "sticker",
+      "ownerSide": true,
+      "relationshipName": "mark",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "prod",
+      "otherEntityRelationshipName": "sticker",
+      "relationshipName": "prod",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

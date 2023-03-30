@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20230330123053",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf_company",
+  "fields": [
+    {
+      "fieldName": "relType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "CerfCompany",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cerf",
+      "otherEntityRelationshipName": "cerfCompany",
+      "relationshipName": "cerf",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "company",
+      "otherEntityRelationshipName": "cerfCompany",
+      "relationshipName": "company",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

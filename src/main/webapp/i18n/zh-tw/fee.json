@@ -1,0 +1,29 @@
+{
+  "gma2App": {
+    "fee": {
+      "home": {
+        "title": "Fees",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Fee",
+        "createOrEditLabel": "建立或編輯 Fee",
+        "notFound": "No Fees found"
+      },
+      "created": "新的 Fee 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Fee 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Fee 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Fee {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Fee"
+      },
+      "id": "ID",
+      "fee": "Fee",
+      "feeType": "Fee Type",
+      "feeDt": "Fee Dt",
+      "prod": "Prod",
+      "cerf": "Cerf",
+      "company": "Company"
+    }
+  }
+}
