@@ -56,7 +56,7 @@ entity Company {
 }
 
 /* 費用 */
-entity ProdFee {
+entity Fee {
 	fee Long,
     feeType String maxlength(10),
     feeDt LocalDate,
@@ -67,6 +67,12 @@ entity CerfCompany {
 	relType String maxlength(100),
 }
 
+/* 產品貼紙 */
+entity Sticker {
+	stickerNo String maxlength(20),
+    img ImageBlob,
+}
+
 /* 多對多 */
 relationship ManyToMany {
 	Prod{country} to Country{prod},
@@ -74,16 +80,20 @@ relationship ManyToMany {
     Cerf{prod} to Prod{cerf},
     Cerf{std} to Std{cerf},
     Country{std} to Std{country},
-	Prod{mark} to Mark{prod},
 }
 
 /* 一對多 */
 relationship OneToMany {
 	Country{cerf} to Cerf{country},
-    Country{mark} to Mark{country},
-    Prod{prodFee} to ProdFee{prod},
     Cerf{cerfCompany} to CerfCompany{cerf},
     Company{cerfCompany} to CerfCompany{company},
+    Prod{fee} to Fee{prod},
+    Cerf{fee} to Fee{cerf},
+    Company{fee} to Fee{company},
+    Sticker{prod} to Prod{sticker},
+    Country{mark} to Mark{country},
+    Cerf{mark} to Mark{cerf},
+    Sticker{mark} to Mark{sticker},
 }
 
 //entity XXX {
