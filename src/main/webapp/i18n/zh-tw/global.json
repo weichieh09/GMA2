@@ -11,9 +11,9 @@
         "wcc201": "wcc201"
       },
       "entities": {
-        "main": "實體",
+        "main": "管理者功能",
         "prod": "Prod",
-        "country": "Country",
+        "country": "國家模組",
         "cerf": "Cerf",
         "std": "Std",
         "mark": "Mark",

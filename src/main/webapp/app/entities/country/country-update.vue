@@ -9,6 +9,7 @@
         >
           Create or edit a Country
         </h2>
+        <br />
         <div>
           <div class="form-group" v-if="country.id">
             <label for="id" v-text="$t('global.field.id')">ID</label>
@@ -77,23 +78,17 @@
               </small>
             </div>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label v-text="$t('gma2App.country.std')" for="country-std">Std</label>
-            <select
-              class="form-control"
-              id="country-stds"
-              data-cy="std"
-              multiple
-              name="std"
-              v-if="country.stds !== undefined"
-              v-model="country.stds"
-            >
+            <select class="form-control" id="country-stds" data-cy="std" multiple name="std"
+              v-if="country.stds !== undefined" v-model="country.stds">
               <option v-bind:value="getSelected(country.stds, stdOption)" v-for="stdOption in stds" :key="stdOption.id">
                 {{ stdOption.id }}
               </option>
             </select>
-          </div>
+          </div> -->
         </div>
+        <br />
         <div>
           <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" v-on:click="previousState()">
             <font-awesome-icon icon="ban"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.cancel')">Cancel</span>

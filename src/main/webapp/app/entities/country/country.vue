@@ -29,7 +29,7 @@
         <thead>
           <tr>
             <th scope="row" v-on:click="changeOrder('id')">
-              <span v-text="$t('global.field.id')">ID</span>
+              <span v-text="$t('gma2App.country.id')">ID</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'id'"></jhi-sort-indicator>
             </th>
             <th scope="row" v-on:click="changeOrder('countryNo')">
