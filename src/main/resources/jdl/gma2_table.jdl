@@ -80,6 +80,8 @@ relationship ManyToMany {
     Cerf{prod} to Prod{cerf},
     Cerf{std} to Std{cerf},
     Country{std} to Std{country},
+    Cerf{mark} to Mark{cerf},
+    Sticker{mark} to Mark{sticker},
 }
 
 /* 一對多 */
@@ -90,10 +92,8 @@ relationship OneToMany {
     Prod{fee} to Fee{prod},
     Cerf{fee} to Fee{cerf},
     Company{fee} to Fee{company},
-    Sticker{prod} to Prod{sticker},
+    Prod{sticker} to Sticker{prod},
     Country{mark} to Mark{country},
-    Cerf{mark} to Mark{cerf},
-    Sticker{mark} to Mark{sticker},
 }
 
 //entity XXX {
