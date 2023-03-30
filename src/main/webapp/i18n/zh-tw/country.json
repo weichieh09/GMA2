@@ -15,7 +15,7 @@
         "question": "您確定要刪除 編號 {{ id }} 嗎?"
       },
       "detail": {
-        "title": "國家ID"
+        "title": "國家編號"
       },
       "id": "編號",
       "countryNo": "國家代號",
