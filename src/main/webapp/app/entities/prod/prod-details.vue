@@ -5,6 +5,7 @@
         <h2 class="jh-entity-heading" data-cy="prodDetailsHeading">
           <span v-text="$t('gma2App.prod.detail.title')">Prod</span> {{ prod.id }}
         </h2>
+        <br />
         <dl class="row jh-entity-details">
           <dt>
             <span v-text="$t('gma2App.prod.prodNo')">Prod No</span>
@@ -36,7 +37,7 @@
           <dd>
             <span>{{ prod.cccCode }}</span>
           </dd>
-          <dt>
+          <!-- <dt>
             <span v-text="$t('gma2App.prod.country')">Country</span>
           </dt>
           <dd>
@@ -44,8 +45,8 @@
               >{{ i > 0 ? ', ' : '' }}
               <router-link :to="{ name: 'CountryView', params: { countryId: country.id } }">{{ country.id }}</router-link>
             </span>
-          </dd>
-          <dt>
+          </dd> -->
+          <!-- <dt>
             <span v-text="$t('gma2App.prod.std')">Std</span>
           </dt>
           <dd>
@@ -53,8 +54,9 @@
               >{{ i > 0 ? ', ' : '' }}
               <router-link :to="{ name: 'StdView', params: { stdId: std.id } }">{{ std.id }}</router-link>
             </span>
-          </dd>
+          </dd> -->
         </dl>
+        <br />
         <button type="submit" v-on:click.prevent="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
           <font-awesome-icon icon="arrow-left"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.back')"> Back</span>
         </button>

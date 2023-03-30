@@ -12,7 +12,7 @@
       },
       "entities": {
         "main": "管理者功能",
-        "prod": "Prod",
+        "prod": "產品模組",
         "country": "國家模組",
         "cerf": "Cerf",
         "std": "Std",

@@ -2,27 +2,27 @@
   "gma2App": {
     "prod": {
       "home": {
-        "title": "Prods",
-        "refreshListLabel": "Refresh list",
-        "createLabel": "建立一筆新的 Prod",
-        "createOrEditLabel": "建立或編輯 Prod",
-        "notFound": "No Prods found"
+        "title": "產品模組",
+        "refreshListLabel": "更新",
+        "createLabel": "新增",
+        "createOrEditLabel": "新增或編輯",
+        "notFound": "沒有資料"
       },
-      "created": "新的 Prod 建立成功，識別碼為 {{ param }}",
-      "updated": "識別碼為 {{ param }} 的 Prod 更新成功",
-      "deleted": "識別碼為 {{ param }} 的 Prod 刪除成功",
+      "created": "編號 {{ param }} 新增成功",
+      "updated": "編號 {{ param }} 更新成功",
+      "deleted": "編號 {{ param }} 刪除成功",
       "delete": {
-        "question": "您確定要刪除 Prod {{ id }} 嗎?"
+        "question": "您確定要刪除 編號 {{ id }} 嗎?"
       },
       "detail": {
-        "title": "Prod"
+        "title": "產品編號"
       },
-      "id": "ID",
-      "prodNo": "Prod No",
-      "enName": "En Name",
-      "chName": "Ch Name",
-      "hsCode": "Hs Code",
-      "cccCode": "Ccc Code",
+      "id": "編號",
+      "prodNo": "產品編號",
+      "enName": "產品英文名稱",
+      "chName": "產品中文名稱",
+      "hsCode": "HsCode",
+      "cccCode": "CccCode",
       "fee": "Fee",
       "sticker": "Sticker",
       "country": "Country",

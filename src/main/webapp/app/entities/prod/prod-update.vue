@@ -5,6 +5,7 @@
         <h2 id="gma2App.prod.home.createOrEditLabel" data-cy="ProdCreateUpdateHeading" v-text="$t('gma2App.prod.home.createOrEditLabel')">
           Create or edit a Prod
         </h2>
+        <br />
         <div>
           <div class="form-group" v-if="prod.id">
             <label for="id" v-text="$t('global.field.id')">ID</label>
@@ -107,39 +108,27 @@
               </small>
             </div>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label v-text="$t('gma2App.prod.country')" for="prod-country">Country</label>
-            <select
-              class="form-control"
-              id="prod-countries"
-              data-cy="country"
-              multiple
-              name="country"
-              v-if="prod.countries !== undefined"
-              v-model="prod.countries"
-            >
-              <option v-bind:value="getSelected(prod.countries, countryOption)" v-for="countryOption in countries" :key="countryOption.id">
+            <select class="form-control" id="prod-countries" data-cy="country" multiple name="country"
+              v-if="prod.countries !== undefined" v-model="prod.countries">
+              <option v-bind:value="getSelected(prod.countries, countryOption)" v-for="countryOption in countries"
+                :key="countryOption.id">
                 {{ countryOption.id }}
               </option>
             </select>
-          </div>
-          <div class="form-group">
+          </div> -->
+          <!-- <div class="form-group">
             <label v-text="$t('gma2App.prod.std')" for="prod-std">Std</label>
-            <select
-              class="form-control"
-              id="prod-stds"
-              data-cy="std"
-              multiple
-              name="std"
-              v-if="prod.stds !== undefined"
-              v-model="prod.stds"
-            >
+            <select class="form-control" id="prod-stds" data-cy="std" multiple name="std" v-if="prod.stds !== undefined"
+              v-model="prod.stds">
               <option v-bind:value="getSelected(prod.stds, stdOption)" v-for="stdOption in stds" :key="stdOption.id">
                 {{ stdOption.id }}
               </option>
             </select>
-          </div>
+          </div> -->
         </div>
+        <br />
         <div>
           <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" v-on:click="previousState()">
             <font-awesome-icon icon="ban"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.cancel')">Cancel</span>
