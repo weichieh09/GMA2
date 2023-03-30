@@ -12,15 +12,6 @@
       },
       "entities": {
         "main": "Entities",
-        "prod": "Prod",
-        "country": "Country",
-        "cerf": "Cerf",
-        "std": "Std",
-        "mark": "Mark",
-        "company": "Company",
-        "fee": "Fee",
-        "cerfCompany": "Cerf Company",
-        "sticker": "Sticker",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
