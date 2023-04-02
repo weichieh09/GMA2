@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20230402044445",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf_std",
+  "fields": [
+    {
+      "fieldName": "relType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "CerfStd",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cerf",
+      "otherEntityRelationshipName": "cerfStd",
+      "relationshipName": "cerf",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "std",
+      "otherEntityRelationshipName": "cerfStd",
+      "relationshipName": "std",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

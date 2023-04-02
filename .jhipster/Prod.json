@@ -1,0 +1,77 @@
+{
+  "applications": "*",
+  "changelogDate": "20230402044433",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "prod",
+  "fields": [
+    {
+      "fieldName": "prodNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "30"
+    },
+    {
+      "fieldName": "enName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "chName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "hsCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "cccCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Prod",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "prodCountry",
+      "otherEntityRelationshipName": "prod",
+      "relationshipName": "prodCountry",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "prodStd",
+      "otherEntityRelationshipName": "prod",
+      "relationshipName": "prodStd",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "cerfProd",
+      "otherEntityRelationshipName": "prod",
+      "relationshipName": "cerfProd",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "feeProdCerfCompany",
+      "otherEntityRelationshipName": "prod",
+      "relationshipName": "feeProdCerfCompany",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "prodSticker",
+      "otherEntityRelationshipName": "prod",
+      "relationshipName": "prodSticker",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

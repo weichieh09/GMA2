@@ -1,0 +1,49 @@
+{
+  "applications": "*",
+  "changelogDate": "20230402044439",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "fee_prod_cerf_company",
+  "fields": [
+    {
+      "fieldName": "fee",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "feeType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "feeDt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "FeeProdCerfCompany",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "prod",
+      "otherEntityRelationshipName": "feeProdCerfCompany",
+      "relationshipName": "prod",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "cerf",
+      "otherEntityRelationshipName": "feeProdCerfCompany",
+      "relationshipName": "cerf",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "company",
+      "otherEntityRelationshipName": "feeProdCerfCompany",
+      "relationshipName": "company",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

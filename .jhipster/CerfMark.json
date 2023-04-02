@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20230402044447",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "cerf_mark",
+  "fields": [
+    {
+      "fieldName": "relType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "CerfMark",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cerf",
+      "otherEntityRelationshipName": "cerfMark",
+      "relationshipName": "cerf",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "mark",
+      "otherEntityRelationshipName": "cerfMark",
+      "relationshipName": "mark",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

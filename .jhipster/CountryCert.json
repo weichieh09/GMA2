@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20230402044449",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "country_cert",
+  "fields": [
+    {
+      "fieldName": "relType",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "CountryCert",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "country",
+      "otherEntityRelationshipName": "countryCert",
+      "relationshipName": "country",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "cerf",
+      "otherEntityRelationshipName": "countryCert",
+      "relationshipName": "cerf",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

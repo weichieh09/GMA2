@@ -1,0 +1,59 @@
+{
+  "applications": "*",
+  "changelogDate": "20230402044434",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "country",
+  "fields": [
+    {
+      "fieldName": "countryNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "enName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "chName",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Country",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "prodCountry",
+      "otherEntityRelationshipName": "country",
+      "relationshipName": "prodCountry",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "countryStd",
+      "otherEntityRelationshipName": "country",
+      "relationshipName": "countryStd",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "countryCert",
+      "otherEntityRelationshipName": "country",
+      "relationshipName": "countryCert",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "countryMark",
+      "otherEntityRelationshipName": "country",
+      "relationshipName": "countryMark",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

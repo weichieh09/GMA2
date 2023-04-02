@@ -1,0 +1,180 @@
+<template>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <form name="editForm" role="form" novalidate v-on:submit.prevent="save()">
+        <h2 id="gma2App.cerf.home.createOrEditLabel" data-cy="CerfCreateUpdateHeading" v-text="$t('gma2App.cerf.home.createOrEditLabel')">
+          Create or edit a Cerf
+        </h2>
+        <div>
+          <div class="form-group" v-if="cerf.id">
+            <label for="id" v-text="$t('global.field.id')">ID</label>
+            <input type="text" class="form-control" id="id" name="id" v-model="cerf.id" readonly />
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="$t('gma2App.cerf.cerfNo')" for="cerf-cerfNo">Cerf No</label>
+            <input
+              type="text"
+              class="form-control"
+              name="cerfNo"
+              id="cerf-cerfNo"
+              data-cy="cerfNo"
+              :class="{ valid: !$v.cerf.cerfNo.$invalid, invalid: $v.cerf.cerfNo.$invalid }"
+              v-model="$v.cerf.cerfNo.$model"
+            />
+            <div v-if="$v.cerf.cerfNo.$anyDirty && $v.cerf.cerfNo.$invalid">
+              <small class="form-text text-danger" v-if="!$v.cerf.cerfNo.maxLength" v-text="$t('entity.validation.maxlength', { max: 30 })">
+                This field cannot be longer than 30 characters.
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="$t('gma2App.cerf.cerfVer')" for="cerf-cerfVer">Cerf Ver</label>
+            <input
+              type="text"
+              class="form-control"
+              name="cerfVer"
+              id="cerf-cerfVer"
+              data-cy="cerfVer"
+              :class="{ valid: !$v.cerf.cerfVer.$invalid, invalid: $v.cerf.cerfVer.$invalid }"
+              v-model="$v.cerf.cerfVer.$model"
+            />
+            <div v-if="$v.cerf.cerfVer.$anyDirty && $v.cerf.cerfVer.$invalid">
+              <small
+                class="form-text text-danger"
+                v-if="!$v.cerf.cerfVer.maxLength"
+                v-text="$t('entity.validation.maxlength', { max: 20 })"
+              >
+                This field cannot be longer than 20 characters.
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="$t('gma2App.cerf.status')" for="cerf-status">Status</label>
+            <input
+              type="text"
+              class="form-control"
+              name="status"
+              id="cerf-status"
+              data-cy="status"
+              :class="{ valid: !$v.cerf.status.$invalid, invalid: $v.cerf.status.$invalid }"
+              v-model="$v.cerf.status.$model"
+            />
+            <div v-if="$v.cerf.status.$anyDirty && $v.cerf.status.$invalid">
+              <small class="form-text text-danger" v-if="!$v.cerf.status.maxLength" v-text="$t('entity.validation.maxlength', { max: 10 })">
+                This field cannot be longer than 10 characters.
+              </small>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="$t('gma2App.cerf.pdf')" for="cerf-pdf">Pdf</label>
+            <div>
+              <div v-if="cerf.pdf" class="form-text text-danger clearfix">
+                <a class="pull-left" v-on:click="openFile(cerf.pdfContentType, cerf.pdf)" v-text="$t('entity.action.open')">open</a><br />
+                <span class="pull-left">{{ cerf.pdfContentType }}, {{ byteSize(cerf.pdf) }}</span>
+                <button
+                  type="button"
+                  v-on:click="
+                    cerf.pdf = null;
+                    cerf.pdfContentType = null;
+                  "
+                  class="btn btn-secondary btn-xs pull-right"
+                >
+                  <font-awesome-icon icon="times"></font-awesome-icon>
+                </button>
+              </div>
+              <input
+                type="file"
+                ref="file_pdf"
+                id="file_pdf"
+                data-cy="pdf"
+                v-on:change="setFileData($event, cerf, 'pdf', false)"
+                v-text="$t('entity.action.addblob')"
+              />
+            </div>
+            <input
+              type="hidden"
+              class="form-control"
+              name="pdf"
+              id="cerf-pdf"
+              data-cy="pdf"
+              :class="{ valid: !$v.cerf.pdf.$invalid, invalid: $v.cerf.pdf.$invalid }"
+              v-model="$v.cerf.pdf.$model"
+            />
+            <input type="hidden" class="form-control" name="pdfContentType" id="cerf-pdfContentType" v-model="cerf.pdfContentType" />
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="$t('gma2App.cerf.issuDt')" for="cerf-issuDt">Issu Dt</label>
+            <b-input-group class="mb-3">
+              <b-input-group-prepend>
+                <b-form-datepicker
+                  aria-controls="cerf-issuDt"
+                  v-model="$v.cerf.issuDt.$model"
+                  name="issuDt"
+                  class="form-control"
+                  :locale="currentLanguage"
+                  button-only
+                  today-button
+                  reset-button
+                  close-button
+                >
+                </b-form-datepicker>
+              </b-input-group-prepend>
+              <b-form-input
+                id="cerf-issuDt"
+                data-cy="issuDt"
+                type="text"
+                class="form-control"
+                name="issuDt"
+                :class="{ valid: !$v.cerf.issuDt.$invalid, invalid: $v.cerf.issuDt.$invalid }"
+                v-model="$v.cerf.issuDt.$model"
+              />
+            </b-input-group>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="$t('gma2App.cerf.expDt')" for="cerf-expDt">Exp Dt</label>
+            <b-input-group class="mb-3">
+              <b-input-group-prepend>
+                <b-form-datepicker
+                  aria-controls="cerf-expDt"
+                  v-model="$v.cerf.expDt.$model"
+                  name="expDt"
+                  class="form-control"
+                  :locale="currentLanguage"
+                  button-only
+                  today-button
+                  reset-button
+                  close-button
+                >
+                </b-form-datepicker>
+              </b-input-group-prepend>
+              <b-form-input
+                id="cerf-expDt"
+                data-cy="expDt"
+                type="text"
+                class="form-control"
+                name="expDt"
+                :class="{ valid: !$v.cerf.expDt.$invalid, invalid: $v.cerf.expDt.$invalid }"
+                v-model="$v.cerf.expDt.$model"
+              />
+            </b-input-group>
+          </div>
+        </div>
+        <div>
+          <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" v-on:click="previousState()">
+            <font-awesome-icon icon="ban"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.cancel')">Cancel</span>
+          </button>
+          <button
+            type="submit"
+            id="save-entity"
+            data-cy="entityCreateSaveButton"
+            :disabled="$v.cerf.$invalid || isSaving"
+            class="btn btn-primary"
+          >
+            <font-awesome-icon icon="save"></font-awesome-icon>&nbsp;<span v-text="$t('entity.action.save')">Save</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+<script lang="ts" src="./cerf-update.component.ts"></script>
