@@ -6,15 +6,20 @@ export default {
       test: null,
       cerf: {
         countryId: null,
-        countryInput: null,
+        countryNoInput: null,
+      },
+      company: {
+        apply: null,
+        mnfctr: null,
+        fctyList: [],
       },
       modal: {
         previousPage: 1,
         currentPage: 1,
         perPage: 6,
         keyWord: '',
-        countryList: null,
-        countryTotal: 0,
+        objList: null,
+        objTotal: 0,
       },
     };
   },
@@ -23,18 +28,33 @@ export default {
       // if (to.params.cerfNo) {
       //   vm.getApiWcc111(to.params.cerfNo, to.params.cerfVer);
       // }
-      vm.modalInit();
+      // vm.modalInit();
     });
   },
   methods: {
-    modalInit() {
-      this.getCountryList();
+    modalInit(modalName) {
+      switch (modalName) {
+        case 'countryList': {
+          this.getCountryList();
+          break;
+        }
+        case 'companyApplyList':
+        case 'companyMnfctrList':
+        case 'companyFctyList': {
+          this.getCompanyList();
+          break;
+        }
+        default: {
+          console.log('錯誤');
+          break;
+        }
+      }
     },
-    modalQueryInit() {
+    modalQueryInit(modalName) {
       this.modal.previousPage = 1;
       this.modal.currentPage = 1;
       this.modal.keyWord = '';
-      this.modalInit();
+      this.modalInit(modalName);
     },
     getCountryList() {
       axios
@@ -48,24 +68,65 @@ export default {
             this.modal.perPage
         )
         .then(res => {
-          this.modal.countryList = res.data;
-          this.modal.countryTotal = Number(res.headers['x-total-count']);
+          this.modal.objList = res.data;
+          this.modal.objTotal = Number(res.headers['x-total-count']);
         });
     },
-    modalLoad(page) {
+    getCompanyList() {
+      axios
+        .get(
+          '/api/wcc310/companyList?sort=companyNo,asc' +
+            '&chName.contains=' +
+            this.modal.keyWord +
+            '&page=' +
+            (this.modal.currentPage - 1) +
+            '&size=' +
+            this.modal.perPage
+        )
+        .then(res => {
+          this.modal.objList = res.data;
+          this.modal.objTotal = Number(res.headers['x-total-count']);
+        });
+    },
+    modalLoad(modalName, page) {
       if (page !== this.modal.previousPage) {
         this.modal.previousPage = page;
-        this.modalInit();
+        this.modalInit(modalName);
       }
     },
-    modalSearch() {
-      this.modalInit();
+    modalSearch(modalName) {
+      this.modalInit(modalName);
     },
-    modalChoice(country) {
-      this.cerf.countryId = country.id;
-      this.cerf.countryInput = country.countryNo;
-      this.modalQueryInit();
-      this.$bvModal.hide('modal-countryList');
+    modalChoice(modalName, choiceType, obj) {
+      switch (modalName) {
+        case 'countryList': {
+          this.cerf.countryId = obj.id;
+          this.cerf.countryNoInput = obj.countryNo;
+          break;
+        }
+        case 'companyApplyList': {
+          this.company.apply = obj;
+          break;
+        }
+        case 'companyMnfctrList': {
+          this.company.mnfctr = obj;
+          break;
+        }
+        case 'companyFctyList': {
+          let tmpArray = this.company.fctyList.filter(o => o.id !== obj.id);
+          if (tmpArray.length == this.company.fctyList.length) this.company.fctyList.push(obj);
+          else this.company.fctyList = tmpArray;
+          break;
+        }
+        default: {
+          console.log('錯誤');
+          break;
+        }
+      }
+      this.modalQueryInit(modalName);
+      if (choiceType == 'oneChoice') {
+        this.$bvModal.hide('modal-' + modalName);
+      }
     },
     previousState() {
       // this.$router.go(-1);

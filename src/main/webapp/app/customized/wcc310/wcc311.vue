@@ -13,35 +13,39 @@
               <div class="col-sm-6">
                 <label class="form-label">國家代碼</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" v-model="cerf.countryInput" disabled />
-                  <b-button variant="outline-secondary" v-b-modal.modal-countryList>編輯</b-button>
-                  <b-modal id="modal-countryList" hide-footer title="國家代碼">
+                  <input type="text" class="form-control" v-model="cerf.countryNoInput" disabled />
+                  <b-button variant="outline-secondary" v-b-modal.modal-countryList @click="modalInit('countryList')">編輯</b-button>
+                  <!-- countryList 彈跳視窗 -->
+                  <b-modal id="modal-countryList" hide-footer title="選擇國家">
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
                       <b-button-group>
-                        <b-button type="submit" variant="primary" @click="modalSearch"><b-icon icon="search" />搜尋</b-button>
+                        <b-button type="submit" variant="primary" @click="modalSearch('countryList')"
+                          ><b-icon icon="search" />搜尋</b-button
+                        >
                         <b-button type="reset" variant="outline-secondary" to="/country">管理</b-button>
                       </b-button-group>
                     </div>
                     <br />
-                    <b-list-group v-for="country in modal.countryList" :key="country.id">
-                      <b-list-group-item button @click="modalChoice(country)">
-                        {{ country.enName }}, {{ country.chName }}
+                    <b-list-group v-for="country in modal.objList" :key="country.id">
+                      <b-list-group-item button @click="modalChoice('countryList', 'oneChoice', country)">
+                        {{ country.chName }}, {{ country.enName }}
                       </b-list-group-item>
                     </b-list-group>
                     <br />
-                    <div v-show="modal.countryList && modal.countryList.length > 0">
+                    <div v-show="modal.objList && modal.objList.length > 0">
                       <div class="row justify-content-center">
                         <b-pagination
                           v-model="modal.currentPage"
-                          :total-rows="modal.countryTotal"
+                          :total-rows="modal.objTotal"
                           :per-page="modal.perPage"
-                          :change="modalLoad(modal.currentPage)"
+                          :change="modalLoad('countryList', modal.currentPage)"
                           size="md"
                         />
                       </div>
                     </div>
                   </b-modal>
+                  <!-- countryList 彈跳視窗 -->
                 </div>
                 <br />
               </div>
@@ -96,27 +100,155 @@
 
             <hr class="my-4" />
 
-            <h4 class="mb-3">
-              廠商
-              <button class="btn btn-outline-secondary" @click="previousState">編輯</button>
-            </h4>
+            <h4 class="mb-3">廠商</h4>
             <div class="row gy-3">
               <div class="col-md-12">
-                <label class="form-label">申請商</label>
-                <input type="text" class="form-control" disabled />
+                <label class="form-label">
+                  申請商
+                  <b-button variant="outline-secondary" v-b-modal.modal-companyApplyList @click="modalInit('companyApplyList')"
+                    >編輯</b-button
+                  >
+                </label>
+                <!-- countryList 彈跳視窗 -->
+                <b-modal id="modal-companyApplyList" hide-footer title="選擇公司">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
+                    <b-button-group>
+                      <b-button type="submit" variant="primary" @click="modalSearch('companyApplyList')"
+                        ><b-icon icon="search" />搜尋</b-button
+                      >
+                      <b-button type="reset" variant="outline-secondary" to="/company">管理</b-button>
+                    </b-button-group>
+                  </div>
+                  <br />
+                  <b-list-group v-for="company in modal.objList" :key="company.id">
+                    <b-list-group-item button @click="modalChoice('companyApplyList', 'oneChoice', company)">
+                      {{ company.chName }}<br />
+                      <small>{{ company.enName }}</small>
+                    </b-list-group-item>
+                  </b-list-group>
+                  <br />
+                  <div v-show="modal.objList && modal.objList.length > 0">
+                    <div class="row justify-content-center">
+                      <b-pagination
+                        v-model="modal.currentPage"
+                        :total-rows="modal.objTotal"
+                        :per-page="modal.perPage"
+                        :change="modalLoad('companyApplyList', modal.currentPage)"
+                        size="md"
+                      />
+                    </div>
+                  </div>
+                </b-modal>
+                <!-- countryList 彈跳視窗 -->
+              </div>
+              <div class="col-md-12">
+                <b-list-group v-if="company.apply">
+                  <b-list-group-item>
+                    {{ company.apply.chName }}<br />
+                    <small>{{ company.apply.enName }}</small>
+                  </b-list-group-item>
+                </b-list-group>
                 <br />
               </div>
 
               <div class="col-md-12">
-                <label class="form-label">製造商</label>
-                <input type="text" class="form-control" disabled />
+                <label class="form-label">
+                  製造商
+                  <b-button variant="outline-secondary" v-b-modal.modal-companyMnfctrList @click="modalInit('companyMnfctrList')"
+                    >編輯</b-button
+                  >
+                </label>
+                <!-- countryList 彈跳視窗 -->
+                <b-modal id="modal-companyMnfctrList" hide-footer title="選擇公司">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
+                    <b-button-group>
+                      <b-button type="submit" variant="primary" @click="modalSearch('companyMnfctrList')"
+                        ><b-icon icon="search" />搜尋</b-button
+                      >
+                      <b-button type="reset" variant="outline-secondary" to="/company">管理</b-button>
+                    </b-button-group>
+                  </div>
+                  <br />
+                  <b-list-group v-for="company in modal.objList" :key="company.id">
+                    <b-list-group-item button @click="modalChoice('companyMnfctrList', 'oneChoice', company)">
+                      {{ company.chName }}<br />
+                      <small>{{ company.enName }}</small>
+                    </b-list-group-item>
+                  </b-list-group>
+                  <br />
+                  <div v-show="modal.objList && modal.objList.length > 0">
+                    <div class="row justify-content-center">
+                      <b-pagination
+                        v-model="modal.currentPage"
+                        :total-rows="modal.objTotal"
+                        :per-page="modal.perPage"
+                        :change="modalLoad('companyMnfctrList', modal.currentPage)"
+                        size="md"
+                      />
+                    </div>
+                  </div>
+                </b-modal>
+                <!-- countryList 彈跳視窗 -->
+              </div>
+              <div class="col-md-12">
+                <b-list-group v-if="company.mnfctr">
+                  <b-list-group-item>
+                    {{ company.mnfctr.chName }}<br />
+                    <small>{{ company.mnfctr.enName }}</small>
+                  </b-list-group-item>
+                </b-list-group>
                 <br />
               </div>
 
               <div class="col-md-12">
-                <label class="form-label">生產廠</label>
-                <input type="text" class="form-control" disabled />
-                <br />
+                <label class="form-label"
+                  >生產廠
+                  <b-button variant="outline-secondary" v-b-modal.modal-companyFctyList @click="modalInit('companyFctyList')"
+                    >編輯</b-button
+                  >
+                </label>
+                <!-- countryList 彈跳視窗 -->
+                <b-modal id="modal-companyFctyList" hide-footer title="選擇公司">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
+                    <b-button-group>
+                      <b-button type="submit" variant="primary" @click="modalSearch('companyFctyList')"
+                        ><b-icon icon="search" />搜尋</b-button
+                      >
+                      <b-button type="reset" variant="outline-secondary" to="/company">管理</b-button>
+                    </b-button-group>
+                  </div>
+                  <br />
+                  <b-list-group v-for="company in modal.objList" :key="company.id">
+                    <b-list-group-item button @click="modalChoice('companyFctyList', 'manyChoice', company)">
+                      {{ company.chName }}<br />
+                      <small>{{ company.enName }}</small>
+                    </b-list-group-item>
+                  </b-list-group>
+                  <br />
+                  <div v-show="modal.objList && modal.objList.length > 0">
+                    <div class="row justify-content-center">
+                      <b-pagination
+                        v-model="modal.currentPage"
+                        :total-rows="modal.objTotal"
+                        :per-page="modal.perPage"
+                        :change="modalLoad('companyFctyList', modal.currentPage)"
+                        size="md"
+                      />
+                    </div>
+                  </div>
+                </b-modal>
+                <!-- countryList 彈跳視窗 -->
+              </div>
+              <div class="col-md-12">
+                <b-list-group v-for="(fcty, index) in company.fctyList" :key="fcty.id">
+                  <b-list-group-item>
+                    {{ fcty.chName }}<br />
+                    <small>{{ fcty.enName }}</small>
+                  </b-list-group-item>
+                </b-list-group>
               </div>
             </div>
 
