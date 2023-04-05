@@ -35,6 +35,9 @@ public class Wcc310Service {
     @Autowired
     private FeeProdCerfCompanyService feeProdCerfCompanyService;
 
+    @Autowired
+    private CerfMarkService cerfMarkService;
+
     public StatusCode saveAll(Wcc311SaveAllReq req) {
         try {
             if (!this.checkCerf(req)) return StatusCode.FAIL;
@@ -43,11 +46,21 @@ public class Wcc310Service {
             for (CerfProdDTO cerfProdDTO : this.getCerfProd(req, cerfDTO)) cerfProdService.save(cerfProdDTO);
             for (CerfStdDTO cerfStdDTO : this.getCerfStd(req, cerfDTO)) cerfStdService.save(cerfStdDTO);
             for (FeeProdCerfCompanyDTO feeDTO : this.getFee(req, cerfDTO)) feeProdCerfCompanyService.save(feeDTO);
+            cerfMarkService.save(this.getCerfMark(req, cerfDTO));
             return StatusCode.SUCCESS;
         } catch (Exception e) {
             log.error(CLASS_NAME + ".saveAll() - " + e.getMessage());
             return StatusCode.FAIL;
         }
+    }
+
+    private CerfMarkDTO getCerfMark(Wcc311SaveAllReq req, CerfDTO cerfDTO) {
+        CerfMarkDTO result = new CerfMarkDTO();
+        MarkDTO markDTO = new MarkDTO();
+        markDTO.setId(req.getMark().getId());
+        result.setCerf(cerfDTO);
+        result.setMark(markDTO);
+        return result;
     }
 
     private Boolean checkCerf(Wcc311SaveAllReq req) {

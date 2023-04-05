@@ -29,6 +29,8 @@ public class CountryMarkCriteria implements Serializable, Criteria {
 
     private LongFilter markId;
 
+    private StringFilter markChName;
+
     private Boolean distinct;
 
     public CountryMarkCriteria() {}
@@ -38,6 +40,7 @@ public class CountryMarkCriteria implements Serializable, Criteria {
         this.relType = other.relType == null ? null : other.relType.copy();
         this.countryId = other.countryId == null ? null : other.countryId.copy();
         this.markId = other.markId == null ? null : other.markId.copy();
+        this.markChName = other.markChName == null ? null : other.markChName.copy();
         this.distinct = other.distinct;
     }
 
@@ -95,6 +98,10 @@ public class CountryMarkCriteria implements Serializable, Criteria {
         return markId;
     }
 
+    public StringFilter getMarkChName() {
+        return markChName;
+    }
+
     public LongFilter markId() {
         if (markId == null) {
             markId = new LongFilter();
@@ -102,8 +109,19 @@ public class CountryMarkCriteria implements Serializable, Criteria {
         return markId;
     }
 
+    public StringFilter markChName() {
+        if (markChName == null) {
+            markChName = new StringFilter();
+        }
+        return markChName;
+    }
+
     public void setMarkId(LongFilter markId) {
         this.markId = markId;
+    }
+
+    public void setMarkChName(StringFilter markChName) {
+        this.markChName = markChName;
     }
 
     public Boolean getDistinct() {

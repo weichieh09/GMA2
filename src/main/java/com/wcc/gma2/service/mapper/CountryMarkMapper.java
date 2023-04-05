@@ -25,5 +25,9 @@ public interface CountryMarkMapper extends EntityMapper<CountryMarkDTO, CountryM
     @Named("markId")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
+    @Mapping(target = "markNo", source = "markNo")
+    @Mapping(target = "chName", source = "chName")
+    @Mapping(target = "img", source = "img")
+    @Mapping(target = "imgContentType", source = "imgContentType")
     MarkDTO toDtoMarkId(Mark mark);
 }

@@ -14,6 +14,7 @@ export default {
         expDt: null,
         pdfContentType: null,
         pdf: null,
+        mark: null,
       },
       company: {
         apply: null,
@@ -33,7 +34,7 @@ export default {
       modal: {
         previousPage: 1,
         currentPage: 1,
-        perPage: 6,
+        perPage: 5,
         keyWord: '',
         objList: null,
         objTotal: 0,
@@ -71,6 +72,10 @@ export default {
         }
         case 'feeTypeList': {
           this.getFeeTypeList();
+          break;
+        }
+        case 'markList': {
+          this.getMarkList();
           break;
         }
         default: {
@@ -154,6 +159,28 @@ export default {
         this.feeTypeList = res.data;
       });
     },
+    getMarkList() {
+      axios
+        .get(
+          '/api/wcc310/markList?countryId.equals=' +
+            this.cerf.countryId +
+            '&markChName.contains=' +
+            this.modal.keyWord +
+            '&sort=id,asc' +
+            '&page=' +
+            (this.modal.currentPage - 1) +
+            '&size=' +
+            this.modal.perPage
+        )
+        .then(res => {
+          const tmpList = [];
+          res.data.forEach(function (obj) {
+            if (obj) tmpList.push(obj.mark as never);
+          });
+          this.modal.objList = tmpList;
+          this.modal.objTotal = Number(res.headers['x-total-count']);
+        });
+    },
     modalLoad(modalName, page) {
       if (page !== this.modal.previousPage) {
         this.modal.previousPage = page;
@@ -196,6 +223,10 @@ export default {
           else this.stdList = tmpArray;
           break;
         }
+        case 'markList': {
+          this.cerf.mark = obj;
+          break;
+        }
         default: {
           console.log('錯誤');
           break;
@@ -235,6 +266,7 @@ export default {
         prodList: this.prodList,
         stdList: this.stdList,
         feeList: this.feeList,
+        mark: this.cerf.mark,
       };
 
       axios

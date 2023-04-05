@@ -105,6 +105,12 @@ public class CountryMarkQueryService extends QueryService<CountryMark> {
                         buildSpecification(criteria.getMarkId(), root -> root.join(CountryMark_.mark, JoinType.LEFT).get(Mark_.id))
                     );
             }
+            if (criteria.getMarkChName() != null) {
+                specification =
+                    specification.and(
+                        buildSpecification(criteria.getMarkChName(), root -> root.join(CountryMark_.mark, JoinType.LEFT).get(Mark_.chName))
+                    );
+            }
         }
         return specification;
     }

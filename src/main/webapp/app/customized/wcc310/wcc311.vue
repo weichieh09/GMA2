@@ -90,10 +90,79 @@
                 <br />
               </div>
 
-              <div class="col-12">
+              <div class="col-md-12">
+                <label class="form-label">
+                  證書標籤
+                  <b-button variant="outline-secondary" v-b-modal.modal-markList @click="modalInit('markList')">編輯</b-button>
+                </label>
+                <!-- countryList 彈跳視窗 -->
+                <b-modal id="modal-markList" hide-footer title="選擇標籤">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
+                    <b-button-group>
+                      <b-button type="submit" variant="primary" @click="modalSearch('markList')"><b-icon icon="search" />搜尋</b-button>
+                      <b-button type="reset" variant="outline-secondary" to="/mark">管理</b-button>
+                    </b-button-group>
+                  </div>
+                  <br />
+                  <b-list-group v-for="mark in modal.objList" :key="mark.id">
+                    <b-list-group-item button @click="modalChoice('markList', 'oneChoice', mark)">
+                      <div class="row">
+                        <div class="col-6">
+                          {{ mark.chName }}<br />
+                          <small>{{ mark.markNo }}</small>
+                        </div>
+                        <div class="col-6">
+                          <img
+                            v-bind:src="'data:' + mark.imgContentType + ';base64,' + mark.img"
+                            style="max-height: 80px"
+                            alt="mark image"
+                          />
+                        </div>
+                      </div>
+                    </b-list-group-item>
+                  </b-list-group>
+                  <br />
+                  <div v-show="modal.objList && modal.objList.length > 0">
+                    <div class="row justify-content-center">
+                      <b-pagination
+                        v-model="modal.currentPage"
+                        :total-rows="modal.objTotal"
+                        :per-page="modal.perPage"
+                        @input="modalLoad('markList', modal.currentPage)"
+                        size="md"
+                      />
+                    </div>
+                  </div>
+                </b-modal>
+                <!-- countryList 彈跳視窗 -->
+              </div>
+              <div class="col-md-12">
+                <b-list-group v-if="cerf.mark">
+                  <b-list-group-item>
+                    <div class="row">
+                      <div class="col-6">
+                        {{ cerf.mark.chName }}<br />
+                        <small>{{ cerf.mark.markNo }}</small>
+                      </div>
+                      <div class="col-6">
+                        <img
+                          v-bind:src="'data:' + cerf.mark.imgContentType + ';base64,' + cerf.mark.img"
+                          style="max-height: 80px"
+                          alt="mark image"
+                        />
+                      </div>
+                    </div>
+                  </b-list-group-item>
+                </b-list-group>
+                <br />
+              </div>
+
+              <div class="col-md-12">
                 <label for="email" class="form-label">證書檔案</label>
                 <!-- <input type="file" class="form-control" /> -->
                 <input type="file" class="form-control" v-on:change="setPdfData($event, false)" />
+                <br />
               </div>
             </div>
 

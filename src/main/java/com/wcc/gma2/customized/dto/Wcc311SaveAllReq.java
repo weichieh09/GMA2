@@ -21,4 +21,5 @@ public class Wcc311SaveAllReq {
     private List<IdDTO> prodList;
     private List<IdDTO> stdList;
     private List<FeeDTO> feeList;
+    private IdDTO mark;
 }

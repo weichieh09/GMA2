@@ -7,18 +7,9 @@ import com.wcc.gma2.customized.dto.Wcc311SaveAllRes;
 import com.wcc.gma2.customized.service.Wcc310Service;
 import com.wcc.gma2.customized.type.StatusCode;
 import com.wcc.gma2.customized.type.feeTypeList;
-import com.wcc.gma2.service.CompanyQueryService;
-import com.wcc.gma2.service.CountryQueryService;
-import com.wcc.gma2.service.ProdQueryService;
-import com.wcc.gma2.service.StdQueryService;
-import com.wcc.gma2.service.criteria.CompanyCriteria;
-import com.wcc.gma2.service.criteria.CountryCriteria;
-import com.wcc.gma2.service.criteria.ProdCriteria;
-import com.wcc.gma2.service.criteria.StdCriteria;
-import com.wcc.gma2.service.dto.CompanyDTO;
-import com.wcc.gma2.service.dto.CountryDTO;
-import com.wcc.gma2.service.dto.ProdDTO;
-import com.wcc.gma2.service.dto.StdDTO;
+import com.wcc.gma2.service.*;
+import com.wcc.gma2.service.criteria.*;
+import com.wcc.gma2.service.dto.*;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +42,9 @@ public class Wcc310Controller {
 
     @Autowired
     private Wcc310Service wcc310Service;
+
+    @Autowired
+    private CountryMarkQueryService countryMarkQueryService;
 
     @GetMapping("/countryList")
     public ResponseEntity<List<CountryDTO>> countryList(CountryCriteria criteria, Pageable pageable) {
@@ -97,5 +91,12 @@ public class Wcc310Controller {
         res.setContent(resData);
         res.setStatusCode(statusCode);
         return ResponseEntity.ok().headers(httpHeaders).body(res);
+    }
+
+    @GetMapping("/markList")
+    public ResponseEntity<List<CountryMarkDTO>> markList(CountryMarkCriteria criteria, Pageable pageable) {
+        Page<CountryMarkDTO> page = countryMarkQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 }
