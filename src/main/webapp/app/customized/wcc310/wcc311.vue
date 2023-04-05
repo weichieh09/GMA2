@@ -39,7 +39,7 @@
                           v-model="modal.currentPage"
                           :total-rows="modal.objTotal"
                           :per-page="modal.perPage"
-                          :change="modalLoad('countryList', modal.currentPage)"
+                          @input="modalLoad('countryList', modal.currentPage)"
                           size="md"
                         />
                       </div>
@@ -70,7 +70,6 @@
 
               <div class="col-sm-6">
                 <label class="form-label">證書發行日期</label>
-                <!-- <input type="text" class="form-control" v-model="cerf.issuDt" /> -->
                 <b-input-group class="mb-3">
                   <b-input-group-prepend>
                     <b-form-datepicker v-model="cerf.issuDt" button-only today-button reset-button close-button />
@@ -82,19 +81,19 @@
 
               <div class="col-sm-6">
                 <label class="form-label">證書到期日期</label>
-                <!-- <input type="text" class="form-control" v-model="cerf.cerfExpDt" /> -->
                 <b-input-group class="mb-3">
                   <b-input-group-prepend>
-                    <b-form-datepicker v-model="cerf.cerfExpDt" button-only today-button reset-button close-button />
+                    <b-form-datepicker v-model="cerf.expDt" button-only today-button reset-button close-button />
                   </b-input-group-prepend>
-                  <b-form-input type="text" class="form-control" v-model="cerf.cerfExpDt" />
+                  <b-form-input type="text" class="form-control" v-model="cerf.expDt" />
                 </b-input-group>
                 <br />
               </div>
 
               <div class="col-12">
                 <label for="email" class="form-label">證書檔案</label>
-                <input type="file" class="form-control" />
+                <!-- <input type="file" class="form-control" /> -->
+                <input type="file" class="form-control" v-on:change="setPdfData($event, false)" />
               </div>
             </div>
 
@@ -134,7 +133,7 @@
                         v-model="modal.currentPage"
                         :total-rows="modal.objTotal"
                         :per-page="modal.perPage"
-                        :change="modalLoad('companyApplyList', modal.currentPage)"
+                        @input="modalLoad('companyApplyList', modal.currentPage)"
                         size="md"
                       />
                     </div>
@@ -184,7 +183,7 @@
                         v-model="modal.currentPage"
                         :total-rows="modal.objTotal"
                         :per-page="modal.perPage"
-                        :change="modalLoad('companyMnfctrList', modal.currentPage)"
+                        @input="modalLoad('companyMnfctrList', modal.currentPage)"
                         size="md"
                       />
                     </div>
@@ -234,7 +233,7 @@
                         v-model="modal.currentPage"
                         :total-rows="modal.objTotal"
                         :per-page="modal.perPage"
-                        :change="modalLoad('companyFctyList', modal.currentPage)"
+                        @input="modalLoad('companyFctyList', modal.currentPage)"
                         size="md"
                       />
                     </div>
@@ -256,14 +255,46 @@
 
             <h4 class="mb-3">
               產品
-              <button class="btn btn-outline-secondary" @click="previousState">
-                <span>編輯</span>
-              </button>
+              <b-button variant="outline-secondary" v-b-modal.modal-prodList @click="modalInit('prodList')">編輯</b-button>
             </h4>
             <div class="row gy-3">
-              <div class="col-md-12">
-                <input type="text" class="form-control" />
+              <!-- countryList 彈跳視窗 -->
+              <b-modal id="modal-prodList" hide-footer title="選擇產品">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
+                  <b-button-group>
+                    <b-button type="submit" variant="primary" @click="modalSearch('prodList')"><b-icon icon="search" />搜尋</b-button>
+                    <b-button type="reset" variant="outline-secondary" to="/prod">管理</b-button>
+                  </b-button-group>
+                </div>
                 <br />
+                <b-list-group v-for="prod in modal.objList" :key="prod.id">
+                  <b-list-group-item button @click="modalChoice('prodList', 'manyChoice', prod)">
+                    {{ prod.chName }}<br />
+                    <small>{{ prod.prodNo }}</small>
+                  </b-list-group-item>
+                </b-list-group>
+                <br />
+                <div v-show="modal.objList && modal.objList.length > 0">
+                  <div class="row justify-content-center">
+                    <b-pagination
+                      v-model="modal.currentPage"
+                      :total-rows="modal.objTotal"
+                      :per-page="modal.perPage"
+                      @input="modalLoad('prodList', modal.currentPage)"
+                      size="md"
+                    />
+                  </div>
+                </div>
+              </b-modal>
+              <!-- countryList 彈跳視窗 -->
+              <div class="col-md-12">
+                <b-list-group v-for="(prod, index) in prodList" :key="prod.id">
+                  <b-list-group-item>
+                    {{ prod.chName }}<br />
+                    <small>{{ prod.prodNo }}</small>
+                  </b-list-group-item>
+                </b-list-group>
               </div>
             </div>
 
@@ -271,13 +302,46 @@
 
             <h4 class="mb-3">
               檢驗標準
-              <button class="btn btn-outline-secondary" @click="previousState">編輯</button>
+              <b-button variant="outline-secondary" v-b-modal.modal-stdList @click="modalInit('stdList')">編輯</b-button>
             </h4>
             <div class="row gy-3">
-              <div class="col-md-12">
-                <label class="form-label">檢驗標準</label>
-                <input type="text" class="form-control" />
+              <!-- countryList 彈跳視窗 -->
+              <b-modal id="modal-stdList" hide-footer title="選擇標準">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
+                  <b-button-group>
+                    <b-button type="submit" variant="primary" @click="modalSearch('stdList')"><b-icon icon="search" />搜尋</b-button>
+                    <b-button type="reset" variant="outline-secondary" to="/std">管理</b-button>
+                  </b-button-group>
+                </div>
                 <br />
+                <b-list-group v-for="std in modal.objList" :key="std.id">
+                  <b-list-group-item button @click="modalChoice('stdList', 'manyChoice', std)">
+                    {{ std.chName }}<br />
+                    <small>{{ std.stdNo }}</small>
+                  </b-list-group-item>
+                </b-list-group>
+                <br />
+                <div v-show="modal.objList && modal.objList.length > 0">
+                  <div class="row justify-content-center">
+                    <b-pagination
+                      v-model="modal.currentPage"
+                      :total-rows="modal.objTotal"
+                      :per-page="modal.perPage"
+                      @input="modalLoad('stdList', modal.currentPage)"
+                      size="md"
+                    />
+                  </div>
+                </div>
+              </b-modal>
+              <!-- countryList 彈跳視窗 -->
+              <div class="col-md-12">
+                <b-list-group v-for="(std, index) in stdList" :key="std.id">
+                  <b-list-group-item>
+                    {{ std.chName }}<br />
+                    <small>{{ std.stdNo }}</small>
+                  </b-list-group-item>
+                </b-list-group>
               </div>
             </div>
 
@@ -285,18 +349,82 @@
 
             <h4 class="mb-3">
               費用
-              <button class="btn btn-outline-secondary" @click="previousState">編輯</button>
+              <b-button variant="outline-secondary" v-b-modal.modal-feeList @click="modalInit('feeTypeList')">編輯</b-button>
             </h4>
             <div class="row gy-3">
+              <!-- countryList 彈跳視窗 -->
+              <b-modal id="modal-feeList" hide-footer title="編輯費用">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label class="form-label">費用日期</label>
+                    <b-input-group class="mb-3">
+                      <b-input-group-prepend>
+                        <b-form-datepicker v-model="fee.feeDt" button-only today-button reset-button close-button />
+                      </b-input-group-prepend>
+                      <b-form-input type="text" class="form-control" v-model="fee.feeDt" />
+                    </b-input-group>
+                    <br />
+                  </div>
+
+                  <div class="col-md-12">
+                    <label class="form-label">費用金額</label>
+                    <input type="text" class="form-control" v-model="fee.fee" />
+                    <br />
+                  </div>
+
+                  <div class="col-md-12">
+                    <label class="form-label">費用類別</label>
+                    <b-form-select v-model="fee.feeType" :options="feeTypeList"></b-form-select>
+                    <br /><br />
+                  </div>
+
+                  <div class="col-md-12 d-flex justify-content-end">
+                    <b-button-group>
+                      <b-button type="submit" variant="primary" @click="feeAdd()">
+                        <b-icon icon="plus" />
+                        加入
+                      </b-button>
+                      <!-- <b-button type="reset" variant="outline-secondary" to="/">管理</b-button> -->
+                    </b-button-group>
+                  </div>
+                </div>
+              </b-modal>
+              <!-- countryList 彈跳視窗 -->
               <div class="col-md-12">
-                <label class="form-label">費用</label>
-                <input type="text" class="form-control" />
-                <br />
+                <b-list-group v-for="(f, index) in feeList" :key="f.id">
+                  <b-list-group-item>
+                    <!-- {{ f.feeType }}<br />
+                    <small>{{ f.feeDt }}</small> -->
+                    <div class="row d-flex justify-content-between">
+                      <div>
+                        <h6 v-text="$t('gmaApp.wcc311.feeType.' + f.feeType)" />
+                        <small>{{ f.feeDt }}</small>
+                      </div>
+                      <div class="d-flex justify-content-end">
+                        <span>${{ f.fee }}</span>
+                      </div>
+                    </div>
+                  </b-list-group-item>
+                </b-list-group>
               </div>
             </div>
+
+            <hr class="my-4" />
           </form>
         </div>
-        <button class="btn btn-info" @click="previousState"><b-icon icon="arrow-left"></b-icon> <span>返回</span></button>
+        <!-- <button class="btn btn-info" @click="previousState"><b-icon icon="arrow-left"></b-icon> <span>返回</span></button> -->
+        <div class="col-md-12 d-flex justify-content-end">
+          <b-button-group>
+            <button class="btn btn-info" @click="previousState">
+              <b-icon icon="arrow-left" />
+              <span>返回</span>
+            </button>
+            <b-button type="submit" variant="primary" @click="saveAll()">
+              <font-awesome-icon icon="save" />
+              <span>儲存</span>
+            </b-button>
+          </b-button-group>
+        </div>
       </div>
     </main>
   </div>

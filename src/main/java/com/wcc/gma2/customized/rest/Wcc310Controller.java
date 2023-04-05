@@ -1,0 +1,101 @@
+package com.wcc.gma2.customized.rest;
+
+import com.wcc.gma2.customized.dto.ResponseDTO;
+import com.wcc.gma2.customized.dto.SelectListDTO;
+import com.wcc.gma2.customized.dto.Wcc311SaveAllReq;
+import com.wcc.gma2.customized.dto.Wcc311SaveAllRes;
+import com.wcc.gma2.customized.service.Wcc310Service;
+import com.wcc.gma2.customized.type.StatusCode;
+import com.wcc.gma2.customized.type.feeTypeList;
+import com.wcc.gma2.service.CompanyQueryService;
+import com.wcc.gma2.service.CountryQueryService;
+import com.wcc.gma2.service.ProdQueryService;
+import com.wcc.gma2.service.StdQueryService;
+import com.wcc.gma2.service.criteria.CompanyCriteria;
+import com.wcc.gma2.service.criteria.CountryCriteria;
+import com.wcc.gma2.service.criteria.ProdCriteria;
+import com.wcc.gma2.service.criteria.StdCriteria;
+import com.wcc.gma2.service.dto.CompanyDTO;
+import com.wcc.gma2.service.dto.CountryDTO;
+import com.wcc.gma2.service.dto.ProdDTO;
+import com.wcc.gma2.service.dto.StdDTO;
+import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import tech.jhipster.web.util.PaginationUtil;
+
+@Slf4j
+@RestController
+@RequestMapping("/api/wcc310")
+public class Wcc310Controller {
+
+    private final String CLASS_NAME = this.getClass().getSimpleName();
+
+    @Autowired
+    private CountryQueryService countryQueryService;
+
+    @Autowired
+    private CompanyQueryService companyQueryService;
+
+    @Autowired
+    private ProdQueryService prodQueryService;
+
+    @Autowired
+    private StdQueryService stdQueryService;
+
+    @Autowired
+    private Wcc310Service wcc310Service;
+
+    @GetMapping("/countryList")
+    public ResponseEntity<List<CountryDTO>> countryList(CountryCriteria criteria, Pageable pageable) {
+        Page<CountryDTO> page = countryQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/companyList")
+    public ResponseEntity<List<CompanyDTO>> companyList(CompanyCriteria criteria, Pageable pageable) {
+        Page<CompanyDTO> page = companyQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/prodList")
+    public ResponseEntity<List<ProdDTO>> prodList(ProdCriteria criteria, Pageable pageable) {
+        Page<ProdDTO> page = prodQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/stdList")
+    public ResponseEntity<List<StdDTO>> stdList(StdCriteria criteria, Pageable pageable) {
+        Page<StdDTO> page = stdQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/feeTypeList")
+    public ResponseEntity<List<SelectListDTO>> feeTypeList() {
+        HttpHeaders headers = new HttpHeaders();
+        return ResponseEntity.ok().headers(headers).body(feeTypeList.getFeeTypeList());
+    }
+
+    @PostMapping("/wcc311SaveAll")
+    public ResponseEntity<ResponseDTO> wcc311SaveAll(@RequestBody Wcc311SaveAllReq req) {
+        Wcc311SaveAllRes resData = null;
+        ResponseDTO res = new ResponseDTO<>();
+        HttpHeaders httpHeaders = new HttpHeaders();
+
+        StatusCode statusCode = wcc310Service.saveAll(req);
+
+        res.setContent(resData);
+        res.setStatusCode(statusCode);
+        return ResponseEntity.ok().headers(httpHeaders).body(res);
+    }
+}

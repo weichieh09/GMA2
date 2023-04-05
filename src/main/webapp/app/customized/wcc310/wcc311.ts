@@ -7,12 +7,29 @@ export default {
       cerf: {
         countryId: null,
         countryNoInput: null,
+        stsCd: null,
+        cerfNo: null,
+        cerfVer: null,
+        issuDt: null,
+        expDt: null,
+        pdfContentType: null,
+        pdf: null,
       },
       company: {
         apply: null,
         mnfctr: null,
         fctyList: [],
       },
+      prodList: [],
+      stdList: [],
+      feeList: [],
+      fee: {
+        tmpId: 0,
+        feeType: null,
+        fee: null,
+        feeDt: null,
+      },
+      feeTypeList: null,
       modal: {
         previousPage: 1,
         currentPage: 1,
@@ -42,6 +59,18 @@ export default {
         case 'companyMnfctrList':
         case 'companyFctyList': {
           this.getCompanyList();
+          break;
+        }
+        case 'prodList': {
+          this.getProdList();
+          break;
+        }
+        case 'stdList': {
+          this.getStdList();
+          break;
+        }
+        case 'feeTypeList': {
+          this.getFeeTypeList();
           break;
         }
         default: {
@@ -88,6 +117,43 @@ export default {
           this.modal.objTotal = Number(res.headers['x-total-count']);
         });
     },
+    getProdList() {
+      axios
+        .get(
+          '/api/wcc310/prodList?sort=prodNo,asc' +
+            '&chName.contains=' +
+            this.modal.keyWord +
+            '&page=' +
+            (this.modal.currentPage - 1) +
+            '&size=' +
+            this.modal.perPage
+        )
+        .then(res => {
+          this.modal.objList = res.data;
+          this.modal.objTotal = Number(res.headers['x-total-count']);
+        });
+    },
+    getStdList() {
+      axios
+        .get(
+          '/api/wcc310/stdList?sort=stdNo,asc' +
+            '&chName.contains=' +
+            this.modal.keyWord +
+            '&page=' +
+            (this.modal.currentPage - 1) +
+            '&size=' +
+            this.modal.perPage
+        )
+        .then(res => {
+          this.modal.objList = res.data;
+          this.modal.objTotal = Number(res.headers['x-total-count']);
+        });
+    },
+    getFeeTypeList() {
+      axios.get('/api/wcc310/feeTypeList').then(res => {
+        this.feeTypeList = res.data;
+      });
+    },
     modalLoad(modalName, page) {
       if (page !== this.modal.previousPage) {
         this.modal.previousPage = page;
@@ -118,6 +184,18 @@ export default {
           else this.company.fctyList = tmpArray;
           break;
         }
+        case 'prodList': {
+          let tmpArray = this.prodList.filter(o => o.id !== obj.id);
+          if (tmpArray.length == this.prodList.length) this.prodList.push(obj);
+          else this.prodList = tmpArray;
+          break;
+        }
+        case 'stdList': {
+          let tmpArray = this.stdList.filter(o => o.id !== obj.id);
+          if (tmpArray.length == this.stdList.length) this.stdList.push(obj);
+          else this.stdList = tmpArray;
+          break;
+        }
         default: {
           console.log('錯誤');
           break;
@@ -127,6 +205,78 @@ export default {
       if (choiceType == 'oneChoice') {
         this.$bvModal.hide('modal-' + modalName);
       }
+    },
+    feeAdd() {
+      this.fee.tmpId = Number(this.fee.tmpId) + 1;
+      const obj = {
+        tmpId: this.fee.tmpId,
+        feeType: this.fee.feeType,
+        fee: this.fee.fee,
+        feeDt: this.fee.feeDt,
+      };
+      this.feeList.push(obj);
+      this.fee.feeType = null;
+      this.fee.fee = null;
+      this.fee.feeDt = null;
+    },
+    saveAll() {
+      const saveData = {
+        countryNo: this.cerf.countryNoInput,
+        stsCd: this.cerf.stsCd,
+        cerfNo: this.cerf.cerfNo,
+        cerfVer: this.cerf.cerfVer,
+        issuDt: this.cerf.issuDt,
+        expDt: this.cerf.expDt,
+        pdf: this.cerf.pdf,
+        pdfContentType: this.cerf.pdfContentType,
+        apply: this.company.apply,
+        mnfctr: this.company.mnfctr,
+        fctyList: this.company.fctyList,
+        prodList: this.prodList,
+        stdList: this.stdList,
+        feeList: this.feeList,
+      };
+
+      axios
+        .post('/api/wcc310/wcc311SaveAll', saveData)
+        .then(res => {
+          this.showMsgBox(res.data);
+        })
+        .catch(err => {
+          // reject(err);
+          // this.showMsgBox(err);
+          alert(err);
+        });
+    },
+    setPdfData(event, isImage) {
+      if (event && event.target.files && event.target.files[0]) {
+        const file = event.target.files[0];
+        if (isImage && !/^image\//.test(file.type)) {
+          return;
+        }
+        this.toBase64(file, base64Data => {
+          this.cerf.pdf = base64Data;
+          this.cerf.pdfContentType = file.type;
+        });
+      }
+    },
+    toBase64(file, cb) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = (e: any) => {
+        const base64Data = e.target.result.substring(e.target.result.indexOf('base64,') + 'base64,'.length);
+        cb(base64Data);
+      };
+    },
+    showMsgBox(res) {
+      this.boxTwo = '';
+      this.$bvModal
+        .msgBoxOk(res.msg, {
+          title: '儲存結果',
+        })
+        .then(value => {
+          if (res.code == 0) this.$router.go(-1);
+        });
     },
     previousState() {
       // this.$router.go(-1);
