@@ -4,9 +4,9 @@ import com.wcc.gma2.customized.dto.ResponseDTO;
 import com.wcc.gma2.customized.dto.SelectListDTO;
 import com.wcc.gma2.customized.dto.Wcc311SaveAllReq;
 import com.wcc.gma2.customized.dto.Wcc311SaveAllRes;
-import com.wcc.gma2.customized.service.Wcc310Service;
+import com.wcc.gma2.customized.service.Wcc311Service;
+import com.wcc.gma2.customized.type.FeeTypeList;
 import com.wcc.gma2.customized.type.StatusCode;
-import com.wcc.gma2.customized.type.feeTypeList;
 import com.wcc.gma2.service.*;
 import com.wcc.gma2.service.criteria.*;
 import com.wcc.gma2.service.dto.*;
@@ -23,8 +23,8 @@ import tech.jhipster.web.util.PaginationUtil;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/wcc310")
-public class Wcc310Controller {
+@RequestMapping("/api/wcc311")
+public class Wcc311Controller {
 
     private final String CLASS_NAME = this.getClass().getSimpleName();
 
@@ -41,7 +41,7 @@ public class Wcc310Controller {
     private StdQueryService stdQueryService;
 
     @Autowired
-    private Wcc310Service wcc310Service;
+    private Wcc311Service wcc311Service;
 
     @Autowired
     private CountryMarkQueryService countryMarkQueryService;
@@ -77,16 +77,16 @@ public class Wcc310Controller {
     @GetMapping("/feeTypeList")
     public ResponseEntity<List<SelectListDTO>> feeTypeList() {
         HttpHeaders headers = new HttpHeaders();
-        return ResponseEntity.ok().headers(headers).body(feeTypeList.getFeeTypeList());
+        return ResponseEntity.ok().headers(headers).body(FeeTypeList.getFeeTypeList());
     }
 
-    @PostMapping("/wcc311SaveAll")
-    public ResponseEntity<ResponseDTO> wcc311SaveAll(@RequestBody Wcc311SaveAllReq req) {
+    @PostMapping("/saveAll")
+    public ResponseEntity<ResponseDTO> saveAll(@RequestBody Wcc311SaveAllReq req) {
         Wcc311SaveAllRes resData = null;
         ResponseDTO res = new ResponseDTO<>();
         HttpHeaders httpHeaders = new HttpHeaders();
 
-        StatusCode statusCode = wcc310Service.saveAll(req);
+        StatusCode statusCode = wcc311Service.saveAll(req);
 
         res.setContent(resData);
         res.setStatusCode(statusCode);

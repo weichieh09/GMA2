@@ -2,7 +2,7 @@
   <div class="container">
     <main>
       <div class="py-3">
-        <h2>建立或編輯</h2>
+        <h2>建立</h2>
       </div>
 
       <div class="row">
@@ -288,6 +288,7 @@
                       <b-button type="reset" variant="outline-secondary" to="/company">管理</b-button>
                     </b-button-group>
                   </div>
+                  <small style="color: red">tips: 此項目可多重選擇。</small>
                   <br />
                   <b-list-group v-for="company in modal.objList" :key="company.id">
                     <b-list-group-item button @click="modalChoice('companyFctyList', 'manyChoice', company)">
@@ -336,6 +337,7 @@
                     <b-button type="reset" variant="outline-secondary" to="/prod">管理</b-button>
                   </b-button-group>
                 </div>
+                <small style="color: red">tips: 此項目可多重選擇。</small>
                 <br />
                 <b-list-group v-for="prod in modal.objList" :key="prod.id">
                   <b-list-group-item button @click="modalChoice('prodList', 'manyChoice', prod)">
@@ -383,6 +385,7 @@
                     <b-button type="reset" variant="outline-secondary" to="/std">管理</b-button>
                   </b-button-group>
                 </div>
+                <small style="color: red">tips: 此項目可多重選擇。</small>
                 <br />
                 <b-list-group v-for="std in modal.objList" :key="std.id">
                   <b-list-group-item button @click="modalChoice('stdList', 'manyChoice', std)">
@@ -446,7 +449,9 @@
                     <b-form-select v-model="fee.feeType" :options="feeTypeList"></b-form-select>
                     <br /><br />
                   </div>
-
+                  <div class="col-md-12">
+                    <small style="color: red">tips: 此項目可增加多筆。</small>
+                  </div>
                   <div class="col-md-12 d-flex justify-content-end">
                     <b-button-group>
                       <b-button type="submit" variant="primary" @click="feeAdd()">

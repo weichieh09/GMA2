@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-public enum feeTypeList {
+public enum FeeTypeList {
     C1101("證書-首次申請", "C1101"),
     C1201("證書-年費", "C1201"),
     C1301("證書-新增型號", "C1301"),
@@ -29,7 +29,7 @@ public enum feeTypeList {
 
     public static List<SelectListDTO> getFeeTypeList() {
         List<SelectListDTO> list = new ArrayList<>();
-        for (feeTypeList type : feeTypeList.values()) list.add(new SelectListDTO(type.getText(), type.getValue()));
+        for (FeeTypeList type : FeeTypeList.values()) list.add(new SelectListDTO(type.getText(), type.getValue()));
         return list;
     }
 }

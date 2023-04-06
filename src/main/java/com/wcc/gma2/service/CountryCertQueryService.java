@@ -105,6 +105,18 @@ public class CountryCertQueryService extends QueryService<CountryCert> {
                         buildSpecification(criteria.getCerfId(), root -> root.join(CountryCert_.cerf, JoinType.LEFT).get(Cerf_.id))
                     );
             }
+            if (criteria.getCerfNo() != null) {
+                specification =
+                    specification.and(
+                        buildSpecification(criteria.getCerfNo(), root -> root.join(CountryCert_.cerf, JoinType.LEFT).get(Cerf_.cerfNo))
+                    );
+            }
+            if (criteria.getStatus() != null) {
+                specification =
+                    specification.and(
+                        buildSpecification(criteria.getStatus(), root -> root.join(CountryCert_.cerf, JoinType.LEFT).get(Cerf_.status))
+                    );
+            }
         }
         return specification;
     }

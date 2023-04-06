@@ -93,7 +93,7 @@ export default {
     getCountryList() {
       axios
         .get(
-          '/api/wcc310/countryList?sort=countryNo,asc' +
+          '/api/wcc311/countryList?sort=countryNo,asc' +
             '&enName.contains=' +
             this.modal.keyWord +
             '&page=' +
@@ -109,7 +109,7 @@ export default {
     getCompanyList() {
       axios
         .get(
-          '/api/wcc310/companyList?sort=companyNo,asc' +
+          '/api/wcc311/companyList?sort=companyNo,asc' +
             '&chName.contains=' +
             this.modal.keyWord +
             '&page=' +
@@ -125,7 +125,7 @@ export default {
     getProdList() {
       axios
         .get(
-          '/api/wcc310/prodList?sort=prodNo,asc' +
+          '/api/wcc311/prodList?sort=prodNo,asc' +
             '&chName.contains=' +
             this.modal.keyWord +
             '&page=' +
@@ -141,7 +141,7 @@ export default {
     getStdList() {
       axios
         .get(
-          '/api/wcc310/stdList?sort=stdNo,asc' +
+          '/api/wcc311/stdList?sort=stdNo,asc' +
             '&chName.contains=' +
             this.modal.keyWord +
             '&page=' +
@@ -155,14 +155,14 @@ export default {
         });
     },
     getFeeTypeList() {
-      axios.get('/api/wcc310/feeTypeList').then(res => {
+      axios.get('/api/wcc311/feeTypeList').then(res => {
         this.feeTypeList = res.data;
       });
     },
     getMarkList() {
       axios
         .get(
-          '/api/wcc310/markList?countryId.equals=' +
+          '/api/wcc311/markList?countryId.equals=' +
             this.cerf.countryId +
             '&markChName.contains=' +
             this.modal.keyWord +
@@ -252,7 +252,7 @@ export default {
     },
     saveAll() {
       const saveData = {
-        countryNo: this.cerf.countryNoInput,
+        countryId: this.cerf.countryId,
         stsCd: this.cerf.stsCd,
         cerfNo: this.cerf.cerfNo,
         cerfVer: this.cerf.cerfVer,
@@ -270,7 +270,7 @@ export default {
       };
 
       axios
-        .post('/api/wcc310/wcc311SaveAll', saveData)
+        .post('/api/wcc311/saveAll', saveData)
         .then(res => {
           this.showMsgBox(res.data);
         })

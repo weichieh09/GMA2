@@ -16,12 +16,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 @Slf4j
-public class Wcc310Service {
+public class Wcc311Service {
 
     private final String CLASS_NAME = this.getClass().getSimpleName();
 
     @Autowired
     private CerfService cerfService;
+
+    @Autowired
+    private CountryCertService countryCertService;
 
     @Autowired
     private CerfCompanyService cerfCompanyService;
@@ -38,10 +41,12 @@ public class Wcc310Service {
     @Autowired
     private CerfMarkService cerfMarkService;
 
+    @Transactional
     public StatusCode saveAll(Wcc311SaveAllReq req) {
         try {
             if (!this.checkCerf(req)) return StatusCode.FAIL;
             CerfDTO cerfDTO = cerfService.save(this.getCerf(req));
+            countryCertService.save(this.getCountryCert(req, cerfDTO));
             for (CerfCompanyDTO cerfCompanyDTO : this.getCerfCompany(req, cerfDTO)) cerfCompanyService.save(cerfCompanyDTO);
             for (CerfProdDTO cerfProdDTO : this.getCerfProd(req, cerfDTO)) cerfProdService.save(cerfProdDTO);
             for (CerfStdDTO cerfStdDTO : this.getCerfStd(req, cerfDTO)) cerfStdService.save(cerfStdDTO);
@@ -52,6 +57,15 @@ public class Wcc310Service {
             log.error(CLASS_NAME + ".saveAll() - " + e.getMessage());
             return StatusCode.FAIL;
         }
+    }
+
+    private CountryCertDTO getCountryCert(Wcc311SaveAllReq req, CerfDTO cerfDTO) {
+        CountryCertDTO result = new CountryCertDTO();
+        CountryDTO countryDTO = new CountryDTO();
+        countryDTO.setId(req.getCountryId());
+        result.setCountry(countryDTO);
+        result.setCerf(cerfDTO);
+        return result;
     }
 
     private CerfMarkDTO getCerfMark(Wcc311SaveAllReq req, CerfDTO cerfDTO) {

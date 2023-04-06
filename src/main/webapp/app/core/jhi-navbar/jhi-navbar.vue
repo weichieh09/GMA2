@@ -42,6 +42,10 @@
             <font-awesome-icon icon="asterisk" />
             <span v-text="$t('global.menu.wcc.wcc311')">wcc311</span>
           </b-dropdown-item>
+          <b-dropdown-item to="/wcc312">
+            <font-awesome-icon icon="asterisk" />
+            <span v-text="$t('global.menu.wcc.wcc312')">wcc312</span>
+          </b-dropdown-item>
         </b-nav-item-dropdown>
         <!-- wccCode - 下拉選單 -->
         <b-nav-item-dropdown right id="entity-menu" v-if="authenticated" active-class="active" class="pointer" data-cy="entity">

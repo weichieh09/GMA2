@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Wcc311SaveAllReq {
 
-    private String countryNo;
+    private Long countryId;
     private String stsCd;
     private String cerfNo;
     private String cerfVer;

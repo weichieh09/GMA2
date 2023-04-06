@@ -31,6 +31,10 @@ public class CountryCertCriteria implements Serializable, Criteria {
 
     private Boolean distinct;
 
+    private StringFilter cerfNo;
+
+    private StringFilter status;
+
     public CountryCertCriteria() {}
 
     public CountryCertCriteria(CountryCertCriteria other) {
@@ -39,6 +43,8 @@ public class CountryCertCriteria implements Serializable, Criteria {
         this.countryId = other.countryId == null ? null : other.countryId.copy();
         this.cerfId = other.cerfId == null ? null : other.cerfId.copy();
         this.distinct = other.distinct;
+        this.cerfNo = other.cerfNo == null ? null : other.cerfNo.copy();
+        this.status = other.status == null ? null : other.status.copy();
     }
 
     @Override
@@ -114,6 +120,36 @@ public class CountryCertCriteria implements Serializable, Criteria {
         this.distinct = distinct;
     }
 
+    public StringFilter getCerfNo() {
+        return cerfNo;
+    }
+
+    public StringFilter cerfNo() {
+        if (cerfNo == null) {
+            cerfNo = new StringFilter();
+        }
+        return cerfNo;
+    }
+
+    public void setCerfNo(StringFilter cerfNo) {
+        this.cerfNo = cerfNo;
+    }
+
+    public StringFilter getStatus() {
+        return status;
+    }
+
+    public StringFilter status() {
+        if (status == null) {
+            status = new StringFilter();
+        }
+        return status;
+    }
+
+    public void setStatus(StringFilter status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -146,6 +182,8 @@ public class CountryCertCriteria implements Serializable, Criteria {
             (countryId != null ? "countryId=" + countryId + ", " : "") +
             (cerfId != null ? "cerfId=" + cerfId + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +
+            (cerfNo != null ? "cerfNo=" + cerfNo + ", " : "") +
+            (status != null ? "status=" + status + ", " : "") +
             "}";
     }
 }

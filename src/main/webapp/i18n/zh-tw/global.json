@@ -6,12 +6,14 @@
       "home": "首頁",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "wcc": {
-        "main": "功能",
+        "main": "管理者功能",
         "wcc101": "證書與報告",
-        "wcc201": "wcc201"
+        "wcc201": "wcc201",
+        "wcc311": "證書模組新增",
+        "wcc312": "證書模組"
       },
       "entities": {
-        "main": "實體",
+        "main": "資料庫",
         "prod": "Prod",
         "country": "Country",
         "cerf": "Cerf",
