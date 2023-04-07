@@ -25,5 +25,7 @@ public interface CerfStdMapper extends EntityMapper<CerfStdDTO, CerfStd> {
     @Named("stdId")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
+    @Mapping(target = "stdNo", source = "stdNo")
+    @Mapping(target = "chName", source = "chName")
     StdDTO toDtoStdId(Std std);
 }

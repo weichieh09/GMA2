@@ -2,7 +2,6 @@
   <div class="container">
     <main>
       <div class="py-3">
-        <h2>建立或編輯</h2>
         <h2>檢視</h2>
       </div>
 
@@ -15,7 +14,9 @@
                 <label class="form-label">國家代碼</label>
                 <div class="input-group">
                   <input type="text" class="form-control" v-model="cerf.countryNoInput" disabled />
-                  <b-button variant="outline-secondary" v-b-modal.modal-countryList @click="modalInit('countryList')">編輯</b-button>
+                  <b-button variant="outline-secondary" v-b-modal.modal-countryList @click="modalInit('countryList')" v-if="false"
+                    >編輯</b-button
+                  >
                   <!-- countryList 彈跳視窗 -->
                   <b-modal id="modal-countryList" hide-footer title="選擇國家">
                     <div class="input-group">
@@ -59,13 +60,13 @@
 
               <div class="col-sm-6">
                 <label class="form-label">證書編號</label>
-                <input type="text" class="form-control" v-model="cerf.cerfNo" />
+                <input type="text" class="form-control" v-model="cerf.cerfNo" disabled />
                 <br />
               </div>
 
               <div class="col-sm-6">
                 <label class="form-label">證書版本號碼</label>
-                <input type="text" class="form-control" v-model="cerf.cerfVer" />
+                <input type="text" class="form-control" v-model="cerf.cerfVer" disabled />
                 <br />
               </div>
 
@@ -73,9 +74,9 @@
                 <label class="form-label">證書發行日期</label>
                 <b-input-group class="mb-3">
                   <b-input-group-prepend>
-                    <b-form-datepicker v-model="cerf.issuDt" button-only today-button reset-button close-button />
+                    <b-form-datepicker v-model="cerf.issuDt" button-only today-button reset-button close-button disabled />
                   </b-input-group-prepend>
-                  <b-form-input type="text" class="form-control" v-model="cerf.issuDt" />
+                  <b-form-input type="text" class="form-control" v-model="cerf.issuDt" disabled />
                 </b-input-group>
                 <br />
               </div>
@@ -84,9 +85,9 @@
                 <label class="form-label">證書到期日期</label>
                 <b-input-group class="mb-3">
                   <b-input-group-prepend>
-                    <b-form-datepicker v-model="cerf.expDt" button-only today-button reset-button close-button />
+                    <b-form-datepicker v-model="cerf.expDt" button-only today-button reset-button close-button disabled />
                   </b-input-group-prepend>
-                  <b-form-input type="text" class="form-control" v-model="cerf.expDt" />
+                  <b-form-input type="text" class="form-control" v-model="cerf.expDt" disabled />
                 </b-input-group>
                 <br />
               </div>
@@ -94,7 +95,7 @@
               <div class="col-md-12">
                 <label class="form-label">
                   證書標籤
-                  <b-button variant="outline-secondary" v-b-modal.modal-markList @click="modalInit('markList')">編輯</b-button>
+                  <b-button variant="outline-secondary" v-b-modal.modal-markList @click="modalInit('markList')" v-if="false">編輯</b-button>
                 </label>
                 <!-- countryList 彈跳視窗 -->
                 <b-modal id="modal-markList" hide-footer title="選擇標籤">
@@ -161,7 +162,7 @@
 
               <div class="col-md-12">
                 <label for="email" class="form-label">證書檔案</label>
-                <input type="file" class="form-control" v-on:change="setPdfData($event, false)" />
+                <input type="file" class="form-control" v-on:change="setPdfData($event, false)" v-if="false" />
                 <div v-if="cerf.pdf" class="form-text text-danger clearfix">
                   <span class="pull-left">檔案格式: {{ cerf.pdfContentType }}, 檔案大小: {{ byteSize(cerf.pdf) }}</span>
                   <button type="button" v-on:click="openFile(cerf.pdfContentType, cerf.pdf)" class="btn btn-primary btn-xs pull-right">
@@ -189,7 +190,7 @@
               <div class="col-md-12">
                 <label class="form-label">
                   申請商
-                  <b-button variant="outline-secondary" v-b-modal.modal-companyApplyList @click="modalInit('companyApplyList')"
+                  <b-button variant="outline-secondary" v-b-modal.modal-companyApplyList @click="modalInit('companyApplyList')" v-if="false"
                     >編輯</b-button
                   >
                 </label>
@@ -239,7 +240,11 @@
               <div class="col-md-12">
                 <label class="form-label">
                   製造商
-                  <b-button variant="outline-secondary" v-b-modal.modal-companyMnfctrList @click="modalInit('companyMnfctrList')"
+                  <b-button
+                    variant="outline-secondary"
+                    v-b-modal.modal-companyMnfctrList
+                    @click="modalInit('companyMnfctrList')"
+                    v-if="false"
                     >編輯</b-button
                   >
                 </label>
@@ -289,7 +294,7 @@
               <div class="col-md-12">
                 <label class="form-label"
                   >生產廠
-                  <b-button variant="outline-secondary" v-b-modal.modal-companyFctyList @click="modalInit('companyFctyList')"
+                  <b-button variant="outline-secondary" v-b-modal.modal-companyFctyList @click="modalInit('companyFctyList')" v-if="false"
                     >編輯</b-button
                   >
                 </label>
@@ -341,7 +346,7 @@
 
             <h4 class="mb-3">
               產品
-              <b-button variant="outline-secondary" v-b-modal.modal-prodList @click="modalInit('prodList')">編輯</b-button>
+              <b-button variant="outline-secondary" v-b-modal.modal-prodList @click="modalInit('prodList')" v-if="false">編輯</b-button>
             </h4>
             <div class="row gy-3">
               <!-- countryList 彈跳視窗 -->
@@ -389,7 +394,7 @@
 
             <h4 class="mb-3">
               檢驗標準
-              <b-button variant="outline-secondary" v-b-modal.modal-stdList @click="modalInit('stdList')">編輯</b-button>
+              <b-button variant="outline-secondary" v-b-modal.modal-stdList @click="modalInit('stdList')" v-if="false">編輯</b-button>
             </h4>
             <div class="row gy-3">
               <!-- countryList 彈跳視窗 -->
@@ -437,7 +442,7 @@
 
             <h4 class="mb-3">
               費用
-              <b-button variant="outline-secondary" v-b-modal.modal-feeList @click="modalInit('feeTypeList')">編輯</b-button>
+              <b-button variant="outline-secondary" v-b-modal.modal-feeList @click="modalInit('feeTypeList')" v-if="false">編輯</b-button>
             </h4>
             <div class="row gy-3">
               <!-- countryList 彈跳視窗 -->
@@ -509,7 +514,7 @@
               <b-icon icon="arrow-left" />
               <span>返回</span>
             </button>
-            <b-button type="submit" variant="primary" @click="saveAll()">
+            <b-button type="submit" variant="primary" @click="saveAll()" v-if="false">
               <font-awesome-icon icon="save" />
               <span>儲存</span>
             </b-button>
@@ -520,4 +525,4 @@
   </div>
 </template>
 
-<script lang="ts" src="./wcc311.ts"></script>
+<script lang="ts" src="./wcc313.ts"></script>

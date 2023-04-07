@@ -2,12 +2,17 @@ package com.wcc.gma2.customized.service;
 
 import com.wcc.gma2.customized.dto.FeeDTO;
 import com.wcc.gma2.customized.dto.IdDTO;
+import com.wcc.gma2.customized.dto.Wcc311CerfDataRes;
 import com.wcc.gma2.customized.dto.Wcc311SaveAllReq;
+import com.wcc.gma2.customized.type.CerfStatusTypeList;
 import com.wcc.gma2.customized.type.StatusCode;
+import com.wcc.gma2.customized.utils.LongFilterUtils;
 import com.wcc.gma2.service.*;
+import com.wcc.gma2.service.criteria.*;
 import com.wcc.gma2.service.dto.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +45,24 @@ public class Wcc311Service {
 
     @Autowired
     private CerfMarkService cerfMarkService;
+
+    @Autowired
+    private CountryCertQueryService countryCertQueryService;
+
+    @Autowired
+    private CerfCompanyQueryService cerfCompanyQueryService;
+
+    @Autowired
+    private CerfProdQueryService cerfProdQueryService;
+
+    @Autowired
+    private CerfStdQueryService cerfStdQueryService;
+
+    @Autowired
+    private FeeProdCerfCompanyQueryService feeProdCerfCompanyQueryService;
+
+    @Autowired
+    private CerfMarkQueryService cerfMarkQueryService;
 
     @Transactional
     public StatusCode saveAll(Wcc311SaveAllReq req) {
@@ -177,5 +200,114 @@ public class Wcc311Service {
         result.setIssuDt(req.getIssuDt());
         result.setExpDt(req.getExpDt());
         return result;
+    }
+
+    public Wcc311CerfDataRes getCerfData(Long id) {
+        Wcc311CerfDataRes result = new Wcc311CerfDataRes();
+        Optional<CerfDTO> one = cerfService.findOne(id);
+        if (one.isEmpty()) return null;
+        // 證書
+        CerfDTO cerfDTO = one.get();
+        result.setCerfId(cerfDTO.getId());
+        result.setCerfNo(cerfDTO.getCerfNo());
+        result.setCerfVer(cerfDTO.getCerfVer());
+        result.setIssuDt(cerfDTO.getIssuDt());
+        result.setExpDt(cerfDTO.getExpDt());
+        result.setPdf(cerfDTO.getPdf());
+        result.setPdfContentType(cerfDTO.getPdfContentType());
+        result.setStsCd(CerfStatusTypeList.toText(cerfDTO.getStatus()));
+        // 國家
+        CountryDTO countryDTO = this.getCountryCert(cerfDTO);
+        result.setCountry(countryDTO);
+        // 廠商
+        List<CerfCompanyDTO> cerfCompanyList = this.getCerfCompany(cerfDTO);
+        result.setApply(this.getCompanyList(cerfCompanyList, "APPLY"));
+        result.setMnfctr(this.getCompanyList(cerfCompanyList, "MNFCTR"));
+        result.setFctyList(this.getCompanyList(cerfCompanyList, "FCTY"));
+        // 產品
+        List<CerfProdDTO> cerfProdList = this.getCerfProd(cerfDTO);
+        result.setProdList(this.getProdList(cerfProdList));
+        // 檢驗標準
+        List<CerfStdDTO> cerfStdList = this.getCerfStd(cerfDTO);
+        result.setStdList(this.getStdList(cerfStdList));
+        // 費用
+        List<FeeProdCerfCompanyDTO> feeList = this.getFee(cerfDTO);
+        result.setFeeList(feeList);
+        // 標誌
+        MarkDTO markDTO = this.getMark(cerfDTO);
+        result.setMark(markDTO);
+        return result;
+    }
+
+    private List<StdDTO> getStdList(List<CerfStdDTO> cerfStdList) {
+        List<StdDTO> list = new ArrayList<>();
+        for (CerfStdDTO dto : cerfStdList) {
+            list.add(dto.getStd());
+        }
+        return list;
+    }
+
+    private List<ProdDTO> getProdList(List<CerfProdDTO> cerfProdList) {
+        List<ProdDTO> list = new ArrayList<>();
+        for (CerfProdDTO dto : cerfProdList) {
+            list.add(dto.getProd());
+        }
+        return list;
+    }
+
+    private List<CompanyDTO> getCompanyList(List<CerfCompanyDTO> cerfCompanyList, String relType) {
+        List<CompanyDTO> list = new ArrayList<>();
+        for (CerfCompanyDTO dto : cerfCompanyList) {
+            if (dto.getRelType().equalsIgnoreCase(relType)) list.add(dto.getCompany());
+        }
+        return list;
+    }
+
+    private MarkDTO getMark(CerfDTO cerfDTO) {
+        CerfMarkCriteria criteria = new CerfMarkCriteria();
+        criteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfDTO.getId()));
+        List<CerfMarkDTO> byCriteria = cerfMarkQueryService.findByCriteria(criteria);
+        if (byCriteria.size() > 0) return byCriteria.get(0).getMark();
+        return null;
+    }
+
+    private List<FeeProdCerfCompanyDTO> getFee(CerfDTO cerfDTO) {
+        FeeProdCerfCompanyCriteria criteria = new FeeProdCerfCompanyCriteria();
+        criteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfDTO.getId()));
+        List<FeeProdCerfCompanyDTO> byCriteria = feeProdCerfCompanyQueryService.findByCriteria(criteria);
+        if (byCriteria.size() > 0) return byCriteria;
+        return null;
+    }
+
+    private List<CerfStdDTO> getCerfStd(CerfDTO cerfDTO) {
+        CerfStdCriteria criteria = new CerfStdCriteria();
+        criteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfDTO.getId()));
+        List<CerfStdDTO> byCriteria = cerfStdQueryService.findByCriteria(criteria);
+        if (byCriteria.size() > 0) return byCriteria;
+        return null;
+    }
+
+    private List<CerfProdDTO> getCerfProd(CerfDTO cerfDTO) {
+        CerfProdCriteria criteria = new CerfProdCriteria();
+        criteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfDTO.getId()));
+        List<CerfProdDTO> byCriteria = cerfProdQueryService.findByCriteria(criteria);
+        if (byCriteria.size() > 0) return byCriteria;
+        return null;
+    }
+
+    private List<CerfCompanyDTO> getCerfCompany(CerfDTO cerfDTO) {
+        CerfCompanyCriteria criteria = new CerfCompanyCriteria();
+        criteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfDTO.getId()));
+        List<CerfCompanyDTO> byCriteria = cerfCompanyQueryService.findByCriteria(criteria);
+        if (byCriteria.size() > 0) return byCriteria;
+        return null;
+    }
+
+    private CountryDTO getCountryCert(CerfDTO cerfDTO) {
+        CountryCertCriteria criteria = new CountryCertCriteria();
+        criteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfDTO.getId()));
+        List<CountryCertDTO> byCriteria = countryCertQueryService.findByCriteria(criteria);
+        if (byCriteria.size() > 0) return byCriteria.get(0).getCountry();
+        return null;
     }
 }

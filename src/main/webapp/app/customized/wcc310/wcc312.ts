@@ -19,14 +19,48 @@ export default {
       cerfList: [],
     };
   },
+  beforeRouteLeave(to, from, next) {
+    sessionStorage.setItem('Wcc312CountryId', this.form.countryId);
+    sessionStorage.setItem('Wcc312CerfStatus', this.form.cerfStatus);
+    sessionStorage.setItem('Wcc312CerfNo', this.form.cerfNo);
+    sessionStorage.setItem('Wcc312CurrentPage', this.form.currentPage);
+    next();
+  },
   created() {
     this.getCountryList();
     this.getCerfStatusList();
+    this.lastTimePage();
   },
   methods: {
     onSubmit(event) {
       event.preventDefault();
       this.getCerfList();
+    },
+    lastTimePage() {
+      let needInit = false;
+      let Wcc312CountryId = sessionStorage.getItem('Wcc312CountryId');
+      let Wcc312CerfStatus = sessionStorage.getItem('Wcc312CerfStatus');
+      let Wcc312CerfNo = sessionStorage.getItem('Wcc312CerfNo');
+      let Wcc312CurrentPage = sessionStorage.getItem('Wcc312CurrentPage');
+      if (Wcc312CountryId != 'null') {
+        this.form.countryId = Wcc312CountryId;
+        needInit = true;
+      }
+      if (Wcc312CerfStatus != 'null') {
+        this.form.cerfStatus = Wcc312CerfStatus;
+        needInit = true;
+      }
+      if (Wcc312CerfNo) {
+        this.form.cerfNo = Wcc312CerfNo;
+        needInit = true;
+      }
+      if (Wcc312CurrentPage) {
+        this.form.currentPage = Wcc312CurrentPage;
+        needInit = true;
+      }
+      if ((needInit = true)) {
+        this.getCerfList();
+      }
     },
     getCountryList() {
       axios.get('/api/wcc312/countryList').then(res => {
@@ -55,14 +89,26 @@ export default {
         )
         .then(res => {
           this.cerfList = res.data;
+          this.form.objTotal = Number(res.headers['x-total-count']);
         });
+    },
+    loadPage(page) {
+      if (page !== this.form.previousPage) {
+        this.form.previousPage = page;
+        this.getCerfList();
+      }
     },
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.form.country = null;
+      sessionStorage.removeItem('Wcc312CountryId');
+      sessionStorage.removeItem('Wcc312CerfStatus');
+      sessionStorage.removeItem('Wcc312CerfNo');
+      sessionStorage.removeItem('Wcc312CurrentPage');
+      this.form.countryId = null;
       this.form.cerfStatus = null;
       this.form.cerfNo = '';
+      this.form.currentPage = 1;
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {

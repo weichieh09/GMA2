@@ -1,9 +1,6 @@
 package com.wcc.gma2.customized.rest;
 
-import com.wcc.gma2.customized.dto.ResponseDTO;
-import com.wcc.gma2.customized.dto.SelectListDTO;
-import com.wcc.gma2.customized.dto.Wcc311SaveAllReq;
-import com.wcc.gma2.customized.dto.Wcc311SaveAllRes;
+import com.wcc.gma2.customized.dto.*;
 import com.wcc.gma2.customized.service.Wcc311Service;
 import com.wcc.gma2.customized.type.FeeTypeList;
 import com.wcc.gma2.customized.type.StatusCode;
@@ -98,5 +95,12 @@ public class Wcc311Controller {
         Page<CountryMarkDTO> page = countryMarkQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+
+    @GetMapping("/cerfData/{id}")
+    public ResponseEntity<Wcc311CerfDataRes> cerfData(@PathVariable(value = "id", required = false) final Long id) {
+        Wcc311CerfDataRes resData = wcc311Service.getCerfData(id);
+        HttpHeaders headers = new HttpHeaders();
+        return ResponseEntity.ok().headers(headers).body(resData);
     }
 }

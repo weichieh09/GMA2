@@ -46,7 +46,7 @@ public class Wcc312Service {
         Wcc312CerfListRes dto = null;
         for (CountryCertDTO countryCertDTO : content) {
             dto = new Wcc312CerfListRes();
-            dto.setId(countryCertDTO.getId());
+            dto.setId(countryCertDTO.getCerf().getId());
             dto.setCountry(countryCertDTO.getCountry().getChName());
             dto.setCerfNo(countryCertDTO.getCerf().getCerfNo());
             dto.setCerfVer(countryCertDTO.getCerf().getCerfVer());

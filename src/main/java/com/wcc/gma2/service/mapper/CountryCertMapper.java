@@ -20,6 +20,7 @@ public interface CountryCertMapper extends EntityMapper<CountryCertDTO, CountryC
     @Named("countryId")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
+    @Mapping(target = "countryNo", source = "countryNo")
     @Mapping(target = "chName", source = "chName")
     CountryDTO toDtoCountryId(Country country);
 

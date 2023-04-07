@@ -4,6 +4,7 @@ const Wcc101 = () => import('@/customized/wcc101/index.vue');
 const Wcc201 = () => import('@/customized/wcc201/index.vue');
 const Wcc311 = () => import('@/customized/wcc310/wcc311.vue');
 const Wcc312 = () => import('@/customized/wcc310/wcc312.vue');
+const Wcc313 = () => import('@/customized/wcc310/wcc313.vue');
 
 export default [
   {
@@ -17,9 +18,19 @@ export default [
     component: Wcc201,
   },
   {
-    path: '/wcc311',
-    name: 'Wcc311',
+    path: '/wcc311/new',
+    name: 'Wcc311New',
     component: Wcc311,
+  },
+  {
+    path: '/wcc311/:cerfId/edit',
+    name: 'Wcc311Edit',
+    component: Wcc311,
+  },
+  {
+    path: '/wcc313/:cerfId',
+    name: 'Wcc313',
+    component: Wcc313,
   },
   {
     path: '/wcc312',
