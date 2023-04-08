@@ -20,6 +20,8 @@ public interface CerfCompanyMapper extends EntityMapper<CerfCompanyDTO, CerfComp
     @Named("cerfId")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
+    @Mapping(target = "cerfNo", source = "cerfNo")
+    @Mapping(target = "cerfVer", source = "cerfVer")
     CerfDTO toDtoCerfId(Cerf cerf);
 
     @Named("companyId")
@@ -27,5 +29,6 @@ public interface CerfCompanyMapper extends EntityMapper<CerfCompanyDTO, CerfComp
     @Mapping(target = "id", source = "id")
     @Mapping(target = "chName", source = "chName")
     @Mapping(target = "enName", source = "enName")
+    @Mapping(target = "email", source = "email")
     CompanyDTO toDtoCompanyId(Company company);
 }

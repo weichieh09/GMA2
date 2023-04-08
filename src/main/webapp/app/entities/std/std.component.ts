@@ -13,6 +13,7 @@ export default class Std extends Vue {
   @Inject('alertService') private alertService: () => AlertService;
 
   private removeId: number = null;
+  private sendStdId: number = null;
   public itemsPerPage = 20;
   public queryCount: number = null;
   public page = 1;
@@ -68,6 +69,13 @@ export default class Std extends Vue {
     }
   }
 
+  public prepareSendMail(instance: IStd): void {
+    this.sendStdId = instance.id;
+    if (<any>this.$refs.sendMail) {
+      (<any>this.$refs.sendMail).show();
+    }
+  }
+
   public removeStd(): void {
     this.stdService()
       .delete(this.removeId)
@@ -81,6 +89,30 @@ export default class Std extends Vue {
           autoHideDelay: 5000,
         });
         this.removeId = null;
+        this.retrieveAllStds();
+        this.closeDialog();
+      })
+      .catch(error => {
+        this.alertService().showHttpError(this, error.response);
+      });
+  }
+
+  public sendStd(): void {
+    const req = {
+      stdId: this.sendStdId,
+    };
+    this.stdService()
+      .sendMail(req)
+      .then(() => {
+        const message = 'MAIL 寄出成功';
+        this.$bvToast.toast(message.toString(), {
+          toaster: 'b-toaster-top-center',
+          title: '發送結果',
+          variant: 'success',
+          solid: true,
+          autoHideDelay: 5000,
+        });
+        this.sendStdId = null;
         this.retrieveAllStds();
         this.closeDialog();
       })
@@ -116,5 +148,6 @@ export default class Std extends Vue {
 
   public closeDialog(): void {
     (<any>this.$refs.removeEntity).hide();
+    (<any>this.$refs.sendMail).hide();
   }
 }

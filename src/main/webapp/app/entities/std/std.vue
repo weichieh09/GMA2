@@ -70,12 +70,10 @@
             <!-- <td>{{ std.expDt }}</td> -->
             <td class="text-right">
               <div class="btn-group">
-                <!-- <router-link :to="{ name: 'StdView', params: { stdId: std.id } }" custom v-slot="{ navigate }">
-                  <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
-                    <font-awesome-icon icon="eye"></font-awesome-icon>
-                    <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
-                  </button>
-                </router-link> -->
+                <button class="btn btn-info btn-sm details" v-on:click="prepareSendMail(std)" v-b-modal.sendMail>
+                  <b-icon icon="envelope" />
+                  <span class="d-none d-md-inline">通知</span>
+                </button>
                 <router-link :to="{ name: 'StdEdit', params: { stdId: std.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
                     <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
@@ -98,6 +96,20 @@
         </tbody>
       </table>
     </div>
+    <b-modal ref="sendMail" id="sendMail">
+      <span slot="modal-title"><span>發送通知確認</span></span>
+      <div class="modal-body">
+        <span>
+          <p style="display: inline-block">您確定要通知</p>
+          <p style="display: inline-block; color: red; font-weight: bold">含有此項標準之所有申請人</p>
+          <p style="display: inline-block">嗎?</p>
+        </span>
+      </div>
+      <div slot="modal-footer">
+        <button type="button" class="btn btn-secondary" v-text="$t('entity.action.cancel')" v-on:click="closeDialog()">Cancel</button>
+        <button type="button" class="btn btn-primary" v-on:click="sendStd()">發送</button>
+      </div>
+    </b-modal>
     <b-modal ref="removeEntity" id="removeEntity">
       <span slot="modal-title"
         ><span id="gma2App.std.delete.question" data-cy="stdDeleteDialogHeading" v-text="$t('entity.delete.title')"

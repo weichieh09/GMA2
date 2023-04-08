@@ -28,5 +28,6 @@ public interface CerfMarkMapper extends EntityMapper<CerfMarkDTO, CerfMark> {
     @Mapping(target = "markNo", source = "markNo")
     @Mapping(target = "chName", source = "chName")
     @Mapping(target = "img", source = "img")
+    @Mapping(target = "imgContentType", source = "imgContentType")
     MarkDTO toDtoMarkId(Mark mark);
 }

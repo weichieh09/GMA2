@@ -72,13 +72,14 @@ export default class ProdUpdate extends Vue {
   public prodStickers: IProdSticker[] = [];
   public isSaving = false;
   public currentLanguage = '';
+  public prodStickerList = [];
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
       if (to.params.prodId) {
         vm.retrieveProd(to.params.prodId);
       }
-      vm.initRelationships();
+      // vm.initRelationships();
     });
   }
 
@@ -94,6 +95,7 @@ export default class ProdUpdate extends Vue {
 
   public save(): void {
     this.isSaving = true;
+    this.prod.prodStickerList = this.prodStickerList;
     if (this.prod.id) {
       this.prodService()
         .update(this.prod)
@@ -140,6 +142,7 @@ export default class ProdUpdate extends Vue {
       .find(prodId)
       .then(res => {
         this.prod = res;
+        this.prodStickerList = res.prodStickerList;
       })
       .catch(error => {
         this.alertService().showHttpError(this, error.response);
@@ -176,5 +179,51 @@ export default class ProdUpdate extends Vue {
       .then(res => {
         this.prodStickers = res.data;
       });
+  }
+
+  public setPdfData(event, isImage): void {
+    if (event && event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      if (isImage && !/^image\//.test(file.type)) {
+        return;
+      }
+      this.toBase64(file, base64Data => {
+        const prodSticker = {
+          img: base64Data,
+          imgContentType: file.type,
+        };
+        this.prodStickerList.push(prodSticker as never);
+      });
+    }
+  }
+
+  public toBase64(file, cb) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = (e: any) => {
+      const base64Data = e.target.result.substring(e.target.result.indexOf('base64,') + 'base64,'.length);
+      cb(base64Data);
+    };
+  }
+
+  public openFile(contentType, data) {
+    const byteCharacters = atob(data);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], {
+      type: contentType,
+    });
+    const objectURL = URL.createObjectURL(blob);
+    const win = window.open(objectURL);
+    if (win) {
+      win.onload = () => URL.revokeObjectURL(objectURL);
+    }
+  }
+
+  public removeProdSticker(index) {
+    this.prodStickerList.splice(index, 1);
   }
 }

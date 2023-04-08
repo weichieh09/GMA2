@@ -1,5 +1,7 @@
 package com.wcc.gma2.web.rest;
 
+import com.wcc.gma2.customized.dto.WccProdDTO;
+import com.wcc.gma2.customized.service.WccProdService;
 import com.wcc.gma2.repository.ProdRepository;
 import com.wcc.gma2.service.ProdQueryService;
 import com.wcc.gma2.service.ProdService;
@@ -15,6 +17,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -46,6 +49,9 @@ public class ProdResource {
 
     private final ProdQueryService prodQueryService;
 
+    @Autowired
+    private WccProdService wccProdService;
+
     public ProdResource(ProdService prodService, ProdRepository prodRepository, ProdQueryService prodQueryService) {
         this.prodService = prodService;
         this.prodRepository = prodRepository;
@@ -60,12 +66,13 @@ public class ProdResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/prods")
-    public ResponseEntity<ProdDTO> createProd(@Valid @RequestBody ProdDTO prodDTO) throws URISyntaxException {
+    public ResponseEntity<ProdDTO> createProd(@Valid @RequestBody WccProdDTO prodDTO) throws URISyntaxException {
         log.debug("REST request to save Prod : {}", prodDTO);
         if (prodDTO.getId() != null) {
             throw new BadRequestAlertException("A new prod cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        ProdDTO result = prodService.save(prodDTO);
+        ProdDTO result = wccProdService.save(prodDTO);
+        //        ProdDTO result = prodService.save(prodDTO);
         return ResponseEntity
             .created(new URI("/api/prods/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
@@ -85,7 +92,7 @@ public class ProdResource {
     @PutMapping("/prods/{id}")
     public ResponseEntity<ProdDTO> updateProd(
         @PathVariable(value = "id", required = false) final Long id,
-        @Valid @RequestBody ProdDTO prodDTO
+        @Valid @RequestBody WccProdDTO prodDTO
     ) throws URISyntaxException {
         log.debug("REST request to update Prod : {}, {}", id, prodDTO);
         if (prodDTO.getId() == null) {
@@ -99,7 +106,8 @@ public class ProdResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        ProdDTO result = prodService.update(prodDTO);
+        ProdDTO result = wccProdService.update(prodDTO);
+        //        ProdDTO result = prodService.update(prodDTO);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, prodDTO.getId().toString()))
@@ -179,10 +187,12 @@ public class ProdResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the prodDTO, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/prods/{id}")
-    public ResponseEntity<ProdDTO> getProd(@PathVariable Long id) {
+    public ResponseEntity<WccProdDTO> getProd(@PathVariable Long id) {
         log.debug("REST request to get Prod : {}", id);
-        Optional<ProdDTO> prodDTO = prodService.findOne(id);
-        return ResponseUtil.wrapOrNotFound(prodDTO);
+        WccProdDTO result = wccProdService.findOne(id);
+        return ResponseEntity.ok().body(result);
+        //        Optional<ProdDTO> prodDTO = prodService.findOne(id);
+        //        return ResponseUtil.wrapOrNotFound(prodDTO);
     }
 
     /**

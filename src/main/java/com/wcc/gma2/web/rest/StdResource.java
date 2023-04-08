@@ -1,5 +1,8 @@
 package com.wcc.gma2.web.rest;
 
+import com.wcc.gma2.customized.dto.ResponseDTO;
+import com.wcc.gma2.customized.service.WccStdService;
+import com.wcc.gma2.customized.type.StatusCode;
 import com.wcc.gma2.repository.StdRepository;
 import com.wcc.gma2.service.StdQueryService;
 import com.wcc.gma2.service.StdService;
@@ -9,12 +12,14 @@ import com.wcc.gma2.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -45,6 +50,9 @@ public class StdResource {
     private final StdRepository stdRepository;
 
     private final StdQueryService stdQueryService;
+
+    @Autowired
+    private WccStdService wccStdService;
 
     public StdResource(StdService stdService, StdRepository stdRepository, StdQueryService stdQueryService) {
         this.stdService = stdService;
@@ -194,5 +202,12 @@ public class StdResource {
             .noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
             .build();
+    }
+
+    @PostMapping("/stds/sendMail")
+    public ResponseEntity<ResponseDTO> sendMail(@Valid @RequestBody Map<String, Long> req) {
+        ResponseDTO res = new ResponseDTO<>();
+        res.setStatusCode(wccStdService.sndMail(req.get("stdId")));
+        return ResponseEntity.ok().body(res);
     }
 }

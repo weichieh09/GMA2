@@ -92,12 +92,12 @@ export default {
       axios
         .get(
           '/api/wcc311/countryList?sort=id,DESC' +
-          '&enName.contains=' +
-          this.modal.keyWord +
-          '&page=' +
-          (this.modal.currentPage - 1) +
-          '&size=' +
-          this.modal.perPage
+            '&enName.contains=' +
+            this.modal.keyWord +
+            '&page=' +
+            (this.modal.currentPage - 1) +
+            '&size=' +
+            this.modal.perPage
         )
         .then(res => {
           this.modal.objList = res.data;
@@ -108,12 +108,12 @@ export default {
       axios
         .get(
           '/api/wcc311/companyList?sort=id,DESC' +
-          '&chName.contains=' +
-          this.modal.keyWord +
-          '&page=' +
-          (this.modal.currentPage - 1) +
-          '&size=' +
-          this.modal.perPage
+            '&chName.contains=' +
+            this.modal.keyWord +
+            '&page=' +
+            (this.modal.currentPage - 1) +
+            '&size=' +
+            this.modal.perPage
         )
         .then(res => {
           this.modal.objList = res.data;
@@ -124,12 +124,12 @@ export default {
       axios
         .get(
           '/api/wcc311/prodList?sort=id,DESC' +
-          '&chName.contains=' +
-          this.modal.keyWord +
-          '&page=' +
-          (this.modal.currentPage - 1) +
-          '&size=' +
-          this.modal.perPage
+            '&chName.contains=' +
+            this.modal.keyWord +
+            '&page=' +
+            (this.modal.currentPage - 1) +
+            '&size=' +
+            this.modal.perPage
         )
         .then(res => {
           this.modal.objList = res.data;
@@ -140,12 +140,12 @@ export default {
       axios
         .get(
           '/api/wcc311/stdList?sort=id,DESC' +
-          '&chName.contains=' +
-          this.modal.keyWord +
-          '&page=' +
-          (this.modal.currentPage - 1) +
-          '&size=' +
-          this.modal.perPage
+            '&chName.contains=' +
+            this.modal.keyWord +
+            '&page=' +
+            (this.modal.currentPage - 1) +
+            '&size=' +
+            this.modal.perPage
         )
         .then(res => {
           this.modal.objList = res.data;
@@ -161,15 +161,15 @@ export default {
       axios
         .get(
           '/api/wcc311/markList?' +
-          'markChName.contains=' +
-          this.modal.keyWord +
-          // '&countryId.equals=' +
-          // this.cerf.countryId +
-          '&sort=id,DESC' +
-          '&page=' +
-          (this.modal.currentPage - 1) +
-          '&size=' +
-          this.modal.perPage
+            'markChName.contains=' +
+            this.modal.keyWord +
+            // '&countryId.equals=' +
+            // this.cerf.countryId +
+            '&sort=id,DESC' +
+            '&page=' +
+            (this.modal.currentPage - 1) +
+            '&size=' +
+            this.modal.perPage
         )
         .then(res => {
           const tmpList = [];

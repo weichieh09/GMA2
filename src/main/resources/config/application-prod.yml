@@ -49,10 +49,10 @@ spring:
   liquibase:
     contexts: prod
   mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+    host: sandbox.smtp.mailtrap.io
+    port: 2525
+    username: f0e068769272d5
+    password: 1f568f9c61ea8b
   thymeleaf:
     cache: true
 

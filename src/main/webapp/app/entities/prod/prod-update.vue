@@ -107,6 +107,57 @@
               </small>
             </div>
           </div>
+          <div class="form-group">
+            <label class="form-label">產品標籤</label>
+            <input type="file" class="form-control" v-on:change="setPdfData($event, false)" />
+            <b-list-group v-for="(prodSticker, index) in prodStickerList" :key="index">
+              <b-list-group-item>
+                <div class="row">
+                  <div class="col-md-2">
+                    {{ index + 1 }}
+                  </div>
+                  <div class="col-md-5">
+                    <img
+                      v-bind:src="'data:' + prodSticker['imgContentType'] + ';base64,' + prodSticker['img']"
+                      style="max-height: 80px"
+                      alt="mark image"
+                    />
+                  </div>
+                  <div class="col-md-5">
+                    <b-button-group vertical>
+                      <button
+                        type="button"
+                        class="btn btn-primary btn-xs pull-right"
+                        v-on:click="openFile(prodSticker['imgContentType'], prodSticker['img'])"
+                      >
+                        <font-awesome-icon icon="eye" />開啟檔案
+                      </button>
+                      <button type="button" class="btn btn-danger btn-xs pull-right" v-on:click="removeProdSticker(index)">
+                        <font-awesome-icon icon="times" />移除檔案
+                      </button>
+                    </b-button-group>
+                  </div>
+                </div>
+              </b-list-group-item>
+            </b-list-group>
+
+            <!-- <div v-if="cerf.pdf" class="form-text text-danger clearfix">
+                  <span class="pull-left">檔案格式: {{ prod.pdfContentType }}, 檔案大小: {{ byteSize(prod.pdf) }}</span>
+                  <button type="button" v-on:click="openFile(cerf.pdfContentType, cerf.pdf)" class="btn btn-primary btn-xs pull-right">
+                    <font-awesome-icon icon="eye" />開啟檔案
+                  </button>
+                  <button
+                    type="button"
+                    v-on:click="
+                      cerf.pdf = null;
+                      cerf.pdfContentType = null;
+                    "
+                    class="btn btn-danger btn-xs pull-right"
+                  >
+                    <font-awesome-icon icon="times" />移除檔案
+                  </button>
+                </div> -->
+          </div>
         </div>
         <div>
           <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" v-on:click="previousState()">

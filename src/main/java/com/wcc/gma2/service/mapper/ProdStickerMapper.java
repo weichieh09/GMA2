@@ -25,5 +25,7 @@ public interface ProdStickerMapper extends EntityMapper<ProdStickerDTO, ProdStic
     @Named("stickerId")
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
+    @Mapping(target = "img", source = "img")
+    @Mapping(target = "imgContentType", source = "imgContentType")
     StickerDTO toDtoStickerId(Sticker sticker);
 }

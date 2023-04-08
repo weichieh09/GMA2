@@ -46,6 +46,19 @@ export default class StdService {
     });
   }
 
+  public sendMail(req?: any): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      axios
+        .post(`${baseApiUrl}` + '/sendMail', req)
+        .then(res => {
+          resolve(res.data);
+        })
+        .catch(err => {
+          reject(err);
+        });
+    });
+  }
+
   public create(entity: IStd): Promise<IStd> {
     return new Promise<IStd>((resolve, reject) => {
       axios

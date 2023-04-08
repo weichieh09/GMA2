@@ -16,6 +16,7 @@ export interface IProd {
   cerfProds?: ICerfProd[] | null;
   feeProdCerfCompanies?: IFeeProdCerfCompany[] | null;
   prodStickers?: IProdSticker[] | null;
+  prodStickerList?: [] | null;
 }
 
 export class Prod implements IProd {
@@ -30,6 +31,7 @@ export class Prod implements IProd {
     public prodStds?: IProdStd[] | null,
     public cerfProds?: ICerfProd[] | null,
     public feeProdCerfCompanies?: IFeeProdCerfCompany[] | null,
-    public prodStickers?: IProdSticker[] | null
+    public prodStickers?: IProdSticker[] | null,
+    public prodStickerList?: [] | null
   ) {}
 }

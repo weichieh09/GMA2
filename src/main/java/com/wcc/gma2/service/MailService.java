@@ -1,5 +1,6 @@
 package com.wcc.gma2.service;
 
+import com.wcc.gma2.customized.dto.StdCompanyMailDTO;
 import com.wcc.gma2.domain.User;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
@@ -90,6 +91,17 @@ public class MailService {
         String content = templateEngine.process(templateName, context);
         String subject = messageSource.getMessage(titleKey, null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendStdNoticeEmail(StdCompanyMailDTO stdCompanyMailDTO) {
+        Locale locale = Locale.forLanguageTag(stdCompanyMailDTO.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable(USER, stdCompanyMailDTO);
+        context.setVariable(BASE_URL, jHipsterProperties.getMail().getBaseUrl());
+        String content = templateEngine.process("mail/stdNotice", context);
+        String subject = messageSource.getMessage("email.stdNotice.title", null, locale);
+        sendEmail(stdCompanyMailDTO.getCompanyEmail(), subject, content, false, true);
     }
 
     @Async
