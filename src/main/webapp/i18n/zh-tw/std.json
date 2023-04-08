@@ -2,11 +2,11 @@
   "gma2App": {
     "std": {
       "home": {
-        "title": "Stds",
+        "title": "標準模組",
         "refreshListLabel": "Refresh list",
-        "createLabel": "建立一筆新的 Std",
-        "createOrEditLabel": "建立或編輯 Std",
-        "notFound": "No Stds found"
+        "createLabel": "建立",
+        "createOrEditLabel": "建立或編輯",
+        "notFound": "沒有資料"
       },
       "created": "新的 Std 建立成功，識別碼為 {{ param }}",
       "updated": "識別碼為 {{ param }} 的 Std 更新成功",
@@ -17,14 +17,14 @@
       "detail": {
         "title": "Std"
       },
-      "id": "ID",
-      "stdNo": "Std No",
-      "stdVer": "Std Ver",
-      "enName": "En Name",
-      "chName": "Ch Name",
-      "status": "Status",
-      "issuDt": "Issu Dt",
-      "expDt": "Exp Dt",
+      "id": "序號",
+      "stdNo": "標準編號",
+      "stdVer": "標準版號",
+      "enName": "英文名稱",
+      "chName": "中文名稱",
+      "status": "狀態",
+      "issuDt": "發行日期",
+      "expDt": "到期日期",
       "prodStd": "Prod Std",
       "cerfStd": "Cerf Std",
       "countryStd": "Country Std"

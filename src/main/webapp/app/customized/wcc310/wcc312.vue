@@ -3,8 +3,8 @@
     <b-row>
       <h2 id="page-heading">
         <span>證書模組</span>
-      </h2> </b-row
-    ><br />
+      </h2>
+    </b-row><br />
 
     <b-row>
       <b-col cols="12">
@@ -33,7 +33,8 @@
           <b-row>
             <b-col cols="12">
               <b-form-group id="input-group-3" :label="$t('gmaApp.wcc101.form.cerfNo')" label-for="input-3">
-                <b-form-input id="input-3" v-model="form.cerfNo" type="text" :placeholder="$t('gmaApp.wcc101.form.cerfNo')"></b-form-input>
+                <b-form-input id="input-3" v-model="form.cerfNo" type="text"
+                  :placeholder="$t('gmaApp.wcc101.form.cerfNo')"></b-form-input>
               </b-form-group>
             </b-col>
           </b-row>
@@ -49,18 +50,15 @@
             </b-col>
             <b-col cols="6" class="d-flex justify-content-end">
               <b-button-group>
-                <b-button type="submit" variant="primary"
-                  ><b-icon icon="search"></b-icon> <span v-text="$t('gmaApp.wcc101.home.submitLabel')">search</span></b-button
-                >
-                <b-button type="reset" variant="outline-secondary"
-                  ><b-icon icon="eraser"></b-icon> <span v-text="$t('gmaApp.wcc101.home.resetLabel')">eraser</span></b-button
-                >
+                <b-button type="submit" variant="primary"><b-icon icon="search"></b-icon> <span
+                    v-text="$t('gmaApp.wcc101.home.submitLabel')">search</span></b-button>
+                <b-button type="reset" variant="outline-secondary"><b-icon icon="eraser"></b-icon> <span
+                    v-text="$t('gmaApp.wcc101.home.resetLabel')">eraser</span></b-button>
               </b-button-group>
             </b-col>
           </b-row>
         </b-form>
-      </b-col> </b-row
-    ><br />
+      </b-col> </b-row><br />
 
     <b-row>
       <b-col cols="12">
@@ -114,13 +112,8 @@
                       <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
                     </button>
                   </router-link>
-                  <b-button
-                    v-on:click="prepareRemove(cerf)"
-                    variant="danger"
-                    class="btn btn-sm"
-                    data-cy="entityDeleteButton"
-                    v-b-modal.removeEntity
-                  >
+                  <b-button v-on:click="prepareRemove(cerf)" variant="danger" class="btn btn-sm"
+                    data-cy="entityDeleteButton" v-b-modal.removeEntity>
                     <font-awesome-icon icon="times"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
                   </b-button>
@@ -129,24 +122,20 @@
             </tr>
           </tbody>
         </table>
-      </b-col> </b-row
-    ><br />
+      </b-col> </b-row><br />
 
     <b-row>
       <b-col cols="12">
         <div v-show="cerfList && cerfList.length > 0">
           <div class="row justify-content-center">
-            <b-pagination
-              v-model="form.currentPage"
-              :total-rows="form.objTotal"
-              :per-page="form.perPage"
-              @input="loadPage(form.currentPage)"
-              size="md"
-            />
+            <jhi-item-count :page="form.currentPage" :total="form.objTotal" :itemsPerPage="form.perPage"></jhi-item-count>
+          </div>
+          <div class="row justify-content-center">
+            <b-pagination v-model="form.currentPage" :total-rows="form.objTotal" :per-page="form.perPage"
+              @input="loadPage(form.currentPage)" size="md" />
           </div>
         </div>
-      </b-col> </b-row
-    ><br />
+      </b-col> </b-row><br />
   </b-container>
 </template>
 

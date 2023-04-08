@@ -2,11 +2,11 @@
   "gma2App": {
     "company": {
       "home": {
-        "title": "Companies",
+        "title": "廠商模組",
         "refreshListLabel": "Refresh list",
-        "createLabel": "建立一筆新的 Company",
-        "createOrEditLabel": "建立或編輯 Company",
-        "notFound": "No Companies found"
+        "createLabel": "建立",
+        "createOrEditLabel": "建立或編輯",
+        "notFound": "沒有資料"
       },
       "created": "新的 Company 建立成功，識別碼為 {{ param }}",
       "updated": "識別碼為 {{ param }} 的 Company 更新成功",
@@ -17,12 +17,12 @@
       "detail": {
         "title": "Company"
       },
-      "id": "ID",
-      "companyNo": "Company No",
-      "enName": "En Name",
-      "chName": "Ch Name",
-      "tel": "Tel",
-      "addr": "Addr",
+      "id": "序號",
+      "companyNo": "廠商編號",
+      "enName": "英文名稱",
+      "chName": "中文名稱",
+      "tel": "連絡電話",
+      "addr": "聯絡地址",
       "email": "Email",
       "cerfCompany": "Cerf Company",
       "feeProdCerfCompany": "Fee Prod Cerf Company"

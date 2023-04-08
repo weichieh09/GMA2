@@ -2,11 +2,11 @@
   "gma2App": {
     "prod": {
       "home": {
-        "title": "Prods",
+        "title": "產品模組",
         "refreshListLabel": "Refresh list",
-        "createLabel": "建立一筆新的 Prod",
-        "createOrEditLabel": "建立或編輯 Prod",
-        "notFound": "No Prods found"
+        "createLabel": "建立",
+        "createOrEditLabel": "建立或編輯",
+        "notFound": "沒有資料"
       },
       "created": "新的 Prod 建立成功，識別碼為 {{ param }}",
       "updated": "識別碼為 {{ param }} 的 Prod 更新成功",
@@ -17,12 +17,12 @@
       "detail": {
         "title": "Prod"
       },
-      "id": "ID",
-      "prodNo": "Prod No",
-      "enName": "En Name",
-      "chName": "Ch Name",
-      "hsCode": "Hs Code",
-      "cccCode": "Ccc Code",
+      "id": "序號",
+      "prodNo": "產品編號",
+      "enName": "英文名稱",
+      "chName": "中文名稱",
+      "hsCode": "HsCode",
+      "cccCode": "CccCode",
       "prodCountry": "Prod Country",
       "prodStd": "Prod Std",
       "cerfProd": "Cerf Prod",

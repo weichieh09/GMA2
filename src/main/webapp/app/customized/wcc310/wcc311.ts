@@ -91,13 +91,13 @@ export default {
     getCountryList() {
       axios
         .get(
-          '/api/wcc311/countryList?sort=countryNo,asc' +
-            '&enName.contains=' +
-            this.modal.keyWord +
-            '&page=' +
-            (this.modal.currentPage - 1) +
-            '&size=' +
-            this.modal.perPage
+          '/api/wcc311/countryList?sort=id,DESC' +
+          '&enName.contains=' +
+          this.modal.keyWord +
+          '&page=' +
+          (this.modal.currentPage - 1) +
+          '&size=' +
+          this.modal.perPage
         )
         .then(res => {
           this.modal.objList = res.data;
@@ -107,13 +107,13 @@ export default {
     getCompanyList() {
       axios
         .get(
-          '/api/wcc311/companyList?sort=companyNo,asc' +
-            '&chName.contains=' +
-            this.modal.keyWord +
-            '&page=' +
-            (this.modal.currentPage - 1) +
-            '&size=' +
-            this.modal.perPage
+          '/api/wcc311/companyList?sort=id,DESC' +
+          '&chName.contains=' +
+          this.modal.keyWord +
+          '&page=' +
+          (this.modal.currentPage - 1) +
+          '&size=' +
+          this.modal.perPage
         )
         .then(res => {
           this.modal.objList = res.data;
@@ -123,13 +123,13 @@ export default {
     getProdList() {
       axios
         .get(
-          '/api/wcc311/prodList?sort=prodNo,asc' +
-            '&chName.contains=' +
-            this.modal.keyWord +
-            '&page=' +
-            (this.modal.currentPage - 1) +
-            '&size=' +
-            this.modal.perPage
+          '/api/wcc311/prodList?sort=id,DESC' +
+          '&chName.contains=' +
+          this.modal.keyWord +
+          '&page=' +
+          (this.modal.currentPage - 1) +
+          '&size=' +
+          this.modal.perPage
         )
         .then(res => {
           this.modal.objList = res.data;
@@ -139,13 +139,13 @@ export default {
     getStdList() {
       axios
         .get(
-          '/api/wcc311/stdList?sort=stdNo,asc' +
-            '&chName.contains=' +
-            this.modal.keyWord +
-            '&page=' +
-            (this.modal.currentPage - 1) +
-            '&size=' +
-            this.modal.perPage
+          '/api/wcc311/stdList?sort=id,DESC' +
+          '&chName.contains=' +
+          this.modal.keyWord +
+          '&page=' +
+          (this.modal.currentPage - 1) +
+          '&size=' +
+          this.modal.perPage
         )
         .then(res => {
           this.modal.objList = res.data;
@@ -160,15 +160,16 @@ export default {
     getMarkList() {
       axios
         .get(
-          '/api/wcc311/markList?countryId.equals=' +
-            this.cerf.countryId +
-            '&markChName.contains=' +
-            this.modal.keyWord +
-            '&sort=id,asc' +
-            '&page=' +
-            (this.modal.currentPage - 1) +
-            '&size=' +
-            this.modal.perPage
+          '/api/wcc311/markList?' +
+          'markChName.contains=' +
+          this.modal.keyWord +
+          // '&countryId.equals=' +
+          // this.cerf.countryId +
+          '&sort=id,DESC' +
+          '&page=' +
+          (this.modal.currentPage - 1) +
+          '&size=' +
+          this.modal.perPage
         )
         .then(res => {
           const tmpList = [];
@@ -271,6 +272,7 @@ export default {
     },
     saveAll() {
       const saveData = {
+        cerfId: this.cerf.cerfId,
         countryId: this.cerf.countryId,
         stsCd: this.cerf.stsCd,
         cerfNo: this.cerf.cerfNo,

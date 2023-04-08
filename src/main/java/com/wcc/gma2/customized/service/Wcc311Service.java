@@ -10,6 +10,9 @@ import com.wcc.gma2.customized.utils.LongFilterUtils;
 import com.wcc.gma2.service.*;
 import com.wcc.gma2.service.criteria.*;
 import com.wcc.gma2.service.dto.*;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -68,18 +71,64 @@ public class Wcc311Service {
     public StatusCode saveAll(Wcc311SaveAllReq req) {
         try {
             if (!this.checkCerf(req)) return StatusCode.FAIL;
-            CerfDTO cerfDTO = cerfService.save(this.getCerf(req));
+            // 證書
+            CerfDTO cerfDTO = this.getCerf(req);
+            if(cerfDTO.getId() != null) {
+                cerfDTO = cerfService.update(cerfDTO);
+                this.deleteAllCerf(cerfDTO.getId());
+            }
+            else
+                cerfDTO = cerfService.save(cerfDTO);
+            // 國家
             countryCertService.save(this.getCountryCert(req, cerfDTO));
+            // 廠商
             for (CerfCompanyDTO cerfCompanyDTO : this.getCerfCompany(req, cerfDTO)) cerfCompanyService.save(cerfCompanyDTO);
+            // 產品
             for (CerfProdDTO cerfProdDTO : this.getCerfProd(req, cerfDTO)) cerfProdService.save(cerfProdDTO);
+            // 檢驗標準
             for (CerfStdDTO cerfStdDTO : this.getCerfStd(req, cerfDTO)) cerfStdService.save(cerfStdDTO);
+            // 費用
             for (FeeProdCerfCompanyDTO feeDTO : this.getFee(req, cerfDTO)) feeProdCerfCompanyService.save(feeDTO);
+            // 標章
             cerfMarkService.save(this.getCerfMark(req, cerfDTO));
             return StatusCode.SUCCESS;
         } catch (Exception e) {
             log.error(CLASS_NAME + ".saveAll() - " + e.getMessage());
             return StatusCode.FAIL;
         }
+    }
+
+    private void deleteAllCerf(Long cerfId) {
+        // 國家
+        CountryCertCriteria countryCertCriteria = new CountryCertCriteria();
+        countryCertCriteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfId));
+        List<CountryCertDTO> countryCertDTOList = countryCertQueryService.findByCriteria(countryCertCriteria);
+        for (CountryCertDTO countryCertDTO : countryCertDTOList) countryCertService.delete(countryCertDTO.getId());
+        // 廠商
+        CerfCompanyCriteria cerfCompanyCriteria = new CerfCompanyCriteria();
+        cerfCompanyCriteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfId));
+        List<CerfCompanyDTO> cerfCompanyDTOList = cerfCompanyQueryService.findByCriteria(cerfCompanyCriteria);
+        for (CerfCompanyDTO cerfCompanyDTO : cerfCompanyDTOList) cerfCompanyService.delete(cerfCompanyDTO.getId());
+        // 產品
+        CerfProdCriteria cerfProdCriteria = new CerfProdCriteria();
+        cerfProdCriteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfId));
+        List<CerfProdDTO> cerfProdDTOList = cerfProdQueryService.findByCriteria(cerfProdCriteria);
+        for (CerfProdDTO cerfProdDTO : cerfProdDTOList) cerfProdService.delete(cerfProdDTO.getId());
+        // 檢驗標準
+        CerfStdCriteria cerfStdCriteria = new CerfStdCriteria();
+        cerfStdCriteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfId));
+        List<CerfStdDTO> cerfStdDTOList = cerfStdQueryService.findByCriteria(cerfStdCriteria);
+        for (CerfStdDTO cerfStdDTO : cerfStdDTOList) cerfStdService.delete(cerfStdDTO.getId());
+        // 費用
+        FeeProdCerfCompanyCriteria feeProdCerfCompanyCriteria = new FeeProdCerfCompanyCriteria();
+        feeProdCerfCompanyCriteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfId));
+        List<FeeProdCerfCompanyDTO> feeProdCerfCompanyDTOList = feeProdCerfCompanyQueryService.findByCriteria(feeProdCerfCompanyCriteria);
+        for (FeeProdCerfCompanyDTO feeProdCerfCompanyDTO : feeProdCerfCompanyDTOList) feeProdCerfCompanyService.delete(feeProdCerfCompanyDTO.getId());
+        // 標章
+        CerfMarkCriteria cerfMarkCriteria = new CerfMarkCriteria();
+        cerfMarkCriteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfId));
+        List<CerfMarkDTO> cerfMarkDTOList = cerfMarkQueryService.findByCriteria(cerfMarkCriteria);
+        for (CerfMarkDTO cerfMarkDTO : cerfMarkDTOList) cerfMarkService.delete(cerfMarkDTO.getId());
     }
 
     private CountryCertDTO getCountryCert(Wcc311SaveAllReq req, CerfDTO cerfDTO) {
@@ -193,13 +242,25 @@ public class Wcc311Service {
 
     private CerfDTO getCerf(Wcc311SaveAllReq req) {
         CerfDTO result = new CerfDTO();
+        result.setId(req.getCerfId());
         result.setCerfNo(req.getCerfNo());
         result.setCerfVer(req.getCerfVer());
         result.setPdf(req.getPdf());
         result.setPdfContentType(req.getPdfContentType());
         result.setIssuDt(req.getIssuDt());
         result.setExpDt(req.getExpDt());
+        result.setStatus(this.getCerfStatus(req.getIssuDt(), req.getExpDt()));
         return result;
+    }
+
+    private String getCerfStatus(LocalDate issuDt, LocalDate expDt) {
+        Long until = issuDt.until(expDt, ChronoUnit.DAYS);
+        if(until > 90)
+            return CerfStatusTypeList.VALID.getValue();
+        else if(until >= 0)
+            return CerfStatusTypeList.MAINTEN.getValue();
+        else
+            return CerfStatusTypeList.FAILURE.getValue();
     }
 
     public Wcc311CerfDataRes getCerfData(Long id) {

@@ -2,11 +2,11 @@
   "gma2App": {
     "mark": {
       "home": {
-        "title": "Marks",
+        "title": "標誌模組",
         "refreshListLabel": "Refresh list",
-        "createLabel": "建立一筆新的 Mark",
-        "createOrEditLabel": "建立或編輯 Mark",
-        "notFound": "No Marks found"
+        "createLabel": "建立",
+        "createOrEditLabel": "建立或編輯",
+        "notFound": "沒有資料"
       },
       "created": "新的 Mark 建立成功，識別碼為 {{ param }}",
       "updated": "識別碼為 {{ param }} 的 Mark 更新成功",
@@ -17,11 +17,11 @@
       "detail": {
         "title": "Mark"
       },
-      "id": "ID",
-      "markNo": "Mark No",
-      "enName": "En Name",
-      "chName": "Ch Name",
-      "img": "Img",
+      "id": "序號",
+      "markNo": "標誌代碼",
+      "enName": "英文名稱",
+      "chName": "中文名稱",
+      "img": "圖片檔案",
       "cerfMark": "Cerf Mark",
       "stickerMark": "Sticker Mark",
       "countryMark": "Country Mark"

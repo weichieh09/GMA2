@@ -3,10 +3,10 @@
     <h2 id="page-heading" data-cy="MarkHeading">
       <span v-text="$t('gma2App.mark.home.title')" id="mark-heading">Marks</span>
       <div class="d-flex justify-content-end">
-        <button class="btn btn-info mr-2" v-on:click="handleSyncList" :disabled="isFetching">
+        <!-- <button class="btn btn-info mr-2" v-on:click="handleSyncList" :disabled="isFetching">
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon>
           <span v-text="$t('gma2App.mark.home.refreshListLabel')">Refresh List</span>
-        </button>
+        </button> -->
         <router-link :to="{ name: 'MarkCreate' }" custom v-slot="{ navigate }">
           <button @click="navigate" id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-primary jh-create-entity create-mark">
             <font-awesome-icon icon="plus"></font-awesome-icon>
@@ -31,29 +31,26 @@
               <span v-text="$t('gma2App.mark.markNo')">Mark No</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'markNo'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('enName')">
-              <span v-text="$t('gma2App.mark.enName')">En Name</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'enName'"></jhi-sort-indicator>
-            </th>
             <th scope="row" v-on:click="changeOrder('chName')">
               <span v-text="$t('gma2App.mark.chName')">Ch Name</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'chName'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('img')">
+            <th scope="row" v-on:click="changeOrder('enName')">
+              <span v-text="$t('gma2App.mark.enName')">En Name</span>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'enName'"></jhi-sort-indicator>
+            </th>
+            <th scope="row">
               <span v-text="$t('gma2App.mark.img')">Img</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'img'"></jhi-sort-indicator>
             </th>
             <th scope="row"></th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="mark in marks" :key="mark.id" data-cy="entityTable">
-            <td>
-              <router-link :to="{ name: 'MarkView', params: { markId: mark.id } }">{{ mark.id }}</router-link>
-            </td>
+            <td>{{ mark.id }}</td>
             <td>{{ mark.markNo }}</td>
-            <td>{{ mark.enName }}</td>
             <td>{{ mark.chName }}</td>
+            <td>{{ mark.enName }}</td>
             <td>
               <a v-if="mark.img" v-on:click="openFile(mark.imgContentType, mark.img)">
                 <img v-bind:src="'data:' + mark.imgContentType + ';base64,' + mark.img" style="max-height: 30px" alt="mark image" />
@@ -62,12 +59,12 @@
             </td>
             <td class="text-right">
               <div class="btn-group">
-                <router-link :to="{ name: 'MarkView', params: { markId: mark.id } }" custom v-slot="{ navigate }">
+                <!-- <router-link :to="{ name: 'MarkView', params: { markId: mark.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                     <font-awesome-icon icon="eye"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
                   </button>
-                </router-link>
+                </router-link> -->
                 <router-link :to="{ name: 'MarkEdit', params: { markId: mark.id } }" custom v-slot="{ navigate }">
                   <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
                     <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
