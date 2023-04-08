@@ -7,6 +7,7 @@ import com.wcc.gma2.customized.utils.LongFilterUtils;
 import com.wcc.gma2.customized.utils.StringFilterUtils;
 import com.wcc.gma2.service.CerfCompanyQueryService;
 import com.wcc.gma2.service.CerfStdQueryService;
+import com.wcc.gma2.service.MailService;
 import com.wcc.gma2.service.criteria.CerfCompanyCriteria;
 import com.wcc.gma2.service.criteria.CerfStdCriteria;
 import com.wcc.gma2.service.dto.*;
@@ -29,6 +30,9 @@ public class WccStdService {
     @Autowired
     private CerfCompanyQueryService cerfCompanyQueryService;
 
+    @Autowired
+    private MailService mailService;
+
     public StatusCode sndMail(Long stdId) {
         try {
             CerfStdCriteria criteria = new CerfStdCriteria();
@@ -49,9 +53,10 @@ public class WccStdService {
                         stdCompanyMailDTO.setCompanyChName(company.getChName());
                         stdCompanyMailDTO.setCompanyEmail(company.getEmail());
                         stdCompanyMailDTO.setCerfNo(cerfDTO.getCerfNo());
-                        stdCompanyMailDTO.setCerfNo(cerfDTO.getCerfNo());
+                        stdCompanyMailDTO.setCerfVer(cerfDTO.getCerfVer());
                         stdCompanyMailDTO.setStdNo(std.getStdNo());
                         stdCompanyMailDTO.setStdVer(std.getStdVer());
+                        mailService.sendStdNoticeEmail(stdCompanyMailDTO);
                     }
                 }
             }
