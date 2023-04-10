@@ -174,7 +174,8 @@ export default {
         .then(res => {
           const tmpList = [];
           res.data.forEach(function (obj) {
-            if (obj) tmpList.push(obj.mark as never);
+            // if (obj) tmpList.push(obj.mark as never);
+            if (obj) tmpList.push(obj as never);
           });
           this.modal.objList = tmpList;
           this.modal.objTotal = Number(res.headers['x-total-count']);

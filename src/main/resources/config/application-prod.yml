@@ -49,10 +49,16 @@ spring:
   liquibase:
     contexts: prod
   mail:
-    host: sandbox.smtp.mailtrap.io
-    port: 2525
-    username: f0e068769272d5
-    password: 1f568f9c61ea8b
+    host: smtp.gmail.com
+    port: 587
+    username: MangoDsn230302@gmail.com
+    password: gfiujtzhuproxpry
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
   thymeleaf:
     cache: true
 

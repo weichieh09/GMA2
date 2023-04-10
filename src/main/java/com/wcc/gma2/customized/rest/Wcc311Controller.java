@@ -43,6 +43,9 @@ public class Wcc311Controller {
     @Autowired
     private CountryMarkQueryService countryMarkQueryService;
 
+    @Autowired
+    private MarkQueryService markQueryService;
+
     @GetMapping("/countryList")
     public ResponseEntity<List<CountryDTO>> countryList(CountryCriteria criteria, Pageable pageable) {
         Page<CountryDTO> page = countryQueryService.findByCriteria(criteria, pageable);
@@ -91,8 +94,9 @@ public class Wcc311Controller {
     }
 
     @GetMapping("/markList")
-    public ResponseEntity<List<CountryMarkDTO>> markList(CountryMarkCriteria criteria, Pageable pageable) {
-        Page<CountryMarkDTO> page = countryMarkQueryService.findByCriteria(criteria, pageable);
+    public ResponseEntity<List<MarkDTO>> markList(MarkCriteria criteria, Pageable pageable) {
+        //        Page<CountryMarkDTO> page = countryMarkQueryService.findByCriteria(criteria, pageable);
+        Page<MarkDTO> page = markQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
