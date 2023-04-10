@@ -2,7 +2,7 @@
   "gma2App": {
     "mark": {
       "home": {
-        "title": "標誌模組",
+        "title": "標籤模組",
         "refreshListLabel": "Refresh list",
         "createLabel": "建立",
         "createOrEditLabel": "建立或編輯",
@@ -18,7 +18,7 @@
         "title": "Mark"
       },
       "id": "序號",
-      "markNo": "標誌代碼",
+      "markNo": "標籤代碼",
       "enName": "英文名稱",
       "chName": "中文名稱",
       "img": "圖片檔案",

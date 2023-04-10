@@ -2,6 +2,7 @@ package com.wcc.gma2.customized.service;
 
 import com.wcc.gma2.config.Constants;
 import com.wcc.gma2.customized.dto.StdCompanyMailDTO;
+import com.wcc.gma2.customized.type.CerfStatusTypeList;
 import com.wcc.gma2.customized.type.StatusCode;
 import com.wcc.gma2.customized.utils.LongFilterUtils;
 import com.wcc.gma2.customized.utils.StringFilterUtils;
@@ -11,7 +12,11 @@ import com.wcc.gma2.service.MailService;
 import com.wcc.gma2.service.criteria.CerfCompanyCriteria;
 import com.wcc.gma2.service.criteria.CerfStdCriteria;
 import com.wcc.gma2.service.dto.*;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,5 +70,22 @@ public class WccStdService {
             log.error("sndMail: {}", e.getMessage());
             return StatusCode.FAIL;
         }
+    }
+
+    private String geStdfStatus(LocalDate issuDt, LocalDate expDt) {
+        Long until = issuDt.until(expDt, ChronoUnit.DAYS);
+        if (until >= 0 &&
+        expDt.isAfter(LocalDate.now()))
+            return "有效";
+        else
+            return "失效";
+    }
+
+    public StdDTO setStdStatus(StdDTO stdDTO) {
+        LocalDate issuDt = stdDTO.getIssuDt();
+        LocalDate expDt = stdDTO.getExpDt();
+        if (issuDt != null && expDt != null)
+            stdDTO.setStatus(geStdfStatus(issuDt, expDt));
+        return stdDTO;
     }
 }

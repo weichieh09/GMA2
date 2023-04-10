@@ -88,6 +88,7 @@
               data-cy="status"
               :class="{ valid: !$v.std.status.$invalid, invalid: $v.std.status.$invalid }"
               v-model="$v.std.status.$model"
+              disabled
             />
             <div v-if="$v.std.status.$anyDirty && $v.std.status.$invalid">
               <small class="form-text text-danger" v-if="!$v.std.status.maxLength" v-text="$t('entity.validation.maxlength', { max: 10 })">

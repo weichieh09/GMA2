@@ -73,6 +73,9 @@ public class StdResource {
         if (stdDTO.getId() != null) {
             throw new BadRequestAlertException("A new std cannot already have an ID", ENTITY_NAME, "idexists");
         }
+
+        stdDTO = wccStdService.setStdStatus(stdDTO);
+
         StdDTO result = stdService.save(stdDTO);
         return ResponseEntity
             .created(new URI("/api/stds/" + result.getId()))
@@ -104,6 +107,8 @@ public class StdResource {
         if (!stdRepository.existsById(id)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
+
+        stdDTO = wccStdService.setStdStatus(stdDTO);
 
         StdDTO result = stdService.update(stdDTO);
         return ResponseEntity

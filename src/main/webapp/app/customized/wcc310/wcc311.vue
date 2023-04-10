@@ -3,7 +3,6 @@
     <main>
       <div class="py-3">
         <h2>建立或編輯</h2>
-        <h2>檢視</h2>
       </div>
 
       <div class="row">
@@ -15,15 +14,15 @@
                 <label class="form-label">國家代碼</label>
                 <div class="input-group">
                   <input type="text" class="form-control" v-model="cerf.countryNoInput" disabled />
-                  <b-button variant="outline-secondary" v-b-modal.modal-countryList @click="modalInit('countryList')">編輯</b-button>
+                  <b-button variant="outline-secondary" v-b-modal.modal-countryList
+                    @click="modalInit('countryList')">編輯</b-button>
                   <!-- countryList 彈跳視窗 -->
                   <b-modal id="modal-countryList" hide-footer title="選擇國家">
                     <div class="input-group">
                       <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
                       <b-button-group>
-                        <b-button type="submit" variant="primary" @click="modalSearch('countryList')"
-                          ><b-icon icon="search" />搜尋</b-button
-                        >
+                        <b-button type="submit" variant="primary" @click="modalSearch('countryList')"><b-icon
+                            icon="search" />搜尋</b-button>
                         <b-button type="reset" variant="outline-secondary" to="/country">管理</b-button>
                       </b-button-group>
                     </div>
@@ -36,13 +35,8 @@
                     <br />
                     <div v-show="modal.objList && modal.objList.length > 0">
                       <div class="row justify-content-center">
-                        <b-pagination
-                          v-model="modal.currentPage"
-                          :total-rows="modal.objTotal"
-                          :per-page="modal.perPage"
-                          @input="modalLoad('countryList', modal.currentPage)"
-                          size="md"
-                        />
+                        <b-pagination v-model="modal.currentPage" :total-rows="modal.objTotal" :per-page="modal.perPage"
+                          @input="modalLoad('countryList', modal.currentPage)" size="md" />
                       </div>
                     </div>
                   </b-modal>
@@ -94,14 +88,16 @@
               <div class="col-md-12">
                 <label class="form-label">
                   證書標籤
-                  <b-button variant="outline-secondary" v-b-modal.modal-markList @click="modalInit('markList')">編輯</b-button>
+                  <b-button variant="outline-secondary" v-b-modal.modal-markList
+                    @click="modalInit('markList')">編輯</b-button>
                 </label>
                 <!-- countryList 彈跳視窗 -->
                 <b-modal id="modal-markList" hide-footer title="選擇標籤">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
                     <b-button-group>
-                      <b-button type="submit" variant="primary" @click="modalSearch('markList')"><b-icon icon="search" />搜尋</b-button>
+                      <b-button type="submit" variant="primary" @click="modalSearch('markList')"><b-icon
+                          icon="search" />搜尋</b-button>
                       <b-button type="reset" variant="outline-secondary" to="/mark">管理</b-button>
                     </b-button-group>
                   </div>
@@ -114,11 +110,8 @@
                           <small>{{ mark.markNo }}</small>
                         </div>
                         <div class="col-6">
-                          <img
-                            v-bind:src="'data:' + mark.imgContentType + ';base64,' + mark.img"
-                            style="max-height: 80px"
-                            alt="mark image"
-                          />
+                          <img v-bind:src="'data:' + mark.imgContentType + ';base64,' + mark.img" style="max-height: 80px"
+                            alt="mark image" />
                         </div>
                       </div>
                     </b-list-group-item>
@@ -126,13 +119,8 @@
                   <br />
                   <div v-show="modal.objList && modal.objList.length > 0">
                     <div class="row justify-content-center">
-                      <b-pagination
-                        v-model="modal.currentPage"
-                        :total-rows="modal.objTotal"
-                        :per-page="modal.perPage"
-                        @input="modalLoad('markList', modal.currentPage)"
-                        size="md"
-                      />
+                      <b-pagination v-model="modal.currentPage" :total-rows="modal.objTotal" :per-page="modal.perPage"
+                        @input="modalLoad('markList', modal.currentPage)" size="md" />
                     </div>
                   </div>
                 </b-modal>
@@ -147,11 +135,8 @@
                         <small>{{ cerf.mark.markNo }}</small>
                       </div>
                       <div class="col-6">
-                        <img
-                          v-bind:src="'data:' + cerf.mark.imgContentType + ';base64,' + cerf.mark.img"
-                          style="max-height: 80px"
-                          alt="mark image"
-                        />
+                        <img v-bind:src="'data:' + cerf.mark.imgContentType + ';base64,' + cerf.mark.img"
+                          style="max-height: 80px" alt="mark image" />
                       </div>
                     </div>
                   </b-list-group-item>
@@ -164,17 +149,13 @@
                 <input type="file" class="form-control" v-on:change="setPdfData($event, false)" />
                 <div v-if="cerf.pdf" class="form-text text-danger clearfix">
                   <span class="pull-left">檔案格式: {{ cerf.pdfContentType }}, 檔案大小: {{ byteSize(cerf.pdf) }}</span>
-                  <button type="button" v-on:click="openFile(cerf.pdfContentType, cerf.pdf)" class="btn btn-primary btn-xs pull-right">
+                  <button type="button" v-on:click="openFile(cerf.pdfContentType, cerf.pdf)"
+                    class="btn btn-primary btn-xs pull-right">
                     <font-awesome-icon icon="eye" />開啟檔案
                   </button>
-                  <button
-                    type="button"
-                    v-on:click="
-                      cerf.pdf = null;
-                      cerf.pdfContentType = null;
-                    "
-                    class="btn btn-danger btn-xs pull-right"
-                  >
+                  <button type="button" v-on:click="
+                    cerf.pdf = null;
+                  cerf.pdfContentType = null;" class="btn btn-danger btn-xs pull-right">
                     <font-awesome-icon icon="times" />移除檔案
                   </button>
                 </div>
@@ -189,18 +170,16 @@
               <div class="col-md-12">
                 <label class="form-label">
                   申請商
-                  <b-button variant="outline-secondary" v-b-modal.modal-companyApplyList @click="modalInit('companyApplyList')"
-                    >編輯</b-button
-                  >
+                  <b-button variant="outline-secondary" v-b-modal.modal-companyApplyList
+                    @click="modalInit('companyApplyList')">編輯</b-button>
                 </label>
                 <!-- countryList 彈跳視窗 -->
                 <b-modal id="modal-companyApplyList" hide-footer title="選擇公司">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
                     <b-button-group>
-                      <b-button type="submit" variant="primary" @click="modalSearch('companyApplyList')"
-                        ><b-icon icon="search" />搜尋</b-button
-                      >
+                      <b-button type="submit" variant="primary" @click="modalSearch('companyApplyList')"><b-icon
+                          icon="search" />搜尋</b-button>
                       <b-button type="reset" variant="outline-secondary" to="/company">管理</b-button>
                     </b-button-group>
                   </div>
@@ -214,13 +193,8 @@
                   <br />
                   <div v-show="modal.objList && modal.objList.length > 0">
                     <div class="row justify-content-center">
-                      <b-pagination
-                        v-model="modal.currentPage"
-                        :total-rows="modal.objTotal"
-                        :per-page="modal.perPage"
-                        @input="modalLoad('companyApplyList', modal.currentPage)"
-                        size="md"
-                      />
+                      <b-pagination v-model="modal.currentPage" :total-rows="modal.objTotal" :per-page="modal.perPage"
+                        @input="modalLoad('companyApplyList', modal.currentPage)" size="md" />
                     </div>
                   </div>
                 </b-modal>
@@ -229,8 +203,20 @@
               <div class="col-md-12">
                 <b-list-group v-if="company.apply">
                   <b-list-group-item>
-                    {{ company.apply.chName }}<br />
-                    <small>{{ company.apply.enName }}</small>
+                    <b-row>
+                      <b-col cols="8">
+                        {{ company.apply.chName }}<br />
+                        <small>{{ company.apply.enName }}</small>
+                      </b-col>
+                      <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
+                        <router-link :to="{ name: 'CompanyView', params: { companyId: company.apply.id } }" custom
+                          v-slot="{ navigate }">
+                          <button type="button" @click="navigate" class="btn btn-primary btn-xs pull-right">
+                            <font-awesome-icon icon="eye" />檢視
+                          </button>
+                        </router-link>
+                      </b-col>
+                    </b-row>
                   </b-list-group-item>
                 </b-list-group>
                 <br />
@@ -239,18 +225,16 @@
               <div class="col-md-12">
                 <label class="form-label">
                   製造商
-                  <b-button variant="outline-secondary" v-b-modal.modal-companyMnfctrList @click="modalInit('companyMnfctrList')"
-                    >編輯</b-button
-                  >
+                  <b-button variant="outline-secondary" v-b-modal.modal-companyMnfctrList
+                    @click="modalInit('companyMnfctrList')">編輯</b-button>
                 </label>
                 <!-- countryList 彈跳視窗 -->
                 <b-modal id="modal-companyMnfctrList" hide-footer title="選擇公司">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
                     <b-button-group>
-                      <b-button type="submit" variant="primary" @click="modalSearch('companyMnfctrList')"
-                        ><b-icon icon="search" />搜尋</b-button
-                      >
+                      <b-button type="submit" variant="primary" @click="modalSearch('companyMnfctrList')"><b-icon
+                          icon="search" />搜尋</b-button>
                       <b-button type="reset" variant="outline-secondary" to="/company">管理</b-button>
                     </b-button-group>
                   </div>
@@ -264,13 +248,8 @@
                   <br />
                   <div v-show="modal.objList && modal.objList.length > 0">
                     <div class="row justify-content-center">
-                      <b-pagination
-                        v-model="modal.currentPage"
-                        :total-rows="modal.objTotal"
-                        :per-page="modal.perPage"
-                        @input="modalLoad('companyMnfctrList', modal.currentPage)"
-                        size="md"
-                      />
+                      <b-pagination v-model="modal.currentPage" :total-rows="modal.objTotal" :per-page="modal.perPage"
+                        @input="modalLoad('companyMnfctrList', modal.currentPage)" size="md" />
                     </div>
                   </div>
                 </b-modal>
@@ -279,28 +258,37 @@
               <div class="col-md-12">
                 <b-list-group v-if="company.mnfctr">
                   <b-list-group-item>
-                    {{ company.mnfctr.chName }}<br />
-                    <small>{{ company.mnfctr.enName }}</small>
+                    <b-row>
+                      <b-col cols="8">
+                        {{ company.mnfctr.chName }}<br />
+                        <small>{{ company.mnfctr.enName }}</small>
+                      </b-col>
+                      <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
+                        <router-link :to="{ name: 'CompanyView', params: { companyId: company.mnfctr.id } }" custom
+                          v-slot="{ navigate }">
+                          <button type="button" @click="navigate" class="btn btn-primary btn-xs pull-right">
+                            <font-awesome-icon icon="eye" />檢視
+                          </button>
+                        </router-link>
+                      </b-col>
+                    </b-row>
                   </b-list-group-item>
                 </b-list-group>
                 <br />
               </div>
 
               <div class="col-md-12">
-                <label class="form-label"
-                  >生產廠
-                  <b-button variant="outline-secondary" v-b-modal.modal-companyFctyList @click="modalInit('companyFctyList')"
-                    >編輯</b-button
-                  >
+                <label class="form-label">生產廠
+                  <b-button variant="outline-secondary" v-b-modal.modal-companyFctyList
+                    @click="modalInit('companyFctyList')">編輯</b-button>
                 </label>
                 <!-- countryList 彈跳視窗 -->
                 <b-modal id="modal-companyFctyList" hide-footer title="選擇公司">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
                     <b-button-group>
-                      <b-button type="submit" variant="primary" @click="modalSearch('companyFctyList')"
-                        ><b-icon icon="search" />搜尋</b-button
-                      >
+                      <b-button type="submit" variant="primary" @click="modalSearch('companyFctyList')"><b-icon
+                          icon="search" />搜尋</b-button>
                       <b-button type="reset" variant="outline-secondary" to="/company">管理</b-button>
                     </b-button-group>
                   </div>
@@ -315,13 +303,8 @@
                   <br />
                   <div v-show="modal.objList && modal.objList.length > 0">
                     <div class="row justify-content-center">
-                      <b-pagination
-                        v-model="modal.currentPage"
-                        :total-rows="modal.objTotal"
-                        :per-page="modal.perPage"
-                        @input="modalLoad('companyFctyList', modal.currentPage)"
-                        size="md"
-                      />
+                      <b-pagination v-model="modal.currentPage" :total-rows="modal.objTotal" :per-page="modal.perPage"
+                        @input="modalLoad('companyFctyList', modal.currentPage)" size="md" />
                     </div>
                   </div>
                 </b-modal>
@@ -330,8 +313,20 @@
               <div class="col-md-12">
                 <b-list-group v-for="(fcty, index) in company.fctyList" :key="fcty.id">
                   <b-list-group-item>
-                    {{ fcty.chName }}<br />
-                    <small>{{ fcty.enName }}</small>
+                    <b-row>
+                      <b-col cols="8">
+                        {{ fcty.chName }}<br />
+                        <small>{{ fcty.enName }}</small>
+                      </b-col>
+                      <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
+                        <router-link :to="{ name: 'CompanyView', params: { companyId: fcty.id } }" custom
+                          v-slot="{ navigate }">
+                          <button type="button" @click="navigate" class="btn btn-primary btn-xs pull-right">
+                            <font-awesome-icon icon="eye" />檢視
+                          </button>
+                        </router-link>
+                      </b-col>
+                    </b-row>
                   </b-list-group-item>
                 </b-list-group>
               </div>
@@ -349,7 +344,8 @@
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
                   <b-button-group>
-                    <b-button type="submit" variant="primary" @click="modalSearch('prodList')"><b-icon icon="search" />搜尋</b-button>
+                    <b-button type="submit" variant="primary" @click="modalSearch('prodList')"><b-icon
+                        icon="search" />搜尋</b-button>
                     <b-button type="reset" variant="outline-secondary" to="/prod">管理</b-button>
                   </b-button-group>
                 </div>
@@ -364,13 +360,8 @@
                 <br />
                 <div v-show="modal.objList && modal.objList.length > 0">
                   <div class="row justify-content-center">
-                    <b-pagination
-                      v-model="modal.currentPage"
-                      :total-rows="modal.objTotal"
-                      :per-page="modal.perPage"
-                      @input="modalLoad('prodList', modal.currentPage)"
-                      size="md"
-                    />
+                    <b-pagination v-model="modal.currentPage" :total-rows="modal.objTotal" :per-page="modal.perPage"
+                      @input="modalLoad('prodList', modal.currentPage)" size="md" />
                   </div>
                 </div>
               </b-modal>
@@ -378,8 +369,19 @@
               <div class="col-md-12">
                 <b-list-group v-for="(prod, index) in prodList" :key="prod.id">
                   <b-list-group-item>
-                    {{ prod.chName }}<br />
-                    <small>{{ prod.prodNo }}</small>
+                    <b-row>
+                      <b-col cols="8">
+                        {{ prod.chName }}<br />
+                        <small>{{ prod.prodNo }}</small>
+                      </b-col>
+                      <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
+                        <router-link :to="{ name: 'ProdView', params: { prodId: prod.id } }" custom v-slot="{ navigate }">
+                          <button type="button" @click="navigate" class="btn btn-primary btn-xs pull-right">
+                            <font-awesome-icon icon="eye" />檢視
+                          </button>
+                        </router-link>
+                      </b-col>
+                    </b-row>
                   </b-list-group-item>
                 </b-list-group>
               </div>
@@ -397,7 +399,8 @@
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
                   <b-button-group>
-                    <b-button type="submit" variant="primary" @click="modalSearch('stdList')"><b-icon icon="search" />搜尋</b-button>
+                    <b-button type="submit" variant="primary" @click="modalSearch('stdList')"><b-icon
+                        icon="search" />搜尋</b-button>
                     <b-button type="reset" variant="outline-secondary" to="/std">管理</b-button>
                   </b-button-group>
                 </div>
@@ -412,13 +415,8 @@
                 <br />
                 <div v-show="modal.objList && modal.objList.length > 0">
                   <div class="row justify-content-center">
-                    <b-pagination
-                      v-model="modal.currentPage"
-                      :total-rows="modal.objTotal"
-                      :per-page="modal.perPage"
-                      @input="modalLoad('stdList', modal.currentPage)"
-                      size="md"
-                    />
+                    <b-pagination v-model="modal.currentPage" :total-rows="modal.objTotal" :per-page="modal.perPage"
+                      @input="modalLoad('stdList', modal.currentPage)" size="md" />
                   </div>
                 </div>
               </b-modal>
@@ -426,8 +424,19 @@
               <div class="col-md-12">
                 <b-list-group v-for="(std, index) in stdList" :key="std.id">
                   <b-list-group-item>
-                    {{ std.chName }}<br />
-                    <small>{{ std.stdNo }}</small>
+                    <b-row>
+                      <b-col cols="8">
+                        {{ std.chName }}<br />
+                        <small>{{ std.stdNo }}</small>
+                      </b-col>
+                      <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
+                        <router-link :to="{ name: 'StdView', params: { stdId: std.id } }" custom v-slot="{ navigate }">
+                          <button type="button" @click="navigate" class="btn btn-primary btn-xs pull-right">
+                            <font-awesome-icon icon="eye" />檢視
+                          </button>
+                        </router-link>
+                      </b-col>
+                    </b-row>
                   </b-list-group-item>
                 </b-list-group>
               </div>
@@ -437,7 +446,8 @@
 
             <h4 class="mb-3">
               費用
-              <b-button variant="outline-secondary" v-b-modal.modal-feeList @click="modalInit('feeTypeList')">編輯</b-button>
+              <b-button variant="outline-secondary" v-b-modal.modal-feeList
+                @click="modalInit('feeTypeList')">編輯</b-button>
             </h4>
             <div class="row gy-3">
               <!-- countryList 彈跳視窗 -->

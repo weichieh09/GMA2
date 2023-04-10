@@ -16,6 +16,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,16 +74,16 @@ public class Wcc311Service {
             if (!this.checkCerf(req)) return StatusCode.FAIL;
             // 證書
             CerfDTO cerfDTO = this.getCerf(req);
-            if(cerfDTO.getId() != null) {
+            if (cerfDTO.getId() != null) {
                 cerfDTO = cerfService.update(cerfDTO);
                 this.deleteAllCerf(cerfDTO.getId());
-            }
-            else
+            } else
                 cerfDTO = cerfService.save(cerfDTO);
             // 國家
             countryCertService.save(this.getCountryCert(req, cerfDTO));
             // 廠商
-            for (CerfCompanyDTO cerfCompanyDTO : this.getCerfCompany(req, cerfDTO)) cerfCompanyService.save(cerfCompanyDTO);
+            for (CerfCompanyDTO cerfCompanyDTO : this.getCerfCompany(req, cerfDTO))
+                cerfCompanyService.save(cerfCompanyDTO);
             // 產品
             for (CerfProdDTO cerfProdDTO : this.getCerfProd(req, cerfDTO)) cerfProdService.save(cerfProdDTO);
             // 檢驗標準
@@ -123,7 +124,8 @@ public class Wcc311Service {
         FeeProdCerfCompanyCriteria feeProdCerfCompanyCriteria = new FeeProdCerfCompanyCriteria();
         feeProdCerfCompanyCriteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfId));
         List<FeeProdCerfCompanyDTO> feeProdCerfCompanyDTOList = feeProdCerfCompanyQueryService.findByCriteria(feeProdCerfCompanyCriteria);
-        for (FeeProdCerfCompanyDTO feeProdCerfCompanyDTO : feeProdCerfCompanyDTOList) feeProdCerfCompanyService.delete(feeProdCerfCompanyDTO.getId());
+        for (FeeProdCerfCompanyDTO feeProdCerfCompanyDTO : feeProdCerfCompanyDTOList)
+            feeProdCerfCompanyService.delete(feeProdCerfCompanyDTO.getId());
         // 標章
         CerfMarkCriteria cerfMarkCriteria = new CerfMarkCriteria();
         cerfMarkCriteria.setCerfId(LongFilterUtils.toEqualLongFilter(cerfId));
@@ -150,7 +152,8 @@ public class Wcc311Service {
     }
 
     private Boolean checkCerf(Wcc311SaveAllReq req) {
-        if (req.getCerfNo() != null && !req.getCerfNo().isBlank() && req.getCerfVer() != null && !req.getCerfVer().isBlank()) return true;
+        if (req.getCerfNo() != null && !req.getCerfNo().isBlank() && req.getCerfVer() != null && !req.getCerfVer().isBlank())
+            return true;
         return false;
     }
 
@@ -255,9 +258,11 @@ public class Wcc311Service {
 
     private String getCerfStatus(LocalDate issuDt, LocalDate expDt) {
         Long until = issuDt.until(expDt, ChronoUnit.DAYS);
-        if(until > 90)
+        if (until > 90 &&
+            expDt.isAfter(LocalDate.now()))
             return CerfStatusTypeList.VALID.getValue();
-        else if(until >= 0)
+        else if (until >= 0 &&
+            expDt.isAfter(LocalDate.now()))
             return CerfStatusTypeList.MAINTEN.getValue();
         else
             return CerfStatusTypeList.FAILURE.getValue();

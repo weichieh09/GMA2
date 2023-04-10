@@ -1,9 +1,19 @@
 <template>
   <b-container fluid>
     <b-row>
-      <h2 id="page-heading">
-        <span>證書模組</span>
-      </h2>
+      <b-col cols="6">
+        <h2 id="page-heading">
+          <span>證書模組</span>
+        </h2>
+      </b-col>
+      <b-col cols="6" class="d-inline-flex p-2 justify-content-end">
+          <b-button-group>
+          <b-button variant="primary" :to="{ name: 'Wcc311New' }">
+            <b-icon icon="plus" />
+            <span>建立</span>
+          </b-button>
+        </b-button-group>
+      </b-col>
     </b-row><br />
 
     <b-row>
@@ -40,15 +50,7 @@
           </b-row>
 
           <b-row>
-            <b-col cols="6" class="d-flex">
-              <b-button-group>
-                <b-button variant="warning" :to="{ name: 'Wcc311New' }">
-                  <b-icon icon="file-plus" />
-                  <span>建立</span>
-                </b-button>
-              </b-button-group>
-            </b-col>
-            <b-col cols="6" class="d-flex justify-content-end">
+            <b-col cols="12" class="d-flex justify-content-end">
               <b-button-group>
                 <b-button type="submit" variant="primary"><b-icon icon="search"></b-icon> <span
                     v-text="$t('gmaApp.wcc101.home.submitLabel')">search</span></b-button>
@@ -90,9 +92,7 @@
           </thead>
           <tbody>
             <tr v-for="cerf in cerfList" :key="cerf.id" data-cy="entityTable">
-              <td>
-                <router-link :to="{ name: 'CerfView', params: { cerfId: cerf.id } }">{{ cerf.id }}</router-link>
-              </td>
+              <td>{{ cerf.id }}</td>
               <td>{{ cerf.country }}</td>
               <td>{{ cerf.cerfNo }}</td>
               <td>{{ cerf.cerfVer }}</td>
@@ -112,11 +112,16 @@
                       <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
                     </button>
                   </router-link>
-                  <b-button v-on:click="prepareRemove(cerf)" variant="danger" class="btn btn-sm"
-                    data-cy="entityDeleteButton" v-b-modal.removeEntity>
+                  <b-button disabled @click="navigate" variant="danger" class="btn btn-sm"
+                    data-cy="entityDeleteButton" >
                     <font-awesome-icon icon="times"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
                   </b-button>
+                  <!-- <b-button v-on:click="prepareRemove(cerf)" variant="danger" class="btn btn-sm"
+                    data-cy="entityDeleteButton" v-b-modal.removeEntity>
+                    <font-awesome-icon icon="times"></font-awesome-icon>
+                    <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
+                  </b-button> -->
                 </div>
               </td>
             </tr>
