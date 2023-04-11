@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="20230411062903-1" author="weichieh09">
+        <createView
+            replaceIfExists="true"
+            viewName="wcc_412_view">
+            SELECT ROW_NUMBER() OVER (ORDER BY CF.id) AS ID,
+            CF.id AS cerf_id,
+            CY.ch_name AS country_ch_name,
+            CF.cerf_no,
+            CF.cerf_ver,
+            CF.status AS cerf_status,
+            CY.id AS country_id,
+            PD.prod_no,
+            PD.ch_name AS prod_ch_name
+            FROM cerf AS CF
+            INNER JOIN cerf_prod AS CP
+            ON CF.id = CP.cerf_id
+            INNER JOIN prod AS PD
+            ON PD.id = CP.prod_id
+            INNER JOIN country_cert AS CC
+            ON CF.id = CC.cerf_id
+            INNER JOIN country AS CY
+            ON CY.id = CC.country_id
+        </createView>
+    </changeSet>
+</databaseChangeLog>

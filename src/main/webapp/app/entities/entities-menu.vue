@@ -76,6 +76,10 @@
       <font-awesome-icon icon="asterisk" />
       <span v-text="$t('global.menu.entities.countryMark')">Country Mark</span>
     </b-dropdown-item>
+    <b-dropdown-item to="/wcc-412-view">
+      <font-awesome-icon icon="asterisk" />
+      <span v-text="$t('global.menu.entities.wcc412View')">Wcc 412 View</span>
+    </b-dropdown-item>
     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
   </div>
 </template>

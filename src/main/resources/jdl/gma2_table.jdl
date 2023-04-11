@@ -113,6 +113,18 @@ entity CountryMark {
     relType String maxlength(100),
 }
 
+@readOnly
+entity Wcc412View {
+    cerfId Long,
+    countryChName String,
+    cerfNo String,
+    cerfVer String,
+    cerfStatus String,
+    countryId Long,
+    prodNo String,
+    prodChName String,
+}
+
 /* 一對多 */
 relationship OneToMany {
     Prod{prodCountry} to ProdCountry{prod},

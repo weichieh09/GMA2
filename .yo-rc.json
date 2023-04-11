@@ -38,14 +38,15 @@
       "StickerMark",
       "CountryCert",
       "ProdSticker",
-      "CountryMark"
+      "CountryMark",
+      "Wcc412View"
     ],
     "entitySuffix": "",
     "jhiPrefix": "jhi",
     "jhipsterVersion": "7.9.3",
     "jwtSecretKey": "MDI5YWVjZjhkNDk1Y2JlYjJiZTJkOTRmOWMzNTI1ZDcwYTNiNjlmMWFlNjYyMzNjNWQ3YzhkMTU5OTIzNTk0NzM1NTBjMzdiMTg3MThmZjFlOGQxOTkwYTEzMzdhYThkMjcyYWZlODFjNGE5YzBlMGFhMTU3Yjk0MTBiODliOGY=",
     "languages": ["zh-tw", "en"],
-    "lastLiquibaseTimestamp": 1680410691000,
+    "lastLiquibaseTimestamp": 1681194543000,
     "messageBroker": false,
     "microfrontend": false,
     "microfrontends": [],

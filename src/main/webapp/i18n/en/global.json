@@ -31,6 +31,7 @@
         "countryCert": "Country Cert",
         "prodSticker": "Prod Sticker",
         "countryMark": "Country Mark",
+        "wcc412View": "Wcc 412 View",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

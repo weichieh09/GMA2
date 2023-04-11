@@ -92,6 +92,7 @@ public class CacheConfiguration {
             createCache(cm, com.wcc.gma2.domain.CountryCert.class.getName());
             createCache(cm, com.wcc.gma2.domain.ProdSticker.class.getName());
             createCache(cm, com.wcc.gma2.domain.CountryMark.class.getName());
+            createCache(cm, com.wcc.gma2.domain.Wcc412View.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
