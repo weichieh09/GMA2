@@ -1,0 +1,18 @@
+{
+  "gmaApp": {
+    "wcc412": {
+      "home": {
+        "title": "title",
+        "notFound": "沒有資料",
+        "submitLabel": "搜尋",
+        "resetLabel": "清空"
+      },
+      "form": {
+        "country": "國家",
+        "prodNo": "產品編號",
+        "prodName": "產品名稱"
+      },
+      "test": "test"
+    }
+  }
+}

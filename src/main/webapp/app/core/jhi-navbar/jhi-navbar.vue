@@ -4,8 +4,15 @@
       <span class="logo-img"></span>
       <span v-text="$t('global.title')" class="navbar-title">GMA2</span> <span class="navbar-version">{{ version }}</span>
     </b-navbar-brand>
-    <b-navbar-toggle right class="jh-navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse"
-      target="header-tabs" aria-expanded="false" aria-label="Toggle navigation">
+    <b-navbar-toggle
+      right
+      class="jh-navbar-toggler d-lg-none"
+      href="javascript:void(0);"
+      data-toggle="collapse"
+      target="header-tabs"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <font-awesome-icon icon="bars" />
     </b-navbar-toggle>
 
@@ -18,7 +25,21 @@
           </span>
         </b-nav-item> -->
         <!-- wccCode - 下拉選單 -->
-        <b-nav-item-dropdown right v-if="authenticated" active-class="active" class="pointer">
+        <b-nav-item-dropdown right active-class="active" class="pointer">
+          <span slot="button-content" class="navbar-dropdown-menu">
+            <font-awesome-icon icon="th-list" />
+            <span class="no-bold">一般功能</span>
+          </span>
+          <b-dropdown-item to="/wcc412">
+            <font-awesome-icon icon="asterisk" />
+            <span>證書查詢</span>
+          </b-dropdown-item>
+          <b-dropdown-item to="/wcc312">
+            <font-awesome-icon icon="asterisk" />
+            <span>廠商查詢</span>
+          </b-dropdown-item>
+        </b-nav-item-dropdown>
+        <b-nav-item-dropdown right v-if="hasAnyAuthority('ROLE_ADMIN') && authenticated" active-class="active" class="pointer">
           <span slot="button-content" class="navbar-dropdown-menu">
             <font-awesome-icon icon="th-list" />
             <span class="no-bold" v-text="$t('global.menu.wcc.main')">wcc</span>
@@ -65,9 +86,15 @@
           </span>
           <entities-menu></entities-menu>
         </b-nav-item-dropdown> -->
-        <b-nav-item-dropdown right id="admin-menu" v-if="hasAnyAuthority('ROLE_ADMIN') && authenticated"
-          :class="{ 'router-link-active': subIsActive('/admin') }" active-class="active" class="pointer"
-          data-cy="adminMenu">
+        <b-nav-item-dropdown
+          right
+          id="admin-menu"
+          v-if="hasAnyAuthority('ROLE_ADMIN') && authenticated"
+          :class="{ 'router-link-active': subIsActive('/admin') }"
+          active-class="active"
+          class="pointer"
+          data-cy="adminMenu"
+        >
           <span slot="button-content" class="navbar-dropdown-menu">
             <font-awesome-icon icon="users-cog" />
             <span class="no-bold" v-text="$t('global.menu.admin.main')">Administration</span>
@@ -102,25 +129,33 @@
             <font-awesome-icon icon="flag" />
             <span class="no-bold" v-text="$t('global.menu.language')">Language</span>
           </span>
-          <b-dropdown-item v-for="(value, key) in languages" :key="`lang-${key}`" v-on:click="changeLanguage(key)"
-            :class="{ active: isActiveLanguage(key) }">
+          <b-dropdown-item
+            v-for="(value, key) in languages"
+            :key="`lang-${key}`"
+            v-on:click="changeLanguage(key)"
+            :class="{ active: isActiveLanguage(key) }"
+          >
             {{ value.name }}
           </b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item-dropdown right href="javascript:void(0);" id="account-menu"
-          :class="{ 'router-link-active': subIsActive('/account') }" active-class="active" class="pointer"
-          data-cy="accountMenu">
+        <b-nav-item-dropdown
+          right
+          href="javascript:void(0);"
+          id="account-menu"
+          :class="{ 'router-link-active': subIsActive('/account') }"
+          active-class="active"
+          class="pointer"
+          data-cy="accountMenu"
+        >
           <span slot="button-content" class="navbar-dropdown-menu">
             <font-awesome-icon icon="user" />
             <span class="no-bold" v-text="$t('global.menu.account.main')"> Account </span>
           </span>
-          <b-dropdown-item data-cy="settings" to="/account/settings" tag="b-dropdown-item" v-if="authenticated"
-            active-class="active">
+          <b-dropdown-item data-cy="settings" to="/account/settings" tag="b-dropdown-item" v-if="authenticated" active-class="active">
             <font-awesome-icon icon="wrench" />
             <span v-text="$t('global.menu.account.settings')">Settings</span>
           </b-dropdown-item>
-          <b-dropdown-item data-cy="passwordItem" to="/account/password" tag="b-dropdown-item" v-if="authenticated"
-            active-class="active">
+          <b-dropdown-item data-cy="passwordItem" to="/account/password" tag="b-dropdown-item" v-if="authenticated" active-class="active">
             <font-awesome-icon icon="lock" />
             <span v-text="$t('global.menu.account.password')">Password</span>
           </b-dropdown-item>
@@ -128,13 +163,18 @@
             <font-awesome-icon icon="sign-out-alt" />
             <span v-text="$t('global.menu.account.logout')">Sign out</span>
           </b-dropdown-item>
-          <b-dropdown-item data-cy="login" v-if="!authenticated" v-on:click="openLogin()" id="login"
-            active-class="active">
+          <b-dropdown-item data-cy="login" v-if="!authenticated" v-on:click="openLogin()" id="login" active-class="active">
             <font-awesome-icon icon="sign-in-alt" />
             <span v-text="$t('global.menu.account.login')">Sign in</span>
           </b-dropdown-item>
-          <b-dropdown-item data-cy="register" to="/register" tag="b-dropdown-item" id="register" v-if="!authenticated"
-            active-class="active">
+          <b-dropdown-item
+            data-cy="register"
+            to="/register"
+            tag="b-dropdown-item"
+            id="register"
+            v-if="!authenticated"
+            active-class="active"
+          >
             <font-awesome-icon icon="user-plus" />
             <span v-text="$t('global.menu.account.register')">Register</span>
           </b-dropdown-item>
