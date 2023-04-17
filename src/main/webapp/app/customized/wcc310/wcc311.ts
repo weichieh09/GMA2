@@ -92,7 +92,7 @@ export default {
       axios
         .get(
           '/api/wcc311/countryList?sort=id,DESC' +
-            '&enName.contains=' +
+            '&chName.contains=' +
             this.modal.keyWord +
             '&page=' +
             (this.modal.currentPage - 1) +
@@ -161,7 +161,7 @@ export default {
       axios
         .get(
           '/api/wcc311/markList?' +
-            'markChName.contains=' +
+            'chName.contains=' +
             this.modal.keyWord +
             // '&countryId.equals=' +
             // this.cerf.countryId +
