@@ -7,8 +7,11 @@ import com.wcc.gma2.customized.service.Wcc312Service;
 import com.wcc.gma2.customized.service.Wcc412Service;
 import com.wcc.gma2.service.CountryCertQueryService;
 import com.wcc.gma2.service.ProdCountryQueryService;
+import com.wcc.gma2.service.Wcc412ViewQueryService;
+import com.wcc.gma2.service.criteria.Wcc412ViewCriteria;
 import com.wcc.gma2.service.dto.CerfDTO;
 import com.wcc.gma2.service.dto.CountryCertDTO;
+import com.wcc.gma2.service.dto.Wcc412ViewDTO;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +36,9 @@ public class Wcc412Controller {
     @Autowired
     private Wcc412Service wcc412Service;
 
+    @Autowired
+    private Wcc412ViewQueryService wcc412ViewQueryService;
+
     @GetMapping("/countryList")
     public ResponseEntity<List<SelectListDTO>> countryList() {
         HttpHeaders headers = new HttpHeaders();
@@ -45,10 +51,10 @@ public class Wcc412Controller {
     //        return ResponseEntity.ok().headers(headers).body(CerfStatusTypeList.getCerfStatusTypeList());
     //    }
 
-    @PostMapping("/cerfList")
-    public ResponseEntity<List<Wcc312CerfListRes>> cerfList(@RequestBody Wcc412CerfListReq req) {
-        //        Pageable pageable = wcc412Service.getPageable(req);
-        //        Page<CerfDTO> page = wcc412Service.findCerfByCriteria(req, pageable);
-        return ResponseEntity.ok().body(null);
+    @GetMapping("/cerfList")
+    public ResponseEntity<List<Wcc412ViewDTO>> cerfList(Wcc412ViewCriteria criteria, Pageable pageable) {
+        Page<Wcc412ViewDTO> page = wcc412ViewQueryService.findByCriteria(criteria, pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(wcc412Service.getCerfStatus(page.getContent()));
     }
 }

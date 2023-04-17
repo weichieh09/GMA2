@@ -117,35 +117,20 @@
           </thead>
           <tbody>
             <tr v-for="cerf in cerfList" :key="cerf.id" data-cy="entityTable">
-              <td>{{ cerf.id }}</td>
-              <td>{{ cerf.country }}</td>
+              <td>{{ cerf.cerfId }}</td>
+              <td>{{ cerf.countryChName }}</td>
               <td>{{ cerf.cerfNo }}</td>
               <td>{{ cerf.cerfVer }}</td>
-              <td>{{ cerf.status }}</td>
+              <td>{{ cerf.cerfStatus }}</td>
               <td class="text-right">
                 <!-- <b-button variant="success" size="sm"><b-icon icon="eye"></b-icon> <span>詳情Q</span></b-button> -->
                 <div class="btn-group">
-                  <router-link :to="{ name: 'Wcc313', params: { cerfId: cerf.id } }" custom v-slot="{ navigate }">
+                  <router-link :to="{ name: 'Wcc313', params: { cerfId: cerf.cerfId } }" custom v-slot="{ navigate }">
                     <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                       <font-awesome-icon icon="eye"></font-awesome-icon>
                       <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
                     </button>
                   </router-link>
-                  <router-link :to="{ name: 'Wcc311Edit', params: { cerfId: cerf.id } }" custom v-slot="{ navigate }">
-                    <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
-                      <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
-                      <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
-                    </button>
-                  </router-link>
-                  <b-button disabled @click="navigate" variant="danger" class="btn btn-sm" data-cy="entityDeleteButton">
-                    <font-awesome-icon icon="times"></font-awesome-icon>
-                    <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
-                  </b-button>
-                  <!-- <b-button v-on:click="prepareRemove(cerf)" variant="danger" class="btn btn-sm"
-                    data-cy="entityDeleteButton" v-b-modal.removeEntity>
-                    <font-awesome-icon icon="times"></font-awesome-icon>
-                    <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
-                  </b-button> -->
                 </div>
               </td>
             </tr>

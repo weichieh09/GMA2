@@ -81,20 +81,28 @@ export default {
     //   });
     // },
     getCerfList() {
-      const postData = {
-        countryId: this.form.countryId == null ? '' : this.form.countryId,
-        prodNo: this.form.prodNo,
-        prodName: this.form.prodName,
-        page: this.form.currentPage - 1,
-        size: this.form.perPage,
-      };
-
-      console.log(postData);
-
-      axios.post('/api/wcc412/cerfList', postData).then(res => {
-        // this.cerfList = res.data;
-        // this.form.objTotal = Number(res.headers['x-total-count']);
-      });
+      axios
+        .get(
+          '/api/wcc412/cerfList?sort=id,desc' +
+            '&countryId.equals=' +
+            (this.form.countryId == null ? '' : this.form.countryId) +
+            // '&status.contains=' +
+            // (this.form.cerfStatus == null ? '' : this.form.cerfStatus) +
+            // '&cerfNo.contains=' +
+            // this.form.cerfNo +
+            '&prodNo.contains=' +
+            this.form.prodNo +
+            '&prodChName.contains=' +
+            this.form.prodName +
+            '&page=' +
+            (this.form.currentPage - 1) +
+            '&size=' +
+            this.form.perPage
+        )
+        .then(res => {
+          this.cerfList = res.data;
+          this.form.objTotal = Number(res.headers['x-total-count']);
+        });
     },
     loadPage(page) {
       if (page !== this.form.previousPage) {
