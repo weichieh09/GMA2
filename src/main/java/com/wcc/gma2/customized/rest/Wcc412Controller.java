@@ -42,7 +42,6 @@ public class Wcc412Controller {
     @GetMapping("/cerfList")
     public ResponseEntity<List<Wcc412View>> cerfList(Wcc412ViewCriteria criteria, Pageable pageable) {
         Page<Wcc412View> page = wcc412Service.findForWcc412View(criteria, pageable);
-        //        Page<Wcc412ViewDTO> page = wcc412ViewQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(wcc412Service.getCerfStatus(page.getContent()));
     }
