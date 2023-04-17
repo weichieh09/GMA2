@@ -1,17 +1,11 @@
 package com.wcc.gma2.customized.rest;
 
 import com.wcc.gma2.customized.dto.SelectListDTO;
-import com.wcc.gma2.customized.dto.Wcc312CerfListRes;
-import com.wcc.gma2.customized.dto.Wcc412CerfListReq;
 import com.wcc.gma2.customized.service.Wcc312Service;
 import com.wcc.gma2.customized.service.Wcc412Service;
-import com.wcc.gma2.service.CountryCertQueryService;
-import com.wcc.gma2.service.ProdCountryQueryService;
+import com.wcc.gma2.domain.Wcc412View;
 import com.wcc.gma2.service.Wcc412ViewQueryService;
 import com.wcc.gma2.service.criteria.Wcc412ViewCriteria;
-import com.wcc.gma2.service.dto.CerfDTO;
-import com.wcc.gma2.service.dto.CountryCertDTO;
-import com.wcc.gma2.service.dto.Wcc412ViewDTO;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,15 +39,10 @@ public class Wcc412Controller {
         return ResponseEntity.ok().headers(headers).body(wcc312Service.findCountryList());
     }
 
-    //    @GetMapping("/cerfStatusList")
-    //    public ResponseEntity<List<SelectListDTO>> cerfStatusList() {
-    //        HttpHeaders headers = new HttpHeaders();
-    //        return ResponseEntity.ok().headers(headers).body(CerfStatusTypeList.getCerfStatusTypeList());
-    //    }
-
     @GetMapping("/cerfList")
-    public ResponseEntity<List<Wcc412ViewDTO>> cerfList(Wcc412ViewCriteria criteria, Pageable pageable) {
-        Page<Wcc412ViewDTO> page = wcc412ViewQueryService.findByCriteria(criteria, pageable);
+    public ResponseEntity<List<Wcc412View>> cerfList(Wcc412ViewCriteria criteria, Pageable pageable) {
+        Page<Wcc412View> page = wcc412Service.findForWcc412View(criteria, pageable);
+        //        Page<Wcc412ViewDTO> page = wcc412ViewQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(wcc412Service.getCerfStatus(page.getContent()));
     }
