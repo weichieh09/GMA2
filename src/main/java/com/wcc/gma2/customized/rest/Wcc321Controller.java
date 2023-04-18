@@ -1,6 +1,5 @@
 package com.wcc.gma2.customized.rest;
 
-import com.wcc.gma2.customized.dto.ResponseDTO;
 import com.wcc.gma2.customized.dto.SelectListDTO;
 import com.wcc.gma2.customized.dto.Wcc321FeeListReq;
 import com.wcc.gma2.customized.dto.Wcc321FeeListRes;
@@ -10,9 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -30,8 +27,8 @@ public class Wcc321Controller {
         return ResponseEntity.ok().headers(headers).body(wcc321Service.findCountryList());
     }
 
-    @GetMapping("/feeList")
-    public ResponseEntity<Wcc321FeeListRes> feeList(Wcc321FeeListReq req) {
+    @PostMapping("/feeList")
+    public ResponseEntity<Wcc321FeeListRes> feeList(@RequestBody Wcc321FeeListReq req) {
         Wcc321FeeListRes result = wcc321Service.findForWcc321Vue(req);
         return ResponseEntity.ok().body(result);
     }

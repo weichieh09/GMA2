@@ -76,6 +76,10 @@
             <font-awesome-icon icon="asterisk" />
             <span v-text="$t('global.menu.entities.std')">Std</span>
           </b-dropdown-item>
+          <b-dropdown-item to="/wcc321">
+            <font-awesome-icon icon="asterisk" />
+            <span>費用模組</span>
+          </b-dropdown-item>
         </b-nav-item-dropdown>
         <!-- wccCode - 下拉選單 -->
         <!-- <b-nav-item-dropdown right id="entity-menu" v-if="authenticated" active-class="active" class="pointer" data-cy="entity">

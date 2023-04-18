@@ -3,12 +3,10 @@ package com.wcc.gma2.customized.service;
 import com.wcc.gma2.customized.dto.SelectListDTO;
 import com.wcc.gma2.customized.dto.Wcc321FeeListReq;
 import com.wcc.gma2.customized.dto.Wcc321FeeListRes;
-import com.wcc.gma2.customized.dto.Wcc321FeeObjectDTO;
 import com.wcc.gma2.domain.Country;
 import com.wcc.gma2.domain.FeeProdCerfCompany;
 import com.wcc.gma2.repository.CountryRepository;
 import com.wcc.gma2.repository.FeeProdCerfCompanyRepository;
-import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
@@ -48,27 +46,31 @@ public class Wcc321Service {
         // 處理時間軸
         List<String> timeLine = this.getTimeLine(feeList);
         // 處理費用類別
-        List<Wcc321FeeObjectDTO> feeObjectList = this.getFeeObjectList(feeList, timeLine);
-        return null;
+        List<Map<String, Long>> feeObjectList = this.getFeeObjectList(feeList, timeLine);
+        // 設定結果
+        result.setTimeLine(timeLine);
+        result.setFeeObjectList(feeObjectList);
+        return result;
     }
 
-    private List<Wcc321FeeObjectDTO> getFeeObjectList(List<FeeProdCerfCompany> feeList, List<String> timeLine) {
-        List<Wcc321FeeObjectDTO> result = new ArrayList<>();
+    private List<Map<String, Long>> getFeeObjectList(List<FeeProdCerfCompany> feeList, List<String> timeLine) {
+        List<Map<String, Long>> result = new LinkedList<>();
         for (String year : timeLine) {
             Map<String, Long> map = new HashMap<>();
+            map.put("C", 0L);
+            map.put("S", 0L);
+            map.put("F", 0L);
             for (FeeProdCerfCompany dto : feeList) {
                 Integer dtoYear = dto.getFeeDt().getYear();
                 if (dtoYear.toString().equals(year)) {
-                    Long aLong = map.get(dto.getFeeType());
-                    if (aLong == null) {
-                        map.put(dto.getFeeType(), dto.getFee());
-                    } else {
-                        map.put(dto.getFeeType(), aLong + dto.getFee());
-                    }
+                    String feeType = dto.getFeeType().substring(0, 1);
+                    Long fee = dto.getFee();
+                    map.put(feeType, map.get(feeType) + fee);
                 }
             }
+            result.add(map);
         }
-        return null;
+        return result;
     }
 
     private List<String> getTimeLine(List<FeeProdCerfCompany> feeList) {
@@ -83,11 +85,11 @@ public class Wcc321Service {
     }
 
     private List<FeeProdCerfCompany> getFeeList(Wcc321FeeListReq req) {
-        String countryId = req.getCountryId();
-        String prodNo = req.getProdNo();
-        String prodChName = req.getProdChName();
-        String startDate = req.getStartDate();
-        String endDate = req.getEndDate();
+        String countryId = req.getCountryId() == null ? "" : req.getCountryId();
+        String prodNo = req.getProdNo() == null ? "" : req.getProdNo();
+        String prodChName = req.getProdChName() == null ? "" : req.getProdChName();
+        String startDate = req.getStartDate() == null ? "" : req.getStartDate();
+        String endDate = req.getEndDate() == null ? "" : req.getEndDate();
         List<FeeProdCerfCompany> rsult = feeProdCerfCompanyRepository.findForWcc321Vue(countryId, prodNo, prodChName, startDate, endDate);
         return rsult;
     }
