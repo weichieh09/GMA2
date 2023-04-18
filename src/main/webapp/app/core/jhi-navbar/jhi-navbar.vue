@@ -127,7 +127,7 @@
             <span v-text="$t('global.menu.admin.apidocs')">API</span>
           </b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item-dropdown id="languagesnavBarDropdown" right v-if="languages && Object.keys(languages).length > 1">
+        <b-nav-item-dropdown id="languagesnavBarDropdown" right v-if="languages && Object.keys(languages).length > 1 && false">
           <span slot="button-content">
             <font-awesome-icon icon="flag" />
             <span class="no-bold" v-text="$t('global.menu.language')">Language</span>

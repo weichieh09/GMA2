@@ -8,5 +8,5 @@ import lombok.Data;
 public class Wcc321FeeListRes {
 
     List<String> timeLine;
-    List<Map<String, Long>> feeObjectList;
+    List<Object> feeObjectList;
 }

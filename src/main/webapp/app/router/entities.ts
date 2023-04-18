@@ -149,7 +149,6 @@ export default {
       path: 'prod/:prodId/view',
       name: 'ProdView',
       component: ProdDetails,
-      meta: { authorities: [Authority.USER] },
     },
     {
       path: 'country',
@@ -221,7 +220,6 @@ export default {
       path: 'std/:stdId/view',
       name: 'StdView',
       component: StdDetails,
-      meta: { authorities: [Authority.USER] },
     },
     {
       path: 'mark',
@@ -269,7 +267,6 @@ export default {
       path: 'company/:companyId/view',
       name: 'CompanyView',
       component: CompanyDetails,
-      meta: { authorities: [Authority.USER] },
     },
     {
       path: 'fee-prod-cerf-company',

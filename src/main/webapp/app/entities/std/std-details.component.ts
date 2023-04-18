@@ -139,20 +139,20 @@ export default class StdUpdate extends Vue {
   }
 
   public initRelationships(): void {
-    this.prodStdService()
-      .retrieve()
-      .then(res => {
-        this.prodStds = res.data;
-      });
-    this.cerfStdService()
-      .retrieve()
-      .then(res => {
-        this.cerfStds = res.data;
-      });
-    this.countryStdService()
-      .retrieve()
-      .then(res => {
-        this.countryStds = res.data;
-      });
+    // this.prodStdService()
+    //   .retrieve()
+    //   .then(res => {
+    //     this.prodStds = res.data;
+    //   });
+    // this.cerfStdService()
+    //   .retrieve()
+    //   .then(res => {
+    //     this.cerfStds = res.data;
+    //   });
+    // this.countryStdService()
+    //   .retrieve()
+    //   .then(res => {
+    //     this.countryStds = res.data;
+    //   });
   }
 }

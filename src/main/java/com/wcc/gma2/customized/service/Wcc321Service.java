@@ -46,30 +46,46 @@ public class Wcc321Service {
         // 處理時間軸
         List<String> timeLine = this.getTimeLine(feeList);
         // 處理費用類別
-        List<Map<String, Long>> feeObjectList = this.getFeeObjectList(feeList, timeLine);
+        List<Object> feeObjectList = this.getFeeObjectList(feeList, timeLine);
         // 設定結果
         result.setTimeLine(timeLine);
         result.setFeeObjectList(feeObjectList);
         return result;
     }
 
-    private List<Map<String, Long>> getFeeObjectList(List<FeeProdCerfCompany> feeList, List<String> timeLine) {
-        List<Map<String, Long>> result = new LinkedList<>();
+    private List<Object> getFeeObjectList(List<FeeProdCerfCompany> feeList, List<String> timeLine) {
+        List<Object> result = new LinkedList<>();
+        List<Long> cList = new LinkedList<>();
+        List<Long> sList = new LinkedList<>();
+        List<Long> fList = new LinkedList<>();
         for (String year : timeLine) {
-            Map<String, Long> map = new HashMap<>();
-            map.put("C", 0L);
-            map.put("S", 0L);
-            map.put("F", 0L);
+            Long cl = 0L;
+            Long sl = 0L;
+            Long fl = 0L;
             for (FeeProdCerfCompany dto : feeList) {
                 Integer dtoYear = dto.getFeeDt().getYear();
                 if (dtoYear.toString().equals(year)) {
                     String feeType = dto.getFeeType().substring(0, 1);
-                    Long fee = dto.getFee();
-                    map.put(feeType, map.get(feeType) + fee);
+                    switch (feeType) {
+                        case "C":
+                            cl += dto.getFee();
+                            break;
+                        case "S":
+                            sl += dto.getFee();
+                            break;
+                        case "F":
+                            fl += dto.getFee();
+                            break;
+                    }
                 }
             }
-            result.add(map);
+            cList.add(cl);
+            sList.add(sl);
+            fList.add(fl);
         }
+        result.add(cList);
+        result.add(sList);
+        result.add(fList);
         return result;
     }
 

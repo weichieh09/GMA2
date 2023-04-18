@@ -76,13 +76,11 @@
     ><br />
 
     <b-row>
-      <b-col cols="12">
-        <div class="alert alert-warning" v-if="false">
-          <span>No data found</span>
-        </div>
-      </b-col>
-      <b-col cols="12">
+      <!-- <b-col cols="12">
         {{ feeList }}
+      </b-col> -->
+      <b-col cols="12" v-if="isEchartShow">
+        <div style="height: 500px" ref="chart1"></div>
       </b-col> </b-row
     ><br />
   </b-container>
