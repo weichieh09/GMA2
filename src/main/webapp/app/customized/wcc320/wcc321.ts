@@ -35,7 +35,6 @@ export default {
     onSubmit(event) {
       event.preventDefault();
       this.reSearch();
-      this.isEchartShow = true;
       this.postFeeList();
     },
     reSearch() {
@@ -46,12 +45,13 @@ export default {
     },
     postFeeList() {
       axios.post('/api/wcc321/feeList', this.form).then(res => {
-        console.log(res.data);
         this.feeList = res.data;
-        this.$nextTick(() => {
-          // this.eChart1Data = res.data.content.echart1;
-          this.eChart1Init();
-        });
+        if (this.feeList.prod) {
+          this.isEchartShow = true;
+          this.$nextTick(() => {
+            this.eChart1Init();
+          });
+        }
       });
     },
     eChart1Init() {

@@ -10,7 +10,8 @@
       "form": {
         "country": "國家",
         "prodNo": "產品編號",
-        "prodName": "產品名稱"
+        "prodName": "產品名稱",
+        "prodChName": "產品名稱"
       },
       "test": "test"
     }

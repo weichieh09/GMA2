@@ -271,6 +271,12 @@ export default {
       this.fee.fee = null;
       this.fee.feeDt = null;
     },
+    feeDelete(fee) {
+      let tmpArray = [];
+      if (fee.tmpId) tmpArray = this.feeList.filter(o => o.tmpId !== fee.tmpId);
+      else tmpArray = this.feeList.filter(o => o.id !== fee.id);
+      this.feeList = tmpArray;
+    },
     saveAll() {
       const saveData = {
         cerfId: this.cerf.cerfId,

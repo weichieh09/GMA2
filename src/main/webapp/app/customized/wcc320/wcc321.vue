@@ -8,7 +8,7 @@
       </b-col> </b-row
     ><br />
 
-    <b-row>
+    <b-row v-if="!isEchartShow">
       <b-col cols="12">
         <b-form @submit="onSubmit">
           <b-row>
@@ -30,12 +30,12 @@
               </b-form-group>
             </b-col>
             <b-col cols="6">
-              <b-form-group id="input-group-3" :label="$t('gmaApp.wcc412.form.prodName')" label-for="input-3">
+              <b-form-group id="input-group-3" :label="$t('gmaApp.wcc412.form.prodChName')" label-for="input-3">
                 <b-form-input
                   id="input-3"
-                  v-model="form.prodName"
+                  v-model="form.prodChName"
                   type="text"
-                  :placeholder="$t('gmaApp.wcc412.form.prodName')"
+                  :placeholder="$t('gmaApp.wcc412.form.prodChName')"
                 ></b-form-input>
               </b-form-group>
             </b-col>
@@ -67,20 +67,67 @@
           <b-row>
             <b-col cols="12" class="d-flex justify-content-end">
               <b-button-group>
-                <b-button type="submit" variant="primary"><b-icon icon="search"></b-icon> <span>search</span></b-button>
+                <b-button type="submit" variant="primary"><b-icon icon="search"></b-icon> <span>搜尋</span></b-button>
               </b-button-group>
             </b-col>
           </b-row>
         </b-form>
-      </b-col> </b-row
-    ><br />
+      </b-col>
+    </b-row>
 
-    <b-row>
-      <!-- <b-col cols="12">
-        {{ feeList }}
-      </b-col> -->
-      <b-col cols="12" v-if="isEchartShow">
+    <b-row v-if="!isEchartShow">
+      <b-col cols="12">
+        <br />
+        <div class="alert alert-warning">
+          <span>No data found</span>
+        </div>
+      </b-col>
+    </b-row>
+
+    <b-row v-if="isEchartShow">
+      <b-col cols="12" class="d-flex justify-content-end">
+        <b-button-group>
+          <b-button variant="primary" @click="reSearch"><b-icon icon="arrow-clockwise"></b-icon> <span>重新搜尋</span></b-button>
+        </b-button-group>
+      </b-col>
+      <b-col cols="6">
+        <b-form-group :label="$t('gmaApp.wcc412.form.prodNo')">
+          <b-form-input disabled type="text" :value="this.feeList.prod.prodNo"></b-form-input>
+        </b-form-group>
+      </b-col>
+      <b-col cols="6">
+        <b-form-group :label="$t('gmaApp.wcc412.form.prodChName')">
+          <b-form-input disabled type="text" :value="this.feeList.prod.chName"></b-form-input>
+        </b-form-group>
+      </b-col>
+      <b-col cols="12">
+        <hr />
+      </b-col>
+      <b-col cols="12">
         <div style="height: 500px" ref="chart1"></div>
+      </b-col>
+      <b-col cols="12">
+        <hr />
+      </b-col>
+      <b-col cols="12">
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">日期</th>
+              <th scope="col">類型</th>
+              <th scope="col">金額</th>
+              <th scope="col">證書</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="fee in this.feeList.feeDetailList" :key="fee.id">
+              <td>{{ fee.feeDt }}</td>
+              <td><p v-text="$t('gmaApp.wcc311.feeType.' + fee.feeType)" /></td>
+              <td>$ {{ fee.fee }}</td>
+              <td>{{ fee.cerf.cerfNo }} - {{ fee.cerf.cerfVer }}</td>
+            </tr>
+          </tbody>
+        </table>
       </b-col> </b-row
     ><br />
   </b-container>
