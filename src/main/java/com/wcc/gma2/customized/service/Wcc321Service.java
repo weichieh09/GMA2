@@ -3,10 +3,15 @@ package com.wcc.gma2.customized.service;
 import com.wcc.gma2.customized.dto.SelectListDTO;
 import com.wcc.gma2.customized.dto.Wcc321FeeListReq;
 import com.wcc.gma2.customized.dto.Wcc321FeeListRes;
+import com.wcc.gma2.customized.utils.StringFilterUtils;
+import com.wcc.gma2.domain.Cerf;
 import com.wcc.gma2.domain.Country;
 import com.wcc.gma2.domain.FeeProdCerfCompany;
 import com.wcc.gma2.repository.CountryRepository;
 import com.wcc.gma2.repository.FeeProdCerfCompanyRepository;
+import com.wcc.gma2.service.ProdQueryService;
+import com.wcc.gma2.service.criteria.ProdCriteria;
+import com.wcc.gma2.service.dto.ProdDTO;
 import java.util.*;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +32,9 @@ public class Wcc321Service {
     @Autowired
     private FeeProdCerfCompanyRepository feeProdCerfCompanyRepository;
 
+    @Autowired
+    private ProdQueryService prodQueryService;
+
     public List<SelectListDTO> findCountryList() {
         List<SelectListDTO> list = new ArrayList<>();
         SelectListDTO selectListDTO = null;
@@ -39,8 +47,11 @@ public class Wcc321Service {
 
     public Wcc321FeeListRes findForWcc321Vue(Wcc321FeeListReq req) {
         Wcc321FeeListRes result = new Wcc321FeeListRes();
-        // 查
-        List<FeeProdCerfCompany> feeList = this.getFeeList(req);
+        // 查產品
+        List<ProdDTO> prodList = this.getProd(req);
+        if (prodList == null || prodList.isEmpty()) return result;
+        // 查費用
+        List<FeeProdCerfCompany> feeList = this.getFeeList(req, prodList.get(0));
         // 排序
         feeList = feeList.stream().sorted(Comparator.comparing(FeeProdCerfCompany::getFeeDt)).collect(Collectors.toList());
         // 處理時間軸
@@ -48,9 +59,41 @@ public class Wcc321Service {
         // 處理費用類別
         List<Object> feeObjectList = this.getFeeObjectList(feeList, timeLine);
         // 設定結果
+        result.setProd(prodList.get(0));
+        result.setFeeDetailList(this.cleanData(feeList));
         result.setTimeLine(timeLine);
         result.setFeeObjectList(feeObjectList);
         return result;
+    }
+
+    private List<FeeProdCerfCompany> cleanData(List<FeeProdCerfCompany> feeList) {
+        List<FeeProdCerfCompany> result = new LinkedList<>();
+        for (FeeProdCerfCompany fee : feeList) {
+            Cerf cerf = fee.getCerf();
+            Cerf nCerf = new Cerf();
+            nCerf.setId(cerf.getId());
+            nCerf.setCerfNo(cerf.getCerfNo());
+            nCerf.setCerfVer(cerf.getCerfVer());
+            fee.setCerf(nCerf);
+            result.add(fee);
+        }
+        return result;
+    }
+
+    private List<ProdDTO> getProd(Wcc321FeeListReq req) {
+        String prodNo = req.getProdNo();
+        String prodChName = req.getProdChName();
+        ProdCriteria criteria = new ProdCriteria();
+        if (prodNo != null && !prodNo.isEmpty()) {
+            criteria.setProdNo(StringFilterUtils.toContainStringFilter(prodNo));
+        }
+        if (prodChName != null && !prodChName.isEmpty()) {
+            criteria.setChName(StringFilterUtils.toContainStringFilter(prodChName));
+        }
+        if ((prodNo != null && !prodNo.isEmpty()) || (prodChName != null && !prodChName.isEmpty())) {
+            return prodQueryService.findByCriteria(criteria);
+        }
+        return null;
     }
 
     private List<Object> getFeeObjectList(List<FeeProdCerfCompany> feeList, List<String> timeLine) {
@@ -100,12 +143,14 @@ public class Wcc321Service {
         return result;
     }
 
-    private List<FeeProdCerfCompany> getFeeList(Wcc321FeeListReq req) {
+    private List<FeeProdCerfCompany> getFeeList(Wcc321FeeListReq req, ProdDTO prod) {
         String countryId = req.getCountryId() == null ? "" : req.getCountryId();
-        String prodNo = req.getProdNo() == null ? "" : req.getProdNo();
-        String prodChName = req.getProdChName() == null ? "" : req.getProdChName();
-        String startDate = req.getStartDate() == null ? "" : req.getStartDate();
-        String endDate = req.getEndDate() == null ? "" : req.getEndDate();
+        //        String prodNo = req.getProdNo() == null ? "" : req.getProdNo();
+        //        String prodChName = req.getProdChName() == null ? "" : req.getProdChName();
+        String prodNo = prod.getProdNo();
+        String prodChName = prod.getChName();
+        String startDate = req.getStartDate() == null ? "1911-01-01" : req.getStartDate();
+        String endDate = req.getEndDate() == null ? "2099-01-01" : req.getEndDate();
         List<FeeProdCerfCompany> rsult = feeProdCerfCompanyRepository.findForWcc321Vue(countryId, prodNo, prodChName, startDate, endDate);
         return rsult;
     }

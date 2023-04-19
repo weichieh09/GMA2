@@ -12,11 +12,9 @@ import com.wcc.gma2.service.MailService;
 import com.wcc.gma2.service.criteria.CerfCompanyCriteria;
 import com.wcc.gma2.service.criteria.CerfStdCriteria;
 import com.wcc.gma2.service.dto.*;
-
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -73,19 +71,14 @@ public class WccStdService {
     }
 
     private String geStdfStatus(LocalDate issuDt, LocalDate expDt) {
-        Long until = issuDt.until(expDt, ChronoUnit.DAYS);
-        if (until >= 0 &&
-        expDt.isAfter(LocalDate.now()))
-            return "有效";
-        else
-            return "失效";
+        Long until = LocalDate.now().until(expDt, ChronoUnit.DAYS);
+        if (until >= 0) return "有效"; else return "失效";
     }
 
     public StdDTO setStdStatus(StdDTO stdDTO) {
         LocalDate issuDt = stdDTO.getIssuDt();
         LocalDate expDt = stdDTO.getExpDt();
-        if (issuDt != null && expDt != null)
-            stdDTO.setStatus(geStdfStatus(issuDt, expDt));
+        if (issuDt != null && expDt != null) stdDTO.setStatus(geStdfStatus(issuDt, expDt));
         return stdDTO;
     }
 }
