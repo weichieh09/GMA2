@@ -22,9 +22,9 @@ public interface FeeProdCerfCompanyRepository
         " WHERE\n" +
         "  country_id like %:countryId%\n" +
         "  AND\n" +
-        "  prod_no like %:prodNo%\n" +
+        "  prod_no = :prodNo\n" +
         "  AND\n" +
-        "  prod_ch_name like %:prodChName%\n" +
+        "  prod_ch_name = :prodChName\n" +
         " GROUP BY cerf_id \n" +
         ") AS B\n" +
         "ON A.cerf_id = B.cerf_id\n" +
