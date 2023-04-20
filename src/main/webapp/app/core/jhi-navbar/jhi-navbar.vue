@@ -25,7 +25,7 @@
           </span>
         </b-nav-item> -->
         <!-- wccCode - 下拉選單 -->
-        <b-nav-item-dropdown right active-class="active" class="pointer">
+        <b-nav-item-dropdown right v-if="authenticated" active-class="active" class="pointer">
           <span slot="button-content" class="navbar-dropdown-menu">
             <font-awesome-icon icon="th-list" />
             <span class="no-bold">一般功能</span>
@@ -34,10 +34,10 @@
             <font-awesome-icon icon="asterisk" />
             <span>證書查詢</span>
           </b-dropdown-item>
-          <!-- <b-dropdown-item to="/wcc312">
+          <b-dropdown-item to="/wcc000">
             <font-awesome-icon icon="asterisk" />
             <span>廠商查詢</span>
-          </b-dropdown-item> -->
+          </b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item-dropdown right v-if="hasAnyAuthority('ROLE_ADMIN') && authenticated" active-class="active" class="pointer">
           <span slot="button-content" class="navbar-dropdown-menu">
