@@ -121,6 +121,10 @@ const CountryMarkDetails = () => import('@/entities/country-mark/country-mark-de
 const Wcc412View = () => import('@/entities/wcc-412-view/wcc-412-view.vue');
 // prettier-ignore
 const Wcc412ViewDetails = () => import('@/entities/wcc-412-view/wcc-412-view-details.vue');
+// prettier-ignore
+const Wcc421View = () => import('@/entities/wcc-421-view/wcc-421-view.vue');
+// prettier-ignore
+const Wcc421ViewDetails = () => import('@/entities/wcc-421-view/wcc-421-view-details.vue');
 // jhipster-needle-add-entity-to-router-import - JHipster will import entities to the router here
 
 export default {
@@ -590,6 +594,30 @@ export default {
       path: '/wcc-412-view/:wcc412ViewId/view',
       name: 'Wcc412ViewView',
       component: Wcc412ViewDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/wcc-412-view',
+      name: 'Wcc412View',
+      component: Wcc412View,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/wcc-412-view/:wcc412ViewId/view',
+      name: 'Wcc412ViewView',
+      component: Wcc412ViewDetails,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/wcc-421-view',
+      name: 'Wcc421View',
+      component: Wcc421View,
+      meta: { authorities: [Authority.USER] },
+    },
+    {
+      path: '/wcc-421-view/:wcc421ViewId/view',
+      name: 'Wcc421ViewView',
+      component: Wcc421ViewDetails,
       meta: { authorities: [Authority.USER] },
     },
     // jhipster-needle-add-entity-to-router - JHipster will add entities to the router here

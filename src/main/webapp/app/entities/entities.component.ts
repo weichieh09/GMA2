@@ -21,6 +21,7 @@ import CountryCertService from './country-cert/country-cert.service';
 import ProdStickerService from './prod-sticker/prod-sticker.service';
 import CountryMarkService from './country-mark/country-mark.service';
 import Wcc412ViewService from './wcc-412-view/wcc-412-view.service';
+import Wcc421ViewService from './wcc-421-view/wcc-421-view.service';
 // jhipster-needle-add-entity-service-to-entities-component-import - JHipster will import entities services here
 
 @Component
@@ -46,5 +47,6 @@ export default class Entities extends Vue {
   @Provide('prodStickerService') private prodStickerService = () => new ProdStickerService();
   @Provide('countryMarkService') private countryMarkService = () => new CountryMarkService();
   @Provide('wcc412ViewService') private wcc412ViewService = () => new Wcc412ViewService();
+  @Provide('wcc421ViewService') private wcc421ViewService = () => new Wcc421ViewService();
   // jhipster-needle-add-entity-service-to-entities-component - JHipster will import entities services here
 }

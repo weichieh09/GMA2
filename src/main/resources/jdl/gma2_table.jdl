@@ -125,6 +125,17 @@ entity Wcc412View {
     prodChName String,
 }
 
+@readOnly
+entity Wcc421View {
+    cerfId Long,
+    countryChName String,
+    cerfNo String,
+    cerfVer String,
+    cerfStatus String,
+    companyChName String,
+    relType String,
+}
+
 /* 一對多 */
 relationship OneToMany {
     Prod{prodCountry} to ProdCountry{prod},

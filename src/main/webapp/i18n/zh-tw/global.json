@@ -32,6 +32,13 @@
         "countryCert": "Country Cert",
         "prodSticker": "Prod Sticker",
         "countryMark": "Country Mark",
+        "prod": "Prod",
+        "country": "Country",
+        "std": "Std",
+        "mark": "Mark",
+        "company": "Company",
+        "wcc412View": "Wcc 412 View",
+        "wcc421View": "Wcc 421 View",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

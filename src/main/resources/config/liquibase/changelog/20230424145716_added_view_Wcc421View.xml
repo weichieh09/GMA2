@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="20230424145716-1" author="weichieh09">
+        <createView
+            replaceIfExists="true"
+            viewName="wcc_421_view">
+            SELECT
+            ROW_NUMBER() OVER (ORDER BY CF.id) AS ID,
+            CF.id AS cerf_id,
+            C.ch_name AS country_ch_name,
+            CF.cerf_no,
+            CF.cerf_ver,
+            CF.status AS cerf_status,
+            CP.ch_name AS company_ch_name,
+            CC.rel_type
+            FROM cerf_company AS CC
+            INNER JOIN company AS CP
+            ON CC.company_id = CP.id
+            INNER JOIN cerf AS CF
+            ON CC.cerf_id = CF.id
+            INNER JOIN country_cert AS CYC
+            ON CC.cerf_id = CYC.cerf_id
+            INNER JOIN country AS C
+            ON CYC.country_id = C.id
+            WHERE
+            CC.rel_type = 'APPLY'
+            OR
+            CC.rel_type = 'FCTY'
+        </createView>
+    </changeSet>
+</databaseChangeLog>

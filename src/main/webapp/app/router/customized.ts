@@ -8,6 +8,7 @@ const Wcc313 = () => import('@/customized/wcc310/wcc313.vue');
 const Wcc321 = () => import('@/customized/wcc320/wcc321.vue');
 const Wcc412 = () => import('@/customized/wcc410/wcc412.vue');
 const Wcc000 = () => import('@/customized/wcc000/wcc000.vue');
+const Wcc421 = () => import('@/customized/wcc420/wcc421.vue');
 
 export default [
   {
@@ -54,5 +55,10 @@ export default [
     path: '/wcc000',
     name: 'Wcc000',
     component: Wcc000,
+  },
+  {
+    path: '/wcc421',
+    name: 'Wcc421',
+    component: Wcc421,
   },
 ];

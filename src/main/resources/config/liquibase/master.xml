@@ -32,6 +32,8 @@
     <include file="config/liquibase/changelog/20230402044451_added_entity_CountryMark.xml" relativeToChangelogFile="false"/>
 <!--    <include file="config/liquibase/changelog/20230411062903_added_entity_Wcc412View.xml" relativeToChangelogFile="false"/>-->
     <include file="config/liquibase/changelog/20230411062903_added_view_Wcc412View.xml" relativeToChangelogFile="false"/>
+<!--    <include file="config/liquibase/changelog/20230424145716_added_entity_Wcc421View.xml" relativeToChangelogFile="false"/>-->
+    <include file="config/liquibase/changelog/20230424145716_added_view_Wcc421View.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20230402044439_added_entity_constraints_FeeProdCerfCompany.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20230402044440_added_entity_constraints_CerfCompany.xml" relativeToChangelogFile="false"/>

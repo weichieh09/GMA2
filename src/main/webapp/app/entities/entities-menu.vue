@@ -80,6 +80,10 @@
       <font-awesome-icon icon="asterisk" />
       <span v-text="$t('global.menu.entities.wcc412View')">Wcc 412 View</span>
     </b-dropdown-item>
+    <b-dropdown-item to="/wcc-421-view">
+      <font-awesome-icon icon="asterisk" />
+      <span v-text="$t('global.menu.entities.wcc421View')">Wcc 421 View</span>
+    </b-dropdown-item>
     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
   </div>
 </template>

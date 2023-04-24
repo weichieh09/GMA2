@@ -34,9 +34,13 @@
             <font-awesome-icon icon="asterisk" />
             <span>證書查詢</span>
           </b-dropdown-item>
-          <b-dropdown-item to="/wcc000">
+          <b-dropdown-item to="/wcc421">
             <font-awesome-icon icon="asterisk" />
-            <span>廠商查詢</span>
+            <span>申請人查詢</span>
+          </b-dropdown-item>
+          <b-dropdown-item to="/wcc422">
+            <font-awesome-icon icon="asterisk" />
+            <span>生產廠查詢</span>
           </b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item-dropdown right v-if="hasAnyAuthority('ROLE_ADMIN') && authenticated" active-class="active" class="pointer">

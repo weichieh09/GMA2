@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20230424145716",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "wcc_421_view",
+  "fields": [
+    {
+      "fieldName": "cerfId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "countryChName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfVer",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cerfStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "companyChName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "relType",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Wcc421View",
+  "pagination": "pagination",
+  "readOnly": true,
+  "relationships": [],
+  "service": "serviceClass"
+}

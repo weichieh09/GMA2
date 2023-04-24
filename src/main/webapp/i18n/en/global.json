@@ -32,6 +32,7 @@
         "prodSticker": "Prod Sticker",
         "countryMark": "Country Mark",
         "wcc412View": "Wcc 412 View",
+        "wcc421View": "Wcc 421 View",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
