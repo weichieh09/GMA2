@@ -92,7 +92,7 @@
 
               <div class="col-md-12">
                 <label class="form-label">
-                  證書標籤
+                  證書圖示
                   <b-button variant="outline-secondary" v-b-modal.modal-markList @click="modalInit('markList')">編輯</b-button>
                 </label>
                 <!-- countryList 彈跳視窗 -->

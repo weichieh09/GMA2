@@ -68,31 +68,26 @@ public class Wcc311Service {
 
     @Transactional
     public StatusCode saveAll(Wcc311SaveAllReq req) {
-        try {
-            if (!this.checkCerf(req)) return StatusCode.FAIL;
-            // 證書
-            CerfDTO cerfDTO = this.getCerf(req);
-            if (cerfDTO.getId() != null) {
-                cerfDTO = cerfService.update(cerfDTO);
-                this.deleteAllCerf(cerfDTO.getId());
-            } else cerfDTO = cerfService.save(cerfDTO);
-            // 國家
-            countryCertService.save(this.getCountryCert(req, cerfDTO));
-            // 廠商
-            for (CerfCompanyDTO cerfCompanyDTO : this.getCerfCompany(req, cerfDTO)) cerfCompanyService.save(cerfCompanyDTO);
-            // 產品
-            for (CerfProdDTO cerfProdDTO : this.getCerfProd(req, cerfDTO)) cerfProdService.save(cerfProdDTO);
-            // 檢驗標準
-            for (CerfStdDTO cerfStdDTO : this.getCerfStd(req, cerfDTO)) cerfStdService.save(cerfStdDTO);
-            // 費用
-            for (FeeProdCerfCompanyDTO feeDTO : this.getFee(req, cerfDTO)) feeProdCerfCompanyService.save(feeDTO);
-            // 標章
-            cerfMarkService.save(this.getCerfMark(req, cerfDTO));
-            return StatusCode.SUCCESS;
-        } catch (Exception e) {
-            log.error(CLASS_NAME + ".saveAll() - " + e.getMessage());
-            return StatusCode.FAIL;
-        }
+        if (!this.checkCerf(req)) return StatusCode.FAIL;
+        // 證書
+        CerfDTO cerfDTO = this.getCerf(req);
+        if (cerfDTO.getId() != null) {
+            cerfDTO = cerfService.update(cerfDTO);
+            this.deleteAllCerf(cerfDTO.getId());
+        } else cerfDTO = cerfService.save(cerfDTO);
+        // 國家
+        countryCertService.save(this.getCountryCert(req, cerfDTO));
+        // 廠商
+        for (CerfCompanyDTO cerfCompanyDTO : this.getCerfCompany(req, cerfDTO)) cerfCompanyService.save(cerfCompanyDTO);
+        // 產品
+        for (CerfProdDTO cerfProdDTO : this.getCerfProd(req, cerfDTO)) cerfProdService.save(cerfProdDTO);
+        // 檢驗標準
+        for (CerfStdDTO cerfStdDTO : this.getCerfStd(req, cerfDTO)) cerfStdService.save(cerfStdDTO);
+        // 費用
+        for (FeeProdCerfCompanyDTO feeDTO : this.getFee(req, cerfDTO)) feeProdCerfCompanyService.save(feeDTO);
+        // 標章
+        cerfMarkService.save(this.getCerfMark(req, cerfDTO));
+        return StatusCode.SUCCESS;
     }
 
     private void deleteAllCerf(Long cerfId) {

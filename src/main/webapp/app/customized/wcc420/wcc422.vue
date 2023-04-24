@@ -1,18 +1,10 @@
 <template>
   <b-container fluid>
     <b-row>
-      <b-col cols="6">
+      <b-col cols="12">
         <h2 id="page-heading">
-          <span>證書模組</span>
+          <span>生產廠查詢</span>
         </h2>
-      </b-col>
-      <b-col cols="6" class="d-inline-flex p-2 justify-content-end">
-        <b-button-group>
-          <b-button variant="primary" :to="{ name: 'Wcc311New' }">
-            <b-icon icon="plus" />
-            <span>建立</span>
-          </b-button>
-        </b-button-group>
       </b-col> </b-row
     ><br />
 
@@ -20,30 +12,9 @@
       <b-col cols="12">
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
           <b-row>
-            <b-col cols="6">
-              <b-form-group id="input-group-1" :label="$t('gmaApp.wcc101.form.country')" label-for="input-1">
-                <b-form-select id="input-1" v-model="form.countryId" :options="countryList">
-                  <template #first>
-                    <b-form-select-option :value="null">請選擇</b-form-select-option>
-                  </template>
-                </b-form-select>
-              </b-form-group>
-            </b-col>
-            <b-col cols="6">
-              <b-form-group id="input-group-2" :label="$t('gmaApp.wcc101.form.cerfStatus')" label-for="input-2">
-                <b-form-select id="input-2" v-model="form.cerfStatus" :options="cerfStatusList">
-                  <template #first>
-                    <b-form-select-option :value="null">請選擇</b-form-select-option>
-                  </template>
-                </b-form-select>
-              </b-form-group>
-            </b-col>
-          </b-row>
-
-          <b-row>
             <b-col cols="12">
-              <b-form-group id="input-group-3" :label="$t('gmaApp.wcc101.form.cerfNo')" label-for="input-3">
-                <b-form-input id="input-3" v-model="form.cerfNo" type="text" :placeholder="$t('gmaApp.wcc101.form.cerfNo')"></b-form-input>
+              <b-form-group id="input-group-2" label="生產廠名稱" label-for="input-2">
+                <b-form-input id="input-2" v-model="form.companyChName" type="text" placeholder="生產廠名稱"></b-form-input>
               </b-form-group>
             </b-col>
           </b-row>
@@ -94,35 +65,20 @@
           </thead>
           <tbody>
             <tr v-for="cerf in cerfList" :key="cerf.id" data-cy="entityTable">
-              <td>{{ cerf.id }}</td>
-              <td>{{ cerf.country }}</td>
+              <td>{{ cerf.cerfId }}</td>
+              <td>{{ cerf.countryChName }}</td>
               <td>{{ cerf.cerfNo }}</td>
               <td>{{ cerf.cerfVer }}</td>
-              <td>{{ cerf.status }}</td>
+              <td>{{ cerf.cerfStatus }}</td>
               <td class="text-right">
                 <!-- <b-button variant="success" size="sm"><b-icon icon="eye"></b-icon> <span>詳情Q</span></b-button> -->
                 <div class="btn-group">
-                  <router-link :to="{ name: 'Wcc313', params: { cerfId: cerf.id } }" custom v-slot="{ navigate }">
+                  <router-link :to="{ name: 'Wcc313', params: { cerfId: cerf.cerfId } }" custom v-slot="{ navigate }">
                     <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                       <font-awesome-icon icon="eye"></font-awesome-icon>
                       <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
                     </button>
                   </router-link>
-                  <router-link :to="{ name: 'Wcc311Edit', params: { cerfId: cerf.id } }" custom v-slot="{ navigate }">
-                    <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
-                      <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
-                      <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
-                    </button>
-                  </router-link>
-                  <b-button @click="navigate" variant="danger" class="btn btn-sm" data-cy="entityDeleteButton">
-                    <font-awesome-icon icon="times"></font-awesome-icon>
-                    <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
-                  </b-button>
-                  <!-- <b-button v-on:click="prepareRemove(cerf)" variant="danger" class="btn btn-sm"
-                    data-cy="entityDeleteButton" v-b-modal.removeEntity>
-                    <font-awesome-icon icon="times"></font-awesome-icon>
-                    <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
-                  </b-button> -->
                 </div>
               </td>
             </tr>
@@ -152,4 +108,4 @@
   </b-container>
 </template>
 
-<script lang="ts" src="./wcc312.ts"></script>
+<script lang="ts" src="./wcc422.ts"></script>
