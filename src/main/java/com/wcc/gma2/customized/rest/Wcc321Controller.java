@@ -21,12 +21,13 @@ public class Wcc321Controller {
     @Autowired
     private Wcc321Service wcc321Service;
 
+    // 返回國家列表
     @GetMapping("/countryList")
     public ResponseEntity<List<SelectListDTO>> countryList() {
-        HttpHeaders headers = new HttpHeaders();
-        return ResponseEntity.ok().headers(headers).body(wcc321Service.findCountryList());
+        return ResponseEntity.ok().body(wcc321Service.findCountryList());
     }
 
+    // 返回費用清單
     @PostMapping("/feeList")
     public ResponseEntity<Wcc321FeeListRes> feeList(@RequestBody Wcc321FeeListReq req) {
         Wcc321FeeListRes result = wcc321Service.findForWcc321Vue(req);
