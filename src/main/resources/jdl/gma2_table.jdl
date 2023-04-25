@@ -53,6 +53,7 @@ entity Company {
     tel String maxlength(20),
     addr String maxlength(100),
     email String maxlength(50),
+    peopleName String,
 }
 
 /* 費用 */

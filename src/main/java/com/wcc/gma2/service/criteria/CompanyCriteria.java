@@ -35,6 +35,8 @@ public class CompanyCriteria implements Serializable, Criteria {
 
     private StringFilter email;
 
+    private StringFilter peopleName;
+
     private LongFilter cerfCompanyId;
 
     private LongFilter feeProdCerfCompanyId;
@@ -51,6 +53,7 @@ public class CompanyCriteria implements Serializable, Criteria {
         this.tel = other.tel == null ? null : other.tel.copy();
         this.addr = other.addr == null ? null : other.addr.copy();
         this.email = other.email == null ? null : other.email.copy();
+        this.peopleName = other.peopleName == null ? null : other.peopleName.copy();
         this.cerfCompanyId = other.cerfCompanyId == null ? null : other.cerfCompanyId.copy();
         this.feeProdCerfCompanyId = other.feeProdCerfCompanyId == null ? null : other.feeProdCerfCompanyId.copy();
         this.distinct = other.distinct;
@@ -166,6 +169,21 @@ public class CompanyCriteria implements Serializable, Criteria {
         this.email = email;
     }
 
+    public StringFilter getPeopleName() {
+        return peopleName;
+    }
+
+    public StringFilter peopleName() {
+        if (peopleName == null) {
+            peopleName = new StringFilter();
+        }
+        return peopleName;
+    }
+
+    public void setPeopleName(StringFilter peopleName) {
+        this.peopleName = peopleName;
+    }
+
     public LongFilter getCerfCompanyId() {
         return cerfCompanyId;
     }
@@ -221,6 +239,7 @@ public class CompanyCriteria implements Serializable, Criteria {
             Objects.equals(tel, that.tel) &&
             Objects.equals(addr, that.addr) &&
             Objects.equals(email, that.email) &&
+            Objects.equals(peopleName, that.peopleName) &&
             Objects.equals(cerfCompanyId, that.cerfCompanyId) &&
             Objects.equals(feeProdCerfCompanyId, that.feeProdCerfCompanyId) &&
             Objects.equals(distinct, that.distinct)
@@ -229,7 +248,7 @@ public class CompanyCriteria implements Serializable, Criteria {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, companyNo, enName, chName, tel, addr, email, cerfCompanyId, feeProdCerfCompanyId, distinct);
+        return Objects.hash(id, companyNo, enName, chName, tel, addr, email, peopleName, cerfCompanyId, feeProdCerfCompanyId, distinct);
     }
 
     // prettier-ignore
@@ -243,6 +262,7 @@ public class CompanyCriteria implements Serializable, Criteria {
             (tel != null ? "tel=" + tel + ", " : "") +
             (addr != null ? "addr=" + addr + ", " : "") +
             (email != null ? "email=" + email + ", " : "") +
+            (peopleName != null ? "peopleName=" + peopleName + ", " : "") +
             (cerfCompanyId != null ? "cerfCompanyId=" + cerfCompanyId + ", " : "") +
             (feeProdCerfCompanyId != null ? "feeProdCerfCompanyId=" + feeProdCerfCompanyId + ", " : "") +
             (distinct != null ? "distinct=" + distinct + ", " : "") +

@@ -50,6 +50,9 @@ public class Company implements Serializable {
     @Column(name = "email", length = 50)
     private String email;
 
+    @Column(name = "people_name")
+    private String peopleName;
+
     @OneToMany(mappedBy = "company")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "cerf", "company" }, allowSetters = true)
@@ -153,6 +156,19 @@ public class Company implements Serializable {
         this.email = email;
     }
 
+    public String getPeopleName() {
+        return this.peopleName;
+    }
+
+    public Company peopleName(String peopleName) {
+        this.setPeopleName(peopleName);
+        return this;
+    }
+
+    public void setPeopleName(String peopleName) {
+        this.peopleName = peopleName;
+    }
+
     public Set<CerfCompany> getCerfCompanies() {
         return this.cerfCompanies;
     }
@@ -245,6 +261,7 @@ public class Company implements Serializable {
             ", tel='" + getTel() + "'" +
             ", addr='" + getAddr() + "'" +
             ", email='" + getEmail() + "'" +
+            ", peopleName='" + getPeopleName() + "'" +
             "}";
     }
 }

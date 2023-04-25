@@ -30,6 +30,8 @@ public class CompanyDTO implements Serializable {
     @Size(max = 50)
     private String email;
 
+    private String peopleName;
+
     public Long getId() {
         return id;
     }
@@ -86,6 +88,14 @@ public class CompanyDTO implements Serializable {
         this.email = email;
     }
 
+    public String getPeopleName() {
+        return peopleName;
+    }
+
+    public void setPeopleName(String peopleName) {
+        this.peopleName = peopleName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -118,6 +128,7 @@ public class CompanyDTO implements Serializable {
             ", tel='" + getTel() + "'" +
             ", addr='" + getAddr() + "'" +
             ", email='" + getEmail() + "'" +
+            ", peopleName='" + getPeopleName() + "'" +
             "}";
     }
 }

@@ -40,6 +40,10 @@
       "fieldType": "String",
       "fieldValidateRules": ["maxlength"],
       "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "peopleName",
+      "fieldType": "String"
     }
   ],
   "fluentMethods": true,
