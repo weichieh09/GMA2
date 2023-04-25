@@ -46,8 +46,8 @@
             </th>
             <!-- <th scope="row" v-on:click="changeOrder('tel')">
               <span v-text="$t('gma2App.company.tel')">Tel</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'tel'"></jhi-sort-indicator> -->
-            </th>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'tel'"></jhi-sort-indicator>
+            </th> -->
             <!-- <th scope="row" v-on:click="changeOrder('addr')">
               <span v-text="$t('gma2App.company.addr')">Addr</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'addr'"></jhi-sort-indicator>
@@ -56,6 +56,10 @@
               <span v-text="$t('gma2App.company.email')">Email</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'email'"></jhi-sort-indicator>
             </th> -->
+            <th scope="row" v-on:click="changeOrder('peopleName')">
+              <span v-text="$t('gma2App.company.peopleName')">People Name</span>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'peopleName'"></jhi-sort-indicator>
+            </th>
             <th scope="row"></th>
           </tr>
         </thead>
@@ -68,6 +72,7 @@
             <!-- <td>{{ company.tel }}</td> -->
             <!-- <td>{{ company.addr }}</td> -->
             <!-- <td>{{ company.email }}</td> -->
+            <td>{{ company.peopleName }}</td>
             <td class="text-right">
               <div class="btn-group">
                 <router-link :to="{ name: 'CompanyView', params: { companyId: company.id } }" custom v-slot="{ navigate }">
