@@ -29,22 +29,9 @@
           </div>
           <div class="form-group">
             <label class="form-control-label" v-text="$t('gma2App.std.stdVer')" for="std-stdVer">Std Ver</label>
-            <input
-              type="text"
-              class="form-control"
-              name="stdVer"
-              id="std-stdVer"
-              data-cy="stdVer"
-              :class="{ valid: !$v.std.stdVer.$invalid, invalid: $v.std.stdVer.$invalid }"
-              v-model="$v.std.stdVer.$model"
-            />
-            <div v-if="$v.std.stdVer.$anyDirty && $v.std.stdVer.$invalid">
-              <small class="form-text text-danger" v-if="!$v.std.stdVer.maxLength" v-text="$t('entity.validation.maxlength', { max: 20 })">
-                This field cannot be longer than 20 characters.
-              </small>
-            </div>
+            <input type="text" class="form-control" name="stdVer" id="std-stdVer" data-cy="stdVer" v-model="$v.std.stdVer.$model" />
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label class="form-control-label" v-text="$t('gma2App.std.enName')" for="std-enName">En Name</label>
             <input
               type="text"
@@ -60,23 +47,10 @@
                 This field cannot be longer than 100 characters.
               </small>
             </div>
-          </div>
+          </div> -->
           <div class="form-group">
             <label class="form-control-label" v-text="$t('gma2App.std.chName')" for="std-chName">Ch Name</label>
-            <input
-              type="text"
-              class="form-control"
-              name="chName"
-              id="std-chName"
-              data-cy="chName"
-              :class="{ valid: !$v.std.chName.$invalid, invalid: $v.std.chName.$invalid }"
-              v-model="$v.std.chName.$model"
-            />
-            <div v-if="$v.std.chName.$anyDirty && $v.std.chName.$invalid">
-              <small class="form-text text-danger" v-if="!$v.std.chName.maxLength" v-text="$t('entity.validation.maxlength', { max: 100 })">
-                This field cannot be longer than 100 characters.
-              </small>
-            </div>
+            <input type="text" class="form-control" name="chName" id="std-chName" data-cy="chName" v-model="$v.std.chName.$model" />
           </div>
           <div class="form-group">
             <label class="form-control-label" v-text="$t('gma2App.std.status')" for="std-status">Status</label>

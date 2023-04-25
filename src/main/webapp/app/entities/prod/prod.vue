@@ -43,10 +43,10 @@
               <span v-text="$t('gma2App.prod.hsCode')">Hs Code</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'hsCode'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('cccCode')">
+            <!-- <th scope="row" v-on:click="changeOrder('cccCode')">
               <span v-text="$t('gma2App.prod.cccCode')">Ccc Code</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'cccCode'"></jhi-sort-indicator>
-            </th>
+            </th> -->
             <th scope="row"></th>
           </tr>
         </thead>
@@ -57,7 +57,7 @@
             <td>{{ prod.chName }}</td>
             <td>{{ prod.enName }}</td>
             <td>{{ prod.hsCode }}</td>
-            <td>{{ prod.cccCode }}</td>
+            <!-- <td>{{ prod.cccCode }}</td> -->
             <td class="text-right">
               <div class="btn-group">
                 <router-link :to="{ name: 'ProdView', params: { prodId: prod.id } }" custom v-slot="{ navigate }">

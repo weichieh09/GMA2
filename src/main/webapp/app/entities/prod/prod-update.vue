@@ -86,7 +86,7 @@
               </small>
             </div>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label class="form-control-label" v-text="$t('gma2App.prod.cccCode')" for="prod-cccCode">Ccc Code</label>
             <input
               type="text"
@@ -106,7 +106,7 @@
                 This field cannot be longer than 20 characters.
               </small>
             </div>
-          </div>
+          </div> -->
           <div class="form-group">
             <label class="form-label">產品標籤</label>
             <input type="file" class="form-control" v-on:change="setPdfData($event, false)" />

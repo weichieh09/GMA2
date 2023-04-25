@@ -21,15 +21,9 @@ const validations: any = {
     stdNo: {
       maxLength: maxLength(20),
     },
-    stdVer: {
-      maxLength: maxLength(20),
-    },
-    enName: {
-      maxLength: maxLength(100),
-    },
-    chName: {
-      maxLength: maxLength(100),
-    },
+    stdVer: {},
+    enName: {},
+    chName: {},
     status: {
       maxLength: maxLength(10),
     },

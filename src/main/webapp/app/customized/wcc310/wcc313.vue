@@ -386,6 +386,7 @@
                 <b-list-group v-for="prod in modal.objList" :key="prod.id">
                   <b-list-group-item button @click="modalChoice('prodList', 'manyChoice', prod)">
                     {{ prod.chName }}<br />
+                    {{ prod.enName }}<br />
                     <small>{{ prod.prodNo }}</small>
                   </b-list-group-item>
                 </b-list-group>
@@ -409,6 +410,7 @@
                     <b-row>
                       <b-col cols="8">
                         {{ prod.chName }}<br />
+                        {{ prod.enName }}<br />
                         <small>{{ prod.prodNo }}</small>
                       </b-col>
                       <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
@@ -533,8 +535,6 @@
               <div class="col-md-12">
                 <b-list-group v-for="(f, index) in feeList" :key="f.id">
                   <b-list-group-item>
-                    <!-- {{ f.feeType }}<br />
-                    <small>{{ f.feeDt }}</small> -->
                     <div class="row d-flex justify-content-between">
                       <div>
                         <h6 v-text="$t('gmaApp.wcc311.feeType.' + f.feeType)" />
@@ -542,6 +542,18 @@
                       </div>
                       <div class="d-flex justify-content-end">
                         <span>${{ f.fee }}</span>
+                      </div>
+                    </div>
+                  </b-list-group-item>
+                </b-list-group>
+                <b-list-group>
+                  <b-list-group-item>
+                    <div class="row d-flex justify-content-between">
+                      <div>
+                        <h6>total</h6>
+                      </div>
+                      <div class="d-flex justify-content-end">
+                        <span>${{ feeTotal }}</span>
                       </div>
                     </div>
                   </b-list-group-item>

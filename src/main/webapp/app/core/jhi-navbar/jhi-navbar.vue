@@ -110,19 +110,19 @@
             <font-awesome-icon icon="users" />
             <span v-text="$t('global.menu.admin.userManagement')">User management</span>
           </b-dropdown-item>
-          <b-dropdown-item to="/admin/metrics" active-class="active">
+          <b-dropdown-item to="/admin/metrics" active-class="active" v-if="false">
             <font-awesome-icon icon="tachometer-alt" />
             <span v-text="$t('global.menu.admin.metrics')">Metrics</span>
           </b-dropdown-item>
-          <b-dropdown-item to="/admin/health" active-class="active">
+          <b-dropdown-item to="/admin/health" active-class="active" v-if="false">
             <font-awesome-icon icon="heart" />
             <span v-text="$t('global.menu.admin.health')">Health</span>
           </b-dropdown-item>
-          <b-dropdown-item to="/admin/configuration" active-class="active">
+          <b-dropdown-item to="/admin/configuration" active-class="active" v-if="false">
             <font-awesome-icon icon="cogs" />
             <span v-text="$t('global.menu.admin.configuration')">Configuration</span>
           </b-dropdown-item>
-          <b-dropdown-item to="/admin/logs" active-class="active">
+          <b-dropdown-item to="/admin/logs" active-class="active" v-if="false">
             <font-awesome-icon icon="tasks" />
             <span v-text="$t('global.menu.admin.logs')">Logs</span>
           </b-dropdown-item>

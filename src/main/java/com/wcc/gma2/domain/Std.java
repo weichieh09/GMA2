@@ -31,16 +31,13 @@ public class Std implements Serializable {
     @Column(name = "std_no", length = 20)
     private String stdNo;
 
-    @Size(max = 20)
-    @Column(name = "std_ver", length = 20)
+    @Column(name = "std_ver")
     private String stdVer;
 
-    @Size(max = 100)
-    @Column(name = "en_name", length = 100)
+    @Column(name = "en_name")
     private String enName;
 
-    @Size(max = 100)
-    @Column(name = "ch_name", length = 100)
+    @Column(name = "ch_name")
     private String chName;
 
     @Size(max = 10)

@@ -8,8 +8,7 @@
           <span v-text="$t('gma2App.std.home.refreshListLabel')">Refresh List</span>
         </button> -->
         <router-link :to="{ name: 'StdCreate' }" custom v-slot="{ navigate }">
-          <button @click="navigate" id="jh-create-entity" data-cy="entityCreateButton"
-            class="btn btn-primary jh-create-entity create-std">
+          <button @click="navigate" id="jh-create-entity" data-cy="entityCreateButton" class="btn btn-primary jh-create-entity create-std">
             <font-awesome-icon icon="plus"></font-awesome-icon>
             <span v-text="$t('gma2App.std.home.createLabel')"> Create a new Std </span>
           </button>
@@ -30,28 +29,24 @@
             </th>
             <th scope="row" v-on:click="changeOrder('stdNo')">
               <span v-text="$t('gma2App.std.stdNo')">Std No</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse"
-                :field-name="'stdNo'"></jhi-sort-indicator>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'stdNo'"></jhi-sort-indicator>
             </th>
             <th scope="row" v-on:click="changeOrder('stdVer')">
               <span v-text="$t('gma2App.std.stdVer')">Std Ver</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse"
-                :field-name="'stdVer'"></jhi-sort-indicator>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'stdVer'"></jhi-sort-indicator>
             </th>
             <th scope="row" v-on:click="changeOrder('chName')">
               <span v-text="$t('gma2App.std.chName')">Ch Name</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse"
-                :field-name="'chName'"></jhi-sort-indicator>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'chName'"></jhi-sort-indicator>
             </th>
-            <th scope="row" v-on:click="changeOrder('enName')">
+            <!-- <th scope="row" v-on:click="changeOrder('enName')">
               <span v-text="$t('gma2App.std.enName')">En Name</span>
               <jhi-sort-indicator :current-order="propOrder" :reverse="reverse"
                 :field-name="'enName'"></jhi-sort-indicator>
-            </th>
+            </th> -->
             <th scope="row" v-on:click="changeOrder('status')">
               <span v-text="$t('gma2App.std.status')">Status</span>
-              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse"
-                :field-name="'status'"></jhi-sort-indicator>
+              <jhi-sort-indicator :current-order="propOrder" :reverse="reverse" :field-name="'status'"></jhi-sort-indicator>
             </th>
             <!-- <th scope="row" v-on:click="changeOrder('issuDt')">
               <span v-text="$t('gma2App.std.issuDt')">Issu Dt</span>
@@ -70,7 +65,7 @@
             <td>{{ std.stdNo }}</td>
             <td>{{ std.stdVer }}</td>
             <td>{{ std.chName }}</td>
-            <td>{{ std.enName }}</td>
+            <!-- <td>{{ std.enName }}</td> -->
             <td>{{ std.status }}</td>
             <!-- <td>{{ std.issuDt }}</td> -->
             <!-- <td>{{ std.expDt }}</td> -->
@@ -94,8 +89,13 @@
                     <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
                   </button>
                 </router-link>
-                <b-button v-on:click="prepareRemove(std)" variant="danger" class="btn btn-sm" data-cy="entityDeleteButton"
-                  v-b-modal.removeEntity>
+                <b-button
+                  v-on:click="prepareRemove(std)"
+                  variant="danger"
+                  class="btn btn-sm"
+                  data-cy="entityDeleteButton"
+                  v-b-modal.removeEntity
+                >
                   <font-awesome-icon icon="times"></font-awesome-icon>
                   <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
                 </b-button>
@@ -115,24 +115,31 @@
         </span>
       </div>
       <div slot="modal-footer">
-        <button type="button" class="btn btn-secondary" v-text="$t('entity.action.cancel')"
-          v-on:click="closeDialog()">Cancel</button>
+        <button type="button" class="btn btn-secondary" v-text="$t('entity.action.cancel')" v-on:click="closeDialog()">Cancel</button>
         <button type="button" class="btn btn-primary" v-on:click="sendStd()">發送</button>
       </div>
     </b-modal>
     <b-modal ref="removeEntity" id="removeEntity">
-      <span slot="modal-title"><span id="gma2App.std.delete.question" data-cy="stdDeleteDialogHeading"
-          v-text="$t('entity.delete.title')">Confirm delete operation</span></span>
+      <span slot="modal-title"
+        ><span id="gma2App.std.delete.question" data-cy="stdDeleteDialogHeading" v-text="$t('entity.delete.title')"
+          >Confirm delete operation</span
+        ></span
+      >
       <div class="modal-body">
         <p id="jhi-delete-std-heading" v-text="$t('gma2App.std.delete.question', { id: removeId })">
           Are you sure you want to delete this Std?
         </p>
       </div>
       <div slot="modal-footer">
-        <button type="button" class="btn btn-secondary" v-text="$t('entity.action.cancel')"
-          v-on:click="closeDialog()">Cancel</button>
-        <button type="button" class="btn btn-primary" id="jhi-confirm-delete-std" data-cy="entityConfirmDeleteButton"
-          v-text="$t('entity.action.delete')" v-on:click="removeStd()">
+        <button type="button" class="btn btn-secondary" v-text="$t('entity.action.cancel')" v-on:click="closeDialog()">Cancel</button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          id="jhi-confirm-delete-std"
+          data-cy="entityConfirmDeleteButton"
+          v-text="$t('entity.action.delete')"
+          v-on:click="removeStd()"
+        >
           Delete
         </button>
       </div>
@@ -142,8 +149,7 @@
         <jhi-item-count :page="page" :total="queryCount" :itemsPerPage="itemsPerPage"></jhi-item-count>
       </div>
       <div class="row justify-content-center">
-        <b-pagination size="md" :total-rows="totalItems" v-model="page" :per-page="itemsPerPage"
-          :change="loadPage(page)"></b-pagination>
+        <b-pagination size="md" :total-rows="totalItems" v-model="page" :per-page="itemsPerPage" :change="loadPage(page)"></b-pagination>
       </div>
     </div>
   </div>

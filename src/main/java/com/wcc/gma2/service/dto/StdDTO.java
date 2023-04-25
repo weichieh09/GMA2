@@ -16,13 +16,10 @@ public class StdDTO implements Serializable {
     @Size(max = 20)
     private String stdNo;
 
-    @Size(max = 20)
     private String stdVer;
 
-    @Size(max = 100)
     private String enName;
 
-    @Size(max = 100)
     private String chName;
 
     @Size(max = 10)

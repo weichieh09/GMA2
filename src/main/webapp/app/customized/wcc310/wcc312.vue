@@ -102,19 +102,19 @@
               <td class="text-right">
                 <!-- <b-button variant="success" size="sm"><b-icon icon="eye"></b-icon> <span>詳情Q</span></b-button> -->
                 <div class="btn-group">
-                  <router-link :to="{ name: 'Wcc313', params: { cerfId: cerf.id } }" custom v-slot="{ navigate }">
-                    <button @click="navigate" class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
+                  <router-link :to="{ name: 'Wcc313', params: { cerfId: cerf.id } }" custom>
+                    <button class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                       <font-awesome-icon icon="eye"></font-awesome-icon>
                       <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
                     </button>
                   </router-link>
-                  <router-link :to="{ name: 'Wcc311Edit', params: { cerfId: cerf.id } }" custom v-slot="{ navigate }">
-                    <button @click="navigate" class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
+                  <router-link :to="{ name: 'Wcc311Edit', params: { cerfId: cerf.id } }" custom>
+                    <button class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
                       <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
                       <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
                     </button>
                   </router-link>
-                  <b-button @click="navigate" variant="danger" class="btn btn-sm" data-cy="entityDeleteButton">
+                  <b-button variant="danger" class="btn btn-sm" data-cy="entityDeleteButton">
                     <font-awesome-icon icon="times"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
                   </b-button>

@@ -32,6 +32,7 @@ export default {
         feeDt: null,
       },
       feeTypeList: null,
+      feeTotal: 0,
       modal: {
         previousPage: 1,
         currentPage: 1,
@@ -198,6 +199,11 @@ export default {
         this.prodList = res.data.prodList;
         this.stdList = res.data.stdList;
         this.feeList = res.data.feeList;
+        var sum = 0;
+        this.feeList.forEach(function (obj) {
+          sum = Number(sum) + Number(obj.fee);
+        });
+        this.feeTotal = sum;
       });
     },
     modalLoad(modalName, page) {

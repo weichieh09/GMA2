@@ -18,10 +18,10 @@
         "title": "Prod"
       },
       "id": "序號",
-      "prodNo": "產品編號",
+      "prodNo": "產品型號",
       "enName": "英文名稱",
       "chName": "中文名稱",
-      "hsCode": "HsCode",
+      "hsCode": "HS Code ( CCC Code )",
       "cccCode": "CccCode",
       "prodCountry": "Prod Country",
       "prodStd": "Prod Std",
