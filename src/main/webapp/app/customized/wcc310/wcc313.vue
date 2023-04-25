@@ -223,7 +223,8 @@
                     <b-row>
                       <b-col cols="8">
                         {{ company.apply.chName }}<br />
-                        <small>{{ company.apply.enName }}</small>
+                        {{ company.apply.enName }}<br />
+                        <small>{{ company.apply.peopleName }}</small>
                       </b-col>
                       <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
                         <router-link :to="{ name: 'CompanyView', params: { companyId: company.apply.id } }" custom v-slot="{ navigate }">
@@ -288,7 +289,8 @@
                     <b-row>
                       <b-col cols="8">
                         {{ company.mnfctr.chName }}<br />
-                        <small>{{ company.mnfctr.enName }}</small>
+                        {{ company.mnfctr.enName }}<br />
+                        <small>{{ company.mnfctr.peopleName }}</small>
                       </b-col>
                       <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
                         <router-link :to="{ name: 'CompanyView', params: { companyId: company.mnfctr.id } }" custom v-slot="{ navigate }">
@@ -350,7 +352,8 @@
                     <b-row>
                       <b-col cols="8">
                         {{ fcty.chName }}<br />
-                        <small>{{ fcty.enName }}</small>
+                        {{ fcty.enName }}<br />
+                        <small>{{ fcty.peopleName }}</small>
                       </b-col>
                       <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
                         <router-link :to="{ name: 'CompanyView', params: { companyId: fcty.id } }" custom v-slot="{ navigate }">
