@@ -9,6 +9,7 @@ export interface ICompany {
   tel?: string | null;
   addr?: string | null;
   email?: string | null;
+  peopleName?: string | null;
   cerfCompanies?: ICerfCompany[] | null;
   feeProdCerfCompanies?: IFeeProdCerfCompany[] | null;
 }
@@ -22,6 +23,7 @@ export class Company implements ICompany {
     public tel?: string | null,
     public addr?: string | null,
     public email?: string | null,
+    public peopleName?: string | null,
     public cerfCompanies?: ICerfCompany[] | null,
     public feeProdCerfCompanies?: IFeeProdCerfCompany[] | null
   ) {}

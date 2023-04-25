@@ -136,6 +136,18 @@
               </small>
             </div>
           </div>
+          <div class="form-group">
+            <label class="form-control-label" v-text="$t('gma2App.company.peopleName')" for="company-peopleName">People Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="peopleName"
+              id="company-peopleName"
+              data-cy="peopleName"
+              :class="{ valid: !$v.company.peopleName.$invalid, invalid: $v.company.peopleName.$invalid }"
+              v-model="$v.company.peopleName.$model"
+            />
+          </div>
         </div>
         <div>
           <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" v-on:click="previousState()">

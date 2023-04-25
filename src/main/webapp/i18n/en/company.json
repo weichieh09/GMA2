@@ -24,6 +24,7 @@
       "tel": "Tel",
       "addr": "Addr",
       "email": "Email",
+      "peopleName": "People Name",
       "cerfCompany": "Cerf Company",
       "feeProdCerfCompany": "Fee Prod Cerf Company"
     }

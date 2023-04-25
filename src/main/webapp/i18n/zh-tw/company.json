@@ -24,6 +24,7 @@
       "tel": "連絡電話",
       "addr": "聯絡地址",
       "email": "Email",
+      "peopleName": "聯絡人姓名",
       "cerfCompany": "Cerf Company",
       "feeProdCerfCompany": "Fee Prod Cerf Company"
     }
