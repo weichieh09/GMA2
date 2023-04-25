@@ -33,6 +33,7 @@ const validations: any = {
     email: {
       maxLength: maxLength(50),
     },
+    peopleName: {},
   },
 };
 
@@ -133,15 +134,15 @@ export default class CompanyUpdate extends Vue {
   }
 
   public initRelationships(): void {
-    // this.cerfCompanyService()
-    //   .retrieve()
-    //   .then(res => {
-    //     this.cerfCompanies = res.data;
-    //   });
-    // this.feeProdCerfCompanyService()
-    //   .retrieve()
-    //   .then(res => {
-    //     this.feeProdCerfCompanies = res.data;
-    //   });
+    this.cerfCompanyService()
+      .retrieve()
+      .then(res => {
+        this.cerfCompanies = res.data;
+      });
+    this.feeProdCerfCompanyService()
+      .retrieve()
+      .then(res => {
+        this.feeProdCerfCompanies = res.data;
+      });
   }
 }

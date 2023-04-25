@@ -33,6 +33,7 @@ const validations: any = {
     email: {
       maxLength: maxLength(50),
     },
+    peopleName: {},
   },
 };
 
