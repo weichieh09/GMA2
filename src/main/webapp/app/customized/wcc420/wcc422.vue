@@ -49,6 +49,9 @@
                 <span>序號</span>
               </th>
               <th scope="row">
+                <span>生產廠</span>
+              </th>
+              <th scope="row">
                 <span>國家</span>
               </th>
               <th scope="row">
@@ -66,6 +69,7 @@
           <tbody>
             <tr v-for="cerf in cerfList" :key="cerf.id" data-cy="entityTable">
               <td>{{ cerf.cerfId }}</td>
+              <td>{{ cerf.companyChName }}</td>
               <td>{{ cerf.countryChName }}</td>
               <td>{{ cerf.cerfNo }}</td>
               <td>{{ cerf.cerfVer }}</td>

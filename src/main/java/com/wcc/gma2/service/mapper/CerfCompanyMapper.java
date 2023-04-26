@@ -30,5 +30,6 @@ public interface CerfCompanyMapper extends EntityMapper<CerfCompanyDTO, CerfComp
     @Mapping(target = "chName", source = "chName")
     @Mapping(target = "enName", source = "enName")
     @Mapping(target = "email", source = "email")
+    @Mapping(target = "peopleName", source = "peopleName")
     CompanyDTO toDtoCompanyId(Company company);
 }

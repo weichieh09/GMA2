@@ -104,6 +104,12 @@
                 <span>國家</span>
               </th>
               <th scope="row">
+                <span>產品型號</span>
+              </th>
+              <th scope="row">
+                <span>產品名稱</span>
+              </th>
+              <th scope="row">
                 <span>證書編號</span>
               </th>
               <th scope="row">
@@ -119,6 +125,8 @@
             <tr v-for="cerf in cerfList" :key="cerf.id" data-cy="entityTable">
               <td>{{ cerf.cerfId }}</td>
               <td>{{ cerf.countryChName }}</td>
+              <td>{{ cerf.prodNo }}</td>
+              <td>{{ cerf.prodChName }}</td>
               <td>{{ cerf.cerfNo }}</td>
               <td>{{ cerf.cerfVer }}</td>
               <td>{{ cerf.cerfStatus }}</td>

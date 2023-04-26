@@ -49,8 +49,11 @@
                 <span>序號</span>
               </th>
               <th scope="row">
-                <span>國家</span>
+                <span>申請人</span>
               </th>
+              <!-- <th scope="row">
+                <span>國家</span>
+              </th> -->
               <th scope="row">
                 <span>證書編號</span>
               </th>
@@ -66,7 +69,8 @@
           <tbody>
             <tr v-for="cerf in cerfList" :key="cerf.id" data-cy="entityTable">
               <td>{{ cerf.cerfId }}</td>
-              <td>{{ cerf.countryChName }}</td>
+              <td>{{ cerf.companyChName }}</td>
+              <!-- <td>{{ cerf.countryChName }}</td> -->
               <td>{{ cerf.cerfNo }}</td>
               <td>{{ cerf.cerfVer }}</td>
               <td>{{ cerf.cerfStatus }}</td>

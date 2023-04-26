@@ -4,6 +4,7 @@ import com.wcc.gma2.customized.type.CerfStatusTypeList;
 import com.wcc.gma2.domain.Wcc412View;
 import com.wcc.gma2.repository.Wcc412ViewRepository;
 import com.wcc.gma2.service.criteria.Wcc412ViewCriteria;
+import com.wcc.gma2.service.dto.Wcc412ViewDTO;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -23,9 +24,9 @@ public class Wcc412Service {
     @Autowired
     private Wcc412ViewRepository wcc412ViewRepository;
 
-    public List<Wcc412View> getCerfStatus(List<Wcc412View> content) {
-        List<Wcc412View> list = new ArrayList<>();
-        for (Wcc412View dto : content) {
+    public List<Wcc412ViewDTO> getCerfStatus(List<Wcc412ViewDTO> content) {
+        List<Wcc412ViewDTO> list = new ArrayList<>();
+        for (Wcc412ViewDTO dto : content) {
             dto.setCerfStatus(CerfStatusTypeList.toText(dto.getCerfStatus()));
             list.add(dto);
         }

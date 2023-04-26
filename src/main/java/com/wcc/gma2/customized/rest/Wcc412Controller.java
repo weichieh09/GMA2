@@ -6,6 +6,7 @@ import com.wcc.gma2.customized.service.Wcc412Service;
 import com.wcc.gma2.domain.Wcc412View;
 import com.wcc.gma2.service.Wcc412ViewQueryService;
 import com.wcc.gma2.service.criteria.Wcc412ViewCriteria;
+import com.wcc.gma2.service.dto.Wcc412ViewDTO;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,13 +54,20 @@ public class Wcc412Controller {
      * @param pageable 分頁信息。
      * @return 帶有200狀態碼（OK）和證書視圖列表的ResponseEntity。
      */
+    //    @GetMapping("/cerfList")
+    //    public ResponseEntity<List<Wcc412View>> cerfList(Wcc412ViewCriteria criteria, Pageable pageable) {
+    //        // 使用查詢服務 wcc412Service 查找與條件和分頁信息匹配的證書視圖。
+    //        Page<Wcc412View> page = wcc412Service.findForWcc412View(criteria, pageable);
+    //        // 使用 PaginationUtil 生成 HTTP 響應頭，包括下一頁和上一頁的鏈接（如果適用）。
+    //        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+    //        // 獲取頁面上證書的狀態，並在 Response 中返回證書視圖和分頁頭。
+    //        return ResponseEntity.ok().headers(headers).body(wcc412Service.getCerfStatus(page.getContent()));
+    //    }
+
     @GetMapping("/cerfList")
-    public ResponseEntity<List<Wcc412View>> cerfList(Wcc412ViewCriteria criteria, Pageable pageable) {
-        // 使用查詢服務 wcc412Service 查找與條件和分頁信息匹配的證書視圖。
-        Page<Wcc412View> page = wcc412Service.findForWcc412View(criteria, pageable);
-        // 使用 PaginationUtil 生成 HTTP 響應頭，包括下一頁和上一頁的鏈接（如果適用）。
+    public ResponseEntity<List<Wcc412ViewDTO>> cerfList(Wcc412ViewCriteria criteria, Pageable pageable) {
+        Page<Wcc412ViewDTO> page = wcc412ViewQueryService.findByCriteria(criteria, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-        // 獲取頁面上證書的狀態，並在 Response 中返回證書視圖和分頁頭。
         return ResponseEntity.ok().headers(headers).body(wcc412Service.getCerfStatus(page.getContent()));
     }
 }
