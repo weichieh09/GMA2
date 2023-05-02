@@ -18,9 +18,7 @@ import StdService from './std.service';
 
 const validations: any = {
   std: {
-    stdNo: {
-      maxLength: maxLength(20),
-    },
+    stdNo: {},
     stdVer: {},
     enName: {},
     chName: {},

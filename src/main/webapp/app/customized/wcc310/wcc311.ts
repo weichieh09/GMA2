@@ -40,6 +40,10 @@ export default {
         keyWord: '',
         objList: null,
         objTotal: 0,
+        stdKeyWord1: '',
+        stdKeyWord2: '',
+        prodKeyWord1: '',
+        prodKeyWord2: '',
       },
     };
   },
@@ -87,6 +91,10 @@ export default {
       this.modal.previousPage = 1;
       this.modal.currentPage = 1;
       this.modal.keyWord = '';
+      this.modal.stdKeyWord1 = '';
+      this.modal.stdKeyWord2 = '';
+      this.modal.prodKeyWord1 = '';
+      this.modal.prodKeyWord2 = '';
       this.modalInit(modalName);
     },
     getCountryList() {
@@ -125,8 +133,12 @@ export default {
       axios
         .get(
           '/api/wcc311/prodList?sort=id,DESC' +
+            // '&chName.contains=' +
+            // this.modal.keyWord +
+            '&prodNo.contains=' +
+            this.modal.prodKeyWord1 +
             '&chName.contains=' +
-            this.modal.keyWord +
+            this.modal.prodKeyWord2 +
             '&page=' +
             (this.modal.currentPage - 1) +
             '&size=' +
@@ -141,8 +153,12 @@ export default {
       axios
         .get(
           '/api/wcc311/stdList?sort=id,DESC' +
-            '&chName.contains=' +
-            this.modal.keyWord +
+            // '&chName.contains=' +
+            // this.modal.keyWord +
+            '&stdNo.contains=' +
+            this.modal.stdKeyWord1 +
+            '&stdVer.contains=' +
+            this.modal.stdKeyWord2 +
             '&page=' +
             (this.modal.currentPage - 1) +
             '&size=' +
@@ -225,11 +241,13 @@ export default {
           break;
         }
         case 'companyApplyList': {
-          this.company.apply = obj;
+          if (this.company.apply != null && this.company.apply.id == obj.id) this.company.apply = null;
+          else this.company.apply = obj;
           break;
         }
         case 'companyMnfctrList': {
-          this.company.mnfctr = obj;
+          if (this.company.mnfctr != null && this.company.mnfctr.id == obj.id) this.company.mnfctr = null;
+          else this.company.mnfctr = obj;
           break;
         }
         case 'companyFctyList': {

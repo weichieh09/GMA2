@@ -27,5 +27,6 @@ public interface CerfProdMapper extends EntityMapper<CerfProdDTO, CerfProd> {
     @Mapping(target = "id", source = "id")
     @Mapping(target = "prodNo", source = "prodNo")
     @Mapping(target = "chName", source = "chName")
+    @Mapping(target = "enName", source = "enName")
     ProdDTO toDtoProdId(Prod prod);
 }

@@ -236,6 +236,10 @@
                         <small>{{ company.apply.peopleName }}</small>
                       </b-col>
                       <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
+                        <!-- <button type="button" @click=" modalChoice('companyApplyList', 'oneChoice', company) "
+                          class="btn btn-danger btn-xs pull-right">
+                          <font-awesome-icon icon="times" />移除
+                        </button> -->
                         <router-link :to="{ name: 'CompanyView', params: { companyId: company.apply.id } }" custom v-slot="{ navigate }">
                           <button type="button" @click="navigate" class="btn btn-primary btn-xs pull-right">
                             <font-awesome-icon icon="eye" />檢視
@@ -299,6 +303,10 @@
                         <small>{{ company.mnfctr.peopleName }}</small>
                       </b-col>
                       <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
+                        <!-- <button type="button" @click=" modalChoice('companyMnfctrList', 'oneChoice', company) "
+                          class="btn btn-danger btn-xs pull-right">
+                          <font-awesome-icon icon="times" />移除
+                        </button> -->
                         <router-link :to="{ name: 'CompanyView', params: { companyId: company.mnfctr.id } }" custom v-slot="{ navigate }">
                           <button type="button" @click="navigate" class="btn btn-primary btn-xs pull-right">
                             <font-awesome-icon icon="eye" />檢視
@@ -363,6 +371,13 @@
                         <small>{{ fcty.peopleName }}</small>
                       </b-col>
                       <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
+                        <button
+                          type="button"
+                          @click="modalChoice('companyFctyList', 'manyChoice', fcty)"
+                          class="btn btn-danger btn-xs pull-right"
+                        >
+                          <font-awesome-icon icon="times" />移除
+                        </button>
                         <router-link :to="{ name: 'CompanyView', params: { companyId: fcty.id } }" custom v-slot="{ navigate }">
                           <button type="button" @click="navigate" class="btn btn-primary btn-xs pull-right">
                             <font-awesome-icon icon="eye" />檢視
@@ -385,7 +400,8 @@
               <!-- countryList 彈跳視窗 -->
               <b-modal id="modal-prodList" hide-footer title="選擇產品">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
+                  <input type="text" class="form-control" placeholder="產品型號" v-model="modal.prodKeyWord1" />
+                  <input type="text" class="form-control" placeholder="產品名稱" v-model="modal.prodKeyWord2" />
                   <b-button-group>
                     <b-button type="submit" variant="primary" @click="modalSearch('prodList')"><b-icon icon="search" />搜尋</b-button>
                     <b-button type="reset" variant="outline-secondary" to="/prod">管理</b-button>
@@ -424,6 +440,9 @@
                         <small>{{ prod.prodNo }}</small>
                       </b-col>
                       <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
+                        <button type="button" @click="modalChoice('prodList', 'manyChoice', prod)" class="btn btn-danger btn-xs pull-right">
+                          <font-awesome-icon icon="times" />移除
+                        </button>
                         <router-link :to="{ name: 'ProdView', params: { prodId: prod.id } }" custom v-slot="{ navigate }">
                           <button type="button" @click="navigate" class="btn btn-primary btn-xs pull-right">
                             <font-awesome-icon icon="eye" />檢視
@@ -446,7 +465,8 @@
               <!-- countryList 彈跳視窗 -->
               <b-modal id="modal-stdList" hide-footer title="選擇標準">
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="關鍵字" v-model="modal.keyWord" />
+                  <input type="text" class="form-control" placeholder="標準編號" v-model="modal.stdKeyWord1" />
+                  <input type="text" class="form-control" placeholder="標準版本" v-model="modal.stdKeyWord2" />
                   <b-button-group>
                     <b-button type="submit" variant="primary" @click="modalSearch('stdList')"><b-icon icon="search" />搜尋</b-button>
                     <b-button type="reset" variant="outline-secondary" to="/std">管理</b-button>
@@ -457,7 +477,7 @@
                 <b-list-group v-for="std in modal.objList" :key="std.id">
                   <b-list-group-item button @click="modalChoice('stdList', 'manyChoice', std)">
                     {{ std.chName }}<br />
-                    <small>{{ std.stdNo }}</small>
+                    <small>{{ std.stdNo }} - {{ std.stdVer }}</small>
                   </b-list-group-item>
                 </b-list-group>
                 <br />
@@ -480,9 +500,12 @@
                     <b-row>
                       <b-col cols="8">
                         {{ std.chName }}<br />
-                        <small>{{ std.stdNo }}</small>
+                        <small>{{ std.stdNo }} - {{ std.stdVer }}</small>
                       </b-col>
                       <b-col cols="4" class="d-inline-flex p-2 flex-row-reverse">
+                        <button type="button" @click="modalChoice('stdList', 'manyChoice', std)" class="btn btn-danger btn-xs pull-right">
+                          <font-awesome-icon icon="times" />移除
+                        </button>
                         <router-link :to="{ name: 'StdView', params: { stdId: std.id } }" custom v-slot="{ navigate }">
                           <button type="button" @click="navigate" class="btn btn-primary btn-xs pull-right">
                             <font-awesome-icon icon="eye" />檢視

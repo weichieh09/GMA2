@@ -17,6 +17,7 @@ export default {
       cerfStatusList: null,
       show: true,
       cerfList: [],
+      removeId: null,
     };
   },
   beforeRouteLeave(to, from, next) {
@@ -114,6 +115,36 @@ export default {
       this.$nextTick(() => {
         this.show = true;
       });
+    },
+    prepareRemove(cerf) {
+      this.removeId = cerf.id;
+      if (<any>this.$refs.removeEntity) {
+        (<any>this.$refs.removeEntity).show();
+      }
+    },
+    closeDialog() {
+      (<any>this.$refs.removeEntity).hide();
+    },
+    removeCerf() {
+      const removeData = {
+        id: this.removeId,
+      };
+      axios
+        .post('/api/wcc312/removeCerf', removeData)
+        .then(res => {
+          this.closeDialog();
+          this.lastTimePage();
+        })
+        .catch(error => {
+          this.alertService().showHttpError(this, error.response);
+        });
+    },
+    isDelete(cerf) {
+      if (cerf.status == '刪除') {
+        return false;
+      } else {
+        return true;
+      }
     },
   },
 };

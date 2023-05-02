@@ -13,7 +13,6 @@ public class StdDTO implements Serializable {
 
     private Long id;
 
-    @Size(max = 20)
     private String stdNo;
 
     private String stdVer;

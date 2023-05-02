@@ -10,7 +10,8 @@ import lombok.Getter;
 public enum CerfStatusTypeList {
     VALID("有效", "valid"),
     FAILURE("失效", "failure"),
-    MAINTEN("維護中", "mainten");
+    MAINTEN("維護中", "mainten"),
+    DELETE("刪除", "delete");
 
     @Getter
     private String text;

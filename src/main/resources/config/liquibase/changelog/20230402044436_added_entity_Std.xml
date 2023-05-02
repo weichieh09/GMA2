@@ -14,7 +14,7 @@
             <column name="id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="std_no" type="varchar(20)">
+            <column name="std_no" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="std_ver" type="varchar(255)">
@@ -23,7 +23,7 @@
             <column name="en_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="ch_name" type="varchar(255)">
+            <column name="ch_name" type="nvarchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="status" type="varchar(10)">

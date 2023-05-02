@@ -7,27 +7,19 @@
   "fields": [
     {
       "fieldName": "stdNo",
-      "fieldType": "String",
-      "fieldValidateRules": ["maxlength"],
-      "fieldValidateRulesMaxlength": "20"
+      "fieldType": "String"
     },
     {
       "fieldName": "stdVer",
-      "fieldType": "String",
-      "fieldValidateRules": ["maxlength"],
-      "fieldValidateRulesMaxlength": "20"
+      "fieldType": "String"
     },
     {
       "fieldName": "enName",
-      "fieldType": "String",
-      "fieldValidateRules": ["maxlength"],
-      "fieldValidateRulesMaxlength": "100"
+      "fieldType": "String"
     },
     {
       "fieldName": "chName",
-      "fieldType": "String",
-      "fieldValidateRules": ["maxlength"],
-      "fieldValidateRulesMaxlength": "100"
+      "fieldType": "String"
     },
     {
       "fieldName": "status",

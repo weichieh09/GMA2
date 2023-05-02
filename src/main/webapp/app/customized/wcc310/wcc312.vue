@@ -101,7 +101,7 @@
               <td>{{ cerf.status }}</td>
               <td class="text-right">
                 <!-- <b-button variant="success" size="sm"><b-icon icon="eye"></b-icon> <span>詳情Q</span></b-button> -->
-                <div class="btn-group">
+                <div v-if="isDelete(cerf)" class="btn-group">
                   <router-link :to="{ name: 'Wcc313', params: { cerfId: cerf.id } }" custom>
                     <button class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
                       <font-awesome-icon icon="eye"></font-awesome-icon>
@@ -114,15 +114,39 @@
                       <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
                     </button>
                   </router-link>
-                  <b-button variant="danger" class="btn btn-sm" data-cy="entityDeleteButton">
+                  <b-button
+                    v-on:click="prepareRemove(cerf)"
+                    variant="danger"
+                    class="btn btn-sm"
+                    data-cy="entityDeleteButton"
+                    v-b-modal.removeEntity
+                  >
                     <font-awesome-icon icon="times"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
                   </b-button>
-                  <!-- <b-button v-on:click="prepareRemove(cerf)" variant="danger" class="btn btn-sm"
-                    data-cy="entityDeleteButton" v-b-modal.removeEntity>
+                </div>
+                <div v-else class="btn-group">
+                  <router-link :to="{ name: 'Wcc313', params: { cerfId: cerf.id } }" custom>
+                    <button class="btn btn-info btn-sm details" data-cy="entityDetailsButton">
+                      <font-awesome-icon icon="eye"></font-awesome-icon>
+                      <span class="d-none d-md-inline" v-text="$t('entity.action.view')">View</span>
+                    </button>
+                  </router-link>
+                  <button disabled class="btn btn-primary btn-sm edit" data-cy="entityEditButton">
+                    <font-awesome-icon icon="pencil-alt"></font-awesome-icon>
+                    <span class="d-none d-md-inline" v-text="$t('entity.action.edit')">Edit</span>
+                  </button>
+                  <b-button
+                    disabled
+                    v-on:click="prepareRemove(cerf)"
+                    variant="danger"
+                    class="btn btn-sm"
+                    data-cy="entityDeleteButton"
+                    v-b-modal.removeEntity
+                  >
                     <font-awesome-icon icon="times"></font-awesome-icon>
                     <span class="d-none d-md-inline" v-text="$t('entity.action.delete')">Delete</span>
-                  </b-button> -->
+                  </b-button>
                 </div>
               </td>
             </tr>
@@ -130,6 +154,23 @@
         </table>
       </b-col> </b-row
     ><br />
+
+    <b-row>
+      <b-col>
+        <b-modal ref="removeEntity" id="removeEntity">
+          <span slot="modal-title"><span>發送通知確認</span></span>
+          <div class="modal-body">
+            <span>
+              <p style="display: inline-block">您確定要刪除?</p>
+            </span>
+          </div>
+          <div slot="modal-footer">
+            <button type="button" class="btn btn-secondary" v-text="$t('entity.action.cancel')" v-on:click="closeDialog()">Cancel</button>
+            <button type="button" class="btn btn-danger" v-on:click="removeCerf()">刪除</button>
+          </div>
+        </b-modal>
+      </b-col>
+    </b-row>
 
     <b-row>
       <b-col cols="12">

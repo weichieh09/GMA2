@@ -28,10 +28,10 @@ entity Cerf {
 
 /* 檢驗標準 */
 entity Std {
-    stdNo String maxlength(20),
-    stdVer String maxlength(20),
-    enName String maxlength(100),
-    chName String maxlength(100),
+    stdNo String,
+    stdVer String,
+    enName String,
+    chName String,
     status String maxlength(10),
     issuDt LocalDate,
     expDt LocalDate,

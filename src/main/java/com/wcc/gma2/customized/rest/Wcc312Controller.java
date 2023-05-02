@@ -1,11 +1,14 @@
 package com.wcc.gma2.customized.rest;
 
+import com.wcc.gma2.customized.dto.ResponseDTO;
 import com.wcc.gma2.customized.dto.SelectListDTO;
 import com.wcc.gma2.customized.dto.Wcc312CerfListRes;
 import com.wcc.gma2.customized.service.Wcc312Service;
 import com.wcc.gma2.customized.type.CerfStatusTypeList;
+import com.wcc.gma2.customized.type.StatusCode;
 import com.wcc.gma2.service.CountryCertQueryService;
 import com.wcc.gma2.service.criteria.CountryCertCriteria;
+import com.wcc.gma2.service.dto.CerfDTO;
 import com.wcc.gma2.service.dto.CountryCertDTO;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -48,5 +51,14 @@ public class Wcc312Controller {
         Page<CountryCertDTO> page = countryCertQueryService.findByCriteria(req, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(wcc312Service.getCerfList(page.getContent()));
+    }
+
+    @PostMapping("/removeCerf")
+    public ResponseEntity<ResponseDTO> removeCerf(@RequestBody CerfDTO req) {
+        log.info(CLASS_NAME + ".removeCerf");
+        ResponseDTO res = new ResponseDTO();
+        res.setStatusCode(StatusCode.SUCCESS);
+        res.setContent(wcc312Service.removeCerf(req));
+        return ResponseEntity.ok().body(res);
     }
 }

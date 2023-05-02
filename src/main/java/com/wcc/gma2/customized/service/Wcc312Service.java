@@ -1,15 +1,18 @@
 package com.wcc.gma2.customized.service;
 
+import com.wcc.gma2.customized.dto.ResponseDTO;
 import com.wcc.gma2.customized.dto.SelectListDTO;
 import com.wcc.gma2.customized.dto.Wcc312CerfListRes;
 import com.wcc.gma2.customized.type.CerfStatusTypeList;
 import com.wcc.gma2.domain.Country;
 import com.wcc.gma2.repository.CountryRepository;
+import com.wcc.gma2.service.CerfService;
 import com.wcc.gma2.service.criteria.CountryCertCriteria;
 import com.wcc.gma2.service.dto.CerfDTO;
 import com.wcc.gma2.service.dto.CountryCertDTO;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,6 +29,9 @@ public class Wcc312Service {
 
     @Autowired
     private CountryRepository countryRepository;
+
+    @Autowired
+    private CerfService cerfService;
 
     public List<SelectListDTO> findCountryList() {
         List<SelectListDTO> list = new ArrayList<>();
@@ -54,5 +60,12 @@ public class Wcc312Service {
             list.add(dto);
         }
         return list;
+    }
+
+    public CerfDTO removeCerf(CerfDTO cerfDTO) {
+        cerfDTO = cerfService.findOne(cerfDTO.getId()).get();
+        cerfDTO.setStatus(CerfStatusTypeList.DELETE.getValue());
+        cerfService.save(cerfDTO);
+        return cerfDTO;
     }
 }

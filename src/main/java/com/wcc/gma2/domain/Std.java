@@ -27,8 +27,7 @@ public class Std implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Size(max = 20)
-    @Column(name = "std_no", length = 20)
+    @Column(name = "std_no")
     private String stdNo;
 
     @Column(name = "std_ver")
