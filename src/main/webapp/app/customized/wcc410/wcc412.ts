@@ -94,6 +94,8 @@ export default {
             this.form.prodNo +
             '&prodChName.contains=' +
             this.form.prodName +
+            '&cerfStatus.notEquals=' +
+            'delete' +
             '&page=' +
             (this.form.currentPage - 1) +
             '&size=' +

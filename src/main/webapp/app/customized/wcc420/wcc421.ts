@@ -53,6 +53,8 @@ export default {
             '&companyChName.contains=' +
             this.form.companyChName +
             '&relType.equals=APPLY' +
+            '&cerfStatus.notEquals=' +
+            'delete' +
             '&page=' +
             (this.form.currentPage - 1) +
             '&size=' +
