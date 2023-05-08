@@ -217,6 +217,7 @@ export default {
         this.prodList = res.data.prodList;
         this.stdList = res.data.stdList;
         this.feeList = res.data.feeList;
+        if (this.feeList == null) this.feeList = [];
         var sum = 0;
         this.feeList.forEach(function (obj) {
           sum = Number(sum) + Number(obj.fee);
